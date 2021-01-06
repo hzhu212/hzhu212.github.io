@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Henry&#39;s Blog</title>
+  
+  <subtitle>一面是技术，一面是生活</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://hzhu212.github.io/"/>
+  <updated>2021-01-06T03:58:44.703Z</updated>
+  <id>https://hzhu212.github.io/</id>
+  
+  <author>
+    <name>Henry</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>shell命令的标准输入(stdin)</title>
+    <link href="https://hzhu212.github.io/posts/2c63bd16/"/>
+    <id>https://hzhu212.github.io/posts/2c63bd16/</id>
+    <published>2021-01-06T03:04:27.000Z</published>
+    <updated>2021-01-06T03:58:44.703Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在 shell 命令中，有多种方式可以灵活地控制命令的标准输入(stdin)，熟练掌握这些技巧有时会起到事半功倍的效果。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术" scheme="https://hzhu212.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Linux" scheme="https://hzhu212.github.io/tags/Linux/"/>
+    
+      <category term="shell" scheme="https://hzhu212.github.io/tags/shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>推荐一些Windows下的生产力工具</title>
+    <link href="https://hzhu212.github.io/posts/28fcbc62/"/>
+    <id>https://hzhu212.github.io/posts/28fcbc62/</id>
+    <published>2019-12-01T06:06:21.000Z</published>
+    <updated>2020-12-15T03:41:28.793Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote class=&quot;blockquote-center&quot;&gt;
+&lt;p&gt;工欲善其事，必先利其器。&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;p&gt;Windows 系统拥有 MacOS 和 Linux 无法比拟的软件生态，但可惜的是，大多数用户并没有真正发掘出 Window
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://hzhu212.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Windows" scheme="https://hzhu212.github.io/tags/Windows/"/>
+    
+      <category term="工具" scheme="https://hzhu212.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python从零实现计算图和自动求导</title>
+    <link href="https://hzhu212.github.io/posts/7a426523/"/>
+    <id>https://hzhu212.github.io/posts/7a426523/</id>
+    <published>2019-08-08T06:54:05.000Z</published>
+    <updated>2020-12-15T03:41:28.792Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;计算图是现代深度学习框架如 Tensorflow、PyTorch 等的核心概念，其中涉及的所有计算几乎都依赖于计算图提供的自动求导功能，因此研究计算图对深入理解反向传播等深度学习的底层算法大有帮助。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术" scheme="https://hzhu212.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="机器学习" scheme="https://hzhu212.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="深度学习" scheme="https://hzhu212.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>线性代数的本质</title>
+    <link href="https://hzhu212.github.io/posts/66517499/"/>
+    <id>https://hzhu212.github.io/posts/66517499/</id>
+    <published>2019-06-22T06:21:42.000Z</published>
+    <updated>2020-12-15T03:41:28.794Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文为 &lt;a href=&quot;https://www.bilibili.com/video/av6731067/?p=1&quot;&gt;3Blue1Brown-线性代数的本质&lt;/a&gt; 系列视频的笔记。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="笔记" scheme="https://hzhu212.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="线性代数" scheme="https://hzhu212.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>概率统计笔记</title>
+    <link href="https://hzhu212.github.io/posts/b59aba05/"/>
+    <id>https://hzhu212.github.io/posts/b59aba05/</id>
+    <published>2019-06-15T11:00:49.000Z</published>
+    <updated>2020-12-15T03:41:28.793Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文为 &lt;a href=&quot;https://book.douban.com/subject/1748397/&quot;&gt;概率统计讲义&lt;/a&gt; 一书的笔记。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="笔记" scheme="https://hzhu212.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="概率统计" scheme="https://hzhu212.github.io/tags/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>矩阵求导术</title>
+    <link href="https://hzhu212.github.io/posts/20d9a268/"/>
+    <id>https://hzhu212.github.io/posts/20d9a268/</id>
+    <published>2019-06-14T06:48:29.000Z</published>
+    <updated>2020-12-15T03:41:28.793Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文为知乎上的一篇文章 &lt;a href=&quot;https://zhuanlan.zhihu.com/p/24709748&quot;&gt;矩阵求导术&lt;/a&gt; 的笔记。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="笔记" scheme="https://hzhu212.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="线性代数" scheme="https://hzhu212.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>远程工作流</title>
+    <link href="https://hzhu212.github.io/posts/8247595/"/>
+    <id>https://hzhu212.github.io/posts/8247595/</id>
+    <published>2019-06-10T05:56:53.000Z</published>
+    <updated>2020-12-15T03:41:28.794Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;远程工作的需求无非两个：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;远程执行命令。&lt;/li&gt;
+&lt;li&gt;在远程与本地之间进行文件的双向传输。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;所有的远程工作流都需要考虑如何提高这两个操作的效率。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术" scheme="https://hzhu212.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="远程" scheme="https://hzhu212.github.io/tags/%E8%BF%9C%E7%A8%8B/"/>
+    
+      <category term="ssh" scheme="https://hzhu212.github.io/tags/ssh/"/>
+    
+      <category term="szrz" scheme="https://hzhu212.github.io/tags/szrz/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>了不起的盖茨比</title>
+    <link href="https://hzhu212.github.io/posts/3941b47a/"/>
+    <id>https://hzhu212.github.io/posts/3941b47a/</id>
+    <published>2018-11-10T07:07:12.000Z</published>
+    <updated>2020-12-15T03:41:28.793Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/hzhu212/image-store/master/blog/20190614162338.png&quot; alt=&quot;He seemed to be reaching toward something out there in the dark&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;He had come such a long way, and his dream must have seemed so close, that he could hardly fail to grasp it. But he did not know that it was already behind him.&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="生活" scheme="https://hzhu212.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+      <category term="电影" scheme="https://hzhu212.github.io/categories/%E7%94%9F%E6%B4%BB/%E7%94%B5%E5%BD%B1/"/>
+    
+    
+      <category term="情感" scheme="https://hzhu212.github.io/tags/%E6%83%85%E6%84%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>编码与乱码之追根溯源</title>
+    <link href="https://hzhu212.github.io/posts/b2d70b72/"/>
+    <id>https://hzhu212.github.io/posts/b2d70b72/</id>
+    <published>2018-10-27T02:26:40.000Z</published>
+    <updated>2020-12-15T03:41:28.794Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;乱码问题是不但是新手程序员之痛，也常常让许多资深 coder 束手无策。本文探讨编码的概念、乱码的原理，以及乱码问题的分析与解决。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术" scheme="https://hzhu212.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="原理" scheme="https://hzhu212.github.io/categories/%E6%8A%80%E6%9C%AF/%E5%8E%9F%E7%90%86/"/>
+    
+    
+      <category term="编码" scheme="https://hzhu212.github.io/tags/%E7%BC%96%E7%A0%81/"/>
+    
+      <category term="乱码" scheme="https://hzhu212.github.io/tags/%E4%B9%B1%E7%A0%81/"/>
+    
+      <category term="Sublime Text" scheme="https://hzhu212.github.io/tags/Sublime-Text/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python与C++混合编程——Boost.python的基本使用</title>
+    <link href="https://hzhu212.github.io/posts/923b21ed/"/>
+    <id>https://hzhu212.github.io/posts/923b21ed/</id>
+    <published>2018-10-25T04:01:05.000Z</published>
+    <updated>2020-12-15T03:41:28.792Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Boost.python 是 Python 与 C++ 混合编程的利器，本文探讨 Boost.python 的安装和基本使用。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术" scheme="https://hzhu212.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="python" scheme="https://hzhu212.github.io/tags/python/"/>
+    
+      <category term="C/C++" scheme="https://hzhu212.github.io/tags/C-C/"/>
+    
+      <category term="Boost" scheme="https://hzhu212.github.io/tags/Boost/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>读《小王子》感悟——谈谈成长与爱</title>
+    <link href="https://hzhu212.github.io/posts/d8e04a55/"/>
+    <id>https://hzhu212.github.io/posts/d8e04a55/</id>
+    <published>2018-10-24T07:16:34.000Z</published>
+    <updated>2020-12-15T03:41:28.794Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;爱是一个宏大的主题，大到贯穿整个人类几千年的文明史。尽管如此经年累月，但历史上又有多少人能真正把她说清楚呢？&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="生活" scheme="https://hzhu212.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+      <category term="读书" scheme="https://hzhu212.github.io/categories/%E7%94%9F%E6%B4%BB/%E8%AF%BB%E4%B9%A6/"/>
+    
+    
+      <category term="成长" scheme="https://hzhu212.github.io/tags/%E6%88%90%E9%95%BF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo + Github 搭建个人博客</title>
+    <link href="https://hzhu212.github.io/posts/4d5f7337/"/>
+    <id>https://hzhu212.github.io/posts/4d5f7337/</id>
+    <published>2017-05-28T15:10:43.000Z</published>
+    <updated>2020-12-15T03:41:28.792Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;按照以下步骤，你可以搭建一个与本站点同样简洁漂亮的个人博客，完全自由免费。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术" scheme="https://hzhu212.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="web" scheme="https://hzhu212.github.io/tags/web/"/>
+    
+      <category term="Hexo" scheme="https://hzhu212.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+</feed>
