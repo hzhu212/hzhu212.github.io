@@ -3,11 +3,11 @@
   <title>Henry&#39;s Blog</title>
   
   <subtitle>一面是技术，一面是生活</subtitle>
-  <link href="/blog/atom.xml" rel="self"/>
+  <link href="/atom.xml" rel="self"/>
   
-  <link href="https://hzhu212.github.io/blog/"/>
+  <link href="https://hzhu212.github.io/"/>
   <updated>2021-01-06T03:58:44.703Z</updated>
-  <id>https://hzhu212.github.io/blog/</id>
+  <id>https://hzhu212.github.io/</id>
   
   <author>
     <name>Henry</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>shell命令的标准输入(stdin)</title>
-    <link href="https://hzhu212.github.io/blog/posts/2c63bd16/"/>
-    <id>https://hzhu212.github.io/blog/posts/2c63bd16/</id>
+    <link href="https://hzhu212.github.io/posts/2c63bd16/"/>
+    <id>https://hzhu212.github.io/posts/2c63bd16/</id>
     <published>2021-01-06T03:04:27.000Z</published>
     <updated>2021-01-06T03:58:44.703Z</updated>
     
@@ -29,19 +29,19 @@
     
     </summary>
     
-      <category term="技术" scheme="https://hzhu212.github.io/blog/categories/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://hzhu212.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="Linux" scheme="https://hzhu212.github.io/blog/tags/Linux/"/>
+      <category term="Linux" scheme="https://hzhu212.github.io/tags/Linux/"/>
     
-      <category term="shell" scheme="https://hzhu212.github.io/blog/tags/shell/"/>
+      <category term="shell" scheme="https://hzhu212.github.io/tags/shell/"/>
     
   </entry>
   
   <entry>
     <title>推荐一些Windows下的生产力工具</title>
-    <link href="https://hzhu212.github.io/blog/posts/28fcbc62/"/>
-    <id>https://hzhu212.github.io/blog/posts/28fcbc62/</id>
+    <link href="https://hzhu212.github.io/posts/28fcbc62/"/>
+    <id>https://hzhu212.github.io/posts/28fcbc62/</id>
     <published>2019-12-01T06:06:21.000Z</published>
     <updated>2021-01-06T07:05:15.031Z</updated>
     
@@ -55,19 +55,19 @@
     
     </summary>
     
-      <category term="技术" scheme="https://hzhu212.github.io/blog/categories/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://hzhu212.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="Windows" scheme="https://hzhu212.github.io/blog/tags/Windows/"/>
+      <category term="Windows" scheme="https://hzhu212.github.io/tags/Windows/"/>
     
-      <category term="工具" scheme="https://hzhu212.github.io/blog/tags/%E5%B7%A5%E5%85%B7/"/>
+      <category term="工具" scheme="https://hzhu212.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
   <entry>
     <title>Python从零实现计算图和自动求导</title>
-    <link href="https://hzhu212.github.io/blog/posts/7a426523/"/>
-    <id>https://hzhu212.github.io/blog/posts/7a426523/</id>
+    <link href="https://hzhu212.github.io/posts/7a426523/"/>
+    <id>https://hzhu212.github.io/posts/7a426523/</id>
     <published>2019-08-08T06:54:05.000Z</published>
     <updated>2020-12-15T03:41:28.792Z</updated>
     
@@ -77,19 +77,19 @@
     
     </summary>
     
-      <category term="技术" scheme="https://hzhu212.github.io/blog/categories/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://hzhu212.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="机器学习" scheme="https://hzhu212.github.io/blog/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+      <category term="机器学习" scheme="https://hzhu212.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
-      <category term="深度学习" scheme="https://hzhu212.github.io/blog/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+      <category term="深度学习" scheme="https://hzhu212.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
     <title>线性代数的本质</title>
-    <link href="https://hzhu212.github.io/blog/posts/66517499/"/>
-    <id>https://hzhu212.github.io/blog/posts/66517499/</id>
+    <link href="https://hzhu212.github.io/posts/66517499/"/>
+    <id>https://hzhu212.github.io/posts/66517499/</id>
     <published>2019-06-22T06:21:42.000Z</published>
     <updated>2020-12-15T03:41:28.794Z</updated>
     
@@ -99,17 +99,17 @@
     
     </summary>
     
-      <category term="笔记" scheme="https://hzhu212.github.io/blog/categories/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="https://hzhu212.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="线性代数" scheme="https://hzhu212.github.io/blog/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
+      <category term="线性代数" scheme="https://hzhu212.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
     
   </entry>
   
   <entry>
     <title>概率统计笔记</title>
-    <link href="https://hzhu212.github.io/blog/posts/b59aba05/"/>
-    <id>https://hzhu212.github.io/blog/posts/b59aba05/</id>
+    <link href="https://hzhu212.github.io/posts/b59aba05/"/>
+    <id>https://hzhu212.github.io/posts/b59aba05/</id>
     <published>2019-06-15T11:00:49.000Z</published>
     <updated>2020-12-15T03:41:28.793Z</updated>
     
@@ -119,17 +119,17 @@
     
     </summary>
     
-      <category term="笔记" scheme="https://hzhu212.github.io/blog/categories/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="https://hzhu212.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="概率统计" scheme="https://hzhu212.github.io/blog/tags/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1/"/>
+      <category term="概率统计" scheme="https://hzhu212.github.io/tags/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1/"/>
     
   </entry>
   
   <entry>
     <title>矩阵求导术</title>
-    <link href="https://hzhu212.github.io/blog/posts/20d9a268/"/>
-    <id>https://hzhu212.github.io/blog/posts/20d9a268/</id>
+    <link href="https://hzhu212.github.io/posts/20d9a268/"/>
+    <id>https://hzhu212.github.io/posts/20d9a268/</id>
     <published>2019-06-14T06:48:29.000Z</published>
     <updated>2020-12-15T03:41:28.793Z</updated>
     
@@ -139,17 +139,17 @@
     
     </summary>
     
-      <category term="笔记" scheme="https://hzhu212.github.io/blog/categories/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="https://hzhu212.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="线性代数" scheme="https://hzhu212.github.io/blog/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
+      <category term="线性代数" scheme="https://hzhu212.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
     
   </entry>
   
   <entry>
     <title>远程工作流</title>
-    <link href="https://hzhu212.github.io/blog/posts/8247595/"/>
-    <id>https://hzhu212.github.io/blog/posts/8247595/</id>
+    <link href="https://hzhu212.github.io/posts/8247595/"/>
+    <id>https://hzhu212.github.io/posts/8247595/</id>
     <published>2019-06-10T05:56:53.000Z</published>
     <updated>2020-12-15T03:41:28.794Z</updated>
     
@@ -164,21 +164,21 @@
     
     </summary>
     
-      <category term="技术" scheme="https://hzhu212.github.io/blog/categories/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://hzhu212.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="远程" scheme="https://hzhu212.github.io/blog/tags/%E8%BF%9C%E7%A8%8B/"/>
+      <category term="远程" scheme="https://hzhu212.github.io/tags/%E8%BF%9C%E7%A8%8B/"/>
     
-      <category term="ssh" scheme="https://hzhu212.github.io/blog/tags/ssh/"/>
+      <category term="ssh" scheme="https://hzhu212.github.io/tags/ssh/"/>
     
-      <category term="szrz" scheme="https://hzhu212.github.io/blog/tags/szrz/"/>
+      <category term="szrz" scheme="https://hzhu212.github.io/tags/szrz/"/>
     
   </entry>
   
   <entry>
     <title>了不起的盖茨比</title>
-    <link href="https://hzhu212.github.io/blog/posts/3941b47a/"/>
-    <id>https://hzhu212.github.io/blog/posts/3941b47a/</id>
+    <link href="https://hzhu212.github.io/posts/3941b47a/"/>
+    <id>https://hzhu212.github.io/posts/3941b47a/</id>
     <published>2018-11-10T07:07:12.000Z</published>
     <updated>2020-12-15T03:41:28.793Z</updated>
     
@@ -191,19 +191,19 @@
     
     </summary>
     
-      <category term="生活" scheme="https://hzhu212.github.io/blog/categories/%E7%94%9F%E6%B4%BB/"/>
+      <category term="生活" scheme="https://hzhu212.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
     
-      <category term="电影" scheme="https://hzhu212.github.io/blog/categories/%E7%94%9F%E6%B4%BB/%E7%94%B5%E5%BD%B1/"/>
+      <category term="电影" scheme="https://hzhu212.github.io/categories/%E7%94%9F%E6%B4%BB/%E7%94%B5%E5%BD%B1/"/>
     
     
-      <category term="情感" scheme="https://hzhu212.github.io/blog/tags/%E6%83%85%E6%84%9F/"/>
+      <category term="情感" scheme="https://hzhu212.github.io/tags/%E6%83%85%E6%84%9F/"/>
     
   </entry>
   
   <entry>
     <title>编码与乱码之追根溯源</title>
-    <link href="https://hzhu212.github.io/blog/posts/b2d70b72/"/>
-    <id>https://hzhu212.github.io/blog/posts/b2d70b72/</id>
+    <link href="https://hzhu212.github.io/posts/b2d70b72/"/>
+    <id>https://hzhu212.github.io/posts/b2d70b72/</id>
     <published>2018-10-27T02:26:40.000Z</published>
     <updated>2020-12-15T03:41:28.794Z</updated>
     
@@ -213,23 +213,23 @@
     
     </summary>
     
-      <category term="技术" scheme="https://hzhu212.github.io/blog/categories/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://hzhu212.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="原理" scheme="https://hzhu212.github.io/blog/categories/%E6%8A%80%E6%9C%AF/%E5%8E%9F%E7%90%86/"/>
+      <category term="原理" scheme="https://hzhu212.github.io/categories/%E6%8A%80%E6%9C%AF/%E5%8E%9F%E7%90%86/"/>
     
     
-      <category term="编码" scheme="https://hzhu212.github.io/blog/tags/%E7%BC%96%E7%A0%81/"/>
+      <category term="编码" scheme="https://hzhu212.github.io/tags/%E7%BC%96%E7%A0%81/"/>
     
-      <category term="乱码" scheme="https://hzhu212.github.io/blog/tags/%E4%B9%B1%E7%A0%81/"/>
+      <category term="乱码" scheme="https://hzhu212.github.io/tags/%E4%B9%B1%E7%A0%81/"/>
     
-      <category term="Sublime Text" scheme="https://hzhu212.github.io/blog/tags/Sublime-Text/"/>
+      <category term="Sublime Text" scheme="https://hzhu212.github.io/tags/Sublime-Text/"/>
     
   </entry>
   
   <entry>
     <title>Python与C++混合编程——Boost.python的基本使用</title>
-    <link href="https://hzhu212.github.io/blog/posts/923b21ed/"/>
-    <id>https://hzhu212.github.io/blog/posts/923b21ed/</id>
+    <link href="https://hzhu212.github.io/posts/923b21ed/"/>
+    <id>https://hzhu212.github.io/posts/923b21ed/</id>
     <published>2018-10-25T04:01:05.000Z</published>
     <updated>2020-12-15T03:41:28.792Z</updated>
     
@@ -239,21 +239,21 @@
     
     </summary>
     
-      <category term="技术" scheme="https://hzhu212.github.io/blog/categories/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://hzhu212.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="python" scheme="https://hzhu212.github.io/blog/tags/python/"/>
+      <category term="python" scheme="https://hzhu212.github.io/tags/python/"/>
     
-      <category term="C/C++" scheme="https://hzhu212.github.io/blog/tags/C-C/"/>
+      <category term="C/C++" scheme="https://hzhu212.github.io/tags/C-C/"/>
     
-      <category term="Boost" scheme="https://hzhu212.github.io/blog/tags/Boost/"/>
+      <category term="Boost" scheme="https://hzhu212.github.io/tags/Boost/"/>
     
   </entry>
   
   <entry>
     <title>读《小王子》感悟——谈谈成长与爱</title>
-    <link href="https://hzhu212.github.io/blog/posts/d8e04a55/"/>
-    <id>https://hzhu212.github.io/blog/posts/d8e04a55/</id>
+    <link href="https://hzhu212.github.io/posts/d8e04a55/"/>
+    <id>https://hzhu212.github.io/posts/d8e04a55/</id>
     <published>2018-10-24T07:16:34.000Z</published>
     <updated>2020-12-15T03:41:28.794Z</updated>
     
@@ -263,19 +263,19 @@
     
     </summary>
     
-      <category term="生活" scheme="https://hzhu212.github.io/blog/categories/%E7%94%9F%E6%B4%BB/"/>
+      <category term="生活" scheme="https://hzhu212.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
     
-      <category term="读书" scheme="https://hzhu212.github.io/blog/categories/%E7%94%9F%E6%B4%BB/%E8%AF%BB%E4%B9%A6/"/>
+      <category term="读书" scheme="https://hzhu212.github.io/categories/%E7%94%9F%E6%B4%BB/%E8%AF%BB%E4%B9%A6/"/>
     
     
-      <category term="成长" scheme="https://hzhu212.github.io/blog/tags/%E6%88%90%E9%95%BF/"/>
+      <category term="成长" scheme="https://hzhu212.github.io/tags/%E6%88%90%E9%95%BF/"/>
     
   </entry>
   
   <entry>
     <title>Hexo + Github 搭建个人博客</title>
-    <link href="https://hzhu212.github.io/blog/posts/4d5f7337/"/>
-    <id>https://hzhu212.github.io/blog/posts/4d5f7337/</id>
+    <link href="https://hzhu212.github.io/posts/4d5f7337/"/>
+    <id>https://hzhu212.github.io/posts/4d5f7337/</id>
     <published>2017-05-28T15:10:43.000Z</published>
     <updated>2020-12-15T03:41:28.792Z</updated>
     
@@ -285,12 +285,12 @@
     
     </summary>
     
-      <category term="技术" scheme="https://hzhu212.github.io/blog/categories/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://hzhu212.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="web" scheme="https://hzhu212.github.io/blog/tags/web/"/>
+      <category term="web" scheme="https://hzhu212.github.io/tags/web/"/>
     
-      <category term="Hexo" scheme="https://hzhu212.github.io/blog/tags/Hexo/"/>
+      <category term="Hexo" scheme="https://hzhu212.github.io/tags/Hexo/"/>
     
   </entry>
   
