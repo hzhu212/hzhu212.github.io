@@ -8,8 +8,8 @@
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.jpg">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
 <link rel="stylesheet" href="/css/main.css">
@@ -194,7 +194,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -205,7 +205,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -322,14 +322,14 @@
     <div class="post-body" itemprop="articleBody">
         <p>本文为 <a target="_blank" rel="noopener" href="https://book.douban.com/subject/1748397/">概率统计讲义</a> 一书的笔记。</p>
 <a id="more"></a>
-<h2 id="第一章-随机事件与概率"><a class="header-anchor" href="#第一章-随机事件与概率">¶</a>第一章 随机事件与概率</h2>
-<h3 id="频率"><a class="header-anchor" href="#频率">¶</a>频率</h3>
+<h2 id="第一章-随机事件与概率">第一章 随机事件与概率</h2>
+<h3 id="频率">频率</h3>
 <p>$$ 频率=\frac{频数}{试验次数} $$</p>
-<h3 id="概率"><a class="header-anchor" href="#概率">¶</a>概率</h3>
+<h3 id="概率">概率</h3>
 <p><strong>定义</strong>：频率具有稳定性的事件叫作随机事件，频率的稳定值叫作该随机事件的概率。</p>
 <p>随机事件 $A$ 在条件 $S$ 下发生的概率为 $p$，记作：</p>
 <p>$$ P(A)=p $$</p>
-<h4 id="等概完备事件组"><a class="header-anchor" href="#等概完备事件组">¶</a>等概完备事件组</h4>
+<h4 id="等概完备事件组">等概完备事件组</h4>
 <p><strong>定义</strong>：称一个事件组 $A_1, A_2, A_3, \cdots, A_n$ 为一个<strong>等概完备事件组</strong>，如果它具有下列三条性质：</p>
 <ol>
 <li><strong>等可能性</strong>：$A_1, A_2, A_3, \cdots, A_n$ 发生的机会相同</li>
@@ -338,7 +338,7 @@
 </ol>
 <p>等概完备事件组又称等概基本事件组，其中的任意事件 $A_i(i=1,2,\cdots,n)$ 称为<strong>基本事件</strong>。</p>
 <p>对于只满足条件 2、3 的事件组，称为<strong>完备事件组</strong>。</p>
-<h4 id="事件的运算"><a class="header-anchor" href="#事件的运算">¶</a>事件的运算</h4>
+<h4 id="事件的运算">事件的运算</h4>
 <ol>
 <li>
 <p>必然事件表示为 $U$，不可能事件表示为 $V$。</p>
@@ -369,47 +369,47 @@ $$ A \cup \overline{A} = U $$</p>
 $$ A \backslash B = A \cap \overline{B} $$</p>
 </li>
 </ol>
-<h4 id="事件的互不相容性"><a class="header-anchor" href="#事件的互不相容性">¶</a>事件的互不相容性</h4>
+<h4 id="事件的互不相容性">事件的互不相容性</h4>
 <p>如果事件 $A$ 与事件 $B$ 不能同时发生，即：</p>
 <p>$$ AB = V(不可能事件) $$</p>
 <p>那么，称 $A$ 与 $B$ 是互不相容事件。</p>
-<h4 id="概率的加法公式"><a class="header-anchor" href="#概率的加法公式">¶</a>概率的加法公式</h4>
+<h4 id="概率的加法公式">概率的加法公式</h4>
 <p>如果事件 $A$，$B$ 互不相容，则</p>
 <p>$$ P(A \cup B) = P(A) + P(B) $$</p>
-<h4 id="条件概率"><a class="header-anchor" href="#条件概率">¶</a>条件概率</h4>
+<h4 id="条件概率">条件概率</h4>
 <p>如果 $A$，$B$ 是条件 $S$ 下的两个随机事件，$P(A) \neq 0$，则称在 $A$ 发生的前提下 $B$ 发生的概率为<strong>条件概率</strong>，记作 $P(B \mid A)$</p>
-<h4 id="概率的乘法公式"><a class="header-anchor" href="#概率的乘法公式">¶</a>概率的乘法公式</h4>
+<h4 id="概率的乘法公式">概率的乘法公式</h4>
 <p>$$ P(AB) = P(A) P(B \mid A) $$</p>
 <p>进一步有</p>
 <p>$$ P(A) P(B \mid A) = P(B) P(A \mid B) $$</p>
-<h4 id="事件的独立性"><a class="header-anchor" href="#事件的独立性">¶</a>事件的独立性</h4>
+<h4 id="事件的独立性">事件的独立性</h4>
 <p>事件 $A$ 的发生并不影响事件 $B$ 的发生，即：</p>
 <p>$$ P(B \mid A) = P(B) $$</p>
 <p>称两个事件 $A$，$B$ 是<strong>相互独立</strong>的。此时有：</p>
 <p>$$ P(AB) = P(A) P(B) $$</p>
-<h4 id="全概公式"><a class="header-anchor" href="#全概公式">¶</a>全概公式</h4>
+<h4 id="全概公式">全概公式</h4>
 <p>设事件组 $A_1, A_2, A_3, \cdots, A_n$ 为完备事件组，则对任意一个事件 $B$ 有：</p>
 <p>$$ P(B) = \sum_{i=1}^{n} P(B \mid A_i) P(A_i) $$</p>
 <p>考虑 $n=2$ 时的简化情况，有：</p>
 <p>$$ P(B) = P(B \mid A) P(A) + P(B \mid \overline{A}) P(\overline{A}) $$</p>
-<h4 id="逆概公式"><a class="header-anchor" href="#逆概公式">¶</a>逆概公式</h4>
+<h4 id="逆概公式">逆概公式</h4>
 <p>设事件组 $A_1, A_2, A_3, \cdots, A_n$ 为完备事件组，则对任意一个事件 $B$ 有：</p>
 <p>$$ P(A_j \mid B) = \frac{P(B \mid A_j) P(A_j)}{\sum_{i=1}^{n} P(B \mid A_i) P(A_i)} \; (j=1,\cdots,n) $$</p>
 <p>逆概公式也称为<strong>贝叶斯公式</strong>，本质上是乘法公式与全概公式的结合，即：</p>
 <p>$$ P(A_j \mid B) = \frac{P(A_j B)}{P(B)} = \frac{P(B \mid A_j) P(A_j)}{\sum_{i=1}^{n} P(B \mid A_i) P(A_i)} \; (j=1,\cdots,n) $$</p>
-<h4 id="独立试验序列概型"><a class="header-anchor" href="#独立试验序列概型">¶</a>独立试验序列概型</h4>
+<h4 id="独立试验序列概型">独立试验序列概型</h4>
 <p>设每次射击打中目标的概率为 $p$，连续射击 $n$ 次，求恰好打中 $k$ 次的概率。</p>
 <p>设单次试验中，事件 $A$ 发生的概率为 $p(0 \lt p \lt 1)$，则在 $n$ 次重复实验中：</p>
 <p>$$ P(A发生k次) = C_n^k p^k q^{n-k} \quad (q=1-p; k=0,1,2,\cdots,n) $$</p>
-<h2 id="第二章-随机变量与概率分布"><a class="header-anchor" href="#第二章-随机变量与概率分布">¶</a>第二章 随机变量与概率分布</h2>
-<h3 id="随机变量"><a class="header-anchor" href="#随机变量">¶</a>随机变量</h3>
+<h2 id="第二章-随机变量与概率分布">第二章 随机变量与概率分布</h2>
+<h3 id="随机变量">随机变量</h3>
 <p><strong>定义</strong>：对于条件组 $S$ 下的每一个可能结果 $\omega$ 都唯一的对应到一个实数值 $X(\omega)$，则称实值变量 $X(\omega)$ 为一个随机变量，简记为 $X$。</p>
 <p>举个例子：设盒中有 5 个球，其中 2 个白球、3 个黑球，从中随便取 3 个球。则“抽得的白球数”$X$ 是一个随机变量。</p>
 <p>随机变量分为<strong>离散型随机变量</strong>和<strong>连续型随机变量</strong>。</p>
-<h3 id="一-离散型随机变量"><a class="header-anchor" href="#一-离散型随机变量">¶</a>一、离散型随机变量</h3>
+<h3 id="一-离散型随机变量">一、离散型随机变量</h3>
 <p>将随机变量 $X$ 的所有可能取值到其相应概率的映射称为 $X$ 的概率分布，记为：</p>
 <p>$$ p_k = P\{X=x_k\} \quad (k=1,2,\cdots) $$</p>
-<h4 id="常用的离散型随机变量的概率分布"><a class="header-anchor" href="#常用的离散型随机变量的概率分布">¶</a>常用的离散型随机变量的概率分布</h4>
+<h4 id="常用的离散型随机变量的概率分布">常用的离散型随机变量的概率分布</h4>
 <ol>
 <li>
 <p>两点分布<br>
@@ -431,12 +431,12 @@ $$ P\{X=k\} = \frac{\lambda^k}{k!} e^{-\lambda} \quad (k=0,1,2,\cdots,n) $$</p>
 </li>
 <li>
 <p>超几何分布<br>
-$$ P\{X=m\} = \frac{C_M^m C_{N-M}^{n-m}}{C_N^n} \quad (m=0,1,2,\cdots,l;\; 其中 l=\min(M,n)) $$</p>
+$$ P\{X=m\} = \frac{C_M^m C_{N-M}<sup>{n-m}}{C_N</sup>n} \quad (m=0,1,2,\cdots,l;\; 其中 l=\min(M,n)) $$</p>
 <p>示例：设一堆同类产品共 $N$ 个，其中有 $M$ 个次品。现从中任取 $n$ 个（假定 $n \le N-M$），则这 $n$ 个样品中所含次品个数 $X$ 是一个离散型随机变量，其概率分布为超几何分布。</p>
 </li>
 </ol>
-<h3 id="二-连续型随机变量"><a class="header-anchor" href="#二-连续型随机变量">¶</a>二、连续型随机变量</h3>
-<h4 id="概率密度函数"><a class="header-anchor" href="#概率密度函数">¶</a>概率密度函数</h4>
+<h3 id="二-连续型随机变量">二、连续型随机变量</h3>
+<h4 id="概率密度函数">概率密度函数</h4>
 <p><strong>定义</strong>：对于随机变量 $X$，如果存在非负可积函数 $p(x)(-\infty \lt x \lt \infty)$，使对任意的 $a,b(a \lt b)$ 都有：</p>
 <p>$$ P\{a \lt X \lt b\} = \int_a^b p(x) \mathrm{d}x $$</p>
 <p>则称 $X$ 为<strong>连续性随机变量</strong>；称 $p(x)$ 为 $X$ 的<strong>概率密度函数</strong>，简称概率密度或密度。</p>
@@ -452,7 +452,7 @@ $$ P\{X=a\} = 0 $$</p>
 $$ \int_{-\infty}^{\infty} p(x) \mathrm{d}x = 1 $$</p>
 </li>
 </ol>
-<h4 id="常见概率密度函数"><a class="header-anchor" href="#常见概率密度函数">¶</a>常见概率密度函数</h4>
+<h4 id="常见概率密度函数">常见概率密度函数</h4>
 <ol>
 <li>
 <p>均匀分布<br>
@@ -470,14 +470,14 @@ $$ \int_{-\infty}^{\infty} p(x) \mathrm{d}x = 1 $$</p>
 </li>
 <li>
 <p>正态分布</p>
-<p>$$ p(x) = \frac{1}{\sqrt{2 \pi} \sigma} e^{-\frac{1}{2 \sigma^2}(x-\mu)^2} \quad (-\infty \lt x \lt \infty,\;\sigma \gt 0) $$</p>
+<p>$$ p(x) = \frac{1}{\sqrt{2 \pi} \sigma} e^{-\frac{1}{2 \sigma<sup>2}(x-\mu)</sup>2} \quad (-\infty \lt x \lt \infty,\;\sigma \gt 0) $$</p>
 <p>变量 $X$ 服从正态分布 $N(\mu,\sigma^2)$ 可简记为 $X \sim N(\mu,\sigma^2)$。</p>
 <p><strong>标准正态分布</strong>：参数 $\mu=0, \sigma=1$ 时的正态分布，即 $N(0,1)$。它的密度函数为</p>
-<p>$$ p(x) = \frac{1}{\sqrt{2 \pi}} e^{-\frac{x^2}{2}} $$</p>
+<p>$$ p(x) = \frac{1}{\sqrt{2 \pi}} e<sup>{-\frac{x</sup>2}{2}} $$</p>
 <p><strong>一个重要的积分</strong>：</p>
-<p>$$ \int_{-\infty}^{\infty} \frac{1}{\sqrt{2 \pi}} e^{-\frac{x^2}{2}} \mathrm{d}x = 1 $$</p>
+<p>$$ \int_{-\infty}^{\infty} \frac{1}{\sqrt{2 \pi}} e<sup>{-\frac{x</sup>2}{2}} \mathrm{d}x = 1 $$</p>
 <p>通过正态分布的密度函数求某个区间的概率时，需要计算密度函数的积分，这种计算非常复杂，因此我们通过已经计算好数值的 $\Phi$ 函数来帮助求解：</p>
-<p>$$ \Phi(x) = \int_{-\infty}^{x} \frac{1}{\sqrt{2 \pi}} e^{-\frac{t^2}{2}} \mathrm{d}t $$</p>
+<p>$$ \Phi(x) = \int_{-\infty}^{x} \frac{1}{\sqrt{2 \pi}} e<sup>{-\frac{t</sup>2}{2}} \mathrm{d}t $$</p>
 <p>那么对于标准正态分布，有</p>
 <p>$$ P\{a \lt X \lt b\} = \Phi(b) - \Phi(a) $$</p>
 <p>对于一般正态分布 $N(\mu,\sigma^2)$，常常使用<strong>变量替换法</strong>将其转化为标准正态分布，即令</p>
@@ -496,23 +496,23 @@ $$ \int_{-\infty}^{\infty} p(x) \mathrm{d}x = 1 $$</p>
 <li>
 <p>韦布尔分布</p>
 <p>$$ p(x) = \begin{cases}<br>
-m \frac{x^{m-1}}{\eta^m} e^{-(\frac{x}{\eta})^m} &amp; x \gt 0 \\<br>
+m \frac{x<sup>{m-1}}{\eta</sup>m} e<sup>{-(\frac{x}{\eta})</sup>m} &amp; x \gt 0 \\<br>
 0 &amp; x \le 0 \end{cases} $$</p>
 </li>
 </ol>
-<h4 id="分布函数"><a class="header-anchor" href="#分布函数">¶</a>分布函数</h4>
+<h4 id="分布函数">分布函数</h4>
 <p><strong>定义</strong>：设 $X$ 是一个随机变量（可以是连续型的，也可以是离散型的，甚至更一般的），称函数</p>
 <p>$$ F(x) = P(X \le x) \quad (-\infty \lt x \lt +\infty) $$ 为 $X$ 的分布函数。</p>
 <p>连续型随机变量的分布函数事实上是其概率密度函数在区间 $(-\infty, x]$ 上的不定上限积分。</p>
-<h4 id="随机变量函数的分布"><a class="header-anchor" href="#随机变量函数的分布">¶</a>随机变量函数的分布</h4>
+<h4 id="随机变量函数的分布">随机变量函数的分布</h4>
 <p><strong>随机变量函数</strong>：随机变量 $X$ 的函数也是一个随机变量，记作</p>
 <p>$$ Y = f(X) $$</p>
 <p>满足当 $X$ 取值为 $x$ 时，$y$ 取值为 $f(x)$。</p>
 <p>举个例子：设 $X$ 是分子的速率，而 $Y$ 是分子的动能，则 $Y$ 是 $X$ 的函数：$Y=\frac{1}{2}mX^2$（$m$ 为分子质量）。</p>
 <p>我们的目的是，根据已知的 $X$ 的分布来寻求 $Y=f(X)$ 的分布。</p>
-<h5 id="离散型随机变量函数的分布"><a class="header-anchor" href="#离散型随机变量函数的分布">¶</a>离散型随机变量函数的分布</h5>
+<h5 id="离散型随机变量函数的分布">离散型随机变量函数的分布</h5>
 <p>假设离散型随机变量 $X, Y$ 有如下关系：$Y=f(X)$。要得到 $P\{Y=y_i\}$，只需求出 $Y=y_i$ 时对应的 $x_i$（可能有 0 个或多个对应值），将这些 $x_i$ 对应的概率相加即可。</p>
-<h5 id="连续型随机变量函数的分布"><a class="header-anchor" href="#连续型随机变量函数的分布">¶</a>连续型随机变量函数的分布</h5>
+<h5 id="连续型随机变量函数的分布">连续型随机变量函数的分布</h5>
 <p><strong>分布函数法</strong>：已知 $X$ 的分布，通过建立 $Y$ 与 $X$ 的分布函数之间的关系来求得 $Y$ 的分布。</p>
 <p>举个例子：已知 $X \sim N(\mu,\sigma^2)$，求 $Y=\frac{X-\mu}{\sigma}$ 的概率密度。</p>
 <p>解：设 $Y$ 的分布函数为 $F_Y(y)$，于是</p>
@@ -527,16 +527,16 @@ F_Y(y) &amp; = P(Y \le y) \quad (分布函数的定义) \\<br>
 <p>将上式两边对 $y$ 求微分，利用<strong>密度函数是分布函数的导数</strong>的关系，我们得到</p>
 <p>$$ p_Y(y) = p_X(\sigma y + \mu) \sigma $$</p>
 <p>再将</p>
-<p>$$ p_X(x) = \frac{1}{\sqrt{2 \pi} \sigma} e^{-\frac{1}{2 \sigma^2}(x-\mu)^2} $$</p>
+<p>$$ p_X(x) = \frac{1}{\sqrt{2 \pi} \sigma} e^{-\frac{1}{2 \sigma<sup>2}(x-\mu)</sup>2} $$</p>
 <p>代入，有</p>
-<p>$$ p_Y(y) = \frac{1}{\sqrt{2 \pi}} e^{-\frac{y^2}{2}} $$</p>
+<p>$$ p_Y(y) = \frac{1}{\sqrt{2 \pi}} e<sup>{-\frac{y</sup>2}{2}} $$</p>
 <p>这表明 $Y \sim N(0,1)$。</p>
-<h2 id="第三章-随机变量的数字特征"><a class="header-anchor" href="#第三章-随机变量的数字特征">¶</a>第三章 随机变量的数字特征</h2>
-<h3 id="随机变量的期望"><a class="header-anchor" href="#随机变量的期望">¶</a>随机变量的期望</h3>
+<h2 id="第三章-随机变量的数字特征">第三章 随机变量的数字特征</h2>
+<h3 id="随机变量的期望">随机变量的期望</h3>
 <p>随机变量的期望 $E(X)$ 是一个实数，它形式上是 $X$ 所有可能取值的加权平均，代表了随机变量 $X$ 的平均值。因此，也称期望为<strong>均值</strong>或<strong>分布的均值</strong>。</p>
-<h4 id="离散型随机变量的期望"><a class="header-anchor" href="#离散型随机变量的期望">¶</a>离散型随机变量的期望</h4>
+<h4 id="离散型随机变量的期望">离散型随机变量的期望</h4>
 <p>$$ E(X) = \sum_k x_k p_k \quad (=x_1p_1+x_2p_2+\cdots+x_kp_k+\cdots) $$</p>
-<h5 id="几个常用分布的期望"><a class="header-anchor" href="#几个常用分布的期望">¶</a>几个常用分布的期望</h5>
+<h5 id="几个常用分布的期望">几个常用分布的期望</h5>
 <ol>
 <li>
 <p>两点分布<br>
@@ -560,12 +560,12 @@ E(X) &amp; = \sum_{k=0}^\infty k \cdot \frac{\lambda^k}{k!} e^{-\lambda} \\<br>
 $$ E(X) = \frac{nM}{N} $$</p>
 </li>
 </ol>
-<h4 id="连续型随机变量的期望"><a class="header-anchor" href="#连续型随机变量的期望">¶</a>连续型随机变量的期望</h4>
+<h4 id="连续型随机变量的期望">连续型随机变量的期望</h4>
 <p><strong>定义</strong>：设连续型随机变量$X$的密度函数为 $p(x)$，称</p>
 <p>$$ \int_{-\infty}^{+\infty} xp(x) \mathrm{d}x $$</p>
 <p>为 $X$ 的<strong>期望</strong>（或均值），记作 $E(X)$。</p>
 <p>本定义要求 $\displaystyle \int_{-\infty}^{+\infty} \vert x \vert p(x) \mathrm{d}x$ 收敛</p>
-<h5 id="几个常用分布的期望-2"><a class="header-anchor" href="#几个常用分布的期望-2">¶</a>几个常用分布的期望</h5>
+<h5 id="几个常用分布的期望-2">几个常用分布的期望</h5>
 <ol>
 <li>
 <p>均匀分布<br>
@@ -578,7 +578,7 @@ E(X) &amp; = \int_{-\infty}^{+\infty} xp(x) \mathrm{d}x \\<br>
 &amp; = \int_{0}^{+\infty} \lambda x e^{-\lambda x} \mathrm{d}x \\<br>
 &amp; = \frac{1}{\lambda} \int_0^{+\infty} te^{-t} \mathrm{d}t \quad (令t=\lambda x) \\<br>
 &amp; = -\frac{1}{\lambda} \int_0^{+\infty} t \mathrm{d}e^{-t} \\<br>
-&amp; = -\frac{1}{\lambda}\left[(te^{-t}) \Big|_0^{+\infty}-\int_0^{+\infty}e^{-t}\mathrm{d}t \right] \\<br>
+&amp; = -\frac{1}{\lambda}\left[(te^{-t}) \Big|_0<sup>{+\infty}-\int_0</sup>{+\infty}e^{-t}\mathrm{d}t \right] \\<br>
 &amp; = \frac{1}{\lambda}<br>
 \end{aligned} $$</p>
 </li>
@@ -588,7 +588,7 @@ $$ E(X) = \mu $$</p>
 <p>证明略。正态分布密度函数以 $x=\mu$ 为对称轴，这就是其含义所在。</p>
 </li>
 </ol>
-<h4 id="期望的简单性质"><a class="header-anchor" href="#期望的简单性质">¶</a>期望的简单性质</h4>
+<h4 id="期望的简单性质">期望的简单性质</h4>
 <p>$$ \begin{aligned}<br>
 E© &amp;= c \\<br>
 E(kX) &amp;= kE(X) \\<br>
@@ -596,7 +596,7 @@ E(X+b) &amp;= E(X) + b \\<br>
 E(kX+b) &amp;= kE(X) + b<br>
 \end{aligned} $$</p>
 <p>一言以蔽之，<strong>期望是线性的</strong>。</p>
-<h4 id="随机变量函数的期望"><a class="header-anchor" href="#随机变量函数的期望">¶</a>随机变量函数的期望</h4>
+<h4 id="随机变量函数的期望">随机变量函数的期望</h4>
 <p>对于离散型随机变量有</p>
 <p>$$ E\left[f(X)\right] = \sum_i f(x_i)p_i $$</p>
 <p>对于连续型随机变量有</p>
@@ -607,7 +607,7 @@ E(kX+b) &amp;= kE(X) + b<br>
 <li>首先通过 $X$ 的分布推出 $f(X)$ 的分布，然后通过期望的定义求出 $f(X)$ 的期望。</li>
 </ol>
 <p>一般来说，第一种方法较为简单，是我们的首选方法。</p>
-<h3 id="随机变量的方差"><a class="header-anchor" href="#随机变量的方差">¶</a>随机变量的方差</h3>
+<h3 id="随机变量的方差">随机变量的方差</h3>
 <p><strong>定义</strong>：</p>
 <p>$$ D(X) = E \left\{ [X-E(X)]^2 \right\} $$ 这表明 $X$ 的方差，就是随机变量 $[X-E(X)]^2$ 的期望。</p>
 <blockquote>
@@ -618,22 +618,22 @@ E(kX+b) &amp;= kE(X) + b<br>
 <p>推导如下：</p>
 <p>$$ \begin{aligned}<br>
 D(X) &amp;= \int_{-\infty}^{+\infty} \left[x-E(X) \right]^2 p(x) \mathrm{d}x \\<br>
-&amp;= \int_{-\infty}^{+\infty} \left[x^2-2xE(X)+E^2(X) \right] p(x) \mathrm{d}x \\<br>
-&amp;= \int_{-\infty}^{+\infty}x^2p(x)\mathrm{d}x - 2E(X)\int_{-\infty}^{+\infty}xp(x)\mathrm{d}x + E^2(X)\int_{-\infty}^{+\infty}p(x)\mathrm{d}x \\<br>
+&amp;= \int_{-\infty}^{+\infty} \left[x<sup>2-2xE(X)+E</sup>2(X) \right] p(x) \mathrm{d}x \\<br>
+&amp;= \int_{-\infty}<sup>{+\infty}x</sup>2p(x)\mathrm{d}x - 2E(X)\int_{-\infty}^{+\infty}xp(x)\mathrm{d}x + E<sup>2(X)\int_{-\infty}</sup>{+\infty}p(x)\mathrm{d}x \\<br>
 &amp;= E(X^2) - 2E(X)\cdot E(X) + E^2(X)\cdot 1 \\<br>
 &amp;= E(X^2) - E^2(X)<br>
 \end{aligned} $$</p>
-<h4 id="离散型随机变量的方差"><a class="header-anchor" href="#离散型随机变量的方差">¶</a>离散型随机变量的方差</h4>
+<h4 id="离散型随机变量的方差">离散型随机变量的方差</h4>
 <p><strong>定义</strong>：设离散型随机变量的概率分布为</p>
 <p>$$ P(X=x_k) = P_k \quad (k=1,2,\cdots) $$</p>
 <p>则称和数</p>
 <p>$$ \sum_k \left[ x_k-E(X) \right]^2 p_k $$</p>
 <p>为 $X$ 的方差，记作 $D(X)$。</p>
-<h4 id="连续型随机变量的方差"><a class="header-anchor" href="#连续型随机变量的方差">¶</a>连续型随机变量的方差</h4>
+<h4 id="连续型随机变量的方差">连续型随机变量的方差</h4>
 <p><strong>定义</strong>：设连续型随机变量的密度为 $p(x)$，则称</p>
 <p>$$ \int_{-\infty}^{+\infty} \left[ x-E(X) \right]^2 p(x) \mathrm{d}x $$</p>
 <p>为 $X$ 的方差，记作 $D(X)$。</p>
-<h4 id="常用分布的方差"><a class="header-anchor" href="#常用分布的方差">¶</a>常用分布的方差</h4>
+<h4 id="常用分布的方差">常用分布的方差</h4>
 <ol>
 <li>
 <p>两点分布</p>
@@ -653,7 +653,7 @@ $$ D(X) = npq $$</p>
 <p>$$ \begin{aligned}<br>
 E(X^2) &amp;= \sum_{k=0}^{\infty} K^2 \cdot \frac{\lambda^k}{k!} e^{-\lambda} \\<br>
 &amp;= \sum_{k=1}^{\infty} (k-1+1) \frac{\lambda^k}{(k-1)!} e^{-\lambda} \\<br>
-&amp;= \lambda^2 \cdot \sum_{k=2}^{\infty} \frac{\lambda^{k-2}}{(k-2)!}e^{-\lambda} + \lambda \cdot \sum_{k=1}^{\infty} \frac{\lambda^{k-1}}{(k-1)!}e^{-\lambda} \\<br>
+&amp;= \lambda^2 \cdot \sum_{k=2}^{\infty} \frac{\lambda<sup>{k-2}}{(k-2)!}e</sup>{-\lambda} + \lambda \cdot \sum_{k=1}^{\infty} \frac{\lambda<sup>{k-1}}{(k-1)!}e</sup>{-\lambda} \\<br>
 &amp;= \lambda^2 + \lambda<br>
 \end{aligned} $$</p>
 <p>则</p>
@@ -672,20 +672,20 @@ $$ D(X) = \frac{1}{\lambda^2} $$</p>
 $$ D(X) = \sigma^2 $$</p>
 </li>
 </ol>
-<h4 id="方差的简单性质"><a class="header-anchor" href="#方差的简单性质">¶</a>方差的简单性质</h4>
+<h4 id="方差的简单性质">方差的简单性质</h4>
 <p>$$ \begin{aligned}<br>
 D© &amp;= 0 \\<br>
 D(kX) &amp;= k^2 D(X) \\<br>
 D(X+b) &amp;= D(X) \\<br>
 D(kX+b) &amp;= k^2 D(X)<br>
 \end{aligned} $$</p>
-<h4 id="切比雪夫不等式"><a class="header-anchor" href="#切比雪夫不等式">¶</a>切比雪夫不等式</h4>
+<h4 id="切比雪夫不等式">切比雪夫不等式</h4>
 <p>$$ P\{ \vert X-E(X) \vert \ge \varepsilon \} \le \frac{D(X)}{\varepsilon^2} $$</p>
-<h2 id="第四章-随机向量"><a class="header-anchor" href="#第四章-随机向量">¶</a>第四章 随机向量</h2>
+<h2 id="第四章-随机向量">第四章 随机向量</h2>
 <p><strong>定义</strong>：我们称 $n$ 个随机变量 $X_1,X_2,\cdots,X_n$ 的整体 $\xi = (X_1,X_2,\cdots,X_n)$ 为 $n$ 维随机向量。</p>
 <p>我们重点研究二维随机向量。</p>
-<h3 id="二维随机向量的联合分布与边缘分布"><a class="header-anchor" href="#二维随机向量的联合分布与边缘分布">¶</a>二维随机向量的联合分布与边缘分布</h3>
-<h4 id="离散型随机向量的概率分布"><a class="header-anchor" href="#离散型随机向量的概率分布">¶</a>离散型随机向量的概率分布</h4>
+<h3 id="二维随机向量的联合分布与边缘分布">二维随机向量的联合分布与边缘分布</h3>
+<h4 id="离散型随机向量的概率分布">离散型随机向量的概率分布</h4>
 <p>$\xi = (X,Y)$ 为二维离散型随机向量，当且仅当 $X,Y$ 都是离散型随机变量。</p>
 <p>一般称</p>
 <p>$$ P\{(X,Y)=(x_i,y_j)\} = p_{ij} \quad (i=1,2,\cdots ;j=1,2,\cdots) $$</p>
@@ -701,49 +701,49 @@ $$ \sum_i \sum_j p_{ij} = 1 $$</p>
 </li>
 </ol>
 <p><strong>三项分布</strong>：</p>
-<p>$$ P\{(X,Y)=(k_1,k_2)\} = \frac{n!}{k_1!k_2!(n-k_1-k_2)!}p_1^{k_1}p_2^{k_2}(1-p_1-p_2)^{n-k_1-k_2} $$</p>
-<h4 id="离散型随机向量的边缘分布与联合分布"><a class="header-anchor" href="#离散型随机向量的边缘分布与联合分布">¶</a>离散型随机向量的边缘分布与联合分布</h4>
+<p>$$ P\{(X,Y)=(k_1,k_2)\} = \frac{n!}{k_1!k_2!(n-k_1-k_2)!}p_1<sup>{k_1}p_2</sup>{k_2}(1-p_1-p_2)^{n-k_1-k_2} $$</p>
+<h4 id="离散型随机向量的边缘分布与联合分布">离散型随机向量的边缘分布与联合分布</h4>
 <p><strong>边缘分布</strong>：对于二维随机向量 $(X,Y)$，分量 $X$ 的概率分布称为 $(X,Y)$ 的关于 $X$ 的边缘分布。</p>
 <p>$$ P\{ X=x_i \} = \sum_j p_{ij} $$ $$ P\{ Y=y_j \} = \sum_i p_{ij} $$</p>
 <p>如果将 $(X,Y)$ 的概率分布写在概率分布表中（$i$ 为行数，$j$ 为列数），则关于 $X$ 的边缘分布为“将每行加和得到的一列”；关于 $Y$ 的边缘分布为“将每列加和得到的一行”。</p>
-<h4 id="连续型随机向量的联合分布"><a class="header-anchor" href="#连续型随机向量的联合分布">¶</a>连续型随机向量的联合分布</h4>
+<h4 id="连续型随机向量的联合分布">连续型随机向量的联合分布</h4>
 <p><strong>概念</strong>：对于二维随机向量 $\xi=(X,Y)$，如果存在非负函数 $p(x,y)\;(x,y \in \mathbb{R})$，使对于任意一个邻边分别平行于坐标轴的矩形区域 $D$（即由不等式 $a\lt x\lt b,c\lt y\lt d$ 确定的区域），有</p>
 <p>$$ P\{ (X,Y) \in D \} = \iint\limits_{D} p(x,y)\mathrm{d}x\mathrm{d}y $$</p>
 <p>则称随机向量 $\xi=(X,Y)$ 为<strong>连续型</strong>的，并称 $p(x,y)$ 为 $\xi$ 的<strong>分布密度</strong>，也称 $p(x,y)$ 为 $(X,Y)$ 的<strong>联合分布密度</strong>。</p>
 <p>由定义式容易得到</p>
-<p>$$ \int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}p(x,y)\mathrm{d}x\mathrm{d}y = 1 $$</p>
+<p>$$ \int_{-\infty}<sup>{+\infty}\int_{-\infty}</sup>{+\infty}p(x,y)\mathrm{d}x\mathrm{d}y = 1 $$</p>
 <blockquote>
 <p>💡 二维随机向量 $(X,Y)$ 落在平面上任意区域 $D$ 的概率，就等于联合密度 $p(x,y)$ 在 $D$ 上的积分，这就把概率的计算转化为一个二重积分的计算。<br>
 💡 几何意义：$\{(X,Y)\in D\}$ 的概率，数值上就等于以曲面 $z=p(x,y)$ 为顶、以平面区域 $D$ 为底的曲顶柱体的体积。</p>
 </blockquote>
-<h4 id="连续型随机向量的边缘分布"><a class="header-anchor" href="#连续型随机向量的边缘分布">¶</a>连续型随机向量的边缘分布</h4>
+<h4 id="连续型随机向量的边缘分布">连续型随机向量的边缘分布</h4>
 <p><strong>定义</strong>：对于随机向量 $(X,Y)$，作为其分量的随机变量 $X$（或 $Y$）的密度函数 $p_X(x)$（或 $p_Y(y)$），称为 $(X,Y)$ 的关于 $X$（或 $Y$）的<strong>边缘分布密度</strong>。</p>
 <p>当 $(X,Y)$ 的联合密度 $p(x,y)$ 已知时，可通过以下方法求得边缘密度</p>
 <p>$$ \begin{aligned}<br>
 p_X(x) &amp;= \int_{-\infty}^{+\infty}p(x,y)\mathrm{d}y \\<br>
 p_Y(y) &amp;= \int_{-\infty}^{+\infty}p(x,y)\mathrm{d}x<br>
 \end{aligned} $$</p>
-<h4 id="随机变量的独立性"><a class="header-anchor" href="#随机变量的独立性">¶</a>随机变量的独立性</h4>
+<h4 id="随机变量的独立性">随机变量的独立性</h4>
 <p><strong>定义</strong>：设 $X,Y$ 是两个随机变量，如果对任意的 $a\lt b,c\lt d$，事件 $\{a\lt X\lt b\}$ 与 $\{c\lt Y\lt d\}$ 相互独立，则称 $X$ 与 $Y$ 是<strong>相互独立</strong>的。</p>
 <p><strong>重要定理</strong>：设 $X,Y$ 分别有分布密度 $p_X(x),p_Y(y)$，则 $X$ 与 $Y$ 相互独立的<strong>充要条件</strong>是：二元函数</p>
 <p>$$ p_X(x)p_Y(y) $$</p>
 <p>是随机向量 $(X,Y)$ 的联合密度。</p>
-<h4 id="二维正态分布"><a class="header-anchor" href="#二维正态分布">¶</a>二维正态分布</h4>
-<p>$$ p(x,y) = \frac{1}{2\pi \sigma_1\sigma_2\sqrt{1-\rho^2}}e^{-\frac{1}{2(1-\rho^2)}\left[\left(\frac{x-\mu_1}{\sigma_1}\right)^2 - \frac{2\rho(x-\mu_1)(y-\mu_2)}{\sigma_1\sigma_2} + \left(\frac{y-\mu_2}{\sigma_2}\right)^2\right]} $$</p>
+<h4 id="二维正态分布">二维正态分布</h4>
+<p>$$ p(x,y) = \frac{1}{2\pi \sigma_1\sigma_2\sqrt{1-\rho<sup>2}}e</sup>{-\frac{1}{2(1-\rho<sup>2)}\left[\left(\frac{x-\mu_1}{\sigma_1}\right)</sup>2 - \frac{2\rho(x-\mu_1)(y-\mu_2)}{\sigma_1\sigma_2} + \left(\frac{y-\mu_2}{\sigma_2}\right)^2\right]} $$</p>
 <p>两个边缘密度分别是两个一维正态分布：</p>
 <p>$$ \begin{aligned}<br>
-P_X(x)=\frac{1}{\sqrt{2\pi}\sigma_1}e^{-\frac{(x-\mu_1)^2}{2\sigma_1^2}} \\<br>
-P_Y(y)=\frac{1}{\sqrt{2\pi}\sigma_2}e^{-\frac{(y-\mu_2)^2}{2\sigma_2^2}}<br>
+P_X(x)=\frac{1}{\sqrt{2\pi}\sigma_1}e<sup>{-\frac{(x-\mu_1)</sup>2}{2\sigma_1^2}} \\<br>
+P_Y(y)=\frac{1}{\sqrt{2\pi}\sigma_2}e<sup>{-\frac{(y-\mu_2)</sup>2}{2\sigma_2^2}}<br>
 \end{aligned} $$</p>
 <p>对于二维正态分布，<strong>两个分量 $X$ 与 $Y$ 独立</strong>的充要条件是 $\rho=0$。</p>
-<h4 id="二维随机向量的分布函数"><a class="header-anchor" href="#二维随机向量的分布函数">¶</a>二维随机向量的分布函数</h4>
+<h4 id="二维随机向量的分布函数">二维随机向量的分布函数</h4>
 <p><strong>定义</strong>：设 $\xi=(X,Y)$ 是二维随机向量，称函数</p>
 <p>$$ F(x,y) = P\{ X \le x, Y \le y \} $$</p>
 <p>为它的<strong>分布函数</strong>。</p>
 <p>若 $\xi=(X,Y)$ 的分布函数有二阶连续偏微商，则</p>
 <p>$$ \frac{\partial^2 F(x,y)}{\partial x \partial y} $$</p>
 <p>就是 $\xi$ 的<strong>分布密度</strong>。</p>
-<h3 id="两个随机变量的函数的分布"><a class="header-anchor" href="#两个随机变量的函数的分布">¶</a>两个随机变量的函数的分布</h3>
+<h3 id="两个随机变量的函数的分布">两个随机变量的函数的分布</h3>
 <table>
 <thead>
 <tr>
@@ -776,19 +776,19 @@ $$ P\{f(X,Y) \le z\} $$</p>
 $$ P\{f(X,Y) \le z\} = \iint\limits_{f(X,Y)\le z} p(x,y) \mathrm{d}x\mathrm{d}y $$</p>
 </li>
 </ol>
-<p>举个例子：设 $X,Y$ 相互独立且服从相同的分布 $N(0,1)$，求 $\sqrt{X^2+Y^2}$ 的密度。</p>
+<p>举个例子：设 $X,Y$ 相互独立且服从相同的分布 $N(0,1)$，求 $\sqrt{X<sup>2+Y</sup>2}$ 的密度。</p>
 <p><strong>解</strong>：$(X,Y)$ 的联合密度为</p>
 <p>$$ \begin{aligned}<br>
-p(x,y) &amp;= \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}} \cdot \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}} \\<br>
-&amp;= \frac{1}{2\pi} e^{-\frac{x^2+y^2}{2}}<br>
+p(x,y) &amp;= \frac{1}{\sqrt{2\pi}} e<sup>{-\frac{x</sup>2}{2}} \cdot \frac{1}{\sqrt{2\pi}} e<sup>{-\frac{x</sup>2}{2}} \\<br>
+&amp;= \frac{1}{2\pi} e<sup>{-\frac{x</sup>2+y^2}{2}}<br>
 \end{aligned} $$</p>
-<p>记 $Z=\sqrt{X^2+Y^2}$ 的分布函数为 $F_Z(z)$，则</p>
+<p>记 $Z=\sqrt{X<sup>2+Y</sup>2}$ 的分布函数为 $F_Z(z)$，则</p>
 <p>$$ \begin{aligned}<br>
 F_Z(x) &amp;= P\{Z \le z\} \\<br>
-&amp;= P\{\sqrt{X^2+Y^2} \le z\} \\<br>
-&amp;= \iint\limits_{\sqrt{x^2+y^2} \le z} p(x,y) \mathrm{d}x\mathrm{d}y \\<br>
-&amp;= \iint\limits_{\sqrt{x^2+y^2} \le z} \frac{1}{2\pi} e^{-\frac{x^2+y^2}{2}} \mathrm{d}x\mathrm{d}y \\<br>
-&amp;= \int_0^{2\pi} \mathrm{d}\theta \int_0^z \frac{1}{2\pi} e^{-\frac{1}{2}r^2}r \mathrm{d}r \quad (极坐标变换: x=r\cos\theta,y=r\sin\theta) \\<br>
+&amp;= P\{\sqrt{X<sup>2+Y</sup>2} \le z\} \\<br>
+&amp;= \iint\limits_{\sqrt{x<sup>2+y</sup>2} \le z} p(x,y) \mathrm{d}x\mathrm{d}y \\<br>
+&amp;= \iint\limits_{\sqrt{x<sup>2+y</sup>2} \le z} \frac{1}{2\pi} e<sup>{-\frac{x</sup>2+y^2}{2}} \mathrm{d}x\mathrm{d}y \\<br>
+&amp;= \int_0^{2\pi} \mathrm{d}\theta \int_0^z \frac{1}{2\pi} e<sup>{-\frac{1}{2}r</sup>2}r \mathrm{d}r \quad (极坐标变换: x=r\cos\theta,y=r\sin\theta) \\<br>
 &amp;= \int_0^z r e^{-\frac{1}{2} r^2} \mathrm{d}r<br>
 \end{aligned} $$</p>
 <p>当 $z\le 0$ 时 $F_Z(z)=0$。于是 $Z$ 的密度 $p(z)$ 为</p>
@@ -797,7 +797,7 @@ z e^{-\frac{1}{2} z^2} &amp; z \gt 0 \\<br>
 0 &amp; z \le 0<br>
 \end{cases} $$</p>
 <p>这就是所谓的<strong>瑞利(Rayleigh)分布</strong>。</p>
-<h4 id="随机变量函数的联合密度"><a class="header-anchor" href="#随机变量函数的联合密度">¶</a>随机变量函数的联合密度</h4>
+<h4 id="随机变量函数的联合密度">随机变量函数的联合密度</h4>
 <p><strong>问题描述</strong>：已知 $(X,Y)$ 的联合密度为 $p(x,y)$，而</p>
 <p>$$ \begin{cases}<br>
 u = f(x,y) \\<br>
@@ -822,35 +822,35 @@ Y &amp;= R \sin \Theta<br>
 \left( R \ge 0, \; 0 \le \Theta \le 2\pi \right) $$</p>
 <p>求 $(R,\Theta)$ 的联合密度与边缘密度。</p>
 <p><strong>解</strong>：由于 $X,Y$ 相互独立，则</p>
-<p>$$ p(x,y) = \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}} \cdot \frac{1}{\sqrt{2\pi}} e^{-\frac{y^2}{2}} = \frac{1}{2\pi} e^{-\frac{x^2+y^2}{2}} $$</p>
+<p>$$ p(x,y) = \frac{1}{\sqrt{2\pi}} e<sup>{-\frac{x</sup>2}{2}} \cdot \frac{1}{\sqrt{2\pi}} e<sup>{-\frac{y</sup>2}{2}} = \frac{1}{2\pi} e<sup>{-\frac{x</sup>2+y^2}{2}} $$</p>
 <p>雅可比行列式</p>
 <p>$$ J = \left| \frac{\partial(x,y)}{\partial(r,\theta)} \right| = \left| \begin{array}{cc} \cos\theta &amp; -r\sin\theta \\ \sin\theta &amp; r\cos\theta \end{array} \right| = r $$</p>
 <p>则 $(R,\Theta)$ 的联合密度为</p>
 <p>$$ q(r,\theta) = \begin{cases}<br>
-\frac{1}{2\pi} r e^{-\frac{r^2}{2}} &amp; r \gt 0,\; 0 \lt \theta \lt 2\pi \\<br>
+\frac{1}{2\pi} r e<sup>{-\frac{r</sup>2}{2}} &amp; r \gt 0,\; 0 \lt \theta \lt 2\pi \\<br>
 0 &amp; 其他<br>
 \end{cases} $$</p>
 <p>当 $r \gt 0$ 时，$R$ 的边缘密度为</p>
-<p>$$ f® = \int_0^{2\pi} q(r,\theta) \mathrm{d}\theta = r e^{-\frac{r^2}{2}} $$</p>
+<p>$$ f® = \int_0^{2\pi} q(r,\theta) \mathrm{d}\theta = r e<sup>{-\frac{r</sup>2}{2}} $$</p>
 <p>当 $0 \lt \theta \lt 2\pi$ 时，$\Theta$ 的边缘密度为</p>
 <p>$$ g(\theta) = \int_0^{+\infty} q(r,\theta) \mathrm{d}r = \frac{1}{2\pi} $$</p>
 <p>综上：</p>
 <p>$$ f® = \begin{cases}<br>
-r e^{-\frac{r^2}{2}} &amp; r \gt 0 \\<br>
+r e<sup>{-\frac{r</sup>2}{2}} &amp; r \gt 0 \\<br>
 0 &amp; 其他<br>
 \end{cases} $$</p>
 <p>$$ g(\theta) = \begin{cases}<br>
 \frac{1}{2\pi} &amp; 0 \lt \theta \lt 2\pi \\<br>
 0 &amp; 其他<br>
 \end{cases} $$</p>
-<h3 id="随机向量的数字特征"><a class="header-anchor" href="#随机向量的数字特征">¶</a>随机向量的数字特征</h3>
-<h4 id="两个随机变量的均值公式"><a class="header-anchor" href="#两个随机变量的均值公式">¶</a>两个随机变量的均值公式</h4>
+<h3 id="随机向量的数字特征">随机向量的数字特征</h3>
+<h4 id="两个随机变量的均值公式">两个随机变量的均值公式</h4>
 <p>设 $(X,Y)$ 的联合密度为 $p(x,y)$，令 $Z=f(X,Y)$，则有：</p>
 <p>$$ E(Z) = E \left[ f(X,Y) \right] = \int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} f(x,y)p(x,y) \mathrm{d}x \mathrm{d}y $$</p>
 <p>另外，也可以根据 $Z=f(x,y)$ 先求出 $Z$ 的密度 $p_Z(z)$ 然后再根据单个随机变量的均值公式</p>
 <p>$$ E(Z) = \int_{-\infty}^{+\infty} z p_Z(z) \mathrm{d}z $$</p>
 <p>求出 $Z$ 的均值。</p>
-<h4 id="两个随机向量均值和方差的性质"><a class="header-anchor" href="#两个随机向量均值和方差的性质">¶</a>两个随机向量均值和方差的性质</h4>
+<h4 id="两个随机向量均值和方差的性质">两个随机向量均值和方差的性质</h4>
 <p>设 $(X,Y)$ 的联合密度为 $p(x,y)$ ，$X,Y$ 的边缘密度分别为 $p_X(x), p_Y(y)$，由前面的知识我们已经知道，随机变量的均值和方差满足以下性质：</p>
 <p>$$ \begin{aligned}<br>
 E(X) &amp;= \int_{-\infty}^{+\infty} x p_X(x) \mathrm{d}x \\<br>
@@ -860,13 +860,13 @@ D(Y) &amp;= E \left( \left[ Y-E(Y) \right]^2 \right) = \int_{-\infty}^{+\infty} 
 \end{aligned} $$</p>
 <p>另一套由联合密度 $p(x,y)$ 给出的计算公式与上述公式形式上非常相近，只是一重积分变成了二重积分：</p>
 <p>$$ \begin{aligned}<br>
-E(X) &amp;= \int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty} x p(x,y) \mathrm{d}x\mathrm{d}y \\<br>
-E(Y) &amp;= \int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty} y p(x,y) \mathrm{d}x\mathrm{d}y \\<br>
-D(X) &amp;= \int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty} \left[ x-E(X) \right]^2 p(x,y) \mathrm{d}x\mathrm{d}y \\<br>
-D(Y) &amp;= \int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty} \left[ y-E(Y) \right]^2 p(x,y) \mathrm{d}x\mathrm{d}y<br>
+E(X) &amp;= \int_{-\infty}<sup>{+\infty}\int_{-\infty}</sup>{+\infty} x p(x,y) \mathrm{d}x\mathrm{d}y \\<br>
+E(Y) &amp;= \int_{-\infty}<sup>{+\infty}\int_{-\infty}</sup>{+\infty} y p(x,y) \mathrm{d}x\mathrm{d}y \\<br>
+D(X) &amp;= \int_{-\infty}<sup>{+\infty}\int_{-\infty}</sup>{+\infty} \left[ x-E(X) \right]^2 p(x,y) \mathrm{d}x\mathrm{d}y \\<br>
+D(Y) &amp;= \int_{-\infty}<sup>{+\infty}\int_{-\infty}</sup>{+\infty} \left[ y-E(Y) \right]^2 p(x,y) \mathrm{d}x\mathrm{d}y<br>
 \end{aligned} $$</p>
 <p>这几个公式的成立很容易证明，此处略去。</p>
-<h4 id="两个随机变量的和的均值与方差"><a class="header-anchor" href="#两个随机变量的和的均值与方差">¶</a>两个随机变量的和的均值与方差</h4>
+<h4 id="两个随机变量的和的均值与方差">两个随机变量的和的均值与方差</h4>
 <p>$$ E(X+Y) = E(X) + E(Y) \tag{1} $$</p>
 <p>$$ D(X+Y) = D(X) + D(Y) + 2E \left( \left[X-E(X)\right] \left[Y-E(Y)\right]  \right) \tag{2} $$</p>
 <p>当 $X,Y$ 独立时，有</p>
@@ -895,7 +895,7 @@ E(X \cdot Y) &amp;= \int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} xy p(x,y) 
 &amp;= E(XY) - E(X)E(Y) - E(X)E(Y) + E(X)E(Y) \\<br>
 &amp;= E(XY) - E(X)E(Y) = 0<br>
 \end{aligned} $$</p>
-<h4 id="随机向量的均值和协方差"><a class="header-anchor" href="#随机向量的均值和协方差">¶</a>随机向量的均值和协方差</h4>
+<h4 id="随机向量的均值和协方差">随机向量的均值和协方差</h4>
 <p>称向量 $(E(X),E(Y))$ 为随机向量 $(X,Y)$ 的均值，称数值 $E \left\{ \left[ X- E(X) \right] \left[ Y - E(Y) \right] \right\}$ 为 $X,Y$ 的<strong>协方差</strong>。</p>
 <p>协方差（斜方差）是二维随机向量 $(X,Y)$ 的重要数字特征，它刻画了 $X,Y$ 取值间的相互联系，通常采用记号：</p>
 <p>$$ cov(X,Y) \overset{\mathrm{def}}{=} E \left\{ \left[ X- E(X) \right] \left[ Y - E(Y) \right] \right\} $$</p>
@@ -908,7 +908,7 @@ E(X \cdot Y) &amp;= \int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} xy p(x,y) 
 \end{aligned} $$</p>
 <p>当 $X,Y$ 相互独立时，协方差 $\sigma_{XY} = 0$。随机变量独立是协方差为0的<strong>充分不必要条件</strong>。</p>
 <p>与记号 $\sigma_{XY}$ 相对应，$D(X),D(Y)$ 也可分别记为 $\sigma_{XX},\sigma_{YY}$。</p>
-<h4 id="随机向量的相关系数"><a class="header-anchor" href="#随机向量的相关系数">¶</a>随机向量的相关系数</h4>
+<h4 id="随机向量的相关系数">随机向量的相关系数</h4>
 <p><strong>定义</strong>：称</p>
 <p>$$ \rho_{XY} = \frac{\sigma_{XY}}{\sqrt{\sigma_{XX}}\sqrt{\sigma_{YY}}} $$</p>
 <p>为 $X,Y$ 的<strong>相关系数</strong>，在不引起混淆的情况下，简记为 $\rho$。</p>
@@ -919,9 +919,9 @@ E(X \cdot Y) &amp;= \int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} xy p(x,y) 
 <p>💡 相关系数 $\rho$ 的实际意义是：它刻画了 $X,Y$ 之间的线性关系的近似程度。一般来说，$\left| \rho \right|$ 越接近 1，$X$ 与 $Y$ 越接近地有线性关系。<br>
 要注意的是，$\rho$ 只刻画 $X$ 与 $Y$ 之间的线性关系，当 $X,Y$ 之间有很密切的曲线关系时，$\left| \rho \right|$ 的数值可能接近 1，也可能接近 0。</p>
 </blockquote>
-<h3 id="多维随机向量"><a class="header-anchor" href="#多维随机向量">¶</a>多维随机向量</h3>
+<h3 id="多维随机向量">多维随机向量</h3>
 <p>对于一般的 $n$ 维随机向量，可仿照二维随机向量的情形进行讨论。</p>
-<h4 id="联合密度与边缘密度"><a class="header-anchor" href="#联合密度与边缘密度">¶</a>联合密度与边缘密度</h4>
+<h4 id="联合密度与边缘密度">联合密度与边缘密度</h4>
 <p>对于 $n$ 维随机向量 $\xi = ( X_1,X_2,\cdots,X_n )$ ，如果存在非负函数 $p(x_1,x_2,\cdots,x_n)$ ，使对于任意 $n$ 维长方体 $D = \left\{ (x_1,x_2,\cdots,x_n) \mid a_1 \lt x_1 \lt b_1,a_2 \lt x_2 \lt b_2,\cdots,a_n \lt x_n \lt b_n \right\}$ 均有：</p>
 <p>$$ P \left\{ \xi \in D \right\} = \iint\limits_{D}\cdots \int p(x_1,x_2,\cdots,x_n) \mathrm{d}x_1 \mathrm{d}x_2 \cdots \mathrm{d}x_n $$</p>
 <p>则称 $\xi = (X_1,X_2,\cdots,X_n)$ 是连续型的，并称 $p(x_1,x_2,\cdots,x_n)$ 为 $(X_1,X_2,\cdots,X_n)$ 的联合密度。</p>
@@ -930,30 +930,30 @@ E(X \cdot Y) &amp;= \int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} xy p(x,y) 
 <p>$$ p_1(x_1) = \int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} \cdots \int_{-\infty}^{+\infty} p(x_1,x_2,\cdots,x_n)\mathrm{d}x_2 \mathrm{d}x_3 \cdots \mathrm{d}x_n $$</p>
 <p>$(X_1,X_2)$ 的边缘密度可如下求得：</p>
 <p>$$ p_{12}(x_1,x_2) = \int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} \cdots \int_{-\infty}^{+\infty} p(x_1,x_2,\cdots,x_n)\mathrm{d}x_3 \mathrm{d}x_4 \cdots \mathrm{d}x_n $$</p>
-<h4 id="独立性"><a class="header-anchor" href="#独立性">¶</a>独立性</h4>
+<h4 id="独立性">独立性</h4>
 <p>设 $X_1,X_2,\cdots,X_n$ 是 $n$ 个随机变量，如果对任意的 $a_i \lt b_i(i=1,2,\cdots,n)$ ，事件 $\left\{ a_1 \lt X_1 \lt b_1 \right\}, \left\{ a_2 \lt X_2 \lt b_2 \right\}, \cdots, \left\{ a_n \lt X_n \lt b_n \right\}$ 相互独立，则称 $X_1,X_2,\cdots,X_n$ 是<strong>相互独立</strong>的</p>
 <p><strong>定理</strong>：设 $X_1,X_2,\cdots,X_n$ 的分布密度分别是 $p_1(x_1),p_2(x_2),\cdots,p_n(x_n)$ ，则 $X_1,X_2,\cdots,X_n$ 相互独立的<strong>充要条件</strong>是：$n$ 元函数</p>
 <p>$$ p_1(x_1)p_2(x_2)\cdots p_n(x_n) $$</p>
 <p>是 $(X_1,X_2,\cdots,X_n)$ 的联合密度。</p>
-<h4 id="n-个随机变量的函数的分布"><a class="header-anchor" href="#n-个随机变量的函数的分布">¶</a>$n$ 个随机变量的函数的分布</h4>
+<h4 id="n-个随机变量的函数的分布">$n$ 个随机变量的函数的分布</h4>
 <p>仍然采用<strong>分布函数法</strong>。设 $Z = f(X_1,X_2,\cdots,X_n)$ ，则 $Z$ 的分布为：</p>
 <p>$$ \begin{aligned}<br>
 F_Z(z) &amp;= P \left\{ f(X_1,X_2,\cdots,X_n) \le z \right\} \\<br>
 &amp;= \iiint\limits_{f(x_1,x_2,\cdots,x_n) \lt z} p(x_1,x_2,\cdots,x_n) \mathrm{d}x_1 \mathrm{d}x_2 \cdots \mathrm{d}x_n<br>
 \end{aligned} $$</p>
 <p>$Z$ 的分布函数 $F_Z(z)$ 对 $z$ 求微分可以进一步求出 $Z$ 的密度函数 $p_Z(z)$。</p>
-<h4 id="数字特征"><a class="header-anchor" href="#数字特征">¶</a>数字特征</h4>
-<h5 id="均值公式"><a class="header-anchor" href="#均值公式">¶</a>均值公式</h5>
+<h4 id="数字特征">数字特征</h4>
+<h5 id="均值公式">均值公式</h5>
 <p>$$ E \left[ f(X_1,X_2,\cdots,X_n) \right] = \int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} \cdots \int_{-\infty}^{+\infty} f(x_1,x_2,\cdots,x_n) p(x_1,x_2,\cdots,x_n) \mathrm{d}x_1 \mathrm{d}x_2 \cdots \mathrm{d}x_n $$</p>
 <p>其中 $p(x_1,x_2,\cdots,x_n)$ 是 $(X_1,X_2,\cdots,X_n)$ 的联合密度。本公式要求右端的积分绝对收敛。</p>
-<h5 id="均值与方差的性质"><a class="header-anchor" href="#均值与方差的性质">¶</a>均值与方差的性质</h5>
+<h5 id="均值与方差的性质">均值与方差的性质</h5>
 <p>$$ E(X_1+X_2+\cdots+X_n) = E(X_1) + E(X_2) + \cdots + E(X_n) $$</p>
 <p>当 $X_1,X_2,\cdots,X_n$ 相互独立时，有：</p>
 <p>$$ \begin{aligned}<br>
 E(X_1 X_2 \cdots X_n) &amp;= E(X_1) E(X_2) E(X_n) \\<br>
 D(X_1+X_2+\cdots+x_n) &amp;= D(X_1) + D(X_2) + \cdots + D(X_n)<br>
 \end{aligned} $$</p>
-<h5 id="协方差与协差阵"><a class="header-anchor" href="#协方差与协差阵">¶</a>协方差与协差阵</h5>
+<h5 id="协方差与协差阵">协方差与协差阵</h5>
 <p>对于 $i \neq j$ ，$\sigma_{ij}$ 是第 $i$ 个分量 $X_i$ 与第 $j$ 个分量 $X_j$ 的协方差；而 $\sigma_{ii}$ 是第 $i$ 个分量 $X_i$ 的方差。称矩阵：</p>
 <p>$$ \begin{bmatrix}<br>
 \sigma_{11} &amp; \sigma_{12} &amp; \cdots &amp; \sigma_{1n} \\<br>
@@ -962,7 +962,7 @@ D(X_1+X_2+\cdots+x_n) &amp;= D(X_1) + D(X_2) + \cdots + D(X_n)<br>
 \sigma_{n1} &amp; \sigma_{n2} &amp; \cdots &amp; \sigma_{nn} \\<br>
 \end{bmatrix} $$</p>
 <p>为 $(X_1,X_2,\cdots,X_n)$ 的协差阵，记为 $\mathbf{\Sigma}$。$\mathbf{\Sigma}$ 显然是对称矩阵，且可以验证 $\mathbf{\Sigma}$ 是非负定的。</p>
-<h5 id="相关系数与相关阵"><a class="header-anchor" href="#相关系数与相关阵">¶</a>相关系数与相关阵</h5>
+<h5 id="相关系数与相关阵">相关系数与相关阵</h5>
 <p>$$ \rho_{ij} = \frac{\sigma_{ij}}{\sqrt{\sigma_{ii}}\sqrt{\sigma_{jj}}} \quad (i=1,2,\cdots,n; \; j=1,2,\cdots,n) $$</p>
 <p>对于 $i \neq j$ ，$\rho_{ij}$ 是 $X_i,X_j$ 的相关系数。同时有 $\rho_{ii}=1$。称矩阵</p>
 <p>$$ \begin{bmatrix}<br>
@@ -972,45 +972,45 @@ D(X_1+X_2+\cdots+x_n) &amp;= D(X_1) + D(X_2) + \cdots + D(X_n)<br>
 \rho_{n1} &amp; \rho_{n2} &amp; \cdots &amp; \rho_{nn} \\<br>
 \end{bmatrix} $$</p>
 <p>为 $(X_1,X_2,\cdots,X_n)$ 的相关阵，记为 $\mathbf{R}$。显然，$\mathbf{R}$ 是对称矩阵。</p>
-<h5 id="n-维分布函数"><a class="header-anchor" href="#n-维分布函数">¶</a>$n$ 维分布函数</h5>
+<h5 id="n-维分布函数">$n$ 维分布函数</h5>
 <p><strong>定义</strong>：设 $\xi = (X_1,X_2,\cdots,X_n)$ 是 $n$ 维随机向量，称 $n$ 维函数 $F(x_1,x_2,\cdots,x_n)=P \left\{ X_1\le x_1,X_2\le x_2,\cdots,X_n\le x_n \right\}$ 为 $\xi$ 的<strong>分布函数</strong>。</p>
 <p>如果 $\xi$ 的分布密度为 $p(x_1,x_2,\cdots,x_n)$ ，则有：</p>
 <p>$$ F(x_1,x_2,\cdots,x_n) = \int_{-\infty}^{x_1} \int_{-\infty}^{x_2} \cdots \int_{-\infty}^{x_n} p(u_1,u_2,\cdots,u_n) \mathrm{d}u_1 \mathrm{d}u_2 \cdots \mathrm{d}u_n $$</p>
-<h3 id="大数定律和中心极限定理"><a class="header-anchor" href="#大数定律和中心极限定理">¶</a>大数定律和中心极限定理</h3>
-<h4 id="大数定律"><a class="header-anchor" href="#大数定律">¶</a>大数定律</h4>
+<h3 id="大数定律和中心极限定理">大数定律和中心极限定理</h3>
+<h4 id="大数定律">大数定律</h4>
 <p>设 $X_1,X_2,\cdots,X_n,\cdots$ 是独立同分布的随机变量列，且 $E(X_1),D(X_1)$ 存在，则对任意的 $\varepsilon \gt 0$，有：</p>
 <p>$$ \lim_{n \to \infty}P \left\{ \left| \frac{S_n}{n} - E(X_1) \right| \ge \varepsilon \right\} = 0 $$</p>
 <p>这说明，<strong>只要 $n$ 足够大，算术平均值 $\frac{1}{n} (X_1+X_2+\cdots+X_n)$ 将无限接近于期望</strong>。这是整个概率论所基于的基本定理。</p>
-<h4 id="强大数定律"><a class="header-anchor" href="#强大数定律">¶</a>强大数定律</h4>
+<h4 id="强大数定律">强大数定律</h4>
 <p>经过细致的研究发现，只要 $E(X_1)$ 存在，不管 $D(X_1)$ 是否存在，大数定律依然成立，而且可以得到更强的结论：</p>
 <p>$$ P \left\{ \lim_{n\to\infty} \frac{S_n}{n} =E(X_1) \right\} = 1 $$</p>
 <p>将该式称为强大数定律。</p>
-<h4 id="中心极限定理"><a class="header-anchor" href="#中心极限定理">¶</a>中心极限定理</h4>
+<h4 id="中心极限定理">中心极限定理</h4>
 <p>设 $X_1,X_2,\cdots,X_n,\cdots$ 是独立同分布的随机变量列，且 $E(X_1),D(X_1)$ 存在，$D(X_1) \neq 1$，则对一切实数 $a \lt b$，有：</p>
-<p>$$ \lim_{n\to\infty}P \left\{ a \lt \frac{S_n-n E(X_1)}{\sqrt{n D(X_1)}} \lt b \right\} = \int_{a}^{b} \frac{1}{\sqrt{2\pi}} e^{-\frac{u^2}{2}} \mathrm{d}u $$</p>
+<p>$$ \lim_{n\to\infty}P \left\{ a \lt \frac{S_n-n E(X_1)}{\sqrt{n D(X_1)}} \lt b \right\} = \int_{a}^{b} \frac{1}{\sqrt{2\pi}} e<sup>{-\frac{u</sup>2}{2}} \mathrm{d}u $$</p>
 <p>这里，$S_n = X_1+X_2+\cdots+X_n$</p>
 <p>如果记 $\overline{X} = \frac{1}{n}(X_1+X_2+\cdots+X_n)$，上式也可写成：</p>
-<p>$$ \lim_{n\to\infty} P \left\{ a \lt \frac{\overline{X}-E(X_1)}{\sqrt{D(X_1)/n}} \lt b \right\} = \int_{a}^{b} \frac{1}{\sqrt{2\pi}} e^{-\frac{u^2}{2}} \mathrm{d}u $$</p>
+<p>$$ \lim_{n\to\infty} P \left\{ a \lt \frac{\overline{X}-E(X_1)}{\sqrt{D(X_1)/n}} \lt b \right\} = \int_{a}^{b} \frac{1}{\sqrt{2\pi}} e<sup>{-\frac{u</sup>2}{2}} \mathrm{d}u $$</p>
 <p>这表明，只要 $n$ 足够大，随机变量 $\frac{\overline{X}-E(X_1)}{\sqrt{D(X_1)/n}}$ 就近似地服从标准正态分布，从而 $\overline{X}$ 近似地服从正态分布。故<strong>中心极限定理表达了正态分布在概率论中的特殊地位</strong>，尽管 $X_1$ 的分布是任意的，但只要 $n$ 充分大，算数平均值 $\overline{X}$ 的分布却是近似正态的。</p>
-<h2 id="第五章-统计估值"><a class="header-anchor" href="#第五章-统计估值">¶</a>第五章 统计估值</h2>
-<h3 id="总体与样本"><a class="header-anchor" href="#总体与样本">¶</a>总体与样本</h3>
+<h2 id="第五章-统计估值">第五章 统计估值</h2>
+<h3 id="总体与样本">总体与样本</h3>
 <p><strong>样本定义</strong>：称随机变量 $X_1,X_2,\cdots,X_n$ 为来自总体 $X$ 的容量为 $n$ 的样本，如果 $X_1,X_2,\cdots,X_n$ <strong>相互独立</strong>，而且每个 $X_i$ 与 $X$ 有相同的概率分布。这时，若 $X$ 有分布密度 $p(x)$ ，则常简称 $X_1,X_2,\cdots,X_n$ 是来自总体 $p(x)$ 的样本。</p>
 <p><strong>定理</strong>：若 $X_1,X_2,\cdots,X_n$ 是来自总体的 $p(x)$ 的样本，则 $(X_1,X_2,\cdots,X_n)$ 有联合密度 $p(x_1)p(x_2)\cdots p(x_n)$ 。</p>
-<h3 id="分布函数与分布密度的估计"><a class="header-anchor" href="#分布函数与分布密度的估计">¶</a>分布函数与分布密度的估计</h3>
-<h4 id="经验分布函数"><a class="header-anchor" href="#经验分布函数">¶</a>经验分布函数</h4>
+<h3 id="分布函数与分布密度的估计">分布函数与分布密度的估计</h3>
+<h4 id="经验分布函数">经验分布函数</h4>
 <p>设 $X$ 是一个随机变量，具有一系列样本值 $x_1,x_2,\cdots,x_n$ ，称函数</p>
 <p>$$ F_n(x) = \frac{v_n}{n} $$</p>
 <p>为 $X$ 的经验分布函数。其中，$v_n$ 为 $x_1,x_2,\cdots,x_n$ 中不超过 $x$ 的个数。</p>
-<h4 id="经验分布密度"><a class="header-anchor" href="#经验分布密度">¶</a>经验分布密度</h4>
+<h4 id="经验分布密度">经验分布密度</h4>
 <p>经验分布密度可采用经验分布函数进行估计。</p>
 <p>当 $h$ 足够小时，易知</p>
 <p>$$ p(x)=\frac{F(x+h)-F(x-h)}{2h} $$</p>
 <p>对应地，可以得到：</p>
 <p>$$ \hat{p_n}(x)=\frac{F_n(x+h)-F_n(x-h)}{2h} $$</p>
 <p>具体方法包括：</p>
-<h5 id="1-直方图法"><a class="header-anchor" href="#1-直方图法">¶</a>(1) 直方图法</h5>
+<h5 id="1-直方图法">(1) 直方图法</h5>
 <p>作直方图，当分组数足够大，分组间距足够小时，所有小矩形顶端的连线近似刻画了分布密度函数</p>
-<h5 id="2-核估计法"><a class="header-anchor" href="#2-核估计法">¶</a>(2) 核估计法</h5>
+<h5 id="2-核估计法">(2) 核估计法</h5>
 <p><strong>核函数定义</strong>：设 $K(x)$ 是非负函数且 $\int_{-\infty}^{+\infty}K(x)\mathrm{d}x = 1$ ，则称 $K(x)$ 是核函数。核函数有很大的选择自由，例如：</p>
 <p>$$ K_0(x) = \begin{cases}<br>
 1/2 \quad &amp; -1\le x\lt 1 \\<br>
@@ -1020,7 +1020,7 @@ D(X_1+X_2+\cdots+x_n) &amp;= D(X_1) + D(X_2) + \cdots + D(X_n)<br>
 1 \quad &amp; -1/2 \le x \lt 1/2 \\<br>
 0 \quad &amp; \text{其他}<br>
 \end{cases} $$</p>
-<p>$$ K_2(x) = \frac{1}{\sqrt{2\pi}}e^{-x^2/2} $$</p>
+<p>$$ K_2(x) = \frac{1}{\sqrt{2\pi}}e<sup>{-x</sup>2/2} $$</p>
 <p>$$ K_3(x) = \frac{1}{\pi(1+x^2)} $$</p>
 <p>$$ K_4(x) = \frac{1}{2\pi}\left( \frac{\sin(x/2)}{x/2} \right)^2 $$</p>
 <p><strong>核估计</strong>：称函数</p>
@@ -1030,8 +1030,8 @@ D(X_1+X_2+\cdots+x_n) &amp;= D(X_1) + D(X_2) + \cdots + D(X_n)<br>
 <p>可以这样理解核估计中核函数 $K \left( \frac{x-x_i}{h} \right)$ 的作用：<br>
 随机变量 $X$ 在 $x$ 处的概率由核函数确定，核函数将散落在 $x$ 附近一定范围内（若干单位个 $h$ 值）的所有样本点 $x_i$ 作为 $P\{X=x\}$ 的一部分权重。而 $\displaystyle \sum_{i=1}^{n}K \left( \frac{x-x_i}{h} \right)$ 即为所有样本点对 $P\{X=x\}$ 贡献权重的总和。</p>
 </blockquote>
-<h5 id="3-最近邻估计法"><a class="header-anchor" href="#3-最近邻估计法">¶</a>(3) 最近邻估计法</h5>
-<h3 id="最大似然估计"><a class="header-anchor" href="#最大似然估计">¶</a>最大似然估计</h3>
+<h5 id="3-最近邻估计法">(3) 最近邻估计法</h5>
+<h3 id="最大似然估计">最大似然估计</h3>
 <p><strong>适用情况</strong>：已知随机变量的分布类型，但不知道参数的值，在此种情况下要得到分布密度可采用最大似然估计法。</p>
 <p>例如：已知随机变量 $X$ 满足正态分布，但不知道 $\mu,\sigma^2$ 的值，此时可采用最大似然估计法。</p>
 <p><strong>似然函数</strong>：假设已知随机变量 $X$ 的分布密度为 $p(x;\theta_1,\theta_2,\cdots,\theta_m)$ ，但不知道其中的参数 $\theta_1,\theta_2,\cdots,\theta_m$ ，现给定样本值 $x_1,x_2,\cdots,x_n$ ，称函数</p>
@@ -1046,9 +1046,9 @@ D(X_1+X_2+\cdots+x_n) &amp;= D(X_1) + D(X_2) + \cdots + D(X_n)<br>
 \frac{\partial\ln L_n}{\partial \theta_m} &amp;= 0 \\<br>
 \end{aligned} \right. $$</p>
 <p>如此便可解得 $\hat{\theta}_1,\hat{\theta}_2,\cdots,\hat{\theta}_n$ 。</p>
-<h3 id="期望和方差的点估计"><a class="header-anchor" href="#期望和方差的点估计">¶</a>期望和方差的点估计</h3>
+<h3 id="期望和方差的点估计">期望和方差的点估计</h3>
 <p>有时并不需要求得密度函数，而只需获得某些数字特征，这类估计称作点估计。</p>
-<h4 id="期望的点估计"><a class="header-anchor" href="#期望的点估计">¶</a>期望的点估计</h4>
+<h4 id="期望的点估计">期望的点估计</h4>
 <p>利用 $\displaystyle \overline{X}=\frac{X_1+X_2+\cdots+X_n}{n}$ 来估计期望 $E(x)$ <strong>不存在系统偏差</strong>。即：</p>
 <p>$$ E(\overline{X})=E(X) $$</p>
 <p>证明：</p>
@@ -1060,13 +1060,13 @@ E(\overline{X}) &amp;= E \left( \frac{X_1+X_2+\cdots+X_n}{n} \right) \\<br>
 <p>同理还可以得到:</p>
 <p>$$ D(\overline{X})=\frac{D(X)}{n} $$</p>
 <p>这说明，样本数量 $n$ 越大，用 $\overline{X}$ 来估计 $E(X)$ 的波动越小，即估计越优良。</p>
-<h4 id="方差的点估计"><a class="header-anchor" href="#方差的点估计">¶</a>方差的点估计</h4>
-<p>利用 $\displaystyle S^2=\frac{1}{n-1}\sum_{i=1}^{n}(x_i-\overline{x})^2$ 来估计方差 $D(X)$ 不存在系统偏差。即：</p>
+<h4 id="方差的点估计">方差的点估计</h4>
+<p>利用 $\displaystyle S<sup>2=\frac{1}{n-1}\sum_{i=1}</sup>{n}(x_i-\overline{x})^2$ 来估计方差 $D(X)$ 不存在系统偏差。即：</p>
 <p>$$ E(S^2) = D(X) $$</p>
-<p>需要注意，我们习惯使用的 $\displaystyle \frac{1}{n}\sum_{i=1}^{n}(x_i-\overline{x})^2$ 并不是方差的无偏估计量。</p>
-<h3 id="期望的置信区间"><a class="header-anchor" href="#期望的置信区间">¶</a>期望的置信区间</h3>
+<p>需要注意，我们习惯使用的 $\displaystyle \frac{1}{n}\sum_{i=1}<sup>{n}(x_i-\overline{x})</sup>2$ 并不是方差的无偏估计量。</p>
+<h3 id="期望的置信区间">期望的置信区间</h3>
 <p>期望的点估计只是得到了期望的一个近似值，那么该近似值 $\overline{X}$ 与真实值 $E(X)$ 到低相差多少呢？这就涉及到<strong>区间估计问题</strong>。</p>
-<h4 id="已知方差-对期望进行区间估计"><a class="header-anchor" href="#已知方差-对期望进行区间估计">¶</a>已知方差，对期望进行区间估计</h4>
+<h4 id="已知方差-对期望进行区间估计">已知方差，对期望进行区间估计</h4>
 <p>对于任意随机变量 $X$ ，根据中心极限定理可知，随机变量</p>
 <p>$$ \eta = \frac{\overline{X}-E(X)}{\sqrt{\frac{D(X)}{n}}} $$</p>
 <p>是服从标准正态分布的。查表可以得到</p>
@@ -1075,7 +1075,7 @@ E(\overline{X}) &amp;= E \left( \frac{X_1+X_2+\cdots+X_n}{n} \right) \\<br>
 <p>$$ \left[ \overline{X}-1.96 \sqrt{\frac{D(X)}{n}},\;\overline{X}+1.96 \sqrt{\frac{D(X)}{n}} \right] $$</p>
 <p>以内的概率为 $95%$ 。</p>
 <p>这就是 $E(X)$ 的<strong>置信区间</strong>，<strong>置信度</strong>为 $95%$ 。</p>
-<h4 id="未知方差-对期望进行区间估计"><a class="header-anchor" href="#未知方差-对期望进行区间估计">¶</a>未知方差，对期望进行区间估计</h4>
+<h4 id="未知方差-对期望进行区间估计">未知方差，对期望进行区间估计</h4>
 <p>未知方差时，不能使用上述的置信区间公式，但我们自然会想到利用方差的无偏估计量 $S^2$ 来替代方差，即研究随机变量</p>
 <p>$$ T = \frac{\overline{X}-E(X)}{\sqrt{S^2/n}} $$</p>
 <p>的分布。经过复杂的推导发现，随机变量 $T$ 服从 $n-1$ 个自由度的 $t$ 分布：</p>
@@ -1083,36 +1083,36 @@ E(\overline{X}) &amp;= E \left( \frac{X_1+X_2+\cdots+X_n}{n} \right) \\<br>
 <p>这样就得到了 $E(X)$ 的置信区间，如下：</p>
 <p>$$ \left[ \overline{X}-\lambda \sqrt{\frac{S^2}{n}},\;\overline{X}+\lambda \sqrt{\frac{S^2}{n}} \right] $$</p>
 <p>其中 $\lambda$ 可以通过查找 $t$ 分布的<strong>临界值表</strong>获得。</p>
-<h3 id="方差的置信区间"><a class="header-anchor" href="#方差的置信区间">¶</a>方差的置信区间</h3>
+<h3 id="方差的置信区间">方差的置信区间</h3>
 <p>以下讨论只适用于<strong>服从正态分布</strong>的随机变量。</p>
 <p>从计算期望的置信区间中我们受到如下启发：</p>
 <blockquote>
 <p>要求某个量的置信区间，我们首先通过该量构造一个特殊的随机变量 $\eta$，使得 $\eta$ 的分布与所研究的随机变量 $X$ 无关，而只与样本容量 $n$ 有关。然后通过给定的置信度从 $\eta$ 的分布的临界值表中反解出置信区间。</p>
 </blockquote>
-<p>我们构造随机变量 $\displaystyle \eta=\frac{(n-1)S^2}{\sigma^2}$ ，得出其分布为 $n-1$ 个自由度的 $\chi^2$ 分布，即：</p>
+<p>我们构造随机变量 $\displaystyle \eta=\frac{(n-1)S<sup>2}{\sigma</sup>2}$ ，得出其分布为 $n-1$ 个自由度的 $\chi^2$ 分布，即：</p>
 <p>$$ p(u)=\begin{cases}<br>
 \frac{1}{2^{\frac{n-1}{2}}\Gamma(\frac{n-1}{2})} u^{(n-3)/2} e^{-u/2} \quad &amp; u\gt 0 \\<br>
 0 &amp; u\le 0\\<br>
 \end{cases} $$</p>
 <p>进而得出 $\sigma^2$ 的置信区间为：</p>
-<p>$$ \left[ \frac{(n-1)S^2}{\lambda_2},\;\frac{(n-1)S^2}{\lambda_1} \right] $$</p>
+<p>$$ \left[ \frac{(n-1)S<sup>2}{\lambda_2},\;\frac{(n-1)S</sup>2}{\lambda_1} \right] $$</p>
 <p>也即：</p>
 <p>$$ \left[ \frac{\sum_{i=1}^{n}(X_i- \overline{X})^2}{\lambda_2},\; \frac{\sum_{i=1}^{n}(X_i- \overline{X})^2}{\lambda_1} \right] $$</p>
 <p>式中 $\lambda_1,\lambda_2$ 可以通过查找 $\chi^2$ 分布的临界值表得到。</p>
-<h2 id="第六章-假设检验"><a class="header-anchor" href="#第六章-假设检验">¶</a>第六章 假设检验</h2>
-<h3 id="问题的提法"><a class="header-anchor" href="#问题的提法">¶</a>问题的提法</h3>
+<h2 id="第六章-假设检验">第六章 假设检验</h2>
+<h3 id="问题的提法">问题的提法</h3>
 <p><strong>例 1</strong>：某厂有一批产品，共 200 件，须经检验合格才能出厂，按国家标准，次品率不得超过 1% ，今在其中任意抽取 5 件，发现这 5 件含有次品。问这批产品能否出厂？</p>
 <p>从直觉上看，这批产品当然是不能出厂的，但为什么呢？</p>
 <p><strong>例 2</strong>：怎样根据一个随机变量的样本值，判断该随机变量是否服从正态分布 $N(\mu,\sigma^2)$？</p>
 <p><strong>假设检验问题</strong>：这类问题中都隐含着一种“假设”或“看法”，例 1 中的假设是：次品率 $p \le 0.01$，例 2 中的假设是：该随机变量服从正态分布 $N(\mu,\sigma^2)$ ，现在我们要检验这些假设是否正确，这类问题称为<strong>假设检验问题</strong>。</p>
 <p>回到例 1：要检验的假设是 $p\le 0.01$ ，如果假设成立，我们看看会出现什么后果。此时，假设有 200 件样品，那么其中最多有 2 件次品，任意抽取 5 件，我们来求 5 件中无次品的概率：</p>
-<p>$$ P \left\{ \text{无次品} \right\} \ge \frac{C_{198}^5}{C_{200}^5} \ge 0.95 $$</p>
+<p>$$ P \left\{ \text{无次品} \right\} \ge \frac{C_{198}<sup>5}{C_{200}</sup>5} \ge 0.95 $$</p>
 <p>于是，任抽 5 件，出现次品的概率 $\le 1-0.95=0.05$ 。这说明，如果次品率 $\le 0.01$ ，那么抽取 5 件样品，出现次品的机会是很小的，平均在 100 次抽样中，出现不到 5 次。而现在的事实是，在一次抽样实践中，竟然就发生了这种小概率事件，这是不合理的！因此假设 $p\le 0.01$ 是不能接受的。</p>
 <blockquote>
 <p>注：通常把概率不超过 0.05 的事件当做“小概率事件”，有时也把概率不超过 0.01 的事件当做小概率事件。</p>
 </blockquote>
 <p>以上分析过程可概括为<strong>概率性质的反证法</strong>。</p>
-<h3 id="一个正态总体的假设检验"><a class="header-anchor" href="#一个正态总体的假设检验">¶</a>一个正态总体的假设检验</h3>
+<h3 id="一个正态总体的假设检验">一个正态总体的假设检验</h3>
 <p>设 $X \sim N(\mu,\sigma^2)$ ，关于它的假设检验问题，主要是下列四种：</p>
 <ol>
 <li>已知方差 $\sigma^2$ ，检验假设 $H_0: \mu = \mu_0$ （$\mu_0$ 是已知数）。</li>
@@ -1121,7 +1121,7 @@ E(\overline{X}) &amp;= E \left( \frac{X_1+X_2+\cdots+X_n}{n} \right) \\<br>
 <li>未知期望 $\mu$ ，检验假设 $H_0: \sigma^2 \le \sigma_0^2$ （$\sigma_0$ 是已知数）。</li>
 </ol>
 <p>以下分别介绍。</p>
-<h4 id="1-已知方差-检验期望"><a class="header-anchor" href="#1-已知方差-检验期望">¶</a>1. 已知方差，检验期望</h4>
+<h4 id="1-已知方差-检验期望">1. 已知方差，检验期望</h4>
 <p>我们首先假设 $H_0$ 成立，看在该条件下会不会产生不合理的现象。</p>
 <p>在 $\mu=\mu_0$ 的条件下，有 $X \sim N(\mu_0,\sigma^2)$ ，假设有样品 $X_1,X_2,\cdots,X_n$ ，由中心极限定理可知：</p>
 <p>$$ U = \frac{\overline{X}-\mu_0}{\sqrt{\sigma^2/n}}  \sim  N(0,1) $$</p>
@@ -1134,54 +1134,54 @@ E(\overline{X}) &amp;= E \left( \frac{X_1+X_2+\cdots+X_n}{n} \right) \\<br>
 <p><strong>两类错误</strong>：从以上的分析过程中我们可以看到，当一个事件为小概率事件时，我们就认为它绝对不可能发生，这显然是不合理的，有时会造成错误：</p>
 <p>当一个假设实际上是成立的，我们根据对样本的计算却判定其不成立，即犯了“以真为假”的错误，这种错误称为<strong>第一类错误</strong>。</p>
 <p>反之，当一个假设实际上是不成立的，我们根据对样本的计算判定其成立，即犯了“以假为真”的错误，这种错误称为<strong>第二类错误</strong>。</p>
-<h4 id="2-未知方差-检验期望"><a class="header-anchor" href="#2-未知方差-检验期望">¶</a>2. 未知方差，检验期望</h4>
+<h4 id="2-未知方差-检验期望">2. 未知方差，检验期望</h4>
 <p>可转化为求置信区间问题，我们前面已经讲述过了，此处不再赘述。关键点是：构造随机变量</p>
 <p>$$ T = \frac{\overline{X}-\mu}{\sqrt{S^2/n}} $$</p>
 <p>$T$ 应符合 $n-1$ 个自由度的 $t$ 分布。</p>
-<h4 id="3-未知期望-检验方差"><a class="header-anchor" href="#3-未知期望-检验方差">¶</a>3. 未知期望，检验方差</h4>
-<h4 id="4-未知期望-检验方差的上限"><a class="header-anchor" href="#4-未知期望-检验方差的上限">¶</a>4. 未知期望，检验方差的上限</h4>
+<h4 id="3-未知期望-检验方差">3. 未知期望，检验方差</h4>
+<h4 id="4-未知期望-检验方差的上限">4. 未知期望，检验方差的上限</h4>
 <p>同样采用求置信区间的思路，关键点是：构造随机变量</p>
-<p>$$ W = \frac{(n-1)S^2}{\sigma^2} $$</p>
+<p>$$ W = \frac{(n-1)S<sup>2}{\sigma</sup>2} $$</p>
 <p>$W$ 应符合 $n-1$ 个自由度的 $\chi^2$ 分布。</p>
-<h3 id="两个正态总体的假设检验"><a class="header-anchor" href="#两个正态总体的假设检验">¶</a>两个正态总体的假设检验</h3>
+<h3 id="两个正态总体的假设检验">两个正态总体的假设检验</h3>
 <p>在实际问题中，除了遇到一个总体的检验问题，还常遇到两个总体的比较问题。</p>
 <p>设 $X \sim N(\mu_1,\sigma_1^2)$ ，$Y \sim N(\mu_2,\sigma_2^2)$ ，且 $X, Y$ 相互独立，主要研究以下四类问题：</p>
 <ol>
-<li>未知 $\sigma_1^2,\sigma_2^2$，但知道 $\sigma_1^2=\sigma_2^2$ ，检验假设 $H_0:\mu_1=\mu_2$</li>
+<li>未知 $\sigma_1<sup>2,\sigma_2</sup>2$，但知道 $\sigma_1<sup>2=\sigma_2</sup>2$ ，检验假设 $H_0:\mu_1=\mu_2$</li>
 <li>未知 $\mu_1,\mu_2$，检验假设 $H_0:\sigma_1^2 = \sigma_2^2$</li>
 <li>未知 $\mu_1,\mu_2$，检验假设 $H_0:\sigma_1^2 \le \sigma_2^2$</li>
-<li>未知 $\sigma_1^2,\sigma_2^2$，但知道 $\sigma_1^2 \ne \sigma_2^2$ ，检验假设 $H_0:\mu_1=\mu_2$</li>
+<li>未知 $\sigma_1<sup>2,\sigma_2</sup>2$，但知道 $\sigma_1^2 \ne \sigma_2^2$ ，检验假设 $H_0:\mu_1=\mu_2$</li>
 </ol>
 <p>以下分别讨论。</p>
-<p><strong>1. 未知 $\sigma_1^2,\sigma_2^2$ ，但知道 $\sigma_1^2=\sigma_2^2$ ，检验假设 $H_0:\mu_1=\mu_2$</strong></p>
-<p>设 $X_1,X_2,\cdots,X_{n_1}$ 来自总体 $N(\mu_1,\sigma_1^2)$，$Y_1,Y_2,\cdots,Y_{n_2}$ 来自总体 $N(\mu_2,\sigma_2^2)$，且 $X,Y$ 间相互独立。现已知 $\sigma_1^2=\sigma_2^2$，如何检验假设 $H_0:\mu_1=\mu_2$？</p>
+<p><strong>1. 未知 $\sigma_1<sup>2,\sigma_2</sup>2$ ，但知道 $\sigma_1<sup>2=\sigma_2</sup>2$ ，检验假设 $H_0:\mu_1=\mu_2$</strong></p>
+<p>设 $X_1,X_2,\cdots,X_{n_1}$ 来自总体 $N(\mu_1,\sigma_1^2)$，$Y_1,Y_2,\cdots,Y_{n_2}$ 来自总体 $N(\mu_2,\sigma_2^2)$，且 $X,Y$ 间相互独立。现已知 $\sigma_1<sup>2=\sigma_2</sup>2$，如何检验假设 $H_0:\mu_1=\mu_2$？</p>
 <p>类比前面的研究方法，我们构造一个特殊的统计量：</p>
-<p>$$ \widetilde{T} = \frac{(\overline{X}-\overline{Y})-(\mu_1-\mu_2)}{\sqrt{(n_1-1)S_1^2+(n_2-1)s_2^2}} \cdot \sqrt{\frac{n_1 n_2 (n_1+n_2-2)}{n_1+n_2}} $$</p>
+<p>$$ \widetilde{T} = \frac{(\overline{X}-\overline{Y})-(\mu_1-\mu_2)}{\sqrt{(n_1-1)S_1<sup>2+(n_2-1)s_2</sup>2}} \cdot \sqrt{\frac{n_1 n_2 (n_1+n_2-2)}{n_1+n_2}} $$</p>
 <p>数学上可以证明 $\widetilde{T}$ 服从 $n_1+n_2-2$ 个自由度的 $t$ 分布。</p>
 <p><strong>2. 未知 $\mu_1,\mu_2$ ，检验假设 $H_0:\sigma_1^2 = \sigma_2^2$</strong></p>
 <p>构造特殊的统计量：</p>
-<p>$$ \widetilde{F} = \frac{S_1^2/\sigma_1^2}{S_2^2/\sigma_2^2} $$</p>
+<p>$$ \widetilde{F} = \frac{S_1<sup>2/\sigma_1</sup>2}{S_2<sup>2/\sigma_2</sup>2} $$</p>
 <p>数学上可以证明 $\widetilde{F}$ 服从自由度为 $n_1-1, n_2-1$ 的 $F$ 分布，其中，$n_1-1,n_2-1$ 分别称为<strong>第一自由度</strong>和<strong>第二自由度</strong>。</p>
 <p><strong>3. 未知 $\mu_1,\mu_2$ ，检验假设 $H_0:\sigma_1^2 \le \sigma_2^2$</strong></p>
 <p>同 2.</p>
-<p><strong>4. 未知 $\sigma_1^2,\sigma_2^2$ ，但知道 $\sigma_1^2 \ne \sigma_2^2$ ，检验假设 $H_0:\mu_1=\mu_2$</strong></p>
+<p><strong>4. 未知 $\sigma_1<sup>2,\sigma_2</sup>2$ ，但知道 $\sigma_1^2 \ne \sigma_2^2$ ，检验假设 $H_0:\mu_1=\mu_2$</strong></p>
 <p>这是著名的 Behrens-Fisher 问题。其解决方法如下：</p>
 <p>设 $X_1,X_2,\cdots,X_{n_1}$ 来自总体 $N(\mu_1,\sigma_1^2)$ ，$Y_1,Y_2,\cdots,Y_{n_2}$ 来自总体 $N(\mu_2,\sigma_2^2)$ ，且 $X,Y$ 间相互独立。</p>
 <p>$\overline{X}, \overline{Y}, S_1^2, S_2^2$ 分别表示样本 1、2 的均值，样本 1、2 的方差。易知：</p>
-<p>$$ \overline{X}-\overline{Y}  \sim  N \left( \mu_1-\mu_2,\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2} \right) $$</p>
+<p>$$ \overline{X}-\overline{Y}  \sim  N \left( \mu_1-\mu_2,\frac{\sigma_1<sup>2}{n_1}+\frac{\sigma_2</sup>2}{n_2} \right) $$</p>
 <p>于是：</p>
-<p>$$ \frac{\overline{X}-\overline{Y}-(\mu_1-\mu_2)}{\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}} \sim  N(0,1) $$</p>
+<p>$$ \frac{\overline{X}-\overline{Y}-(\mu_1-\mu_2)}{\sqrt{\frac{\sigma_1<sup>2}{n_1}+\frac{\sigma_2</sup>2}{n_2}}} \sim  N(0,1) $$</p>
 <p>在零假设 $H_0:\mu_1=\mu_2$ 下</p>
-<p>$$ \xi \triangleq \frac{\overline{X}-\overline{Y}}{\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}}  \sim  N(0,1) $$</p>
+<p>$$ \xi \triangleq \frac{\overline{X}-\overline{Y}}{\sqrt{\frac{\sigma_1<sup>2}{n_1}+\frac{\sigma_2</sup>2}{n_2}}}  \sim  N(0,1) $$</p>
 <p>可见 $\left| \xi \right|$ 值太大时应拒绝 $H_0$ ，但由于 $\sigma_1^2, \sigma_2^2$ 是未知的，自然想到用 $S_1^2, S_2^2$ 分别代替，得到统计量：</p>
-<p>$$ T = \frac{\overline{X}-\overline{Y}}{\sqrt{\frac{S_1^2}{n_1}+\frac{S_2^2}{n_2}}} $$</p>
-<p>然而，$T$ 的精确分布依然相当复杂，且依赖于比值 $\frac{\sigma_1^2}{\sigma_2^2}$ 。幸运的是，数学上可以证明，统计量 $T$ 近似服从 $m$ 个自由度的 $t$ 分布，这个 $m$ 乃是与以下 $m^\ast$ 最接近的整数：</p>
-<p>$$ m^\ast = \frac{\left( \frac{1}{n_1}S_1^2+\frac{1}{n_2}S_2^2 \right)^2}{\frac{1}{n_1-1}\left( \frac{S_1^2}{n_1} \right)^2 + \frac{1}{n_2-1}\left( \frac{S_2^2}{n_2} \right)^2} $$</p>
+<p>$$ T = \frac{\overline{X}-\overline{Y}}{\sqrt{\frac{S_1<sup>2}{n_1}+\frac{S_2</sup>2}{n_2}}} $$</p>
+<p>然而，$T$ 的精确分布依然相当复杂，且依赖于比值 $\frac{\sigma_1<sup>2}{\sigma_2</sup>2}$ 。幸运的是，数学上可以证明，统计量 $T$ 近似服从 $m$ 个自由度的 $t$ 分布，这个 $m$ 乃是与以下 $m^\ast$ 最接近的整数：</p>
+<p>$$ m^\ast = \frac{\left( \frac{1}{n_1}S_1<sup>2+\frac{1}{n_2}S_2</sup>2 \right)^2}{\frac{1}{n_1-1}\left( \frac{S_1^2}{n_1} \right)^2 + \frac{1}{n_2-1}\left( \frac{S_2^2}{n_2} \right)^2} $$</p>
 <p>利用 $t$ 分布表，找临界值 $\lambda$ 满足 $P(|T|&gt;\lambda)=a$ ，于是当且仅当 $|T|&gt;\lambda$ 时拒绝 $H_0: \mu_1=\mu_2$</p>
-<h2 id="第七章-回归分析"><a class="header-anchor" href="#第七章-回归分析">¶</a>第七章 回归分析</h2>
+<h2 id="第七章-回归分析">第七章 回归分析</h2>
 <p>回归分析是用来处理多个变量之间<strong>相关关系</strong>的一种数学方法。<strong>相关关系</strong>不同于<strong>函数关系</strong>，在相关关系中，多个变量之间明显相关，但并不具有完全确定性的关系，例如人的身高和体重，虽然凭借身高并不能精确确定体重，但总体来说有“身高者，体也重”的关系。</p>
-<h3 id="一元线性回归"><a class="header-anchor" href="#一元线性回归">¶</a>一元线性回归</h3>
-<h4 id="经验公式与最小二乘法"><a class="header-anchor" href="#经验公式与最小二乘法">¶</a>经验公式与最小二乘法</h4>
+<h3 id="一元线性回归">一元线性回归</h3>
+<h4 id="经验公式与最小二乘法">经验公式与最小二乘法</h4>
 <p>对于有一定关系的两个变量 $X,Y$ ，在观测中得到若干组数据 $(x_1,y_1),(x_2,y_2),\cdots,(x_n,y_n)$，我们怎样获取 $X,Y$ 之间的经验公式呢？</p>
 <p><strong>step 1</strong>：作出<strong>散点图</strong>，大致确定经验公式的形式。若散点图大致为线性关系，那么我们可以得到如下经验公式：</p>
 <p>$$ \hat{y} = a + bx $$</p>
@@ -1208,11 +1208,11 @@ E(\overline{X}) &amp;= E \left( \frac{X_1+X_2+\cdots+X_n}{n} \right) \\<br>
 <p>解得：</p>
 <p>$$ \left\{<br>
 \begin{aligned}<br>
-b &amp;= \frac{\sum\limits_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\sum\limits_{i=1}^{n}(x_i-\bar{x})^2} \\<br>
+b &amp;= \frac{\sum\limits_{i=1}<sup>{n}(x_i-\bar{x})(y_i-\bar{y})}{\sum\limits_{i=1}</sup>{n}(x_i-\bar{x})^2} \\<br>
 a &amp;= \bar{y} - b \bar{x}<br>
 \end{aligned}<br>
 \right. $$</p>
-<h5 id="当相关关系不是线性关系时如何使用最小二乘法？"><a class="header-anchor" href="#当相关关系不是线性关系时如何使用最小二乘法？">¶</a>当相关关系不是线性关系时如何使用最小二乘法？</h5>
+<h5 id="当相关关系不是线性关系时如何使用最小二乘法？">当相关关系不是线性关系时如何使用最小二乘法？</h5>
 <p>采用适当的转化，构造原变量的生成变量，使得生成变量之间具有线性关系。</p>
 <p>例如：变量 $X,Y$ 有如下相关关系：</p>
 <p>$$ y = A e^{-B/x} $$</p>
@@ -1223,7 +1223,7 @@ a &amp;= \bar{y} - b \bar{x}<br>
 y^\ast &amp;= \ln y \\<br>
 x^\ast &amp;= \frac{1}{x}<br>
 \end{aligned} $$</p>
-<p>则两个新变量 $y^\ast,x^\ast$ 之间的关系便是线性的了，我们将 $x,y$ 的观测数值转化为这两种形式即可。</p>
+<p>则两个新变量 $y<sup>\ast,x</sup>\ast$ 之间的关系便是线性的了，我们将 $x,y$ 的观测数值转化为这两种形式即可。</p>
 
     </div>
 

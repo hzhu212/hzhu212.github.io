@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hzhu212.github.io/"/>
-  <updated>2021-01-06T03:58:44.703Z</updated>
+  <updated>2021-02-04T06:57:27.084Z</updated>
   <id>https://hzhu212.github.io/</id>
   
   <author>
@@ -17,11 +17,35 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>LSM Tree - 对频繁写友好的数据结构</title>
+    <link href="https://hzhu212.github.io/posts/2d7c5edb/"/>
+    <id>https://hzhu212.github.io/posts/2d7c5edb/</id>
+    <published>2021-02-03T13:08:14.000Z</published>
+    <updated>2021-02-04T06:57:27.084Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;LSM tree (log-structured merge-tree)&lt;/strong&gt; 是一种对频繁写操作非常友好的数据结构，同时兼顾了查询效率。LSM tree 是许多 key-value 型或日志型数据库所依赖的核心数据结构，例如 &lt;a href=&quot;https://cloud.google.com/bigtable&quot;&gt;BigTable&lt;/a&gt;、&lt;a href=&quot;https://hbase.apache.org/&quot;&gt;HBase&lt;/a&gt;、&lt;a href=&quot;https://cassandra.apache.org/&quot;&gt;Cassandra&lt;/a&gt;、&lt;a href=&quot;https://github.com/google/leveldb&quot;&gt;LevelDB&lt;/a&gt;、&lt;a href=&quot;https://www.sqlite.org/&quot;&gt;SQLite&lt;/a&gt;、&lt;a href=&quot;https://www.scylladb.com/&quot;&gt;Scylla&lt;/a&gt;、&lt;a href=&quot;https://rocksdb.org/&quot;&gt;RocksDB&lt;/a&gt; 等。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术" scheme="https://hzhu212.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="数据结构" scheme="https://hzhu212.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="数据库" scheme="https://hzhu212.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+      <category term="大数据" scheme="https://hzhu212.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+  </entry>
+  
+  <entry>
     <title>shell命令的标准输入(stdin)</title>
     <link href="https://hzhu212.github.io/posts/2c63bd16/"/>
     <id>https://hzhu212.github.io/posts/2c63bd16/</id>
     <published>2021-01-06T03:04:27.000Z</published>
-    <updated>2021-01-06T03:58:44.703Z</updated>
+    <updated>2021-02-04T06:57:22.273Z</updated>
     
     <summary type="html">
     

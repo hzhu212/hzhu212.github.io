@@ -8,8 +8,8 @@
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.jpg">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
 <link rel="stylesheet" href="/css/main.css">
@@ -217,7 +217,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -228,7 +228,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -346,7 +346,7 @@
         <p>本文为 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av6731067/?p=1">3Blue1Brown-线性代数的本质</a> 系列视频的笔记。</p>
 <a id="more"></a>
 <p>该系列视频专注于建立线性代数中的<strong>几何直觉</strong>，而对基本定义、计算方法、公式定理等不做详细介绍，关于这部分内容可以参考普通线性代数教材。</p>
-<h2 id="向量究竟是什么"><a class="header-anchor" href="#向量究竟是什么">¶</a>向量究竟是什么</h2>
+<h2 id="向量究竟是什么">向量究竟是什么</h2>
 <p>对于向量，有三个不同的理解视角：</p>
 <ol>
 <li>物理学视角：向量是空间中的一个箭头，具有一定的<strong>长度</strong>和<strong>方向</strong>。在空间中平移向量不会改变其值。</li>
@@ -356,7 +356,7 @@
 <p>通过引入坐标系，我们可以整合前两种观点，获得新的向量视角：</p>
 <p><strong>向量是坐标系中的一个箭头，起点固定在坐标原点，终点落在某个坐标上。向量的终点坐标就是向量的数值表示。</strong></p>
 <p><img src="https://raw.githubusercontent.com/hzhu212/image-store/master/blog/20190622142401.png" alt=""></p>
-<h3 id="向量的加法"><a class="header-anchor" href="#向量的加法">¶</a>向量的加法</h3>
+<h3 id="向量的加法">向量的加法</h3>
 <p>从数值角度看，向量加法的定义非常直接，即<strong>把两个向量的对应坐标分别相加</strong>。但这样的定义隐含着怎样的含义呢？为什么要这么定义向量加法？</p>
 <p>从几何角度看，向量 $\mathbf{v} + \mathbf{w}$，相当于把 $\mathbf{w}$ 的起点移动到 $\mathbf{v}$ 的终点后，从 $\mathbf{v}$ 的起点指向 $\mathbf{w}$ 的终点的向量。</p>
 <p><img src="https://raw.githubusercontent.com/hzhu212/image-store/master/blog/20190622142718.png" alt=""></p>
@@ -364,11 +364,11 @@
 <p><img src="https://raw.githubusercontent.com/hzhu212/image-store/master/blog/20190622142736.png" alt=""></p>
 <p>有一种思维方式可以很好地解释这个问题，即把向量想象成某种“运动”，那么向量的加法就会非常直观：一个物体先沿着向量 $\mathbf{v}$ 运动，再沿着向量 $\mathbf{w}$ 运动，其“合运动”就是从 $\mathbf{v}$ 的起点到 $\mathbf{w}$ 的终点。</p>
 <p><img src="https://raw.githubusercontent.com/hzhu212/image-store/master/blog/20190622121011862_26397.gif" alt=""></p>
-<h3 id="向量的数乘"><a class="header-anchor" href="#向量的数乘">¶</a>向量的数乘</h3>
+<h3 id="向量的数乘">向量的数乘</h3>
 <p>向量的数乘就是使用一个实数乘以一个向量。从数值角度看，向量数乘的定义非常直接，即把向量的所有坐标分别乘以该实数。</p>
 <p>从几何角度看，向量数乘就是把向量的长度<strong>缩放</strong>（Scaling）某个倍数，同时方向保持不变（如果缩放倍数为负，则向量反向）。缩放的倍数被称为<strong>标量（Scalar）</strong>。</p>
 <p>在线性代数中，<strong>一个标量几乎总是对应着一种缩放作用</strong>。</p>
-<h2 id="线性组合-张成的空间与基"><a class="header-anchor" href="#线性组合-张成的空间与基">¶</a>线性组合、张成的空间与基</h2>
+<h2 id="线性组合-张成的空间与基">线性组合、张成的空间与基</h2>
 <p>我们介绍一种新的思维方式来看待向量的坐标：</p>
 <p>对于向量 $\begin{bmatrix} 3 \cr -2 \end{bmatrix}$，我们可以把它的两个坐标分别看作两个标量，即 $3$ 和 $-2$。根据上一节的内容，这两个标量分别代表着对两个向量的缩放作用，这两个向量隐含在坐标系中，分别为 $x$ 轴方向和 $y$ 轴方向的<strong>单位向量</strong>，记作 $\boldsymbol{\hat{\imath}}$，$\boldsymbol{\hat{\jmath}}$。</p>
 <p>那么向量的坐标表示可以自然地转化为<strong>对单位向量缩放然后求和</strong>：</p>
@@ -391,7 +391,7 @@
 <p>后两种情况在三维或更高维空间同样存在。在这类情况下，我们的原始向量组合中至少存在一个向量没有对张成的空间作出任何贡献。此时，我们称原始向量组合是<strong>线性相关</strong>的。</p>
 <p>在一组线性相关的向量组合中，某些向量可以通过其余向量的线性组合表示出来，因而去掉这些向量不会影响张成的空间。反之，如果在一组向量中，任意一个向量都不能通过其余向量的线性组合表示出来，那么称这组向量是<strong>线性无关</strong>的。</p>
 <p>在此基础上，我们可以给出<strong>基</strong>的严格定义：<strong>向量空间的一组基是张成该空间的一组线性无关的向量</strong>。</p>
-<h2 id="矩阵与线性变换"><a class="header-anchor" href="#矩阵与线性变换">¶</a>矩阵与线性变换</h2>
+<h2 id="矩阵与线性变换">矩阵与线性变换</h2>
 <p>变换（transformation）本质上是一种函数（function），它接受一个向量作为输入，然后输出一个新的向量。</p>
 <p>之所以称之为变换，而不是简单地称作函数，是因为变换隐含着“运动”的含义，而这种运动是能够可视化的：</p>
 <p><img src="https://raw.githubusercontent.com/hzhu212/image-store/master/blog/20190622110726823_15747.gif" alt=""></p>
@@ -494,7 +494,7 @@ $$ L(c \mathbf{v}) = c L(\mathbf{v}) $$</p>
 </li>
 </ol>
 <p>则称该函数或变换满足线性。</p>
-<h2 id="矩阵乘法与线性变换复合"><a class="header-anchor" href="#矩阵乘法与线性变换复合">¶</a>矩阵乘法与线性变换复合</h2>
+<h2 id="矩阵乘法与线性变换复合">矩阵乘法与线性变换复合</h2>
 <p>很多时候，我们需要描述两个或多个线性变换的相继作用。</p>
 <p>例如，我们想要描述这个变换：先逆时针旋转 90°，然后向右剪切一个单位。</p>
 <p><img src="https://raw.githubusercontent.com/hzhu212/image-store/master/blog/20190622120022752_12538.gif" alt=""></p>
@@ -525,7 +525,7 @@ $$ L(c \mathbf{v}) = c L(\mathbf{v}) $$</p>
 \begin{bmatrix} e &amp; f \cr g &amp; h \end{bmatrix} =<br>
 \begin{bmatrix} ae+bg &amp; af+bh \cr ce+dg &amp; cf+dh \end{bmatrix} $$</p>
 <p>这就是矩阵乘法的计算公式。</p>
-<h2 id="行列式"><a class="header-anchor" href="#行列式">¶</a>行列式</h2>
+<h2 id="行列式">行列式</h2>
 <p>矩阵对应着一个线性变换，而矩阵的行列式则表征着该线性变换<strong>将空间缩放的比例</strong>。对于二维空间，行列式是面积缩放的比例。对于三维空间，行列式是体积缩放的比例。高维空间以此类推。</p>
 <p><img src="https://raw.githubusercontent.com/hzhu212/image-store/master/blog/20190622143112.png" alt=""></p>
 <p>如果线性变换将空间的维度降低，例如将二维平面压缩到一条直线上，那么行列式的值为零。</p>
@@ -542,7 +542,7 @@ a \det\left( \begin{bmatrix} e &amp; f \cr h &amp; i \end{bmatrix} \right) -<br>
 b \det\left( \begin{bmatrix} d &amp; f \cr g &amp; i \end{bmatrix} \right) +<br>
 c \det\left( \begin{bmatrix} d &amp; e \cr g &amp; h \end{bmatrix} \right) $$</p>
 <p>更高阶的行列式可类比这种处理方法，依次降阶。</p>
-<h2 id="逆矩阵-列空间与零空间"><a class="header-anchor" href="#逆矩阵-列空间与零空间">¶</a>逆矩阵、列空间与零空间</h2>
+<h2 id="逆矩阵-列空间与零空间">逆矩阵、列空间与零空间</h2>
 <p>矩阵的一个重要应用是求解<strong>线性方程组</strong>。</p>
 <p>线性方程组是类似于这样的一个方程组：</p>
 <p>$$ \begin{aligned}<br>
@@ -597,7 +597,7 @@ c \det\left( \begin{bmatrix} d &amp; e \cr g &amp; h \end{bmatrix} \right) $$</p
 <p>$$ A \mathbf{x} = \mathbf{0} $$</p>
 <p>式中的 $\mathbf{0}$ 代表零向量，即所有元素均为零的向量。</p>
 <p>显然，满秩矩阵的零空间只包含一个零向量。反之，如果一个线性变换的零空间包含除零向量以外的向量，那么可以断定该线性变换对应的矩阵为非满秩矩阵。</p>
-<h2 id="非方阵"><a class="header-anchor" href="#非方阵">¶</a>非方阵</h2>
+<h2 id="非方阵">非方阵</h2>
 <p>到此为止，我们讨论线性变换时都只考虑了方阵，因为方阵所代表的线性变换具有非常直观的几何意义。</p>
 <p>相比之下，非方阵的几何含义则不那么容易解释。例如一个 $3\times 2$ 的矩阵：</p>
 <p>$$ \begin{bmatrix}<br>
@@ -616,7 +616,7 @@ c \det\left( \begin{bmatrix} d &amp; e \cr g &amp; h \end{bmatrix} \right) $$</p
 <p>代表怎样的线性变换呢？</p>
 <p>通过类似的分析过程，我们知道该矩阵的输入空间为三维，输出空间则是二维，显然是非满秩的。虽然有三个基向量，但每个基向量都是二维的，因此最多张成一个二维空间。</p>
 <p>有一类特殊的非方阵是 $1\times n$ 矩阵，也被称作行向量。它们将 $n$ 维空间变换到一维空间，也就是实数轴，这类变换与向量的点积运算具有奇妙的对应关系。</p>
-<h2 id="点积与对偶性"><a class="header-anchor" href="#点积与对偶性">¶</a>点积与对偶性</h2>
+<h2 id="点积与对偶性">点积与对偶性</h2>
 <p>从数值计算角度，向量点积的定义是这样的：两个维数相同的向量，将它们的对应坐标分别相乘，然后求和。例如：</p>
 <p>$$ \begin{bmatrix} 2 \cr 7 \cr 1 \end{bmatrix} \cdot<br>
 \begin{bmatrix} 8 \cr 2 \cr 8 \end{bmatrix} =<br>
@@ -645,7 +645,7 @@ c \det\left( \begin{bmatrix} d &amp; e \cr g &amp; h \end{bmatrix} \right) $$</p
 <blockquote>
 <p>一般来说，提到线性变换我们会联想到一个矩阵，而不是一个向量。</p>
 </blockquote>
-<h2 id="基变换"><a class="header-anchor" href="#基变换">¶</a>基变换</h2>
+<h2 id="基变换">基变换</h2>
 <p>一个坐标系由坐标系的基向量完全确定。基向量可以随意选取，但我们通常使用正交的 $\boldsymbol{\hat{\imath}}$ 和 $\boldsymbol{\hat{\jmath}}$。</p>
 <p>现假设有一个坐标系以 $\boldsymbol{\hat{\imath}}$ 和 $\boldsymbol{\hat{\jmath}}$ 为基向量，我们称它为原始坐标系 $S_0$。同时有另一组基向量 $\mathbf{b}_1$ 和 $\mathbf{b}_2$，它们确定了一个新的坐标系 $S_1$。为了方便说明，我们给出 $\mathbf{b}_1$，$\mathbf{b}_2$ 在 $S_0$ 下的坐标表示：</p>
 <p>$$ \mathbf{b}_1 = \begin{bmatrix} 2 \cr 1 \end{bmatrix} \qquad \mathbf{b}_2 = \begin{bmatrix} -1 \cr 1 \end{bmatrix} $$</p>
@@ -677,7 +677,7 @@ c \det\left( \begin{bmatrix} d &amp; e \cr g &amp; h \end{bmatrix} \right) $$</p
 </ul>
 <p>在上述过程中，我们通过相继施加三个线性变换，构造了一个由 $S_1$ 所表述的复合变换 $M’$，它对空间的变换效果等同于由 $S_0$ 所表述的线性变换 $M$。写作矩阵乘法的形式如下：</p>
 <p>$$ M’ = A^{-1} M A $$</p>
-<h2 id="特征值与特征向量"><a class="header-anchor" href="#特征值与特征向量">¶</a>特征值与特征向量</h2>
+<h2 id="特征值与特征向量">特征值与特征向量</h2>
 <p>在一个线性变换中，大多数的向量会脱离自己张成的空间：</p>
 <p><img src="https://raw.githubusercontent.com/hzhu212/image-store/master/blog/20190621160814579_20337.gif" alt=""></p>
 <p>但也存在一些特殊的向量，它们保持在自己张成的空间中，仅仅发生了伸缩变形：</p>

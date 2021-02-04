@@ -23,26 +23,30 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"hzhu212.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="远程工作的需求无非两个：  远程执行命令。 在远程与本地之间进行文件的双向传输。  所有的远程工作流都需要考虑如何提高这两个操作的效率。">
+<meta name="description" content="LSM tree (log-structured merge-tree) 是一种对频繁写操作非常友好的数据结构，同时兼顾了查询效率。LSM tree 是许多 key-value 型或日志型数据库所依赖的核心数据结构，例如 BigTable、HBase、Cassandra、LevelDB、SQLite、Scylla、RocksDB 等。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="远程工作流">
-<meta property="og:url" content="https://hzhu212.github.io/posts/8247595/index.html">
+<meta property="og:title" content="LSM Tree - 对频繁写友好的数据结构">
+<meta property="og:url" content="https://hzhu212.github.io/posts/2d7c5edb/index.html">
 <meta property="og:site_name" content="Henry&#39;s Blog">
-<meta property="og:description" content="远程工作的需求无非两个：  远程执行命令。 在远程与本地之间进行文件的双向传输。  所有的远程工作流都需要考虑如何提高这两个操作的效率。">
+<meta property="og:description" content="LSM tree (log-structured merge-tree) 是一种对频繁写操作非常友好的数据结构，同时兼顾了查询效率。LSM tree 是许多 key-value 型或日志型数据库所依赖的核心数据结构，例如 BigTable、HBase、Cassandra、LevelDB、SQLite、Scylla、RocksDB 等。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/hzhu212/image-store/master/blog/20190921224609.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/hzhu212/image-store/master/blog/20190921224708.png">
-<meta property="article:published_time" content="2019-06-10T05:56:53.000Z">
-<meta property="article:modified_time" content="2020-12-15T03:41:28.794Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/hzhu212/image-store@master/blog/1612419000098-1612419000090.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/hzhu212/image-store@master/blog/1612358955833-1612358955820.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/hzhu212/image-store@master/blog/1612360358135-1612360358128.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/hzhu212/image-store@master/blog/1612408728966-1612408728945.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/hzhu212/image-store@master/blog/1612415672645-1612415672637.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/hzhu212/image-store@master/blog/1612416928355-1612416928350.png">
+<meta property="article:published_time" content="2021-02-03T13:08:14.000Z">
+<meta property="article:modified_time" content="2021-02-04T06:57:27.084Z">
 <meta property="article:author" content="Henry">
-<meta property="article:tag" content="远程">
-<meta property="article:tag" content="ssh">
-<meta property="article:tag" content="szrz">
+<meta property="article:tag" content="数据结构">
+<meta property="article:tag" content="数据库">
+<meta property="article:tag" content="大数据">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/hzhu212/image-store/master/blog/20190921224609.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/hzhu212/image-store@master/blog/1612419000098-1612419000090.png">
 
 
-<link rel="canonical" href="https://hzhu212.github.io/posts/8247595/">
+<link rel="canonical" href="https://hzhu212.github.io/posts/2d7c5edb/">
 
 
 <script class="page-configurations">
@@ -54,7 +58,7 @@
     lang   : 'zh-CN'
   };
 </script>
-<title>远程工作流 | Henry's Blog</title>
+<title>LSM Tree - 对频繁写友好的数据结构 | Henry's Blog</title>
   
 
 
@@ -184,7 +188,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <section class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%B8%80%E8%88%AC%E8%BF%9C%E7%A8%8B%E5%B7%A5%E4%BD%9C%E6%B5%81"><span class="nav-number">1.</span> <span class="nav-text">1. 一般远程工作流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E4%B8%AD%E7%BB%A7%E6%9C%BA%E4%B8%8B%E7%9A%84%E8%BF%9C%E7%A8%8B%E5%B7%A5%E4%BD%9C%E6%B5%81"><span class="nav-number">2.</span> <span class="nav-text">2. 中继机下的远程工作流</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-ssh-%E9%9A%A7%E9%81%93"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 SSH 隧道</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-szrz-%E5%B7%A5%E5%85%B7"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 szrz 工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E4%B8%8D%E4%BD%BF%E7%94%A8-ssh-%E8%80%8C%E6%98%AF%E5%80%9F%E5%8A%A9-ftp-http-%E7%AD%89%E5%85%B6%E4%BB%96%E5%8D%8F%E8%AE%AE"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 不使用 SSH，而是借助 FTP、HTTP 等其他协议</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%BB%88%E6%9E%81%E8%BF%9C%E7%A8%8B%E5%B7%A5%E4%BD%9C%E6%B5%81%EF%BC%9A%E5%AE%9E%E7%8E%B0%E8%BF%9C%E7%A8%8B%E5%AE%9E%E6%97%B6%E7%BC%96%E8%BE%91"><span class="nav-number">3.</span> <span class="nav-text">3. 终极远程工作流：实现远程实时编辑</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sstable"><span class="nav-number">1.</span> <span class="nav-text">SSTable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%99%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="nav-number">2.</span> <span class="nav-text">写入数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BB%E5%8F%96-%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE"><span class="nav-number">3.</span> <span class="nav-text">读取&#x2F;查询数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%90%88%E5%B9%B6-compaction"><span class="nav-number">4.</span> <span class="nav-text">文件合并（Compaction）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE"><span class="nav-number">5.</span> <span class="nav-text">删除数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lsm-tree-%E4%B8%8E-b-tree-%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="nav-number">6.</span> <span class="nav-text">LSM tree 与 B tree 的对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%EF%BC%9A"><span class="nav-number">8.</span> <span class="nav-text">参考：</span></a></li></ol></div>
         </section>
         <!--/noindex-->
 
@@ -265,7 +269,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hzhu212.github.io/posts/8247595/">
+    <link itemprop="mainEntityOfPage" href="https://hzhu212.github.io/posts/2d7c5edb/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -278,7 +282,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          远程工作流
+          LSM Tree - 对频繁写友好的数据结构
         </h1>
 
         <div class="post-meta-container">
@@ -289,14 +293,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2019-06-10 13:56:53" itemprop="dateCreated datePublished" datetime="2019-06-10T13:56:53+08:00">2019-06-10</time>
+      <time title="创建时间：2021-02-03 21:08:14" itemprop="dateCreated datePublished" datetime="2021-02-03T21:08:14+08:00">2021-02-03</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-15 11:41:28" itemprop="dateModified" datetime="2020-12-15T11:41:28+08:00">2020-12-15</time>
+        <time title="修改时间：2021-02-04 14:57:27" itemprop="dateModified" datetime="2021-02-04T14:57:27+08:00">2021-02-04</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -309,7 +313,7 @@
     </span>
 
   
-    <span id="/posts/8247595/" class="post-meta-item leancloud_visitors" data-flag-title="远程工作流" title="阅读次数">
+    <span id="/posts/2d7c5edb/" class="post-meta-item leancloud_visitors" data-flag-title="LSM Tree - 对频繁写友好的数据结构" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -325,91 +329,57 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>远程工作的需求无非两个：</p>
-<ol>
-<li>远程执行命令。</li>
-<li>在远程与本地之间进行文件的双向传输。</li>
-</ol>
-<p>所有的远程工作流都需要考虑如何提高这两个操作的效率。</p>
+        <p><strong>LSM tree (log-structured merge-tree)</strong> 是一种对频繁写操作非常友好的数据结构，同时兼顾了查询效率。LSM tree 是许多 key-value 型或日志型数据库所依赖的核心数据结构，例如 <a target="_blank" rel="noopener" href="https://cloud.google.com/bigtable">BigTable</a>、<a target="_blank" rel="noopener" href="https://hbase.apache.org/">HBase</a>、<a target="_blank" rel="noopener" href="https://cassandra.apache.org/">Cassandra</a>、<a target="_blank" rel="noopener" href="https://github.com/google/leveldb">LevelDB</a>、<a target="_blank" rel="noopener" href="https://www.sqlite.org/">SQLite</a>、<a target="_blank" rel="noopener" href="https://www.scylladb.com/">Scylla</a>、<a target="_blank" rel="noopener" href="https://rocksdb.org/">RocksDB</a> 等。</p>
 <a id="more"></a>
-<h2 id="1-一般远程工作流">1. 一般远程工作流</h2>
-<p>对于一般的远程机器，我们可以通过 ssh 进行连接和操作，并使用 <code>scp</code> 命令或 SFTP 客户端实现双向文件交换：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 登录开发机</span></span><br><span class="line">ssh dest_host</span><br><span class="line"></span><br><span class="line"><span class="comment"># 上传文件</span></span><br><span class="line">scp path/to/local_file dest_host:path/to/remote_file</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下载文件</span></span><br><span class="line">scp dest_host:path/to/remote_file path/to/local_file</span><br></pre></td></tr></table></figure>
-<p>有很多可视化的 SFTP 工具能够代替 <code>scp</code> 命令完成文件双向传输，非常方便，例如 WinSCP、Xmanager 等。</p>
-<p>主流的文本编辑器也都提供了对 SFTP 的插件支持，例如：</p>
-<ul>
-<li>Sublime Text: <a target="_blank" rel="noopener" href="https://wbond.net/sublime_packages/sftp">SFTP</a>。</li>
-<li>VSCode: <a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=liximomo.sftp">sftp</a>。</li>
-</ul>
-<p>可以很方便地上传、下载、删除、编辑远程文件。</p>
-<h2 id="2-中继机下的远程工作流">2. 中继机下的远程工作流</h2>
-<p>考虑到安全原因，公司常常会对远程开发机的入口做限制，想要连接开发机必须以一个中继机器作为中介。这时候我们需要两次 ssh 连接：首先连接到中继机，然后从中继机连接到开发机。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 登录到中继机</span></span><br><span class="line">ssh relay_host</span><br><span class="line"></span><br><span class="line"><span class="comment"># 现在我们已经在中继机上…</span></span><br><span class="line"><span class="comment"># 登录开发机</span></span><br><span class="line">ssh dest_host</span><br></pre></td></tr></table></figure>
-<p>中继机的存在除了造成登录更复杂之外，也使得文件传输更难实现，因为绝大多数 SFTP 工具都没有中继功能，在这种情况下无法使用。</p>
-<p>按照传统的方案，我们需要两次 <code>scp</code> 命令来完成一次文件上传操作：首先从本地上传到中继机，然后从中继机上传到开发机。但是这种方式显然太复杂了，而且大部分中继机对安全的要求非常苛刻，只允许使用 <code>ssh</code> 命令，导致 <code>scp</code> 方式失效。</p>
-<p>此时我们有以下三种方案来实现文件传输功能：</p>
-<h3 id="2-1-ssh-隧道">2.1 SSH 隧道</h3>
-<p>为了避免重复性的中继命令，我们可以借助 <code>ssh</code> 提供的“隧道”功能。该功能可以透过任意数量的中继机，在本地机器与目标机器之间建立一条“隧道”。因此，文件的上传、下载依然可以通过本地机器上的一条命令完成。</p>
-<p>同时，SSH 隧道有一个巨大的好处：所有的 SFTP 工具依然可用，因为隧道对外部是透明的。</p>
+<p>LSM tree 之所以有效是基于以下事实：磁盘或内存的连续读写性能远高于随机读写性能，有时候这种差距可以达到三个数量级之高。这种现象不仅对传统的机械硬盘成立，对 SSD 硬盘也同样成立。如下图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/hzhu212/image-store@master/blog/1612419000098-1612419000090.png" alt="硬盘和内存的随机读写与连续读写性能对比"></p>
+<p>LSM tree 在工作过程中尽可能避免随机读写，充分发挥了磁盘连续读写的性能优势。</p>
+<h2 id="sstable">SSTable</h2>
+<p>LSM tree 持久化到硬盘上之后的结构称为 <strong>Sorted Strings Table (SSTable)</strong>。顾名思义，SSTable 保存了<strong>排序</strong>后的数据（实际上是按照 key 排序的 key-value 对）。每个 SSTable 可以包含多个存储数据的文件，称为 segment，每个 segment 内部都是有序的，但不同 segment 之间没有顺序关系。一个 segment 一旦生成便不再修改（immutable）。一个 SSTable 的示例如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/hzhu212/image-store@master/blog/1612358955833-1612358955820.png" alt="SSTable"></p>
+<p>可以看到，每个 segment 内部的数据都是按照 key 排序的。下面我们来介绍每个 segment 是如何生成的。</p>
+<h2 id="写入数据">写入数据</h2>
+<p>LSM tree 的所有写操作均为<strong>连续写</strong>，因此效率非常高。但由于外部数据是无序到来的，如果无脑连续写入到 segment，显然是不能保证顺序的。对此，LSM tree 会在内存中构造一个有序数据结构（称为 memtable），例如红黑树。每条新到达的数据都插入到该红黑树中，从而始终保持数据有序。当写入的数据量达到一定阈值时，将触发红黑树的 flush 操作，把所有排好序的数据一次性写入到硬盘中（该过程为连续写），生成一个新的 segment。而之后红黑树便从零开始下一轮积攒数据的过程。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/hzhu212/image-store@master/blog/1612360358135-1612360358128.png" alt="红黑树被一次性写入一个新的 segment"></p>
+<h2 id="读取-查询数据">读取/查询数据</h2>
+<p>如何从 SSTable 中查询一条特定的数据呢？一个最简单直接的办法是扫描所有的 segment，直到找到所查询的 key 为止。通常应该从最新的 segment 扫描，依次到最老的 segment，这是因为<strong>越是最近的数据越可能被用户查询</strong>，把最近的数据优先扫描能够提高平均查询速度。</p>
+<p>当扫描某个特定的 segment 时，由于该 segment 内部的数据是有序的，因此可以使用二分查找的方式，在 $O(\log n)$ 的时间内得到查询结果。但对于二分查找来说，要么一次性把数据全部读入内存，要么在每次二分时都消耗一次磁盘 IO，当 segment 非常大时（这种情况在大数据场景下司空见惯），这两种情况的代价都非常高。一个简单的优化策略是，在内存中维护一个<strong>稀疏索引（sparse index）</strong>，其结构如下图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/hzhu212/image-store@master/blog/1612408728966-1612408728945.png" alt="一个 segment 的稀疏索引"></p>
 <blockquote>
-<p>关于隧道功能，可以查看 <code>ssh</code> 帮助手册中的 <code>-ProxyJump</code>、<code>-ProxyCommand</code>、<code>-R</code>、<code>-L</code> 等参数的用法。</p>
+<p>稀疏索引是指将有序数据切分成（固定大小的）块，仅对各个块开头的一条数据做索引。与之相对的是全量索引（dense index），即对全部数据编制索引，其中的任意一条数据发生增删均需要更新索引。两者相比，全量索引的查询效率更高，达到了理论极限值 $O(\log n)$，但写入和删除效率更低，因为每次数据增删时均需要因为更新索引而消耗一次 IO 操作。通常的关系型数据库，例如 MySQL 等，其内部采用 B tree 作为索引结构，这便是一种全量索引。</p>
 </blockquote>
-<p>不过使用该方案有两个前提：</p>
+<p>有了稀疏索引之后，可以先在索引表中使用二分查找快速定位某个 key 位于哪一小块数据中，然后仅从磁盘中读取这一块数据即可获得最终查询结果，此时加载的数据量仅仅是整个 segment 的一小部分，因此 IO 代价较小。以上图为例，假设我们要查询 <code>dollar</code> 所对应的 value。首先在稀疏索引表中进行二分查找，定位到 <code>dollar</code> 应该位于 <code>dog</code> 和 <code>downgrade</code> 之间，对应的 offset 为 17208~19504。之后去磁盘中读取该范围内的全部数据，然后再次进行二分查找即可找到结果，或确定结果不存在。</p>
+<p>稀疏索引极大地提高了查询性能，然而有一种极端情况却会造成查询性能骤降：当要查询的结果在 SSTable 中不存在时，我们将不得不依次扫描完所有的 segment，这是最差的一种情况。有一种称为**布隆过滤器（bloom filter）**的数据结构天然适合解决该问题。布隆过滤器是一种空间效率极高的算法，能够快速地检测一条数据是否在数据集中存在。我们只需要在写入每条数据之前先在布隆过滤器中登记一下，在查询时即可断定某条数据是否缺失。</p>
+<blockquote>
+<p>布隆过滤器的内部依赖于哈希算法，当检测某一条数据是否见过时，有一定概率出现假阳性（False Positive），但一定不会出现假阴性（False Negative）。也就是说，当<strong>布隆过滤器认为一条数据出现过，那么该条数据很可能出现过；但如果布隆过滤器认为一条数据没出现过，那么该条数据一定没出现过</strong>。这种特性刚好与此处的需求相契合，即检验某条数据是否缺失。</p>
+</blockquote>
+<h2 id="文件合并-compaction">文件合并（Compaction）</h2>
+<p>随着数据的不断积累，SSTable 将会产生越来越多的 segment，导致查询时扫描文件的 IO 次数增多，效率降低，因此需要有一种机制来控制 segment 的数量。对此，LSM tree 会定期执行文件合并（compaction）操作，将多个 segment 合并成一个较大的 segment，随后将旧的 segment 清理掉。由于每个 segment 内部的数据都是有序的，合并过程类似于归并排序，效率很高，只需要 $O(n)$ 的时间复杂度。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/hzhu212/image-store@master/blog/1612415672645-1612415672637.png" alt="segment compaction"></p>
+<p>在上图的示例中，segment 1 和 2 中都存在 key 为 <code>dog</code> 的数据，这时应该以最新的 segment 为准，因此合并后的值取 84 而不是 52，这实现了类似于字典/HashMap 中“覆盖写”的语义。</p>
+<h2 id="删除数据">删除数据</h2>
+<p>现在你已经了解了 LSM tree 读写数据的方式，那么如何删除数据呢？如果是在内存中，删除某块数据通常是将它的引用指向 NULL，那么这块内存就会被回收。但现在的情况是，数据已经存储在硬盘中，要从一个 segment 文件中间抹除一段数据必须要覆写其之后的所有内容，这个成本非常高。LSM tree 所采用的做法是设计一个特殊的标志位，称为 <em>tombstone（墓碑）</em>，删除一条数据就是把它的 value 置为墓碑，如下图所示：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/hzhu212/image-store@master/blog/1612416928355-1612416928350.png" alt="删除数据"></p>
+<p>这个例子展示了删除 segment 2 中的 <code>dog</code> 之后的效果。注意，此时 segment 1 中仍然保留着 <code>dog</code> 的旧数据，如果我们查询 <code>dog</code>，那么应该返回空，而不是 52。因此，<strong>删除操作的本质是覆盖写，而不是清除一条数据</strong>，这一点初看起来不太符合常识。墓碑会在 compact 操作中被清理掉，于是置为墓碑的数据在新的 segment 中将不复存在。</p>
+<h2 id="lsm-tree-与-b-tree-的对比">LSM tree 与 B tree 的对比</h2>
+<p>主流的关系型数据库均以 B/B+ tree 作为其构建索引的数据结构，这是因为 B tree 提供了理论上最高的查询效率 - $O(\log n)$。但对查询性能的追求也造成了 B tree 的相应缺点，即每次插入或删除一条数据时，均需要更新索引，从而造成一次磁盘 IO。这种特性决定了 B tree 只适用于频繁读、较少写的场景。如果在频繁写的场景下，将造成大量的磁盘 IO，从而导致性能骤降。这种应用场景在传统的关系型数据库中比较常见。</p>
+<p>而 LSM tree 则避免了频繁写场景下的磁盘 IO 开销，尽管其查询效率无法达到理想的 $O(\log n)$，但依然非常快，可以接受。所以从本质上来说，LSM tree 相当于牺牲了一部分查询性能，换取了可观的写入性能。这对于 key-value 型或日志型数据库是非常重要的。</p>
+<h2 id="总结">总结</h2>
+<p>LSM tree 存储引擎的工作原理包含以下几个要点：</p>
 <ol>
-<li>ssh 版本必须足够新，以支持隧道功能（OpenSSH 7.3 +）。</li>
-<li>中继机必须允许 TCP 转发。</li>
+<li>写数据时，首先将数据缓存到内存中的一个有序树结构中（称为 memtable）。同时触发相关结构的更新，例如布隆过滤器、稀疏索引。</li>
+<li>当 memtable 积累到足够大时，会一次性写入磁盘中，生成一个内部有序的 segment 文件。该过程为连续写，因此效率极高。</li>
+<li>进行查询时，首先检查布隆过滤器。如果布隆过滤器报告数据不存在，则直接返回不存在。否则，按照从新到老的顺序依次查询每个 segment。</li>
+<li>在查询每个 segment 时，首先使用二分搜索检索对应的稀疏索引，找到数据所在的 offset 范围。然后读取磁盘上该范围内的数据，再次进行二分查找并获得结果。</li>
+<li>对于大量的 segment 文件，定期在后台执行 compaction 操作，将多个文件合并为更大的文件，以保证查询效率不衰减。</li>
 </ol>
-<p>但不幸的是，很多中继机对安全的要求非常苛刻，不允许 TCP 转发。在这种情况下，该方案无法工作。</p>
-<h3 id="2-2-szrz-工具">2.2 szrz 工具</h3>
-<p>szrz 是一个轻量、便捷的解决方案，其内部采用的 ZModem 协议非常底层，对中继机是透明的。因此 szrz 是中继机环境下文件传输问题的天然解决方案。</p>
-<p>szrz 容易使用，配置完成后，在<strong>开发机</strong>的控制台中使用 <code>sz</code> 命令下载文件，<code>rz</code> 命令上传文件，同样可以透过任意数量的中继机。</p>
-<p>但 szrz 有两个严重弊端：</p>
-<ol>
-<li>不支持大文件传输（超过 30MB 的文件就会把控制台卡死）。</li>
-<li>丧失了 SSH 协议的一切好处，比如安全性、丰富的 SFTP 工具等。</li>
-</ol>
-<h3 id="2-3-不使用-ssh-而是借助-ftp-http-等其他协议">2.3 不使用 SSH，而是借助 FTP、HTTP 等其他协议</h3>
-<p>既然 SSH 协议被中继机限制了，那我们不如另立门户，借助 FTP、HTTP 等其他协议来实现文件传输。考虑到 FTP 天然适合静态文件服务，比 HTTP 高效很多，所以我们一般选择搭建 FTP 服务。</p>
-<p>FTP、HTTP 服务器是非常成熟、稳定的技术，基本上随意挑选一款工具都可以满足我们的需求。我们以 <a target="_blank" rel="noopener" href="https://github.com/giampaolo/pyftpdlib">pyftpdlib</a> 为例：</p>
+<h2 id="参考：">参考：</h2>
 <ul>
-<li>在开发机上安装 FTP 工具：</li>
+<li><a target="_blank" rel="noopener" href="https://yetanotherdevblog.com/lsm/">Understanding LSM Trees: What Powers Write-Heavy Databases. Braden Groom</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.benstopford.com/2015/02/14/log-structured-merge-trees/">Log Structured Merge Trees. Ben Stopford</a></li>
+<li><a target="_blank" rel="noopener" href="https://queue.acm.org/detail.cfm?id=1563874">The Pathologies of Big Data. ACM</a></li>
+<li><a target="_blank" rel="noopener" href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.44.2782&amp;rep=rep1&amp;type=pdf">原始论文</a>（比较晦涩，不建议）</li>
 </ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pyftpdlib</span><br></pre></td></tr></table></figure>
-<ul>
-<li>启动 FTP 服务</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m pyftpdlib <span class="comment"># and many other options ...</span></span><br></pre></td></tr></table></figure>
-<p>我们实际在用的启动命令：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 考虑安全因素，可设置用户名和密码</span></span><br><span class="line">python -m pyftpdlib --directory /home/work/ --port 8888 -r 8000-9000 --user username --password ****** --write</span><br></pre></td></tr></table></figure>
-<p>FTP 服务非常稳定，极少出错，因此你可以把上述命令放到后台执行，并且丢弃其日志：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup python -m pyftpdlib ...blahblah... &gt;/dev/null 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
-<p>开发机配置完成之后，我们就可以在本地进行文件上传、下载操作了：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载文件</span></span><br><span class="line">curl ftp://dest_host:8888/tmp/test.tar.gz -o test.tar.gz -u username:******</span><br><span class="line"></span><br><span class="line"><span class="comment"># 上传文件</span></span><br><span class="line">curl -T test.tar.gz ftp://dest_host:8888/tmp/test.tar.gz -u username:******</span><br></pre></td></tr></table></figure>
-<p>FTP 解决方案的优势如下：</p>
-<ol>
-<li>支持大文件，并且传输速度是三种方案中最快的。</li>
-<li>天然支持可视化，可直接把 ftp 地址输入浏览器查看、下载文件。</li>
-<li>安全性：比 SSH 稍弱，但考虑到开发机仅公司内网可见，因此并不需要过度担忧。</li>
-<li>FTP 与 SFTP 一样，有着丰富的第三方工具可用。</li>
-</ol>
-<h2 id="3-终极远程工作流：实现远程实时编辑">3. 终极远程工作流：实现远程实时编辑</h2>
-<p>文件的上传下载其实是个低频需求，远程实时编辑开发机上的文件才是真正的痛点，这样就实现了远程工作空间（remote workspace）。在这个需求上，SSH 隧道和 FTP 解决方案更能充分提现其优越性。</p>
-<p>目前主流的文本编辑器都支持 SFTP、FTP 等插件，比如：</p>
-<ul>
-<li>Sublime Text: <a target="_blank" rel="noopener" href="https://wbond.net/sublime_packages/sftp">SFTP</a>。</li>
-<li>VSCode: <a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=liximomo.sftp">sftp</a>、<a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=lukasz-wronski.ftp-sync">ftp-sync</a>。</li>
-</ul>
-<p>这些插件可以在本地目录和远程 SFTP/FTP 目录之间建立映射，从而实现远程实时编辑开发机上的代码（以下图片引自 Sublime Text SFTP）：</p>
-<p><img src="https://raw.githubusercontent.com/hzhu212/image-store/master/blog/20190921224609.png" alt="Mapping a Folder to a Remote"></p>
-<p>当然，你也可以不做实时映射，而是使用手动方式同步本地和远程的代码：</p>
-<p><img src="https://raw.githubusercontent.com/hzhu212/image-store/master/blog/20190921224708.png" alt="Editor Menu"></p>
-<p>在这种工作流下，编辑远程机器上的代码与编辑本地代码没有任何差别。</p>
-<p>相比如下两种工作流：</p>
-<ul>
-<li>本地编辑代码-&gt;上传到开发机-&gt;发现问题-&gt;重复以上三步（或使用 vim 做简单修改）</li>
-<li>登录开发机-&gt;使用 vim 编辑代码（这种方式的弊端是不够工程化，大代码量难以管控）</li>
-</ul>
-<p>remote workspace 工作流有着可视化编辑器的加成，在实践中可以大大提高开发效率。</p>
 
     </div>
 
@@ -437,23 +407,20 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/%E8%BF%9C%E7%A8%8B/" rel="tag"><i class="fa fa-tag"></i> 远程</a>
-              <a href="/tags/ssh/" rel="tag"><i class="fa fa-tag"></i> ssh</a>
-              <a href="/tags/szrz/" rel="tag"><i class="fa fa-tag"></i> szrz</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"><i class="fa fa-tag"></i> 数据结构</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag"><i class="fa fa-tag"></i> 数据库</a>
+              <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag"><i class="fa fa-tag"></i> 大数据</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/3941b47a/" rel="prev" title="了不起的盖茨比">
-                  <i class="fa fa-chevron-left"></i> 了不起的盖茨比
+                <a href="/posts/2c63bd16/" rel="prev" title="shell命令的标准输入(stdin)">
+                  <i class="fa fa-chevron-left"></i> shell命令的标准输入(stdin)
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/20d9a268/" rel="next" title="矩阵求导术">
-                  矩阵求导术 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -628,7 +595,49 @@
 </script>
 
 
-  
+  <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
 
 
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.css">
@@ -642,7 +651,7 @@ NexT.utils.loadComments('#gitalk-container', () => {
       repo        : '_blog_comment',
       owner       : 'hzhu212',
       admin       : ['hzhu212'],
-      id          : '5742d12822975abbcaac726c4ae38df4',
+      id          : 'e06e362d34449ed95c1dec28ce6c9a69',
         language: '',
       distractionFreeMode: true
     });

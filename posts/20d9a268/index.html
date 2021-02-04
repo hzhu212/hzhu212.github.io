@@ -8,8 +8,8 @@
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.jpg">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
 <link rel="stylesheet" href="/css/main.css">
@@ -194,7 +194,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -205,7 +205,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -324,8 +324,8 @@
 <a id="more"></a>
 <p>符号约定：以下使用小写字母如 $x$ 表示标量，粗体小写字母如 $\boldsymbol{a}$ 表示向量，大写字母如 $A$ 表示矩阵。为保持一致性，向量如不进行特殊说明，均为<strong>列向量</strong>，行向量可通过列向量的转置来表示，如 $\boldsymbol{a}^T$。</p>
 <p>矩阵对标量的求导即逐个元素对标量求导，没什么值得讨论的。我们以下主要介绍标量对矩阵的求导，然后延伸到矩阵对矩阵的求导。</p>
-<h2 id="标量对矩阵的导数"><a class="header-anchor" href="#标量对矩阵的导数">¶</a>标量对矩阵的导数</h2>
-<h3 id="定义"><a class="header-anchor" href="#定义">¶</a>定义</h3>
+<h2 id="标量对矩阵的导数">标量对矩阵的导数</h2>
+<h3 id="定义">定义</h3>
 <p>首先明确一下标量对矩阵求导的定义：</p>
 <p>$$ \frac{\partial f}{\partial X} = \left[\ddots, \frac{\partial f}{\partial X_{ij}}, \ddots \right] $$</p>
 <p>即 $f$ 对 $X$ 逐元素求导，并排列成与 $X$ 形状相同的矩阵。</p>
@@ -349,10 +349,10 @@
 <p>注：这里将内积的定义从向量推广到了矩阵，即先对做逐元素相乘，然后将所有乘积求和。</p>
 </blockquote>
 <p>由于标量和向量都可以看作是矩阵的特殊情况，因此推论3涵盖了推论 1、2。至此，我们得到了通用表达式 $(1)$。</p>
-<h3 id="运算规则"><a class="header-anchor" href="#运算规则">¶</a>运算规则</h3>
+<h3 id="运算规则">运算规则</h3>
 <p>有了定义，还需要一套完整的运算规则才能实际应用。</p>
 <p>我们依然从最简单的标量函数中汲取灵感。例如，对于函数 $\displaystyle f(x)=x^2 sin(e^x)$，我如何求导呢？我们通常不是直接从导数的定义出发，而是先建立了初等函数的导数和四则运算、复合等法则，然后运用这些法则求导。因此，我们也需要建立矩阵微分的运算规则。</p>
-<h4 id="矩阵的微分运算"><a class="header-anchor" href="#矩阵的微分运算">¶</a>矩阵的微分运算</h4>
+<h4 id="矩阵的微分运算">矩阵的微分运算</h4>
 <ol>
 <li>
 <p>加（减）法：</p>
@@ -364,11 +364,11 @@
 </li>
 <li>
 <p>逆：</p>
-<p>$$ \mathrm{d}A^{-1}=-A^{-1}\mathrm{d}A A^{-1} $$</p>
+<p>$$ \mathrm{d}A<sup>{-1}=-A</sup>{-1}\mathrm{d}A A^{-1} $$</p>
 </li>
 <li>
 <p>转置：</p>
-<p>$$ \mathrm{d}A^T=(\mathrm{d}A)^T $$</p>
+<p>$$ \mathrm{d}A<sup>T=(\mathrm{d}A)</sup>T $$</p>
 </li>
 <li>
 <p>迹（trace）：</p>
@@ -390,7 +390,7 @@
 <p>其中，$h(X)$ 为对矩阵 $X$ 进行逐元素运算的标量函数。</p>
 </li>
 </ol>
-<h4 id="矩阵的点乘运算"><a class="header-anchor" href="#矩阵的点乘运算">¶</a>矩阵的点乘运算</h4>
+<h4 id="矩阵的点乘运算">矩阵的点乘运算</h4>
 <p>考虑到点乘运算是公式 $(1)$ 中的核心操作，因此我们还需要一些关于点乘的运算规则（注意：点乘要求参加运算的两个矩阵形状相同）：</p>
 <ol>
 <li>
@@ -415,7 +415,7 @@
 <p>$$ A^T\cdot B = A\cdot B^T $$</p>
 </li>
 </ol>
-<h4 id="矩阵的迹运算"><a class="header-anchor" href="#矩阵的迹运算">¶</a>矩阵的迹运算</h4>
+<h4 id="矩阵的迹运算">矩阵的迹运算</h4>
 <p>以上公式中，多处涉及到矩阵的迹（trace）运算，这里提供一些迹技巧（注意：迹运算的对象必须为方阵）：</p>
 <ol>
 <li>
@@ -440,28 +440,28 @@
 <p>$$ tr(AB) = A^T\cdot B $$</p>
 </li>
 </ol>
-<h4 id="矩阵的其他相关运算"><a class="header-anchor" href="#矩阵的其他相关运算">¶</a>矩阵的其他相关运算</h4>
+<h4 id="矩阵的其他相关运算">矩阵的其他相关运算</h4>
 <p>最后，为了方便查阅，附上矩阵的转置、逆、行列式等相关运算规则：</p>
 <p>$$ \begin{aligned}<br>
-(A^T)^T &amp;= A \\<br>
+(A<sup>T)</sup>T &amp;= A \\<br>
 (AB)^T &amp;= B^T A^T \\<br>
-(A^{-1})^{-1} &amp;= A \\<br>
+(A<sup>{-1})</sup>{-1} &amp;= A \\<br>
 AA^{-1} &amp;= A^{-1}A = I \\<br>
-(AB)^{-1} &amp;= B^{-1}A^{-1} \\<br>
-(A^T)^{-1} &amp;= (A^{-1})^T \\<br>
+(AB)^{-1} &amp;= B<sup>{-1}A</sup>{-1} \\<br>
+(A<sup>T)</sup>{-1} &amp;= (A<sup>{-1})</sup>T \\<br>
 |A^{-1}| &amp;= |A|^{-1} \\<br>
-(kA)^{-1} &amp;= k^{-1}A^{-1}<br>
+(kA)^{-1} &amp;= k<sup>{-1}A</sup>{-1}<br>
 \end{aligned}$$</p>
 <p>有了上述这些运算规则，<strong>只要矩阵的函数 $f$ 是由矩阵 $X$ 经过加、减、乘、转置、逆、迹、行列式、逐元素乘法、逐元素函数等运算及其复合运算构成的，我们都能利用上述运算规则求得 $\displaystyle \frac{\partial f}{\partial X}$。其基本思路为：对 $f$ 的表达式求全微分，并设法将其转化为 $\mathrm{d}f = \mathrm{expr} \cdot \mathrm{d}X$ 的形式，那么 $expr$ 即为待求导数的表达式</strong>。</p>
-<h3 id="算例演示"><a class="header-anchor" href="#算例演示">¶</a>算例演示</h3>
-<h4 id="例-1"><a class="header-anchor" href="#例-1">¶</a>例 1</h4>
+<h3 id="算例演示">算例演示</h3>
+<h4 id="例-1">例 1</h4>
 <p>设 $\displaystyle y=\boldsymbol{a}^T X \boldsymbol{b}$，求 $\displaystyle \frac{\partial y}{\partial X}$。其中 $\boldsymbol{a}$ 为 $m\times 1$ 向量，$X$ 为 $m\times n$ 矩阵，$\boldsymbol{b}$ 为 $n\times 1$ 向量，$y$ 为标量。</p>
 <p>解：</p>
 <p>$$ \begin{aligned}<br>
 \mathrm{d}y &amp;= \boldsymbol{a}^T \mathrm{d}X \boldsymbol{b} \\<br>
 &amp;= tr(\boldsymbol{a}^T \mathrm{d}X \boldsymbol{b}) \\<br>
 &amp;= tr(\boldsymbol{b} \boldsymbol{a}^T \mathrm{d}X) \\<br>
-&amp;= tr((\boldsymbol{a} \boldsymbol{b}^T)^T \mathrm{d}X) \\<br>
+&amp;= tr((\boldsymbol{a} \boldsymbol{b}<sup>T)</sup>T \mathrm{d}X) \\<br>
 &amp;= \boldsymbol{a} \boldsymbol{b}^T \cdot \mathrm{d}X<br>
 \end{aligned} $$</p>
 <blockquote>
@@ -476,7 +476,7 @@ AA^{-1} &amp;= A^{-1}A = I \\<br>
 </blockquote>
 <p>根据公式 $(1)$ 得到：</p>
 <p>$$ \frac{\partial y}{\partial X}=\boldsymbol{a} \boldsymbol{b}^T $$</p>
-<h4 id="例-2：线性回归"><a class="header-anchor" href="#例-2：线性回归">¶</a>例 2：线性回归</h4>
+<h4 id="例-2：线性回归">例 2：线性回归</h4>
 <p>线性回归的损失函数定义为 $\displaystyle l=||X \boldsymbol{w}- \boldsymbol{y}||_2^2$，求 $\boldsymbol{w}$ 的最小二乘估计，即 $\boldsymbol{w}$ 为何值时 $l$ 可取得最小值。其中 $\boldsymbol{y}$ 为 $m\times 1$ 列向量，$X$ 为 $m\times n$ 矩阵，$\boldsymbol{w}$ 为 $n\times 1$ 向量，$l$ 为标量。</p>
 <p>解：要求极小值，只需找到 $\displaystyle \frac{\partial l}{\partial \boldsymbol{w}}$ 的零点。</p>
 <p>我们的运算规则中并未定义二阶范数的微分，但根据向量范数的定义，我们可以将它表示成内积的形式：</p>
@@ -498,8 +498,8 @@ AA^{-1} &amp;= A^{-1}A = I \\<br>
 <p>根据公式 $(1)$ 可得：</p>
 <p>$$ \frac{\partial l}{\partial \boldsymbol{w}}=2X^T(X \boldsymbol{w}- \boldsymbol{y}) $$</p>
 <p>令 $\displaystyle \frac{\partial l}{\partial \boldsymbol{w}}=\boldsymbol{0}$ 得（加粗的 $\boldsymbol{0}$ 代表零向量，其形状与 $\boldsymbol{w}$ 相同）：</p>
-<p>$$ \boldsymbol{w}=(X^T X)^{-1}X^T \boldsymbol{y} $$</p>
-<h4 id="例-3：多元逻辑回归"><a class="header-anchor" href="#例-3：多元逻辑回归">¶</a>例 3：多元逻辑回归</h4>
+<p>$$ \boldsymbol{w}=(X^T X)<sup>{-1}X</sup>T \boldsymbol{y} $$</p>
+<h4 id="例-3：多元逻辑回归">例 3：多元逻辑回归</h4>
 <p>多元逻辑回归的损失函数为 $\displaystyle l=-\boldsymbol{y}^T \log (\mathrm{softmax}(W \boldsymbol{x}))$，求 $\displaystyle \frac{\partial l}{\partial W}$。其中，$\boldsymbol{y}$ 为 $m\times 1$ 的 one-hot 向量（即除一个元素为 1 外，其他元素均为 0），$W$ 为 $m\times n$ 矩阵，$\boldsymbol{x}$ 为 $n\times 1$ 向量，$l$ 为标量。$\displaystyle \mathrm{softmax}(a)=\frac{\mathrm{exp}(\boldsymbol{a})}{\boldsymbol{1}^T\mathrm{exp}(\boldsymbol{a})}$，其中 $\displaystyle \mathrm{exp}(\boldsymbol{\cdot})$ 表示逐元素求指数，$\boldsymbol{1}$ 代表全 1 向量。</p>
 <p>解：首先将 $\mathrm{softmax}$ 的表达式代入：</p>
 <p>$$ l=-\boldsymbol{y}^T(\log(\mathrm{exp}(W\boldsymbol{x}))- \boldsymbol{1}\log(\boldsymbol{1}^T\mathrm{exp}(W \boldsymbol{x})))=-\boldsymbol{y}^T W \boldsymbol{x}+\log(\boldsymbol{1}^T\mathrm{exp}(W \boldsymbol{x})) $$</p>
@@ -532,7 +532,7 @@ AA^{-1} &amp;= A^{-1}A = I \\<br>
 \end{aligned} $$</p>
 <p>所以：</p>
 <p>$$ \frac{\partial l}{\partial W}=(\mathrm{softmax}(W \boldsymbol{x})-\boldsymbol{y})\boldsymbol{x}^T $$</p>
-<h2 id="矩阵对矩阵的导数"><a class="header-anchor" href="#矩阵对矩阵的导数">¶</a>矩阵对矩阵的导数</h2>
+<h2 id="矩阵对矩阵的导数">矩阵对矩阵的导数</h2>
 <p>未完待续。</p>
 
     </div>

@@ -8,8 +8,8 @@
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.jpg">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
 <link rel="stylesheet" href="/css/main.css">
@@ -208,7 +208,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -219,7 +219,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -343,7 +343,7 @@
 <blockquote>
 <p>注：本文的所有截图和实验均以 Sublime Text 为例，其他编辑器或 IDE 在原理上类似。</p>
 </blockquote>
-<h2 id="一-什么是编码？"><a class="header-anchor" href="#一-什么是编码？">¶</a>一、什么是编码？</h2>
+<h2 id="一-什么是编码？">一、什么是编码？</h2>
 <p>什么是编码？这要从「文件」的概念说起。根据呈现形式，文件可分为两种类型：「文本文件」和「二进制文件」。</p>
 <p>二者的区别非常明显，文本文件中保存的是各种字符，包括英文字母如 <code>abc</code>、汉字如 <code>你好</code>、日文如 <code>こんにちは</code> 等；而二进制文件中保存的则是 <code>0101</code> 等二进制数值。如果你用 Sublime Text 分别打开文本文件和二进制文件，那么它们呈现的样子大致如下：</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/3310969-265e9519743cafd6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="文本文件与二进制文件"></p>
@@ -363,7 +363,7 @@
 <p>Unicode 编码使用 4 个字节来保存字符映射关系，因此共支持 <code>2^(4*8)=4294967296</code> 个字符，远远超出了地球上所有文字的总量。这彻底解决了字符数量不够用的担忧，但也带来了存储空间的浪费：即使仅仅保存一个简单的英文字母 <code>a</code>，Unicode 编码也需要 4 个字节，但事实上只需要 1 个字节（ASCII 编码）。如果一个文本文件中绝大部分字符都是英文字母，那么 Unicode 就浪费了 75% 的存储空间。鉴于上述问题，人们又制定了一系列“改良版”的 Unicode 编码，包括 UTF-8、UTF-16、UTF-32 等，它们同样能够编码所有已知的字符，但占用更少的空间。</p>
 <p>以 UTF-8 为例，对于常见的英文字符，它采用 1 个字节编码，常见的中文、日文等字符采用 2 个字节，不常见的中文字符等采用 3 到 4 个字节，对于极不常见的字符，它会采用 6 个字节进行编码。因此，在通常情况下，UTF-8 编码要比 Unicode 编码节省超过一半的空间。UTF-8 编码无所不包、节省空间，且具有良好的跨平台性，因此推荐一切文本文件都使用 UTF-8 编码。目前，主流的文本编辑器都把 UTF-8 作为默认编码方式。</p>
 <p>最后解释一下所谓的「ANSI 编码」。ANSI 编码常被称为标准编码，但它并不是指某种明确的编码方式。为了更容易地理解 ANSI 编码，我们不妨把它与「官方语言」的概念做类比。正如中国的官方语言是汉语，日本的官方语言是日语一样，中文 Windows 系统的 ANSI 编码为 GBK 编码，而日文 Windows 系统的 ANSI 编码为 Shift_JIS 编码。正如「官方语言」不是某种语言，「ANSI 编码」也不是某种编码，它是另一个维度的概念，与国家和地区有关，不同国家和地区的 ANSI 编码是不兼容的。可想而知，如果都采用 ANSI 编码，那么不同国家的开发者在互相交换代码时将非常糟糕。因此，不推荐以 ANSI 作为 coding 编码。</p>
-<h2 id="二-什么是乱码？"><a class="header-anchor" href="#二-什么是乱码？">¶</a>二、什么是乱码？</h2>
+<h2 id="二-什么是乱码？">二、什么是乱码？</h2>
 <p>什么是乱码？用某种编码方式去解读一个文件，得到了无意义的字符，这就是乱码。打个通俗的比方：我写了一段英文，你非要把它当作拼音来读，那么得到的解释就是无意义的，就相当于乱码；反过来，我写了一段拼音，你非要用英语的语法去解释它，也是解释不通的。</p>
 <p>举几个实际的例子：</p>
 <ul>
@@ -379,7 +379,7 @@
 </ul>
 <p><img src="https://upload-images.jianshu.io/upload_images/3310969-cd751f681341f26c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="用 UTF-8 编码打开一个 UTF-8 编码的文本文件"></p>
 <p>综上，乱码的根源就是<strong>编码与解码用的不是同一套规则</strong>。 但不管文件是否乱码，它里面保存的二进制数据总是不变的。<strong>通常情况下，乱码并不是文件本身有问题，而是打开方式（解码方式）不正确</strong>。</p>
-<h2 id="三-编程中出现乱码的原因与类型"><a class="header-anchor" href="#三-编程中出现乱码的原因与类型">¶</a>三、编程中出现乱码的原因与类型</h2>
+<h2 id="三-编程中出现乱码的原因与类型">三、编程中出现乱码的原因与类型</h2>
 <p>我们在日常使用文本编辑器、IDE、命令行等编写和执行程序的过程中，常常会遇到乱码现象，而出现乱码的原因是多种多样的。这里试图从根源上理解乱码，并将其归类。</p>
 <p>一般，我们编写和执行程序的流程如下：</p>
 <ol>
@@ -439,25 +439,25 @@
 <p>这段 Python 脚本非常简单，只有一句话：<code>print('你好')</code>，以 UTF-8 编码保存。正常执行的结果如下：</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/3310969-dfceb9f34cbf044c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="正常无乱码"></p>
 <p>从上上图中不难看出，过程 1 和过程 2 均能导致乱码，其组合可形成如下三种乱码类型：</p>
-<h3 id="过程-1-乱码"><a class="header-anchor" href="#过程-1-乱码">¶</a>过程 1 乱码</h3>
+<h3 id="过程-1-乱码">过程 1 乱码</h3>
 <p>我们在 Python 脚本头部添加一行 <code># -*- coding: gbk -*-</code>，即把 Python 解释器的输入编码指定为 GBK，但脚本的编码保持 UTF-8 不变。执行结果将发生乱码，如下：</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/3310969-7933afa816af4af4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="乱码类型 1"></p>
 <p>从这里我们也可以看出，Python 解释器的默认输入编码为 UTF-8。</p>
-<h3 id="过程-2-乱码"><a class="header-anchor" href="#过程-2-乱码">¶</a>过程 2 乱码。</h3>
+<h3 id="过程-2-乱码">过程 2 乱码。</h3>
 <p>这里又分为两种情况，一是编译器的输出编码错误；二是展示器的输入编码错误：</p>
-<h4 id="编译器输出编码不当"><a class="header-anchor" href="#编译器输出编码不当">¶</a>编译器输出编码不当。</h4>
+<h4 id="编译器输出编码不当">编译器输出编码不当。</h4>
 <p>打开 <code>Python.sublime-build</code> 文件（可借助 PackageResourceViewer 插件），其初始内容如下：</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;shell_cmd&quot;</span>: <span class="string">&quot;python -u \&quot;$file\&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;file_regex&quot;</span>: <span class="string">&quot;^[ ]*File \&quot;(...*?)\&quot;, line ([0-9]*)&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;selector&quot;</span>: <span class="string">&quot;source.python&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;env&quot;</span>: &#123;<span class="attr">&quot;PYTHONIOENCODING&quot;</span>: <span class="string">&quot;utf-8&quot;</span>&#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>我们把末尾的行改为 <code>&quot;env&quot;: &#123;&quot;PYTHONIOENCODING&quot;: &quot;gbk&quot;&#125;,</code>，即把 Python 解释器的输出编码设为 UTF-8。执行脚本，再次得到乱码，如下：</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/3310969-5376b7daa408a89d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="乱码类型 2-1"></p>
 <p>注意：这里虽然也是乱码，但与类型 1 不同。</p>
-<h4 id="展示器输入编码不当"><a class="header-anchor" href="#展示器输入编码不当">¶</a>展示器输入编码不当。</h4>
+<h4 id="展示器输入编码不当">展示器输入编码不当。</h4>
 <p>我们首先撤销对 <code>Python.sublime-build</code> 的所有更改，然后在其末尾增加一行内容 <code>&quot;encoding&quot;: &quot;gbk&quot;,</code>，即把 Sublime Text 控制台的编码设为 GBK。此时 <code>Python.sublime-build</code> 配置如下：</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;shell_cmd&quot;</span>: <span class="string">&quot;python -u \&quot;$file\&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;file_regex&quot;</span>: <span class="string">&quot;^[ ]*File \&quot;(...*?)\&quot;, line ([0-9]*)&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;selector&quot;</span>: <span class="string">&quot;source.python&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;env&quot;</span>: &#123;<span class="attr">&quot;PYTHONIOENCODING&quot;</span>: <span class="string">&quot;utf-8&quot;</span>&#125;,</span><br><span class="line">    <span class="attr">&quot;encoding&quot;</span>: <span class="string">&quot;gbk&quot;</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>执行脚本，得到乱码，如下：</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/3310969-5cf008dd6a9f634c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="乱码类型 2-2"></p>
 <p>注意：这里的乱码与类型 1 相同，都是用 GBK 编码解释 UTF-8 字符串造成的。</p>
-<h3 id="过程-1-与过程-2-同时乱码"><a class="header-anchor" href="#过程-1-与过程-2-同时乱码">¶</a>过程 1 与过程 2 同时乱码。</h3>
+<h3 id="过程-1-与过程-2-同时乱码">过程 1 与过程 2 同时乱码。</h3>
 <p>乱码是可以叠加的，即乱码后的字符串可以再次被乱码，得到的乱码与叠加前的乱码均不同。</p>
 <p>我们让 <code>Python.sublime-build</code> 文件保持上一步的状态，然后在 Python 脚本的开头重新加上一行 <code># -*- coding: gbk -*-</code>。执行脚本，会得到前两种完全不同的乱码，如下：</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/3310969-a7829d767073e968.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="乱码类型 3"></p>
