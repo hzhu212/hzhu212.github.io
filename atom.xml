@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Henry&#39;s Blog</title>
   
-  <subtitle>一面是技术，一面是生活</subtitle>
+  <subtitle>用简单的话把事情说明白</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hzhu212.github.io/"/>
