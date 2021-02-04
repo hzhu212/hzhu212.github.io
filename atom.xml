@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hzhu212.github.io/"/>
-  <updated>2021-02-04T06:57:27.084Z</updated>
+  <updated>2021-02-04T07:30:46.869Z</updated>
   <id>https://hzhu212.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>LSM Tree - 对频繁写友好的数据结构</title>
+    <title>LSM Tree：一种支持高效读写的存储引擎</title>
     <link href="https://hzhu212.github.io/posts/2d7c5edb/"/>
     <id>https://hzhu212.github.io/posts/2d7c5edb/</id>
     <published>2021-02-03T13:08:14.000Z</published>
-    <updated>2021-02-04T06:57:27.084Z</updated>
+    <updated>2021-02-04T07:30:46.869Z</updated>
     
     <summary type="html">
     

@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title>LSM Tree - 对频繁写友好的数据结构</title>
+      <title>LSM Tree：一种支持高效读写的存储引擎</title>
       <link href="posts/2d7c5edb/"/>
       <url>posts/2d7c5edb/</url>
       
