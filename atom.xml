@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hzhu212.github.io/"/>
-  <updated>2021-02-04T07:30:46.869Z</updated>
+  <updated>2021-05-23T09:48:58.111Z</updated>
   <id>https://hzhu212.github.io/</id>
   
   <author>
@@ -15,6 +15,22 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一文理解Python导入机制</title>
+    <link href="https://hzhu212.github.io/posts/b9859a94/"/>
+    <id>https://hzhu212.github.io/posts/b9859a94/</id>
+    <published>2021-05-23T09:39:41.000Z</published>
+    <updated>2021-05-23T09:48:58.111Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Python 的 import 机制是最令用户困惑的地方之一，在实践中非常容易出错，相信被 &lt;code&gt;ImportError&lt;/code&gt; 和 &lt;code&gt;ModuleNotFoundError&lt;/code&gt; 折磨过的同学都对此深有体会。本文完整地梳理 Python 的各种导入逻辑，力求在实践中避坑并提出一些最佳实践。&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>LSM Tree：一种支持高效读写的存储引擎</title>
