@@ -2,9 +2,9 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+<meta name="generator" content="Hexo 5.4.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -16,13 +16,10 @@
 
 
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"hzhu212.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
-  </script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hzhu212.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.8.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 <meta name="description" content="本文为 3Blue1Brown-线性代数的本质 系列视频的笔记。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="线性代数的本质">
@@ -63,55 +60,20 @@
 <link rel="canonical" href="https://hzhu212.github.io/posts/66517499/">
 
 
-<script class="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
-</script>
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hzhu212.github.io/posts/66517499/","path":"posts/66517499/","title":"线性代数的本质"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>线性代数的本质 | Henry's Blog</title>
   
 
 
 
+
   <noscript>
-  <style>
-  body { margin-top: 2rem; }
-
-  .use-motion .menu-item,
-  .use-motion .sidebar,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header {
-    visibility: visible;
-  }
-
-  .use-motion .header,
-  .use-motion .site-brand-container .toggle,
-  .use-motion .footer { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle,
-  .use-motion .custom-logo-image {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line {
-    transform: scaleX(1);
-  }
-
-  .search-pop-overlay, .sidebar-nav { display: none; }
-  .sidebar-panel { display: block; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Henry's Blog" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
@@ -121,7 +83,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
+    <div class="toggle" aria-label="切换导航栏" role="button">
     </div>
   </div>
 
@@ -132,7 +94,7 @@
       <h1 class="site-title">Henry's Blog</h1>
       <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">用简单的话把事情说明白</p>
+      <p class="site-subtitle" itemprop="description">用简单的话把事情讲明白</p>
   </div>
 
   <div class="site-nav-right">
@@ -165,7 +127,7 @@
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
@@ -181,7 +143,7 @@
 </div>
         
   
-  <div class="toggle sidebar-toggle">
+  <div class="toggle sidebar-toggle" role="button">
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
@@ -201,12 +163,12 @@
 
       <div class="sidebar-panel-container">
         <!--noindex-->
-        <section class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E7%A9%B6%E7%AB%9F%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">1.</span> <span class="nav-text">向量究竟是什么</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E7%9A%84%E5%8A%A0%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">向量的加法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E7%9A%84%E6%95%B0%E4%B9%98"><span class="nav-number">1.2.</span> <span class="nav-text">向量的数乘</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88-%E5%BC%A0%E6%88%90%E7%9A%84%E7%A9%BA%E9%97%B4%E4%B8%8E%E5%9F%BA"><span class="nav-number">2.</span> <span class="nav-text">线性组合、张成的空间与基</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E4%B8%8E%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2"><span class="nav-number">3.</span> <span class="nav-text">矩阵与线性变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95%E4%B8%8E%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2%E5%A4%8D%E5%90%88"><span class="nav-number">4.</span> <span class="nav-text">矩阵乘法与线性变换复合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%8C%E5%88%97%E5%BC%8F"><span class="nav-number">5.</span> <span class="nav-text">行列式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%86%E7%9F%A9%E9%98%B5-%E5%88%97%E7%A9%BA%E9%97%B4%E4%B8%8E%E9%9B%B6%E7%A9%BA%E9%97%B4"><span class="nav-number">6.</span> <span class="nav-text">逆矩阵、列空间与零空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9E%E6%96%B9%E9%98%B5"><span class="nav-number">7.</span> <span class="nav-text">非方阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%82%B9%E7%A7%AF%E4%B8%8E%E5%AF%B9%E5%81%B6%E6%80%A7"><span class="nav-number">8.</span> <span class="nav-text">点积与对偶性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E5%8F%98%E6%8D%A2"><span class="nav-number">9.</span> <span class="nav-text">基变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F"><span class="nav-number">10.</span> <span class="nav-text">特征值与特征向量</span></a></li></ol></div>
-        </section>
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E7%A9%B6%E7%AB%9F%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">1.</span> <span class="nav-text">向量究竟是什么</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E7%9A%84%E5%8A%A0%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">向量的加法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E7%9A%84%E6%95%B0%E4%B9%98"><span class="nav-number">1.2.</span> <span class="nav-text">向量的数乘</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88%E3%80%81%E5%BC%A0%E6%88%90%E7%9A%84%E7%A9%BA%E9%97%B4%E4%B8%8E%E5%9F%BA"><span class="nav-number">2.</span> <span class="nav-text">线性组合、张成的空间与基</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E4%B8%8E%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2"><span class="nav-number">3.</span> <span class="nav-text">矩阵与线性变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95%E4%B8%8E%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2%E5%A4%8D%E5%90%88"><span class="nav-number">4.</span> <span class="nav-text">矩阵乘法与线性变换复合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%8C%E5%88%97%E5%BC%8F"><span class="nav-number">5.</span> <span class="nav-text">行列式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%86%E7%9F%A9%E9%98%B5%E3%80%81%E5%88%97%E7%A9%BA%E9%97%B4%E4%B8%8E%E9%9B%B6%E7%A9%BA%E9%97%B4"><span class="nav-number">6.</span> <span class="nav-text">逆矩阵、列空间与零空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9E%E6%96%B9%E9%98%B5"><span class="nav-number">7.</span> <span class="nav-text">非方阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%82%B9%E7%A7%AF%E4%B8%8E%E5%AF%B9%E5%81%B6%E6%80%A7"><span class="nav-number">8.</span> <span class="nav-text">点积与对偶性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E5%8F%98%E6%8D%A2"><span class="nav-number">9.</span> <span class="nav-text">基变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F"><span class="nav-number">10.</span> <span class="nav-text">特征值与特征向量</span></a></li></ol></div>
+        </div>
         <!--/noindex-->
 
-        <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="Henry"
       src="/images/avatar.jpg">
@@ -216,18 +178,18 @@
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives">
-          <span class="site-state-item-count">14</span>
+        <a href="/archives/">
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-            <a href="/categories/">
+          <a href="/categories/">
         <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/tags/">
+          <a href="/tags/">
         <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
@@ -250,7 +212,7 @@
 
 
 
-        </section>
+        </div>
       </div>
     </div>
   </aside>
@@ -260,7 +222,7 @@
     </header>
 
     
-  <div class="back-to-top">
+  <div class="back-to-top" role="button" aria-label="返回顶部">
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
@@ -344,7 +306,7 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>本文为 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av6731067/?p=1">3Blue1Brown-线性代数的本质</a> 系列视频的笔记。</p>
-<a id="more"></a>
+<span id="more"></span>
 <p>该系列视频专注于建立线性代数中的<strong>几何直觉</strong>，而对基本定义、计算方法、公式定理等不做详细介绍，关于这部分内容可以参考普通线性代数教材。</p>
 <h2 id="向量究竟是什么">向量究竟是什么</h2>
 <p>对于向量，有三个不同的理解视角：</p>
@@ -368,7 +330,7 @@
 <p>向量的数乘就是使用一个实数乘以一个向量。从数值角度看，向量数乘的定义非常直接，即把向量的所有坐标分别乘以该实数。</p>
 <p>从几何角度看，向量数乘就是把向量的长度<strong>缩放</strong>（Scaling）某个倍数，同时方向保持不变（如果缩放倍数为负，则向量反向）。缩放的倍数被称为<strong>标量（Scalar）</strong>。</p>
 <p>在线性代数中，<strong>一个标量几乎总是对应着一种缩放作用</strong>。</p>
-<h2 id="线性组合-张成的空间与基">线性组合、张成的空间与基</h2>
+<h2 id="线性组合、张成的空间与基">线性组合、张成的空间与基</h2>
 <p>我们介绍一种新的思维方式来看待向量的坐标：</p>
 <p>对于向量 $\begin{bmatrix} 3 \cr -2 \end{bmatrix}$，我们可以把它的两个坐标分别看作两个标量，即 $3$ 和 $-2$。根据上一节的内容，这两个标量分别代表着对两个向量的缩放作用，这两个向量隐含在坐标系中，分别为 $x$ 轴方向和 $y$ 轴方向的<strong>单位向量</strong>，记作 $\boldsymbol{\hat{\imath}}$，$\boldsymbol{\hat{\jmath}}$。</p>
 <p>那么向量的坐标表示可以自然地转化为<strong>对单位向量缩放然后求和</strong>：</p>
@@ -405,13 +367,13 @@
 </ol>
 <p>简而言之，<strong>线性变换是保持空间网格线平行且等距分布的变换</strong>，正如上述第一张动图所展示的那样。</p>
 <p>有了直觉上的认识，那么我们如何用数值来描述线性变换呢？为此，我们需要先了解一个非常关键的推论：<strong>线性变换能够维持向量加法和数乘（或者说维持线性组合关系）</strong>。</p>
-<p>假设向量 $\mathbf{v}=\begin{bmatrix} x \cr y \end{bmatrix}$，则 $\mathbf{v}$ 能够表示成基向量 $\boldsymbol{\hat{\imath}}$ 和 $\boldsymbol{\hat{\jmath}}$ 的线性组合，即 $\mathbf{v} = x\boldsymbol{\hat{\imath}} + y\boldsymbol{\hat{\jmath}}$。经历任意线性变换后，该组合关系总是保持不变，即 $\mathbf{v}’ = x\boldsymbol{\hat{\imath}}’ + y\boldsymbol{\hat{\jmath}}’$。</p>
+<p>假设向量 $\mathbf{v}=\begin{bmatrix} x \cr y \end{bmatrix}$，则 $\mathbf{v}$ 能够表示成基向量 $\boldsymbol{\hat{\imath}}$ 和 $\boldsymbol{\hat{\jmath}}$ 的线性组合，即 $\mathbf{v} = x\boldsymbol{\hat{\imath}} + y\boldsymbol{\hat{\jmath}}$。经历任意线性变换后，该组合关系总是保持不变，即 $\mathbf{v}’ = x\boldsymbol{\hat{\imath}}’ + y\boldsymbol{\hat{\jmath}}'$。</p>
 <p>也就是说，<strong>在线性变换前后，向量本身虽然发生了变化，但它对当前基向量的组合关系总是保持不变</strong>。之所以如此，是因为基向量也同步发生了变换，这个变换巧妙地维持了所有的线性组合关系，而这正是“保持空间网格线平行且等距分布”的自然结果。</p>
 <p>上述推论已经给出了描述一个线性变换的全部信息，即：</p>
 <p>$$ \mathbf{v}’ = x\boldsymbol{\hat{\imath}}’ + y\boldsymbol{\hat{\jmath}}’ $$</p>
-<p>我们只需要追踪变换后的基向量 $\boldsymbol{\hat{\imath}}’$ 和 $\boldsymbol{\hat{\jmath}}’$，就能得到任意一个变换后的向量 $\mathbf{v}’$。</p>
+<p>我们只需要追踪变换后的基向量 $\boldsymbol{\hat{\imath}}‘$ 和 $\boldsymbol{\hat{\jmath}}’$，就能得到任意一个变换后的向量 $\mathbf{v}'$。</p>
 <blockquote>
-<p>注意：当讨论 $\mathbf{v}’$ 的坐标时，我们所关注的是它在原始坐标系下的坐标表述，而不是在变换后坐标系下的坐标表述。后者实际上就是向量对当前基的组合关系，总是保持不变，是无意义的。<br>
+<p>注意：当讨论 $\mathbf{v}'$ 的坐标时，我们所关注的是它在原始坐标系下的坐标表述，而不是在变换后坐标系下的坐标表述。后者实际上就是向量对当前基的组合关系，总是保持不变，是无意义的。<br>
 另一方面，作为观察者，我们总是要基于一个固定不变的参考系（即原始坐标系），不管是变换前还是变换后。如果切换坐标系，那么所有的向量坐标就失去可比性了。</p>
 </blockquote>
 <p>让我们以公式的形式更明确地描述一下这个过程。</p>
@@ -429,7 +391,7 @@ y \color{red}{\begin{bmatrix} 3 \cr 0 \end{bmatrix}}\color{black}{} =<br>
 \color{green}{1}\color{black}{} x + \color{red}{3}\color{black}{} y \cr<br>
 \color{green}{-2}\color{black}{} x + \color{red}{0}\color{black}{} y<br>
 \end{bmatrix} $$</p>
-<p>由以上的推导可以看出，一个线性变换完全由变换后的基向量 $\boldsymbol{\hat{\imath}}’$ 和 $\boldsymbol{\hat{\jmath}}’$ 所确定。假设它们的坐标分别为 $\color{green}{\begin{bmatrix} a \cr c \end{bmatrix}}\color{black}{}$ 和 $\color{red}{\begin{bmatrix} b \cr d \end{bmatrix}}\color{black}{}$，我们可以将它们写在一起：</p>
+<p>由以上的推导可以看出，一个线性变换完全由变换后的基向量 $\boldsymbol{\hat{\imath}}‘$ 和 $\boldsymbol{\hat{\jmath}}’$ 所确定。假设它们的坐标分别为 $\color{green}{\begin{bmatrix} a \cr c \end{bmatrix}}\color{black}{}$ 和 $\color{red}{\begin{bmatrix} b \cr d \end{bmatrix}}\color{black}{}$，我们可以将它们写在一起：</p>
 <p>$$ \begin{bmatrix}<br>
 \color{green}{a}\color{black}{} &amp; \color{red}{b}\color{black}{} \cr<br>
 \color{green}{c}\color{black}{} &amp; \color{red}{d}\color{black}{}<br>
@@ -542,7 +504,7 @@ a \det\left( \begin{bmatrix} e &amp; f \cr h &amp; i \end{bmatrix} \right) -<br>
 b \det\left( \begin{bmatrix} d &amp; f \cr g &amp; i \end{bmatrix} \right) +<br>
 c \det\left( \begin{bmatrix} d &amp; e \cr g &amp; h \end{bmatrix} \right) $$</p>
 <p>更高阶的行列式可类比这种处理方法，依次降阶。</p>
-<h2 id="逆矩阵-列空间与零空间">逆矩阵、列空间与零空间</h2>
+<h2 id="逆矩阵、列空间与零空间">逆矩阵、列空间与零空间</h2>
 <p>矩阵的一个重要应用是求解<strong>线性方程组</strong>。</p>
 <p>线性方程组是类似于这样的一个方程组：</p>
 <p>$$ \begin{aligned}<br>
@@ -749,7 +711,7 @@ c \det\left( \begin{bmatrix} d &amp; e \cr g &amp; h \end{bmatrix} \right) $$</p
     <footer class="post-footer">
           <div class="reward-container">
   <div></div>
-  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+  <button>
     赞赏
   </button>
   <div class="post-reward">
@@ -792,29 +754,7 @@ c \det\left( \begin{bmatrix} d &amp; e \cr g &amp; h \end{bmatrix} \right) $$</p
 
 
 
-    <div class="comments" id="gitalk-container"></div>
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      const commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
+    <div class="comments gitalk-container"></div>
 </div>
   </main>
 
@@ -826,7 +766,7 @@ c \det\left( \begin{bmatrix} d &amp; e \cr g &amp; h \end{bmatrix} \right) $$</p
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -837,22 +777,12 @@ c \det\left( \begin{bmatrix} d &amp; e \cr g &amp; h \end{bmatrix} \right) $$</p
   </footer>
 
   
-  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
 
   
-  <script>
-    (function(){
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
-  </script>
-
-<script src="/js/local-search.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
 
 
 
@@ -861,164 +791,20 @@ c \det\left( \begin{bmatrix} d &amp; e \cr g &amp; h \end{bmatrix} \right) $$</p
   
 
 
-
-<script>
-  (function() {
-    function leancloudSelector(url) {
-      url = encodeURI(url);
-      return document.getElementById(url).querySelector('.leancloud-visitors-count');
-    }
-
-    function addCount(Counter) {
-      const visitors = document.querySelector('.leancloud_visitors');
-      const url = decodeURI(visitors.id);
-      const title = visitors.dataset.flagTitle;
-
-      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
-        .then(response => response.json())
-        .then(({ results }) => {
-          if (results.length > 0) {
-            const counter = results[0];
-            leancloudSelector(url).innerText = counter.time + 1;
-            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
-              .catch(error => {
-                console.error('Failed to save visitor count', error);
-              });
-          } else {
-              Counter('post', '/classes/Counter', { title, url, time: 1 })
-                .then(response => response.json())
-                .then(() => {
-                  leancloudSelector(url).innerText = 1;
-                })
-                .catch(error => {
-                  console.error('Failed to create', error);
-                });
-          }
-        })
-        .catch(error => {
-          console.error('LeanCloud Counter Error', error);
-        });
-    }
-
-    function showTime(Counter) {
-      const visitors = document.querySelectorAll('.leancloud_visitors');
-      const entries = [...visitors].map(element => {
-        return decodeURI(element.id);
-      });
-
-      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
-        .then(response => response.json())
-        .then(({ results }) => {
-          for (let url of entries) {
-            const target = results.find(item => item.url === url);
-            leancloudSelector(url).innerText = target ? target.time : 0;
-          }
-        })
-        .catch(error => {
-          console.error('LeanCloud Counter Error', error);
-        });
-    }
-
-    const { app_id, app_key, server_url } = {"enable":true,"app_id":"O49O3LRqDf6XCiPXdKzeqKGp-gzGzoHsz","app_key":"XcrzmNEzlES5k9h5BDN3oKpb","server_url":null,"security":false};
-    function fetchData(api_server) {
-      const Counter = (method, url, data) => {
-        return fetch(`${api_server}/1.1${url}`, {
-          method,
-          headers: {
-            'X-LC-Id'     : app_id,
-            'X-LC-Key'    : app_key,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-      };
-      if (CONFIG.page.isPost) {
-        if (CONFIG.hostname !== location.hostname) return;
-        addCount(Counter);
-      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
-        showTime(Counter);
-      }
-    }
-
-    const api_server = app_id.slice(-9) === '-MdYXbMMI' ? `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com` : server_url;
-
-    if (api_server) {
-      fetchData(api_server);
-    } else {
-      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
-        .then(response => response.json())
-        .then(({ api_server }) => {
-          fetchData('https://' + api_server);
-        });
-    }
-  })();
-</script>
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"O49O3LRqDf6XCiPXdKzeqKGp-gzGzoHsz","app_key":"XcrzmNEzlES5k9h5BDN3oKpb","server_url":null,"security":false}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
 
 
-  <script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              const target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    const script = document.createElement('script');
-    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js';
-    script.defer = true;
-    document.head.appendChild(script);
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.typesetClear();
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.css">
-
-<script>
-NexT.utils.loadComments('#gitalk-container', () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID    : '718c67973a0818c37f02',
-      clientSecret: 'f815ebc1b572a2af9f809a5e8373d1632faa133f',
-      repo        : '_blog_comment',
-      owner       : 'hzhu212',
-      admin       : ['hzhu212'],
-      id          : 'f612db68a78b011fb117283e431ac0d8',
-        language: '',
-      distractionFreeMode: true
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
-});
-</script>
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"hzhu212","repo":"_blog_comment","client_id":"718c67973a0818c37f02","client_secret":"f815ebc1b572a2af9f809a5e8373d1632faa133f","admin_user":"hzhu212","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"f612db68a78b011fb117283e431ac0d8"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
 
 </body>
 </html>

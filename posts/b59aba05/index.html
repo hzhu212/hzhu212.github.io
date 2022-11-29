@@ -2,9 +2,9 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+<meta name="generator" content="Hexo 5.4.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -16,13 +16,10 @@
 
 
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"hzhu212.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
-  </script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hzhu212.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.8.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 <meta name="description" content="本文为 概率统计讲义 一书的笔记。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="概率统计笔记">
@@ -40,55 +37,20 @@
 <link rel="canonical" href="https://hzhu212.github.io/posts/b59aba05/">
 
 
-<script class="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
-</script>
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hzhu212.github.io/posts/b59aba05/","path":"posts/b59aba05/","title":"概率统计笔记"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>概率统计笔记 | Henry's Blog</title>
   
 
 
 
+
   <noscript>
-  <style>
-  body { margin-top: 2rem; }
-
-  .use-motion .menu-item,
-  .use-motion .sidebar,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header {
-    visibility: visible;
-  }
-
-  .use-motion .header,
-  .use-motion .site-brand-container .toggle,
-  .use-motion .footer { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle,
-  .use-motion .custom-logo-image {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line {
-    transform: scaleX(1);
-  }
-
-  .search-pop-overlay, .sidebar-nav { display: none; }
-  .sidebar-panel { display: block; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Henry's Blog" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
@@ -98,7 +60,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
+    <div class="toggle" aria-label="切换导航栏" role="button">
     </div>
   </div>
 
@@ -109,7 +71,7 @@
       <h1 class="site-title">Henry's Blog</h1>
       <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">用简单的话把事情说明白</p>
+      <p class="site-subtitle" itemprop="description">用简单的话把事情讲明白</p>
   </div>
 
   <div class="site-nav-right">
@@ -142,7 +104,7 @@
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
@@ -158,7 +120,7 @@
 </div>
         
   
-  <div class="toggle sidebar-toggle">
+  <div class="toggle sidebar-toggle" role="button">
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
@@ -178,12 +140,12 @@
 
       <div class="sidebar-panel-container">
         <!--noindex-->
-        <section class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E9%9A%8F%E6%9C%BA%E4%BA%8B%E4%BB%B6%E4%B8%8E%E6%A6%82%E7%8E%87"><span class="nav-number">1.</span> <span class="nav-text">第一章 随机事件与概率</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%91%E7%8E%87"><span class="nav-number">1.1.</span> <span class="nav-text">频率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E7%8E%87"><span class="nav-number">1.2.</span> <span class="nav-text">概率</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AD%89%E6%A6%82%E5%AE%8C%E5%A4%87%E4%BA%8B%E4%BB%B6%E7%BB%84"><span class="nav-number">1.2.1.</span> <span class="nav-text">等概完备事件组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E7%9A%84%E8%BF%90%E7%AE%97"><span class="nav-number">1.2.2.</span> <span class="nav-text">事件的运算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E7%9A%84%E4%BA%92%E4%B8%8D%E7%9B%B8%E5%AE%B9%E6%80%A7"><span class="nav-number">1.2.3.</span> <span class="nav-text">事件的互不相容性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A6%82%E7%8E%87%E7%9A%84%E5%8A%A0%E6%B3%95%E5%85%AC%E5%BC%8F"><span class="nav-number">1.2.4.</span> <span class="nav-text">概率的加法公式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E6%A6%82%E7%8E%87"><span class="nav-number">1.2.5.</span> <span class="nav-text">条件概率</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A6%82%E7%8E%87%E7%9A%84%E4%B9%98%E6%B3%95%E5%85%AC%E5%BC%8F"><span class="nav-number">1.2.6.</span> <span class="nav-text">概率的乘法公式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E7%9A%84%E7%8B%AC%E7%AB%8B%E6%80%A7"><span class="nav-number">1.2.7.</span> <span class="nav-text">事件的独立性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%A8%E6%A6%82%E5%85%AC%E5%BC%8F"><span class="nav-number">1.2.8.</span> <span class="nav-text">全概公式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%86%E6%A6%82%E5%85%AC%E5%BC%8F"><span class="nav-number">1.2.9.</span> <span class="nav-text">逆概公式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%8B%AC%E7%AB%8B%E8%AF%95%E9%AA%8C%E5%BA%8F%E5%88%97%E6%A6%82%E5%9E%8B"><span class="nav-number">1.2.10.</span> <span class="nav-text">独立试验序列概型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E4%B8%8E%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83"><span class="nav-number">2.</span> <span class="nav-text">第二章 随机变量与概率分布</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F"><span class="nav-number">2.1.</span> <span class="nav-text">随机变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80-%E7%A6%BB%E6%95%A3%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F"><span class="nav-number">2.2.</span> <span class="nav-text">一、离散型随机变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E7%A6%BB%E6%95%A3%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83"><span class="nav-number">2.2.1.</span> <span class="nav-text">常用的离散型随机变量的概率分布</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C-%E8%BF%9E%E7%BB%AD%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F"><span class="nav-number">2.3.</span> <span class="nav-text">二、连续型随机变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A6%82%E7%8E%87%E5%AF%86%E5%BA%A6%E5%87%BD%E6%95%B0"><span class="nav-number">2.3.1.</span> <span class="nav-text">概率密度函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E6%A6%82%E7%8E%87%E5%AF%86%E5%BA%A6%E5%87%BD%E6%95%B0"><span class="nav-number">2.3.2.</span> <span class="nav-text">常见概率密度函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0"><span class="nav-number">2.3.3.</span> <span class="nav-text">分布函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%87%BD%E6%95%B0%E7%9A%84%E5%88%86%E5%B8%83"><span class="nav-number">2.3.4.</span> <span class="nav-text">随机变量函数的分布</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%87%BD%E6%95%B0%E7%9A%84%E5%88%86%E5%B8%83"><span class="nav-number">2.3.4.1.</span> <span class="nav-text">离散型随机变量函数的分布</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%9E%E7%BB%AD%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%87%BD%E6%95%B0%E7%9A%84%E5%88%86%E5%B8%83"><span class="nav-number">2.3.4.2.</span> <span class="nav-text">连续型随机变量函数的分布</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E6%95%B0%E5%AD%97%E7%89%B9%E5%BE%81"><span class="nav-number">3.</span> <span class="nav-text">第三章 随机变量的数字特征</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E6%9C%9F%E6%9C%9B"><span class="nav-number">3.1.</span> <span class="nav-text">随机变量的期望</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E6%9C%9F%E6%9C%9B"><span class="nav-number">3.1.1.</span> <span class="nav-text">离散型随机变量的期望</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%87%A0%E4%B8%AA%E5%B8%B8%E7%94%A8%E5%88%86%E5%B8%83%E7%9A%84%E6%9C%9F%E6%9C%9B"><span class="nav-number">3.1.1.1.</span> <span class="nav-text">几个常用分布的期望</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9E%E7%BB%AD%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E6%9C%9F%E6%9C%9B"><span class="nav-number">3.1.2.</span> <span class="nav-text">连续型随机变量的期望</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%87%A0%E4%B8%AA%E5%B8%B8%E7%94%A8%E5%88%86%E5%B8%83%E7%9A%84%E6%9C%9F%E6%9C%9B-2"><span class="nav-number">3.1.2.1.</span> <span class="nav-text">几个常用分布的期望</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%9F%E6%9C%9B%E7%9A%84%E7%AE%80%E5%8D%95%E6%80%A7%E8%B4%A8"><span class="nav-number">3.1.3.</span> <span class="nav-text">期望的简单性质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%87%BD%E6%95%B0%E7%9A%84%E6%9C%9F%E6%9C%9B"><span class="nav-number">3.1.4.</span> <span class="nav-text">随机变量函数的期望</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E6%96%B9%E5%B7%AE"><span class="nav-number">3.2.</span> <span class="nav-text">随机变量的方差</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E6%96%B9%E5%B7%AE"><span class="nav-number">3.2.1.</span> <span class="nav-text">离散型随机变量的方差</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9E%E7%BB%AD%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E6%96%B9%E5%B7%AE"><span class="nav-number">3.2.2.</span> <span class="nav-text">连续型随机变量的方差</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%88%86%E5%B8%83%E7%9A%84%E6%96%B9%E5%B7%AE"><span class="nav-number">3.2.3.</span> <span class="nav-text">常用分布的方差</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E5%B7%AE%E7%9A%84%E7%AE%80%E5%8D%95%E6%80%A7%E8%B4%A8"><span class="nav-number">3.2.4.</span> <span class="nav-text">方差的简单性质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%87%E6%AF%94%E9%9B%AA%E5%A4%AB%E4%B8%8D%E7%AD%89%E5%BC%8F"><span class="nav-number">3.2.5.</span> <span class="nav-text">切比雪夫不等式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F"><span class="nav-number">4.</span> <span class="nav-text">第四章 随机向量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E7%BB%B4%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F%E7%9A%84%E8%81%94%E5%90%88%E5%88%86%E5%B8%83%E4%B8%8E%E8%BE%B9%E7%BC%98%E5%88%86%E5%B8%83"><span class="nav-number">4.1.</span> <span class="nav-text">二维随机向量的联合分布与边缘分布</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F%E7%9A%84%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83"><span class="nav-number">4.1.1.</span> <span class="nav-text">离散型随机向量的概率分布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F%E7%9A%84%E8%BE%B9%E7%BC%98%E5%88%86%E5%B8%83%E4%B8%8E%E8%81%94%E5%90%88%E5%88%86%E5%B8%83"><span class="nav-number">4.1.2.</span> <span class="nav-text">离散型随机向量的边缘分布与联合分布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9E%E7%BB%AD%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F%E7%9A%84%E8%81%94%E5%90%88%E5%88%86%E5%B8%83"><span class="nav-number">4.1.3.</span> <span class="nav-text">连续型随机向量的联合分布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9E%E7%BB%AD%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F%E7%9A%84%E8%BE%B9%E7%BC%98%E5%88%86%E5%B8%83"><span class="nav-number">4.1.4.</span> <span class="nav-text">连续型随机向量的边缘分布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E7%8B%AC%E7%AB%8B%E6%80%A7"><span class="nav-number">4.1.5.</span> <span class="nav-text">随机变量的独立性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E7%BB%B4%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83"><span class="nav-number">4.1.6.</span> <span class="nav-text">二维正态分布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E7%BB%B4%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F%E7%9A%84%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0"><span class="nav-number">4.1.7.</span> <span class="nav-text">二维随机向量的分布函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%A4%E4%B8%AA%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E5%87%BD%E6%95%B0%E7%9A%84%E5%88%86%E5%B8%83"><span class="nav-number">4.2.</span> <span class="nav-text">两个随机变量的函数的分布</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%87%BD%E6%95%B0%E7%9A%84%E8%81%94%E5%90%88%E5%AF%86%E5%BA%A6"><span class="nav-number">4.2.1.</span> <span class="nav-text">随机变量函数的联合密度</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F%E7%9A%84%E6%95%B0%E5%AD%97%E7%89%B9%E5%BE%81"><span class="nav-number">4.3.</span> <span class="nav-text">随机向量的数字特征</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%A4%E4%B8%AA%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E5%9D%87%E5%80%BC%E5%85%AC%E5%BC%8F"><span class="nav-number">4.3.1.</span> <span class="nav-text">两个随机变量的均值公式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%A4%E4%B8%AA%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F%E5%9D%87%E5%80%BC%E5%92%8C%E6%96%B9%E5%B7%AE%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="nav-number">4.3.2.</span> <span class="nav-text">两个随机向量均值和方差的性质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%A4%E4%B8%AA%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E5%92%8C%E7%9A%84%E5%9D%87%E5%80%BC%E4%B8%8E%E6%96%B9%E5%B7%AE"><span class="nav-number">4.3.3.</span> <span class="nav-text">两个随机变量的和的均值与方差</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F%E7%9A%84%E5%9D%87%E5%80%BC%E5%92%8C%E5%8D%8F%E6%96%B9%E5%B7%AE"><span class="nav-number">4.3.4.</span> <span class="nav-text">随机向量的均值和协方差</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F%E7%9A%84%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0"><span class="nav-number">4.3.5.</span> <span class="nav-text">随机向量的相关系数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E7%BB%B4%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F"><span class="nav-number">4.4.</span> <span class="nav-text">多维随机向量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%81%94%E5%90%88%E5%AF%86%E5%BA%A6%E4%B8%8E%E8%BE%B9%E7%BC%98%E5%AF%86%E5%BA%A6"><span class="nav-number">4.4.1.</span> <span class="nav-text">联合密度与边缘密度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%8B%AC%E7%AB%8B%E6%80%A7"><span class="nav-number">4.4.2.</span> <span class="nav-text">独立性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#n-%E4%B8%AA%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E5%87%BD%E6%95%B0%E7%9A%84%E5%88%86%E5%B8%83"><span class="nav-number">4.4.3.</span> <span class="nav-text">$n$ 个随机变量的函数的分布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E7%89%B9%E5%BE%81"><span class="nav-number">4.4.4.</span> <span class="nav-text">数字特征</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9D%87%E5%80%BC%E5%85%AC%E5%BC%8F"><span class="nav-number">4.4.4.1.</span> <span class="nav-text">均值公式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9D%87%E5%80%BC%E4%B8%8E%E6%96%B9%E5%B7%AE%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="nav-number">4.4.4.2.</span> <span class="nav-text">均值与方差的性质</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8D%8F%E6%96%B9%E5%B7%AE%E4%B8%8E%E5%8D%8F%E5%B7%AE%E9%98%B5"><span class="nav-number">4.4.4.3.</span> <span class="nav-text">协方差与协差阵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0%E4%B8%8E%E7%9B%B8%E5%85%B3%E9%98%B5"><span class="nav-number">4.4.4.4.</span> <span class="nav-text">相关系数与相关阵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#n-%E7%BB%B4%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0"><span class="nav-number">4.4.4.5.</span> <span class="nav-text">$n$ 维分布函数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%A7%E6%95%B0%E5%AE%9A%E5%BE%8B%E5%92%8C%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86"><span class="nav-number">4.5.</span> <span class="nav-text">大数定律和中心极限定理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%A7%E6%95%B0%E5%AE%9A%E5%BE%8B"><span class="nav-number">4.5.1.</span> <span class="nav-text">大数定律</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%BA%E5%A4%A7%E6%95%B0%E5%AE%9A%E5%BE%8B"><span class="nav-number">4.5.2.</span> <span class="nav-text">强大数定律</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86"><span class="nav-number">4.5.3.</span> <span class="nav-text">中心极限定理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E7%BB%9F%E8%AE%A1%E4%BC%B0%E5%80%BC"><span class="nav-number">5.</span> <span class="nav-text">第五章 统计估值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E4%BD%93%E4%B8%8E%E6%A0%B7%E6%9C%AC"><span class="nav-number">5.1.</span> <span class="nav-text">总体与样本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0%E4%B8%8E%E5%88%86%E5%B8%83%E5%AF%86%E5%BA%A6%E7%9A%84%E4%BC%B0%E8%AE%A1"><span class="nav-number">5.2.</span> <span class="nav-text">分布函数与分布密度的估计</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%8F%E9%AA%8C%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0"><span class="nav-number">5.2.1.</span> <span class="nav-text">经验分布函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%8F%E9%AA%8C%E5%88%86%E5%B8%83%E5%AF%86%E5%BA%A6"><span class="nav-number">5.2.2.</span> <span class="nav-text">经验分布密度</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E7%9B%B4%E6%96%B9%E5%9B%BE%E6%B3%95"><span class="nav-number">5.2.2.1.</span> <span class="nav-text">(1) 直方图法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E6%A0%B8%E4%BC%B0%E8%AE%A1%E6%B3%95"><span class="nav-number">5.2.2.2.</span> <span class="nav-text">(2) 核估计法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E6%9C%80%E8%BF%91%E9%82%BB%E4%BC%B0%E8%AE%A1%E6%B3%95"><span class="nav-number">5.2.2.3.</span> <span class="nav-text">(3) 最近邻估计法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1"><span class="nav-number">5.3.</span> <span class="nav-text">最大似然估计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%9F%E6%9C%9B%E5%92%8C%E6%96%B9%E5%B7%AE%E7%9A%84%E7%82%B9%E4%BC%B0%E8%AE%A1"><span class="nav-number">5.4.</span> <span class="nav-text">期望和方差的点估计</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%9F%E6%9C%9B%E7%9A%84%E7%82%B9%E4%BC%B0%E8%AE%A1"><span class="nav-number">5.4.1.</span> <span class="nav-text">期望的点估计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E5%B7%AE%E7%9A%84%E7%82%B9%E4%BC%B0%E8%AE%A1"><span class="nav-number">5.4.2.</span> <span class="nav-text">方差的点估计</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%9F%E6%9C%9B%E7%9A%84%E7%BD%AE%E4%BF%A1%E5%8C%BA%E9%97%B4"><span class="nav-number">5.5.</span> <span class="nav-text">期望的置信区间</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B7%B2%E7%9F%A5%E6%96%B9%E5%B7%AE-%E5%AF%B9%E6%9C%9F%E6%9C%9B%E8%BF%9B%E8%A1%8C%E5%8C%BA%E9%97%B4%E4%BC%B0%E8%AE%A1"><span class="nav-number">5.5.1.</span> <span class="nav-text">已知方差，对期望进行区间估计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%AA%E7%9F%A5%E6%96%B9%E5%B7%AE-%E5%AF%B9%E6%9C%9F%E6%9C%9B%E8%BF%9B%E8%A1%8C%E5%8C%BA%E9%97%B4%E4%BC%B0%E8%AE%A1"><span class="nav-number">5.5.2.</span> <span class="nav-text">未知方差，对期望进行区间估计</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E5%B7%AE%E7%9A%84%E7%BD%AE%E4%BF%A1%E5%8C%BA%E9%97%B4"><span class="nav-number">5.6.</span> <span class="nav-text">方差的置信区间</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C"><span class="nav-number">6.</span> <span class="nav-text">第六章 假设检验</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E7%9A%84%E6%8F%90%E6%B3%95"><span class="nav-number">6.1.</span> <span class="nav-text">问题的提法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%B8%AA%E6%AD%A3%E6%80%81%E6%80%BB%E4%BD%93%E7%9A%84%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C"><span class="nav-number">6.2.</span> <span class="nav-text">一个正态总体的假设检验</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%B7%B2%E7%9F%A5%E6%96%B9%E5%B7%AE-%E6%A3%80%E9%AA%8C%E6%9C%9F%E6%9C%9B"><span class="nav-number">6.2.1.</span> <span class="nav-text">1. 已知方差，检验期望</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%9C%AA%E7%9F%A5%E6%96%B9%E5%B7%AE-%E6%A3%80%E9%AA%8C%E6%9C%9F%E6%9C%9B"><span class="nav-number">6.2.2.</span> <span class="nav-text">2. 未知方差，检验期望</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E6%9C%AA%E7%9F%A5%E6%9C%9F%E6%9C%9B-%E6%A3%80%E9%AA%8C%E6%96%B9%E5%B7%AE"><span class="nav-number">6.2.3.</span> <span class="nav-text">3. 未知期望，检验方差</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E6%9C%AA%E7%9F%A5%E6%9C%9F%E6%9C%9B-%E6%A3%80%E9%AA%8C%E6%96%B9%E5%B7%AE%E7%9A%84%E4%B8%8A%E9%99%90"><span class="nav-number">6.2.4.</span> <span class="nav-text">4. 未知期望，检验方差的上限</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%A4%E4%B8%AA%E6%AD%A3%E6%80%81%E6%80%BB%E4%BD%93%E7%9A%84%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C"><span class="nav-number">6.3.</span> <span class="nav-text">两个正态总体的假设检验</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90"><span class="nav-number">7.</span> <span class="nav-text">第七章 回归分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92"><span class="nav-number">7.1.</span> <span class="nav-text">一元线性回归</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%8F%E9%AA%8C%E5%85%AC%E5%BC%8F%E4%B8%8E%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95"><span class="nav-number">7.1.1.</span> <span class="nav-text">经验公式与最小二乘法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BD%93%E7%9B%B8%E5%85%B3%E5%85%B3%E7%B3%BB%E4%B8%8D%E6%98%AF%E7%BA%BF%E6%80%A7%E5%85%B3%E7%B3%BB%E6%97%B6%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95%EF%BC%9F"><span class="nav-number">7.1.1.1.</span> <span class="nav-text">当相关关系不是线性关系时如何使用最小二乘法？</span></a></li></ol></li></ol></li></ol></li></ol></div>
-        </section>
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E9%9A%8F%E6%9C%BA%E4%BA%8B%E4%BB%B6%E4%B8%8E%E6%A6%82%E7%8E%87"><span class="nav-number">1.</span> <span class="nav-text">第一章 随机事件与概率</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%91%E7%8E%87"><span class="nav-number">1.1.</span> <span class="nav-text">频率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E7%8E%87"><span class="nav-number">1.2.</span> <span class="nav-text">概率</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AD%89%E6%A6%82%E5%AE%8C%E5%A4%87%E4%BA%8B%E4%BB%B6%E7%BB%84"><span class="nav-number">1.2.1.</span> <span class="nav-text">等概完备事件组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E7%9A%84%E8%BF%90%E7%AE%97"><span class="nav-number">1.2.2.</span> <span class="nav-text">事件的运算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E7%9A%84%E4%BA%92%E4%B8%8D%E7%9B%B8%E5%AE%B9%E6%80%A7"><span class="nav-number">1.2.3.</span> <span class="nav-text">事件的互不相容性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A6%82%E7%8E%87%E7%9A%84%E5%8A%A0%E6%B3%95%E5%85%AC%E5%BC%8F"><span class="nav-number">1.2.4.</span> <span class="nav-text">概率的加法公式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E6%A6%82%E7%8E%87"><span class="nav-number">1.2.5.</span> <span class="nav-text">条件概率</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A6%82%E7%8E%87%E7%9A%84%E4%B9%98%E6%B3%95%E5%85%AC%E5%BC%8F"><span class="nav-number">1.2.6.</span> <span class="nav-text">概率的乘法公式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E7%9A%84%E7%8B%AC%E7%AB%8B%E6%80%A7"><span class="nav-number">1.2.7.</span> <span class="nav-text">事件的独立性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%A8%E6%A6%82%E5%85%AC%E5%BC%8F"><span class="nav-number">1.2.8.</span> <span class="nav-text">全概公式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%86%E6%A6%82%E5%85%AC%E5%BC%8F"><span class="nav-number">1.2.9.</span> <span class="nav-text">逆概公式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%8B%AC%E7%AB%8B%E8%AF%95%E9%AA%8C%E5%BA%8F%E5%88%97%E6%A6%82%E5%9E%8B"><span class="nav-number">1.2.10.</span> <span class="nav-text">独立试验序列概型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E4%B8%8E%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83"><span class="nav-number">2.</span> <span class="nav-text">第二章 随机变量与概率分布</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F"><span class="nav-number">2.1.</span> <span class="nav-text">随机变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E7%A6%BB%E6%95%A3%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F"><span class="nav-number">2.2.</span> <span class="nav-text">一、离散型随机变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E7%A6%BB%E6%95%A3%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83"><span class="nav-number">2.2.1.</span> <span class="nav-text">常用的离散型随机变量的概率分布</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E8%BF%9E%E7%BB%AD%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F"><span class="nav-number">2.3.</span> <span class="nav-text">二、连续型随机变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A6%82%E7%8E%87%E5%AF%86%E5%BA%A6%E5%87%BD%E6%95%B0"><span class="nav-number">2.3.1.</span> <span class="nav-text">概率密度函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E6%A6%82%E7%8E%87%E5%AF%86%E5%BA%A6%E5%87%BD%E6%95%B0"><span class="nav-number">2.3.2.</span> <span class="nav-text">常见概率密度函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0"><span class="nav-number">2.3.3.</span> <span class="nav-text">分布函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%87%BD%E6%95%B0%E7%9A%84%E5%88%86%E5%B8%83"><span class="nav-number">2.3.4.</span> <span class="nav-text">随机变量函数的分布</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%87%BD%E6%95%B0%E7%9A%84%E5%88%86%E5%B8%83"><span class="nav-number">2.3.4.1.</span> <span class="nav-text">离散型随机变量函数的分布</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%9E%E7%BB%AD%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%87%BD%E6%95%B0%E7%9A%84%E5%88%86%E5%B8%83"><span class="nav-number">2.3.4.2.</span> <span class="nav-text">连续型随机变量函数的分布</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E6%95%B0%E5%AD%97%E7%89%B9%E5%BE%81"><span class="nav-number">3.</span> <span class="nav-text">第三章 随机变量的数字特征</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E6%9C%9F%E6%9C%9B"><span class="nav-number">3.1.</span> <span class="nav-text">随机变量的期望</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E6%9C%9F%E6%9C%9B"><span class="nav-number">3.1.1.</span> <span class="nav-text">离散型随机变量的期望</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%87%A0%E4%B8%AA%E5%B8%B8%E7%94%A8%E5%88%86%E5%B8%83%E7%9A%84%E6%9C%9F%E6%9C%9B"><span class="nav-number">3.1.1.1.</span> <span class="nav-text">几个常用分布的期望</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9E%E7%BB%AD%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E6%9C%9F%E6%9C%9B"><span class="nav-number">3.1.2.</span> <span class="nav-text">连续型随机变量的期望</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%87%A0%E4%B8%AA%E5%B8%B8%E7%94%A8%E5%88%86%E5%B8%83%E7%9A%84%E6%9C%9F%E6%9C%9B-2"><span class="nav-number">3.1.2.1.</span> <span class="nav-text">几个常用分布的期望</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%9F%E6%9C%9B%E7%9A%84%E7%AE%80%E5%8D%95%E6%80%A7%E8%B4%A8"><span class="nav-number">3.1.3.</span> <span class="nav-text">期望的简单性质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%87%BD%E6%95%B0%E7%9A%84%E6%9C%9F%E6%9C%9B"><span class="nav-number">3.1.4.</span> <span class="nav-text">随机变量函数的期望</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E6%96%B9%E5%B7%AE"><span class="nav-number">3.2.</span> <span class="nav-text">随机变量的方差</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E6%96%B9%E5%B7%AE"><span class="nav-number">3.2.1.</span> <span class="nav-text">离散型随机变量的方差</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9E%E7%BB%AD%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E6%96%B9%E5%B7%AE"><span class="nav-number">3.2.2.</span> <span class="nav-text">连续型随机变量的方差</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%88%86%E5%B8%83%E7%9A%84%E6%96%B9%E5%B7%AE"><span class="nav-number">3.2.3.</span> <span class="nav-text">常用分布的方差</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E5%B7%AE%E7%9A%84%E7%AE%80%E5%8D%95%E6%80%A7%E8%B4%A8"><span class="nav-number">3.2.4.</span> <span class="nav-text">方差的简单性质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%87%E6%AF%94%E9%9B%AA%E5%A4%AB%E4%B8%8D%E7%AD%89%E5%BC%8F"><span class="nav-number">3.2.5.</span> <span class="nav-text">切比雪夫不等式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F"><span class="nav-number">4.</span> <span class="nav-text">第四章 随机向量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E7%BB%B4%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F%E7%9A%84%E8%81%94%E5%90%88%E5%88%86%E5%B8%83%E4%B8%8E%E8%BE%B9%E7%BC%98%E5%88%86%E5%B8%83"><span class="nav-number">4.1.</span> <span class="nav-text">二维随机向量的联合分布与边缘分布</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F%E7%9A%84%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83"><span class="nav-number">4.1.1.</span> <span class="nav-text">离散型随机向量的概率分布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F%E7%9A%84%E8%BE%B9%E7%BC%98%E5%88%86%E5%B8%83%E4%B8%8E%E8%81%94%E5%90%88%E5%88%86%E5%B8%83"><span class="nav-number">4.1.2.</span> <span class="nav-text">离散型随机向量的边缘分布与联合分布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9E%E7%BB%AD%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F%E7%9A%84%E8%81%94%E5%90%88%E5%88%86%E5%B8%83"><span class="nav-number">4.1.3.</span> <span class="nav-text">连续型随机向量的联合分布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9E%E7%BB%AD%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F%E7%9A%84%E8%BE%B9%E7%BC%98%E5%88%86%E5%B8%83"><span class="nav-number">4.1.4.</span> <span class="nav-text">连续型随机向量的边缘分布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E7%8B%AC%E7%AB%8B%E6%80%A7"><span class="nav-number">4.1.5.</span> <span class="nav-text">随机变量的独立性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E7%BB%B4%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83"><span class="nav-number">4.1.6.</span> <span class="nav-text">二维正态分布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E7%BB%B4%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F%E7%9A%84%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0"><span class="nav-number">4.1.7.</span> <span class="nav-text">二维随机向量的分布函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%A4%E4%B8%AA%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E5%87%BD%E6%95%B0%E7%9A%84%E5%88%86%E5%B8%83"><span class="nav-number">4.2.</span> <span class="nav-text">两个随机变量的函数的分布</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%87%BD%E6%95%B0%E7%9A%84%E8%81%94%E5%90%88%E5%AF%86%E5%BA%A6"><span class="nav-number">4.2.1.</span> <span class="nav-text">随机变量函数的联合密度</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F%E7%9A%84%E6%95%B0%E5%AD%97%E7%89%B9%E5%BE%81"><span class="nav-number">4.3.</span> <span class="nav-text">随机向量的数字特征</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%A4%E4%B8%AA%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E5%9D%87%E5%80%BC%E5%85%AC%E5%BC%8F"><span class="nav-number">4.3.1.</span> <span class="nav-text">两个随机变量的均值公式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%A4%E4%B8%AA%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F%E5%9D%87%E5%80%BC%E5%92%8C%E6%96%B9%E5%B7%AE%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="nav-number">4.3.2.</span> <span class="nav-text">两个随机向量均值和方差的性质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%A4%E4%B8%AA%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E5%92%8C%E7%9A%84%E5%9D%87%E5%80%BC%E4%B8%8E%E6%96%B9%E5%B7%AE"><span class="nav-number">4.3.3.</span> <span class="nav-text">两个随机变量的和的均值与方差</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F%E7%9A%84%E5%9D%87%E5%80%BC%E5%92%8C%E5%8D%8F%E6%96%B9%E5%B7%AE"><span class="nav-number">4.3.4.</span> <span class="nav-text">随机向量的均值和协方差</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F%E7%9A%84%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0"><span class="nav-number">4.3.5.</span> <span class="nav-text">随机向量的相关系数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E7%BB%B4%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F"><span class="nav-number">4.4.</span> <span class="nav-text">多维随机向量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%81%94%E5%90%88%E5%AF%86%E5%BA%A6%E4%B8%8E%E8%BE%B9%E7%BC%98%E5%AF%86%E5%BA%A6"><span class="nav-number">4.4.1.</span> <span class="nav-text">联合密度与边缘密度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%8B%AC%E7%AB%8B%E6%80%A7"><span class="nav-number">4.4.2.</span> <span class="nav-text">独立性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#n-%E4%B8%AA%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E5%87%BD%E6%95%B0%E7%9A%84%E5%88%86%E5%B8%83"><span class="nav-number">4.4.3.</span> <span class="nav-text">$n$ 个随机变量的函数的分布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E7%89%B9%E5%BE%81"><span class="nav-number">4.4.4.</span> <span class="nav-text">数字特征</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9D%87%E5%80%BC%E5%85%AC%E5%BC%8F"><span class="nav-number">4.4.4.1.</span> <span class="nav-text">均值公式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9D%87%E5%80%BC%E4%B8%8E%E6%96%B9%E5%B7%AE%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="nav-number">4.4.4.2.</span> <span class="nav-text">均值与方差的性质</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8D%8F%E6%96%B9%E5%B7%AE%E4%B8%8E%E5%8D%8F%E5%B7%AE%E9%98%B5"><span class="nav-number">4.4.4.3.</span> <span class="nav-text">协方差与协差阵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0%E4%B8%8E%E7%9B%B8%E5%85%B3%E9%98%B5"><span class="nav-number">4.4.4.4.</span> <span class="nav-text">相关系数与相关阵</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#n-%E7%BB%B4%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0"><span class="nav-number">4.4.4.5.</span> <span class="nav-text">$n$ 维分布函数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%A7%E6%95%B0%E5%AE%9A%E5%BE%8B%E5%92%8C%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86"><span class="nav-number">4.5.</span> <span class="nav-text">大数定律和中心极限定理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%A7%E6%95%B0%E5%AE%9A%E5%BE%8B"><span class="nav-number">4.5.1.</span> <span class="nav-text">大数定律</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%BA%E5%A4%A7%E6%95%B0%E5%AE%9A%E5%BE%8B"><span class="nav-number">4.5.2.</span> <span class="nav-text">强大数定律</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86"><span class="nav-number">4.5.3.</span> <span class="nav-text">中心极限定理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E7%BB%9F%E8%AE%A1%E4%BC%B0%E5%80%BC"><span class="nav-number">5.</span> <span class="nav-text">第五章 统计估值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E4%BD%93%E4%B8%8E%E6%A0%B7%E6%9C%AC"><span class="nav-number">5.1.</span> <span class="nav-text">总体与样本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0%E4%B8%8E%E5%88%86%E5%B8%83%E5%AF%86%E5%BA%A6%E7%9A%84%E4%BC%B0%E8%AE%A1"><span class="nav-number">5.2.</span> <span class="nav-text">分布函数与分布密度的估计</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%8F%E9%AA%8C%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0"><span class="nav-number">5.2.1.</span> <span class="nav-text">经验分布函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%8F%E9%AA%8C%E5%88%86%E5%B8%83%E5%AF%86%E5%BA%A6"><span class="nav-number">5.2.2.</span> <span class="nav-text">经验分布密度</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E7%9B%B4%E6%96%B9%E5%9B%BE%E6%B3%95"><span class="nav-number">5.2.2.1.</span> <span class="nav-text">(1) 直方图法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E6%A0%B8%E4%BC%B0%E8%AE%A1%E6%B3%95"><span class="nav-number">5.2.2.2.</span> <span class="nav-text">(2) 核估计法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E6%9C%80%E8%BF%91%E9%82%BB%E4%BC%B0%E8%AE%A1%E6%B3%95"><span class="nav-number">5.2.2.3.</span> <span class="nav-text">(3) 最近邻估计法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1"><span class="nav-number">5.3.</span> <span class="nav-text">最大似然估计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%9F%E6%9C%9B%E5%92%8C%E6%96%B9%E5%B7%AE%E7%9A%84%E7%82%B9%E4%BC%B0%E8%AE%A1"><span class="nav-number">5.4.</span> <span class="nav-text">期望和方差的点估计</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%9F%E6%9C%9B%E7%9A%84%E7%82%B9%E4%BC%B0%E8%AE%A1"><span class="nav-number">5.4.1.</span> <span class="nav-text">期望的点估计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E5%B7%AE%E7%9A%84%E7%82%B9%E4%BC%B0%E8%AE%A1"><span class="nav-number">5.4.2.</span> <span class="nav-text">方差的点估计</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%9F%E6%9C%9B%E7%9A%84%E7%BD%AE%E4%BF%A1%E5%8C%BA%E9%97%B4"><span class="nav-number">5.5.</span> <span class="nav-text">期望的置信区间</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B7%B2%E7%9F%A5%E6%96%B9%E5%B7%AE%EF%BC%8C%E5%AF%B9%E6%9C%9F%E6%9C%9B%E8%BF%9B%E8%A1%8C%E5%8C%BA%E9%97%B4%E4%BC%B0%E8%AE%A1"><span class="nav-number">5.5.1.</span> <span class="nav-text">已知方差，对期望进行区间估计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%AA%E7%9F%A5%E6%96%B9%E5%B7%AE%EF%BC%8C%E5%AF%B9%E6%9C%9F%E6%9C%9B%E8%BF%9B%E8%A1%8C%E5%8C%BA%E9%97%B4%E4%BC%B0%E8%AE%A1"><span class="nav-number">5.5.2.</span> <span class="nav-text">未知方差，对期望进行区间估计</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E5%B7%AE%E7%9A%84%E7%BD%AE%E4%BF%A1%E5%8C%BA%E9%97%B4"><span class="nav-number">5.6.</span> <span class="nav-text">方差的置信区间</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C"><span class="nav-number">6.</span> <span class="nav-text">第六章 假设检验</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E7%9A%84%E6%8F%90%E6%B3%95"><span class="nav-number">6.1.</span> <span class="nav-text">问题的提法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%B8%AA%E6%AD%A3%E6%80%81%E6%80%BB%E4%BD%93%E7%9A%84%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C"><span class="nav-number">6.2.</span> <span class="nav-text">一个正态总体的假设检验</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%B7%B2%E7%9F%A5%E6%96%B9%E5%B7%AE%EF%BC%8C%E6%A3%80%E9%AA%8C%E6%9C%9F%E6%9C%9B"><span class="nav-number">6.2.1.</span> <span class="nav-text">1. 已知方差，检验期望</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%9C%AA%E7%9F%A5%E6%96%B9%E5%B7%AE%EF%BC%8C%E6%A3%80%E9%AA%8C%E6%9C%9F%E6%9C%9B"><span class="nav-number">6.2.2.</span> <span class="nav-text">2. 未知方差，检验期望</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E6%9C%AA%E7%9F%A5%E6%9C%9F%E6%9C%9B%EF%BC%8C%E6%A3%80%E9%AA%8C%E6%96%B9%E5%B7%AE"><span class="nav-number">6.2.3.</span> <span class="nav-text">3. 未知期望，检验方差</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E6%9C%AA%E7%9F%A5%E6%9C%9F%E6%9C%9B%EF%BC%8C%E6%A3%80%E9%AA%8C%E6%96%B9%E5%B7%AE%E7%9A%84%E4%B8%8A%E9%99%90"><span class="nav-number">6.2.4.</span> <span class="nav-text">4. 未知期望，检验方差的上限</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%A4%E4%B8%AA%E6%AD%A3%E6%80%81%E6%80%BB%E4%BD%93%E7%9A%84%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C"><span class="nav-number">6.3.</span> <span class="nav-text">两个正态总体的假设检验</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90"><span class="nav-number">7.</span> <span class="nav-text">第七章 回归分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92"><span class="nav-number">7.1.</span> <span class="nav-text">一元线性回归</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%8F%E9%AA%8C%E5%85%AC%E5%BC%8F%E4%B8%8E%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95"><span class="nav-number">7.1.1.</span> <span class="nav-text">经验公式与最小二乘法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BD%93%E7%9B%B8%E5%85%B3%E5%85%B3%E7%B3%BB%E4%B8%8D%E6%98%AF%E7%BA%BF%E6%80%A7%E5%85%B3%E7%B3%BB%E6%97%B6%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95%EF%BC%9F"><span class="nav-number">7.1.1.1.</span> <span class="nav-text">当相关关系不是线性关系时如何使用最小二乘法？</span></a></li></ol></li></ol></li></ol></li></ol></div>
+        </div>
         <!--/noindex-->
 
-        <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="Henry"
       src="/images/avatar.jpg">
@@ -193,18 +155,18 @@
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives">
-          <span class="site-state-item-count">14</span>
+        <a href="/archives/">
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-            <a href="/categories/">
+          <a href="/categories/">
         <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/tags/">
+          <a href="/tags/">
         <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
@@ -227,7 +189,7 @@
 
 
 
-        </section>
+        </div>
       </div>
     </div>
   </aside>
@@ -237,7 +199,7 @@
     </header>
 
     
-  <div class="back-to-top">
+  <div class="back-to-top" role="button" aria-label="返回顶部">
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
@@ -321,7 +283,7 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>本文为 <a target="_blank" rel="noopener" href="https://book.douban.com/subject/1748397/">概率统计讲义</a> 一书的笔记。</p>
-<a id="more"></a>
+<span id="more"></span>
 <h2 id="第一章-随机事件与概率">第一章 随机事件与概率</h2>
 <h3 id="频率">频率</h3>
 <p>$$ 频率=\frac{频数}{试验次数} $$</p>
@@ -406,7 +368,7 @@ $$ A \backslash B = A \cap \overline{B} $$</p>
 <p><strong>定义</strong>：对于条件组 $S$ 下的每一个可能结果 $\omega$ 都唯一的对应到一个实数值 $X(\omega)$，则称实值变量 $X(\omega)$ 为一个随机变量，简记为 $X$。</p>
 <p>举个例子：设盒中有 5 个球，其中 2 个白球、3 个黑球，从中随便取 3 个球。则“抽得的白球数”$X$ 是一个随机变量。</p>
 <p>随机变量分为<strong>离散型随机变量</strong>和<strong>连续型随机变量</strong>。</p>
-<h3 id="一-离散型随机变量">一、离散型随机变量</h3>
+<h3 id="一、离散型随机变量">一、离散型随机变量</h3>
 <p>将随机变量 $X$ 的所有可能取值到其相应概率的映射称为 $X$ 的概率分布，记为：</p>
 <p>$$ p_k = P\{X=x_k\} \quad (k=1,2,\cdots) $$</p>
 <h4 id="常用的离散型随机变量的概率分布">常用的离散型随机变量的概率分布</h4>
@@ -435,7 +397,7 @@ $$ P\{X=m\} = \frac{C_M^m C_{N-M}<sup>{n-m}}{C_N</sup>n} \quad (m=0,1,2,\cdots,l
 <p>示例：设一堆同类产品共 $N$ 个，其中有 $M$ 个次品。现从中任取 $n$ 个（假定 $n \le N-M$），则这 $n$ 个样品中所含次品个数 $X$ 是一个离散型随机变量，其概率分布为超几何分布。</p>
 </li>
 </ol>
-<h3 id="二-连续型随机变量">二、连续型随机变量</h3>
+<h3 id="二、连续型随机变量">二、连续型随机变量</h3>
 <h4 id="概率密度函数">概率密度函数</h4>
 <p><strong>定义</strong>：对于随机变量 $X$，如果存在非负可积函数 $p(x)(-\infty \lt x \lt \infty)$，使对任意的 $a,b(a \lt b)$ 都有：</p>
 <p>$$ P\{a \lt X \lt b\} = \int_a^b p(x) \mathrm{d}x $$</p>
@@ -1066,7 +1028,7 @@ E(\overline{X}) &amp;= E \left( \frac{X_1+X_2+\cdots+X_n}{n} \right) \\<br>
 <p>需要注意，我们习惯使用的 $\displaystyle \frac{1}{n}\sum_{i=1}<sup>{n}(x_i-\overline{x})</sup>2$ 并不是方差的无偏估计量。</p>
 <h3 id="期望的置信区间">期望的置信区间</h3>
 <p>期望的点估计只是得到了期望的一个近似值，那么该近似值 $\overline{X}$ 与真实值 $E(X)$ 到低相差多少呢？这就涉及到<strong>区间估计问题</strong>。</p>
-<h4 id="已知方差-对期望进行区间估计">已知方差，对期望进行区间估计</h4>
+<h4 id="已知方差，对期望进行区间估计">已知方差，对期望进行区间估计</h4>
 <p>对于任意随机变量 $X$ ，根据中心极限定理可知，随机变量</p>
 <p>$$ \eta = \frac{\overline{X}-E(X)}{\sqrt{\frac{D(X)}{n}}} $$</p>
 <p>是服从标准正态分布的。查表可以得到</p>
@@ -1075,7 +1037,7 @@ E(\overline{X}) &amp;= E \left( \frac{X_1+X_2+\cdots+X_n}{n} \right) \\<br>
 <p>$$ \left[ \overline{X}-1.96 \sqrt{\frac{D(X)}{n}},\;\overline{X}+1.96 \sqrt{\frac{D(X)}{n}} \right] $$</p>
 <p>以内的概率为 $95%$ 。</p>
 <p>这就是 $E(X)$ 的<strong>置信区间</strong>，<strong>置信度</strong>为 $95%$ 。</p>
-<h4 id="未知方差-对期望进行区间估计">未知方差，对期望进行区间估计</h4>
+<h4 id="未知方差，对期望进行区间估计">未知方差，对期望进行区间估计</h4>
 <p>未知方差时，不能使用上述的置信区间公式，但我们自然会想到利用方差的无偏估计量 $S^2$ 来替代方差，即研究随机变量</p>
 <p>$$ T = \frac{\overline{X}-E(X)}{\sqrt{S^2/n}} $$</p>
 <p>的分布。经过复杂的推导发现，随机变量 $T$ 服从 $n-1$ 个自由度的 $t$ 分布：</p>
@@ -1121,7 +1083,7 @@ E(\overline{X}) &amp;= E \left( \frac{X_1+X_2+\cdots+X_n}{n} \right) \\<br>
 <li>未知期望 $\mu$ ，检验假设 $H_0: \sigma^2 \le \sigma_0^2$ （$\sigma_0$ 是已知数）。</li>
 </ol>
 <p>以下分别介绍。</p>
-<h4 id="1-已知方差-检验期望">1. 已知方差，检验期望</h4>
+<h4 id="1-已知方差，检验期望">1. 已知方差，检验期望</h4>
 <p>我们首先假设 $H_0$ 成立，看在该条件下会不会产生不合理的现象。</p>
 <p>在 $\mu=\mu_0$ 的条件下，有 $X \sim N(\mu_0,\sigma^2)$ ，假设有样品 $X_1,X_2,\cdots,X_n$ ，由中心极限定理可知：</p>
 <p>$$ U = \frac{\overline{X}-\mu_0}{\sqrt{\sigma^2/n}}  \sim  N(0,1) $$</p>
@@ -1134,12 +1096,12 @@ E(\overline{X}) &amp;= E \left( \frac{X_1+X_2+\cdots+X_n}{n} \right) \\<br>
 <p><strong>两类错误</strong>：从以上的分析过程中我们可以看到，当一个事件为小概率事件时，我们就认为它绝对不可能发生，这显然是不合理的，有时会造成错误：</p>
 <p>当一个假设实际上是成立的，我们根据对样本的计算却判定其不成立，即犯了“以真为假”的错误，这种错误称为<strong>第一类错误</strong>。</p>
 <p>反之，当一个假设实际上是不成立的，我们根据对样本的计算判定其成立，即犯了“以假为真”的错误，这种错误称为<strong>第二类错误</strong>。</p>
-<h4 id="2-未知方差-检验期望">2. 未知方差，检验期望</h4>
+<h4 id="2-未知方差，检验期望">2. 未知方差，检验期望</h4>
 <p>可转化为求置信区间问题，我们前面已经讲述过了，此处不再赘述。关键点是：构造随机变量</p>
 <p>$$ T = \frac{\overline{X}-\mu}{\sqrt{S^2/n}} $$</p>
 <p>$T$ 应符合 $n-1$ 个自由度的 $t$ 分布。</p>
-<h4 id="3-未知期望-检验方差">3. 未知期望，检验方差</h4>
-<h4 id="4-未知期望-检验方差的上限">4. 未知期望，检验方差的上限</h4>
+<h4 id="3-未知期望，检验方差">3. 未知期望，检验方差</h4>
+<h4 id="4-未知期望，检验方差的上限">4. 未知期望，检验方差的上限</h4>
 <p>同样采用求置信区间的思路，关键点是：构造随机变量</p>
 <p>$$ W = \frac{(n-1)S<sup>2}{\sigma</sup>2} $$</p>
 <p>$W$ 应符合 $n-1$ 个自由度的 $\chi^2$ 分布。</p>
@@ -1234,7 +1196,7 @@ x^\ast &amp;= \frac{1}{x}<br>
     <footer class="post-footer">
           <div class="reward-container">
   <div></div>
-  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+  <button>
     赞赏
   </button>
   <div class="post-reward">
@@ -1277,29 +1239,7 @@ x^\ast &amp;= \frac{1}{x}<br>
 
 
 
-    <div class="comments" id="gitalk-container"></div>
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      const commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
+    <div class="comments gitalk-container"></div>
 </div>
   </main>
 
@@ -1311,7 +1251,7 @@ x^\ast &amp;= \frac{1}{x}<br>
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -1322,22 +1262,12 @@ x^\ast &amp;= \frac{1}{x}<br>
   </footer>
 
   
-  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
 
   
-  <script>
-    (function(){
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
-  </script>
-
-<script src="/js/local-search.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
 
 
 
@@ -1346,164 +1276,20 @@ x^\ast &amp;= \frac{1}{x}<br>
   
 
 
-
-<script>
-  (function() {
-    function leancloudSelector(url) {
-      url = encodeURI(url);
-      return document.getElementById(url).querySelector('.leancloud-visitors-count');
-    }
-
-    function addCount(Counter) {
-      const visitors = document.querySelector('.leancloud_visitors');
-      const url = decodeURI(visitors.id);
-      const title = visitors.dataset.flagTitle;
-
-      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
-        .then(response => response.json())
-        .then(({ results }) => {
-          if (results.length > 0) {
-            const counter = results[0];
-            leancloudSelector(url).innerText = counter.time + 1;
-            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
-              .catch(error => {
-                console.error('Failed to save visitor count', error);
-              });
-          } else {
-              Counter('post', '/classes/Counter', { title, url, time: 1 })
-                .then(response => response.json())
-                .then(() => {
-                  leancloudSelector(url).innerText = 1;
-                })
-                .catch(error => {
-                  console.error('Failed to create', error);
-                });
-          }
-        })
-        .catch(error => {
-          console.error('LeanCloud Counter Error', error);
-        });
-    }
-
-    function showTime(Counter) {
-      const visitors = document.querySelectorAll('.leancloud_visitors');
-      const entries = [...visitors].map(element => {
-        return decodeURI(element.id);
-      });
-
-      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
-        .then(response => response.json())
-        .then(({ results }) => {
-          for (let url of entries) {
-            const target = results.find(item => item.url === url);
-            leancloudSelector(url).innerText = target ? target.time : 0;
-          }
-        })
-        .catch(error => {
-          console.error('LeanCloud Counter Error', error);
-        });
-    }
-
-    const { app_id, app_key, server_url } = {"enable":true,"app_id":"O49O3LRqDf6XCiPXdKzeqKGp-gzGzoHsz","app_key":"XcrzmNEzlES5k9h5BDN3oKpb","server_url":null,"security":false};
-    function fetchData(api_server) {
-      const Counter = (method, url, data) => {
-        return fetch(`${api_server}/1.1${url}`, {
-          method,
-          headers: {
-            'X-LC-Id'     : app_id,
-            'X-LC-Key'    : app_key,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-      };
-      if (CONFIG.page.isPost) {
-        if (CONFIG.hostname !== location.hostname) return;
-        addCount(Counter);
-      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
-        showTime(Counter);
-      }
-    }
-
-    const api_server = app_id.slice(-9) === '-MdYXbMMI' ? `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com` : server_url;
-
-    if (api_server) {
-      fetchData(api_server);
-    } else {
-      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
-        .then(response => response.json())
-        .then(({ api_server }) => {
-          fetchData('https://' + api_server);
-        });
-    }
-  })();
-</script>
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"O49O3LRqDf6XCiPXdKzeqKGp-gzGzoHsz","app_key":"XcrzmNEzlES5k9h5BDN3oKpb","server_url":null,"security":false}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
 
 
-  <script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              const target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    const script = document.createElement('script');
-    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js';
-    script.defer = true;
-    document.head.appendChild(script);
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.typesetClear();
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.css">
-
-<script>
-NexT.utils.loadComments('#gitalk-container', () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID    : '718c67973a0818c37f02',
-      clientSecret: 'f815ebc1b572a2af9f809a5e8373d1632faa133f',
-      repo        : '_blog_comment',
-      owner       : 'hzhu212',
-      admin       : ['hzhu212'],
-      id          : '9aec82f885efbf00f219ad7c6da38ab3',
-        language: '',
-      distractionFreeMode: true
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
-});
-</script>
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"hzhu212","repo":"_blog_comment","client_id":"718c67973a0818c37f02","client_secret":"f815ebc1b572a2af9f809a5e8373d1632faa133f","admin_user":"hzhu212","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"9aec82f885efbf00f219ad7c6da38ab3"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
 
 </body>
 </html>

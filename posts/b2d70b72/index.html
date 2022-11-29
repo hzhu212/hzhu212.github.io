@@ -2,9 +2,9 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+<meta name="generator" content="Hexo 5.4.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -16,13 +16,10 @@
 
 
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"hzhu212.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
-  </script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hzhu212.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.8.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 <meta name="description" content="乱码问题是不但是新手程序员之痛，也常常让许多资深 coder 束手无策。本文探讨编码的概念、乱码的原理，以及乱码问题的分析与解决。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="编码与乱码之追根溯源">
@@ -54,55 +51,20 @@
 <link rel="canonical" href="https://hzhu212.github.io/posts/b2d70b72/">
 
 
-<script class="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
-</script>
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hzhu212.github.io/posts/b2d70b72/","path":"posts/b2d70b72/","title":"编码与乱码之追根溯源"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>编码与乱码之追根溯源 | Henry's Blog</title>
   
 
 
 
+
   <noscript>
-  <style>
-  body { margin-top: 2rem; }
-
-  .use-motion .menu-item,
-  .use-motion .sidebar,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header {
-    visibility: visible;
-  }
-
-  .use-motion .header,
-  .use-motion .site-brand-container .toggle,
-  .use-motion .footer { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle,
-  .use-motion .custom-logo-image {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line {
-    transform: scaleX(1);
-  }
-
-  .search-pop-overlay, .sidebar-nav { display: none; }
-  .sidebar-panel { display: block; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Henry's Blog" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
@@ -112,7 +74,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
+    <div class="toggle" aria-label="切换导航栏" role="button">
     </div>
   </div>
 
@@ -123,7 +85,7 @@
       <h1 class="site-title">Henry's Blog</h1>
       <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">用简单的话把事情说明白</p>
+      <p class="site-subtitle" itemprop="description">用简单的话把事情讲明白</p>
   </div>
 
   <div class="site-nav-right">
@@ -156,7 +118,7 @@
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
@@ -172,7 +134,7 @@
 </div>
         
   
-  <div class="toggle sidebar-toggle">
+  <div class="toggle sidebar-toggle" role="button">
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
@@ -192,12 +154,12 @@
 
       <div class="sidebar-panel-container">
         <!--noindex-->
-        <section class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80-%E4%BB%80%E4%B9%88%E6%98%AF%E7%BC%96%E7%A0%81%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">一、什么是编码？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C-%E4%BB%80%E4%B9%88%E6%98%AF%E4%B9%B1%E7%A0%81%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">二、什么是乱码？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89-%E7%BC%96%E7%A8%8B%E4%B8%AD%E5%87%BA%E7%8E%B0%E4%B9%B1%E7%A0%81%E7%9A%84%E5%8E%9F%E5%9B%A0%E4%B8%8E%E7%B1%BB%E5%9E%8B"><span class="nav-number">3.</span> <span class="nav-text">三、编程中出现乱码的原因与类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B-1-%E4%B9%B1%E7%A0%81"><span class="nav-number">3.1.</span> <span class="nav-text">过程 1 乱码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B-2-%E4%B9%B1%E7%A0%81"><span class="nav-number">3.2.</span> <span class="nav-text">过程 2 乱码。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E5%99%A8%E8%BE%93%E5%87%BA%E7%BC%96%E7%A0%81%E4%B8%8D%E5%BD%93"><span class="nav-number">3.2.1.</span> <span class="nav-text">编译器输出编码不当。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B1%95%E7%A4%BA%E5%99%A8%E8%BE%93%E5%85%A5%E7%BC%96%E7%A0%81%E4%B8%8D%E5%BD%93"><span class="nav-number">3.2.2.</span> <span class="nav-text">展示器输入编码不当。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B-1-%E4%B8%8E%E8%BF%87%E7%A8%8B-2-%E5%90%8C%E6%97%B6%E4%B9%B1%E7%A0%81"><span class="nav-number">3.3.</span> <span class="nav-text">过程 1 与过程 2 同时乱码。</span></a></li></ol></li></ol></div>
-        </section>
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF%E7%BC%96%E7%A0%81%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">一、什么是编码？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF%E4%B9%B1%E7%A0%81%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">二、什么是乱码？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E7%BC%96%E7%A8%8B%E4%B8%AD%E5%87%BA%E7%8E%B0%E4%B9%B1%E7%A0%81%E7%9A%84%E5%8E%9F%E5%9B%A0%E4%B8%8E%E7%B1%BB%E5%9E%8B"><span class="nav-number">3.</span> <span class="nav-text">三、编程中出现乱码的原因与类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B-1-%E4%B9%B1%E7%A0%81"><span class="nav-number">3.1.</span> <span class="nav-text">过程 1 乱码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B-2-%E4%B9%B1%E7%A0%81%E3%80%82"><span class="nav-number">3.2.</span> <span class="nav-text">过程 2 乱码。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E5%99%A8%E8%BE%93%E5%87%BA%E7%BC%96%E7%A0%81%E4%B8%8D%E5%BD%93%E3%80%82"><span class="nav-number">3.2.1.</span> <span class="nav-text">编译器输出编码不当。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B1%95%E7%A4%BA%E5%99%A8%E8%BE%93%E5%85%A5%E7%BC%96%E7%A0%81%E4%B8%8D%E5%BD%93%E3%80%82"><span class="nav-number">3.2.2.</span> <span class="nav-text">展示器输入编码不当。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B-1-%E4%B8%8E%E8%BF%87%E7%A8%8B-2-%E5%90%8C%E6%97%B6%E4%B9%B1%E7%A0%81%E3%80%82"><span class="nav-number">3.3.</span> <span class="nav-text">过程 1 与过程 2 同时乱码。</span></a></li></ol></li></ol></div>
+        </div>
         <!--/noindex-->
 
-        <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="Henry"
       src="/images/avatar.jpg">
@@ -207,18 +169,18 @@
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives">
-          <span class="site-state-item-count">14</span>
+        <a href="/archives/">
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-            <a href="/categories/">
+          <a href="/categories/">
         <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/tags/">
+          <a href="/tags/">
         <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
@@ -241,7 +203,7 @@
 
 
 
-        </section>
+        </div>
       </div>
     </div>
   </aside>
@@ -251,7 +213,7 @@
     </header>
 
     
-  <div class="back-to-top">
+  <div class="back-to-top" role="button" aria-label="返回顶部">
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
@@ -339,11 +301,11 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>乱码问题是不但是新手程序员之痛，也常常让许多资深 coder 束手无策。本文探讨编码的概念、乱码的原理，以及乱码问题的分析与解决。</p>
-<a id="more"></a>
+<span id="more"></span>
 <blockquote>
 <p>注：本文的所有截图和实验均以 Sublime Text 为例，其他编辑器或 IDE 在原理上类似。</p>
 </blockquote>
-<h2 id="一-什么是编码？">一、什么是编码？</h2>
+<h2 id="一、什么是编码？">一、什么是编码？</h2>
 <p>什么是编码？这要从「文件」的概念说起。根据呈现形式，文件可分为两种类型：「文本文件」和「二进制文件」。</p>
 <p>二者的区别非常明显，文本文件中保存的是各种字符，包括英文字母如 <code>abc</code>、汉字如 <code>你好</code>、日文如 <code>こんにちは</code> 等；而二进制文件中保存的则是 <code>0101</code> 等二进制数值。如果你用 Sublime Text 分别打开文本文件和二进制文件，那么它们呈现的样子大致如下：</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/3310969-265e9519743cafd6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="文本文件与二进制文件"></p>
@@ -363,7 +325,7 @@
 <p>Unicode 编码使用 4 个字节来保存字符映射关系，因此共支持 <code>2^(4*8)=4294967296</code> 个字符，远远超出了地球上所有文字的总量。这彻底解决了字符数量不够用的担忧，但也带来了存储空间的浪费：即使仅仅保存一个简单的英文字母 <code>a</code>，Unicode 编码也需要 4 个字节，但事实上只需要 1 个字节（ASCII 编码）。如果一个文本文件中绝大部分字符都是英文字母，那么 Unicode 就浪费了 75% 的存储空间。鉴于上述问题，人们又制定了一系列“改良版”的 Unicode 编码，包括 UTF-8、UTF-16、UTF-32 等，它们同样能够编码所有已知的字符，但占用更少的空间。</p>
 <p>以 UTF-8 为例，对于常见的英文字符，它采用 1 个字节编码，常见的中文、日文等字符采用 2 个字节，不常见的中文字符等采用 3 到 4 个字节，对于极不常见的字符，它会采用 6 个字节进行编码。因此，在通常情况下，UTF-8 编码要比 Unicode 编码节省超过一半的空间。UTF-8 编码无所不包、节省空间，且具有良好的跨平台性，因此推荐一切文本文件都使用 UTF-8 编码。目前，主流的文本编辑器都把 UTF-8 作为默认编码方式。</p>
 <p>最后解释一下所谓的「ANSI 编码」。ANSI 编码常被称为标准编码，但它并不是指某种明确的编码方式。为了更容易地理解 ANSI 编码，我们不妨把它与「官方语言」的概念做类比。正如中国的官方语言是汉语，日本的官方语言是日语一样，中文 Windows 系统的 ANSI 编码为 GBK 编码，而日文 Windows 系统的 ANSI 编码为 Shift_JIS 编码。正如「官方语言」不是某种语言，「ANSI 编码」也不是某种编码，它是另一个维度的概念，与国家和地区有关，不同国家和地区的 ANSI 编码是不兼容的。可想而知，如果都采用 ANSI 编码，那么不同国家的开发者在互相交换代码时将非常糟糕。因此，不推荐以 ANSI 作为 coding 编码。</p>
-<h2 id="二-什么是乱码？">二、什么是乱码？</h2>
+<h2 id="二、什么是乱码？">二、什么是乱码？</h2>
 <p>什么是乱码？用某种编码方式去解读一个文件，得到了无意义的字符，这就是乱码。打个通俗的比方：我写了一段英文，你非要把它当作拼音来读，那么得到的解释就是无意义的，就相当于乱码；反过来，我写了一段拼音，你非要用英语的语法去解释它，也是解释不通的。</p>
 <p>举几个实际的例子：</p>
 <ul>
@@ -379,7 +341,7 @@
 </ul>
 <p><img src="https://upload-images.jianshu.io/upload_images/3310969-cd751f681341f26c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="用 UTF-8 编码打开一个 UTF-8 编码的文本文件"></p>
 <p>综上，乱码的根源就是<strong>编码与解码用的不是同一套规则</strong>。 但不管文件是否乱码，它里面保存的二进制数据总是不变的。<strong>通常情况下，乱码并不是文件本身有问题，而是打开方式（解码方式）不正确</strong>。</p>
-<h2 id="三-编程中出现乱码的原因与类型">三、编程中出现乱码的原因与类型</h2>
+<h2 id="三、编程中出现乱码的原因与类型">三、编程中出现乱码的原因与类型</h2>
 <p>我们在日常使用文本编辑器、IDE、命令行等编写和执行程序的过程中，常常会遇到乱码现象，而出现乱码的原因是多种多样的。这里试图从根源上理解乱码，并将其归类。</p>
 <p>一般，我们编写和执行程序的流程如下：</p>
 <ol>
@@ -443,21 +405,21 @@
 <p>我们在 Python 脚本头部添加一行 <code># -*- coding: gbk -*-</code>，即把 Python 解释器的输入编码指定为 GBK，但脚本的编码保持 UTF-8 不变。执行结果将发生乱码，如下：</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/3310969-7933afa816af4af4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="乱码类型 1"></p>
 <p>从这里我们也可以看出，Python 解释器的默认输入编码为 UTF-8。</p>
-<h3 id="过程-2-乱码">过程 2 乱码。</h3>
+<h3 id="过程-2-乱码。">过程 2 乱码。</h3>
 <p>这里又分为两种情况，一是编译器的输出编码错误；二是展示器的输入编码错误：</p>
-<h4 id="编译器输出编码不当">编译器输出编码不当。</h4>
+<h4 id="编译器输出编码不当。">编译器输出编码不当。</h4>
 <p>打开 <code>Python.sublime-build</code> 文件（可借助 PackageResourceViewer 插件），其初始内容如下：</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;shell_cmd&quot;</span>: <span class="string">&quot;python -u \&quot;$file\&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;file_regex&quot;</span>: <span class="string">&quot;^[ ]*File \&quot;(...*?)\&quot;, line ([0-9]*)&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;selector&quot;</span>: <span class="string">&quot;source.python&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;env&quot;</span>: &#123;<span class="attr">&quot;PYTHONIOENCODING&quot;</span>: <span class="string">&quot;utf-8&quot;</span>&#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>我们把末尾的行改为 <code>&quot;env&quot;: &#123;&quot;PYTHONIOENCODING&quot;: &quot;gbk&quot;&#125;,</code>，即把 Python 解释器的输出编码设为 UTF-8。执行脚本，再次得到乱码，如下：</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/3310969-5376b7daa408a89d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="乱码类型 2-1"></p>
 <p>注意：这里虽然也是乱码，但与类型 1 不同。</p>
-<h4 id="展示器输入编码不当">展示器输入编码不当。</h4>
+<h4 id="展示器输入编码不当。">展示器输入编码不当。</h4>
 <p>我们首先撤销对 <code>Python.sublime-build</code> 的所有更改，然后在其末尾增加一行内容 <code>&quot;encoding&quot;: &quot;gbk&quot;,</code>，即把 Sublime Text 控制台的编码设为 GBK。此时 <code>Python.sublime-build</code> 配置如下：</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;shell_cmd&quot;</span>: <span class="string">&quot;python -u \&quot;$file\&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;file_regex&quot;</span>: <span class="string">&quot;^[ ]*File \&quot;(...*?)\&quot;, line ([0-9]*)&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;selector&quot;</span>: <span class="string">&quot;source.python&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;env&quot;</span>: &#123;<span class="attr">&quot;PYTHONIOENCODING&quot;</span>: <span class="string">&quot;utf-8&quot;</span>&#125;,</span><br><span class="line">    <span class="attr">&quot;encoding&quot;</span>: <span class="string">&quot;gbk&quot;</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>执行脚本，得到乱码，如下：</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/3310969-5cf008dd6a9f634c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="乱码类型 2-2"></p>
 <p>注意：这里的乱码与类型 1 相同，都是用 GBK 编码解释 UTF-8 字符串造成的。</p>
-<h3 id="过程-1-与过程-2-同时乱码">过程 1 与过程 2 同时乱码。</h3>
+<h3 id="过程-1-与过程-2-同时乱码。">过程 1 与过程 2 同时乱码。</h3>
 <p>乱码是可以叠加的，即乱码后的字符串可以再次被乱码，得到的乱码与叠加前的乱码均不同。</p>
 <p>我们让 <code>Python.sublime-build</code> 文件保持上一步的状态，然后在 Python 脚本的开头重新加上一行 <code># -*- coding: gbk -*-</code>。执行脚本，会得到前两种完全不同的乱码，如下：</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/3310969-a7829d767073e968.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="乱码类型 3"></p>
@@ -474,7 +436,7 @@
     <footer class="post-footer">
           <div class="reward-container">
   <div></div>
-  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+  <button>
     赞赏
   </button>
   <div class="post-reward">
@@ -519,29 +481,7 @@
 
 
 
-    <div class="comments" id="gitalk-container"></div>
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      const commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
+    <div class="comments gitalk-container"></div>
 </div>
   </main>
 
@@ -553,7 +493,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -564,22 +504,12 @@
   </footer>
 
   
-  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
 
   
-  <script>
-    (function(){
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
-  </script>
-
-<script src="/js/local-search.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
 
 
 
@@ -588,122 +518,20 @@
   
 
 
-
-<script>
-  (function() {
-    function leancloudSelector(url) {
-      url = encodeURI(url);
-      return document.getElementById(url).querySelector('.leancloud-visitors-count');
-    }
-
-    function addCount(Counter) {
-      const visitors = document.querySelector('.leancloud_visitors');
-      const url = decodeURI(visitors.id);
-      const title = visitors.dataset.flagTitle;
-
-      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
-        .then(response => response.json())
-        .then(({ results }) => {
-          if (results.length > 0) {
-            const counter = results[0];
-            leancloudSelector(url).innerText = counter.time + 1;
-            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
-              .catch(error => {
-                console.error('Failed to save visitor count', error);
-              });
-          } else {
-              Counter('post', '/classes/Counter', { title, url, time: 1 })
-                .then(response => response.json())
-                .then(() => {
-                  leancloudSelector(url).innerText = 1;
-                })
-                .catch(error => {
-                  console.error('Failed to create', error);
-                });
-          }
-        })
-        .catch(error => {
-          console.error('LeanCloud Counter Error', error);
-        });
-    }
-
-    function showTime(Counter) {
-      const visitors = document.querySelectorAll('.leancloud_visitors');
-      const entries = [...visitors].map(element => {
-        return decodeURI(element.id);
-      });
-
-      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
-        .then(response => response.json())
-        .then(({ results }) => {
-          for (let url of entries) {
-            const target = results.find(item => item.url === url);
-            leancloudSelector(url).innerText = target ? target.time : 0;
-          }
-        })
-        .catch(error => {
-          console.error('LeanCloud Counter Error', error);
-        });
-    }
-
-    const { app_id, app_key, server_url } = {"enable":true,"app_id":"O49O3LRqDf6XCiPXdKzeqKGp-gzGzoHsz","app_key":"XcrzmNEzlES5k9h5BDN3oKpb","server_url":null,"security":false};
-    function fetchData(api_server) {
-      const Counter = (method, url, data) => {
-        return fetch(`${api_server}/1.1${url}`, {
-          method,
-          headers: {
-            'X-LC-Id'     : app_id,
-            'X-LC-Key'    : app_key,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-      };
-      if (CONFIG.page.isPost) {
-        if (CONFIG.hostname !== location.hostname) return;
-        addCount(Counter);
-      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
-        showTime(Counter);
-      }
-    }
-
-    const api_server = app_id.slice(-9) === '-MdYXbMMI' ? `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com` : server_url;
-
-    if (api_server) {
-      fetchData(api_server);
-    } else {
-      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
-        .then(response => response.json())
-        .then(({ api_server }) => {
-          fetchData('https://' + api_server);
-        });
-    }
-  })();
-</script>
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"O49O3LRqDf6XCiPXdKzeqKGp-gzGzoHsz","app_key":"XcrzmNEzlES5k9h5BDN3oKpb","server_url":null,"security":false}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
 
 
   
 
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.css">
 
-<script>
-NexT.utils.loadComments('#gitalk-container', () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID    : '718c67973a0818c37f02',
-      clientSecret: 'f815ebc1b572a2af9f809a5e8373d1632faa133f',
-      repo        : '_blog_comment',
-      owner       : 'hzhu212',
-      admin       : ['hzhu212'],
-      id          : '122eea36fa6b342df4394fdce434c23c',
-        language: '',
-      distractionFreeMode: true
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
-});
-</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"hzhu212","repo":"_blog_comment","client_id":"718c67973a0818c37f02","client_secret":"f815ebc1b572a2af9f809a5e8373d1632faa133f","admin_user":"hzhu212","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"122eea36fa6b342df4394fdce434c23c"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
 
 </body>
 </html>

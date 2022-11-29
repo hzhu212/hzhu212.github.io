@@ -2,9 +2,9 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+<meta name="generator" content="Hexo 5.4.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -16,13 +16,10 @@
 
 
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"hzhu212.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
-  </script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hzhu212.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.8.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 <meta name="description" content="LSM tree (log-structured merge-tree) 是一种对频繁写操作非常友好的数据结构，同时兼顾了查询效率。LSM tree 是许多 key-value 型或日志型数据库所依赖的核心数据结构，例如 BigTable、HBase、Cassandra、LevelDB、SQLite、Scylla、RocksDB 等。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LSM Tree：一种支持高效读写的存储引擎">
@@ -49,55 +46,20 @@
 <link rel="canonical" href="https://hzhu212.github.io/posts/2d7c5edb/">
 
 
-<script class="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
-</script>
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hzhu212.github.io/posts/2d7c5edb/","path":"posts/2d7c5edb/","title":"LSM Tree：一种支持高效读写的存储引擎"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>LSM Tree：一种支持高效读写的存储引擎 | Henry's Blog</title>
   
 
 
 
+
   <noscript>
-  <style>
-  body { margin-top: 2rem; }
-
-  .use-motion .menu-item,
-  .use-motion .sidebar,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header {
-    visibility: visible;
-  }
-
-  .use-motion .header,
-  .use-motion .site-brand-container .toggle,
-  .use-motion .footer { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle,
-  .use-motion .custom-logo-image {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line {
-    transform: scaleX(1);
-  }
-
-  .search-pop-overlay, .sidebar-nav { display: none; }
-  .sidebar-panel { display: block; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Henry's Blog" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
@@ -107,7 +69,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
+    <div class="toggle" aria-label="切换导航栏" role="button">
     </div>
   </div>
 
@@ -118,7 +80,7 @@
       <h1 class="site-title">Henry's Blog</h1>
       <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">用简单的话把事情说明白</p>
+      <p class="site-subtitle" itemprop="description">用简单的话把事情讲明白</p>
   </div>
 
   <div class="site-nav-right">
@@ -151,7 +113,7 @@
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
@@ -167,7 +129,7 @@
 </div>
         
   
-  <div class="toggle sidebar-toggle">
+  <div class="toggle sidebar-toggle" role="button">
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
@@ -187,12 +149,12 @@
 
       <div class="sidebar-panel-container">
         <!--noindex-->
-        <section class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sstable"><span class="nav-number">1.</span> <span class="nav-text">SSTable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%99%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="nav-number">2.</span> <span class="nav-text">写入数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BB%E5%8F%96-%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE"><span class="nav-number">3.</span> <span class="nav-text">读取&#x2F;查询数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%90%88%E5%B9%B6-compaction"><span class="nav-number">4.</span> <span class="nav-text">文件合并（Compaction）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE"><span class="nav-number">5.</span> <span class="nav-text">删除数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lsm-tree-%E4%B8%8E-b-tree-%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="nav-number">6.</span> <span class="nav-text">LSM tree 与 B tree 的对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%EF%BC%9A"><span class="nav-number">8.</span> <span class="nav-text">参考：</span></a></li></ol></div>
-        </section>
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SSTable"><span class="nav-number">1.</span> <span class="nav-text">SSTable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%99%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="nav-number">2.</span> <span class="nav-text">写入数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BB%E5%8F%96-%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE"><span class="nav-number">3.</span> <span class="nav-text">读取&#x2F;查询数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%90%88%E5%B9%B6%EF%BC%88Compaction%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">文件合并（Compaction）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE"><span class="nav-number">5.</span> <span class="nav-text">删除数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LSM-tree-%E4%B8%8E-B-tree-%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="nav-number">6.</span> <span class="nav-text">LSM tree 与 B tree 的对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%EF%BC%9A"><span class="nav-number">8.</span> <span class="nav-text">参考：</span></a></li></ol></div>
+        </div>
         <!--/noindex-->
 
-        <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="Henry"
       src="/images/avatar.jpg">
@@ -202,18 +164,18 @@
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives">
-          <span class="site-state-item-count">14</span>
+        <a href="/archives/">
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-            <a href="/categories/">
+          <a href="/categories/">
         <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/tags/">
+          <a href="/tags/">
         <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
@@ -236,7 +198,7 @@
 
 
 
-        </section>
+        </div>
       </div>
     </div>
   </aside>
@@ -246,7 +208,7 @@
     </header>
 
     
-  <div class="back-to-top">
+  <div class="back-to-top" role="button" aria-label="返回顶部">
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
@@ -330,11 +292,11 @@
     
     <div class="post-body" itemprop="articleBody">
         <p><strong>LSM tree (log-structured merge-tree)</strong> 是一种对频繁写操作非常友好的数据结构，同时兼顾了查询效率。LSM tree 是许多 key-value 型或日志型数据库所依赖的核心数据结构，例如 <a target="_blank" rel="noopener" href="https://cloud.google.com/bigtable">BigTable</a>、<a target="_blank" rel="noopener" href="https://hbase.apache.org/">HBase</a>、<a target="_blank" rel="noopener" href="https://cassandra.apache.org/">Cassandra</a>、<a target="_blank" rel="noopener" href="https://github.com/google/leveldb">LevelDB</a>、<a target="_blank" rel="noopener" href="https://www.sqlite.org/">SQLite</a>、<a target="_blank" rel="noopener" href="https://www.scylladb.com/">Scylla</a>、<a target="_blank" rel="noopener" href="https://rocksdb.org/">RocksDB</a> 等。</p>
-<a id="more"></a>
+<span id="more"></span>
 <p>LSM tree 之所以有效是基于以下事实：磁盘或内存的连续读写性能远高于随机读写性能，有时候这种差距可以达到三个数量级之高。这种现象不仅对传统的机械硬盘成立，对 SSD 硬盘也同样成立。如下图：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/hzhu212/image-store@master/blog/1612419000098-1612419000090.png" alt="硬盘和内存的随机读写与连续读写性能对比"></p>
 <p>LSM tree 在工作过程中尽可能避免随机读写，充分发挥了磁盘连续读写的性能优势。</p>
-<h2 id="sstable">SSTable</h2>
+<h2 id="SSTable">SSTable</h2>
 <p>LSM tree 持久化到硬盘上之后的结构称为 <strong>Sorted Strings Table (SSTable)</strong>。顾名思义，SSTable 保存了<strong>排序</strong>后的数据（实际上是按照 key 排序的 key-value 对）。每个 SSTable 可以包含多个存储数据的文件，称为 segment，每个 segment 内部都是有序的，但不同 segment 之间没有顺序关系。一个 segment 一旦生成便不再修改（immutable）。一个 SSTable 的示例如下：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/hzhu212/image-store@master/blog/1612358955833-1612358955820.png" alt="SSTable"></p>
 <p>可以看到，每个 segment 内部的数据都是按照 key 排序的。下面我们来介绍每个 segment 是如何生成的。</p>
@@ -353,7 +315,7 @@
 <blockquote>
 <p>布隆过滤器的内部依赖于哈希算法，当检测某一条数据是否见过时，有一定概率出现假阳性（False Positive），但一定不会出现假阴性（False Negative）。也就是说，当<strong>布隆过滤器认为一条数据出现过，那么该条数据很可能出现过；但如果布隆过滤器认为一条数据没出现过，那么该条数据一定没出现过</strong>。这种特性刚好与此处的需求相契合，即检验某条数据是否缺失。</p>
 </blockquote>
-<h2 id="文件合并-compaction">文件合并（Compaction）</h2>
+<h2 id="文件合并（Compaction）">文件合并（Compaction）</h2>
 <p>随着数据的不断积累，SSTable 将会产生越来越多的 segment，导致查询时扫描文件的 IO 次数增多，效率降低，因此需要有一种机制来控制 segment 的数量。对此，LSM tree 会定期执行文件合并（compaction）操作，将多个 segment 合并成一个较大的 segment，随后将旧的 segment 清理掉。由于每个 segment 内部的数据都是有序的，合并过程类似于归并排序，效率很高，只需要 $O(n)$ 的时间复杂度。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/hzhu212/image-store@master/blog/1612415672645-1612415672637.png" alt="segment compaction"></p>
 <p>在上图的示例中，segment 1 和 2 中都存在 key 为 <code>dog</code> 的数据，这时应该以最新的 segment 为准，因此合并后的值取 84 而不是 52，这实现了类似于字典/HashMap 中“覆盖写”的语义。</p>
@@ -361,7 +323,7 @@
 <p>现在你已经了解了 LSM tree 读写数据的方式，那么如何删除数据呢？如果是在内存中，删除某块数据通常是将它的引用指向 NULL，那么这块内存就会被回收。但现在的情况是，数据已经存储在硬盘中，要从一个 segment 文件中间抹除一段数据必须要覆写其之后的所有内容，这个成本非常高。LSM tree 所采用的做法是设计一个特殊的标志位，称为 <em>tombstone（墓碑）</em>，删除一条数据就是把它的 value 置为墓碑，如下图所示：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/hzhu212/image-store@master/blog/1612416928355-1612416928350.png" alt="删除数据"></p>
 <p>这个例子展示了删除 segment 2 中的 <code>dog</code> 之后的效果。注意，此时 segment 1 中仍然保留着 <code>dog</code> 的旧数据，如果我们查询 <code>dog</code>，那么应该返回空，而不是 52。因此，<strong>删除操作的本质是覆盖写，而不是清除一条数据</strong>，这一点初看起来不太符合常识。墓碑会在 compact 操作中被清理掉，于是置为墓碑的数据在新的 segment 中将不复存在。</p>
-<h2 id="lsm-tree-与-b-tree-的对比">LSM tree 与 B tree 的对比</h2>
+<h2 id="LSM-tree-与-B-tree-的对比">LSM tree 与 B tree 的对比</h2>
 <p>主流的关系型数据库均以 B/B+ tree 作为其构建索引的数据结构，这是因为 B tree 提供了理论上最高的查询效率 - $O(\log n)$。但对查询性能的追求也造成了 B tree 的相应缺点，即每次插入或删除一条数据时，均需要更新索引，从而造成一次磁盘 IO。这种特性决定了 B tree 只适用于频繁读、较少写的场景。如果在频繁写的场景下，将造成大量的磁盘 IO，从而导致性能骤降。这种应用场景在传统的关系型数据库中比较常见。</p>
 <p>而 LSM tree 则避免了频繁写场景下的磁盘 IO 开销，尽管其查询效率无法达到理想的 $O(\log n)$，但依然非常快，可以接受。所以从本质上来说，LSM tree 相当于牺牲了一部分查询性能，换取了可观的写入性能。这对于 key-value 型或日志型数据库是非常重要的。</p>
 <h2 id="总结">总结</h2>
@@ -390,7 +352,7 @@
     <footer class="post-footer">
           <div class="reward-container">
   <div></div>
-  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+  <button>
     赞赏
   </button>
   <div class="post-reward">
@@ -435,29 +397,7 @@
 
 
 
-    <div class="comments" id="gitalk-container"></div>
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      const commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
+    <div class="comments gitalk-container"></div>
 </div>
   </main>
 
@@ -469,7 +409,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -480,22 +420,12 @@
   </footer>
 
   
-  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
 
   
-  <script>
-    (function(){
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
-  </script>
-
-<script src="/js/local-search.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
 
 
 
@@ -504,164 +434,20 @@
   
 
 
-
-<script>
-  (function() {
-    function leancloudSelector(url) {
-      url = encodeURI(url);
-      return document.getElementById(url).querySelector('.leancloud-visitors-count');
-    }
-
-    function addCount(Counter) {
-      const visitors = document.querySelector('.leancloud_visitors');
-      const url = decodeURI(visitors.id);
-      const title = visitors.dataset.flagTitle;
-
-      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
-        .then(response => response.json())
-        .then(({ results }) => {
-          if (results.length > 0) {
-            const counter = results[0];
-            leancloudSelector(url).innerText = counter.time + 1;
-            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
-              .catch(error => {
-                console.error('Failed to save visitor count', error);
-              });
-          } else {
-              Counter('post', '/classes/Counter', { title, url, time: 1 })
-                .then(response => response.json())
-                .then(() => {
-                  leancloudSelector(url).innerText = 1;
-                })
-                .catch(error => {
-                  console.error('Failed to create', error);
-                });
-          }
-        })
-        .catch(error => {
-          console.error('LeanCloud Counter Error', error);
-        });
-    }
-
-    function showTime(Counter) {
-      const visitors = document.querySelectorAll('.leancloud_visitors');
-      const entries = [...visitors].map(element => {
-        return decodeURI(element.id);
-      });
-
-      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
-        .then(response => response.json())
-        .then(({ results }) => {
-          for (let url of entries) {
-            const target = results.find(item => item.url === url);
-            leancloudSelector(url).innerText = target ? target.time : 0;
-          }
-        })
-        .catch(error => {
-          console.error('LeanCloud Counter Error', error);
-        });
-    }
-
-    const { app_id, app_key, server_url } = {"enable":true,"app_id":"O49O3LRqDf6XCiPXdKzeqKGp-gzGzoHsz","app_key":"XcrzmNEzlES5k9h5BDN3oKpb","server_url":null,"security":false};
-    function fetchData(api_server) {
-      const Counter = (method, url, data) => {
-        return fetch(`${api_server}/1.1${url}`, {
-          method,
-          headers: {
-            'X-LC-Id'     : app_id,
-            'X-LC-Key'    : app_key,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-      };
-      if (CONFIG.page.isPost) {
-        if (CONFIG.hostname !== location.hostname) return;
-        addCount(Counter);
-      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
-        showTime(Counter);
-      }
-    }
-
-    const api_server = app_id.slice(-9) === '-MdYXbMMI' ? `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com` : server_url;
-
-    if (api_server) {
-      fetchData(api_server);
-    } else {
-      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
-        .then(response => response.json())
-        .then(({ api_server }) => {
-          fetchData('https://' + api_server);
-        });
-    }
-  })();
-</script>
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"O49O3LRqDf6XCiPXdKzeqKGp-gzGzoHsz","app_key":"XcrzmNEzlES5k9h5BDN3oKpb","server_url":null,"security":false}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
 
 
-  <script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              const target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    const script = document.createElement('script');
-    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js';
-    script.defer = true;
-    document.head.appendChild(script);
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.typesetClear();
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.css">
-
-<script>
-NexT.utils.loadComments('#gitalk-container', () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID    : '718c67973a0818c37f02',
-      clientSecret: 'f815ebc1b572a2af9f809a5e8373d1632faa133f',
-      repo        : '_blog_comment',
-      owner       : 'hzhu212',
-      admin       : ['hzhu212'],
-      id          : 'e06e362d34449ed95c1dec28ce6c9a69',
-        language: '',
-      distractionFreeMode: true
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
-});
-</script>
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"hzhu212","repo":"_blog_comment","client_id":"718c67973a0818c37f02","client_secret":"f815ebc1b572a2af9f809a5e8373d1632faa133f","admin_user":"hzhu212","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"e06e362d34449ed95c1dec28ce6c9a69"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
 
 </body>
 </html>
