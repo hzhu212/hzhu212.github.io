@@ -6,7 +6,7 @@
   <link href="https://hzhu212.github.io/atom.xml" rel="self"/>
   
   <link href="https://hzhu212.github.io/"/>
-  <updated>2022-11-29T15:12:47.058Z</updated>
+  <updated>2022-11-29T15:36:33.806Z</updated>
   <id>https://hzhu212.github.io/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>如何调优一个大型 Flink 任务</title>
+    <link href="https://hzhu212.github.io/posts/80f3ba16/"/>
+    <id>https://hzhu212.github.io/posts/80f3ba16/</id>
+    <published>2022-11-29T15:23:01.000Z</published>
+    <updated>2022-11-29T15:36:33.806Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;本文&lt;a href=&quot;https://developer.volcengine.com/articles/7065250720647708703&quot;&gt;首发于火山引擎开发者社区&lt;/a&gt;，获得当期社区征文活动一等奖。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1&gt;本文目标&lt;/h1&gt;
+&lt;p&gt;随着实时计算的应用越来越广泛，同时实时数仓的概念逐渐深入人心，Flink 作为实时计算领域当之无愧的最优秀框架，其使用范围飞速扩张。对于一个优秀的大数据开发工程师来说，非常有必要熟练掌握 Flink 框架的使用和运维。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://hzhu212.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="大数据" scheme="https://hzhu212.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    <category term="Flink" scheme="https://hzhu212.github.io/tags/Flink/"/>
+    
+    <category term="实时数仓" scheme="https://hzhu212.github.io/tags/%E5%AE%9E%E6%97%B6%E6%95%B0%E4%BB%93/"/>
+    
+  </entry>
+  
+  <entry>
     <title>一文理解 HyperLogLog(HLL) 算法</title>
     <link href="https://hzhu212.github.io/posts/365f8e92/"/>
     <id>https://hzhu212.github.io/posts/365f8e92/</id>
     <published>2022-11-29T14:26:28.000Z</published>
-    <updated>2022-11-29T15:12:47.058Z</updated>
+    <updated>2022-11-29T15:23:25.901Z</updated>
     
     
     <summary type="html">&lt;p&gt;HyperLogLog(HLL) 算法是一种估算海量数据基数的方法，被广泛用于各个数据库产品中。&lt;/p&gt;
@@ -30,6 +57,14 @@
     
     
     
+    <category term="技术" scheme="https://hzhu212.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="数据结构" scheme="https://hzhu212.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="数据库" scheme="https://hzhu212.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="大数据" scheme="https://hzhu212.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
     
   </entry>
   
