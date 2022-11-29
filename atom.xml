@@ -6,7 +6,7 @@
   <link href="https://hzhu212.github.io/atom.xml" rel="self"/>
   
   <link href="https://hzhu212.github.io/"/>
-  <updated>2022-11-29T15:36:33.806Z</updated>
+  <updated>2022-11-29T16:11:23.141Z</updated>
   <id>https://hzhu212.github.io/</id>
   
   <author>
@@ -17,11 +17,31 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>关于状态机的思考</title>
+    <link href="https://hzhu212.github.io/posts/3b7dc41d/"/>
+    <id>https://hzhu212.github.io/posts/3b7dc41d/</id>
+    <published>2022-11-29T15:40:19.000Z</published>
+    <updated>2022-11-29T16:11:23.141Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;LeetCode 上有这样一道题目：&lt;a href=&quot;https://leetcode.cn/problems/biao-shi-shu-zhi-de-zi-fu-chuan-lcof/&quot;&gt;表示数值的字符串&lt;/a&gt;。题目看似简单，但其最佳解法却蕴含着一种绝妙的工程实践——状态机。&lt;/p&gt;
+&lt;p&gt;本文从这道编程题目出发，思考了一些状态机的使用场景，记录下脑暴过程。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://hzhu212.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="算法" scheme="https://hzhu212.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>如何调优一个大型 Flink 任务</title>
     <link href="https://hzhu212.github.io/posts/80f3ba16/"/>
     <id>https://hzhu212.github.io/posts/80f3ba16/</id>
     <published>2022-11-29T15:23:01.000Z</published>
-    <updated>2022-11-29T15:36:33.806Z</updated>
+    <updated>2022-11-29T15:36:43.380Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
