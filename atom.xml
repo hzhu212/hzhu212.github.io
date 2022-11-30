@@ -6,7 +6,7 @@
   <link href="https://hzhu212.github.io/atom.xml" rel="self"/>
   
   <link href="https://hzhu212.github.io/"/>
-  <updated>2022-11-29T16:11:23.141Z</updated>
+  <updated>2022-11-30T02:40:27.077Z</updated>
   <id>https://hzhu212.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://hzhu212.github.io/posts/3b7dc41d/"/>
     <id>https://hzhu212.github.io/posts/3b7dc41d/</id>
     <published>2022-11-29T15:40:19.000Z</published>
-    <updated>2022-11-29T16:11:23.141Z</updated>
+    <updated>2022-11-30T02:40:27.077Z</updated>
     
     
     <summary type="html">&lt;p&gt;LeetCode 上有这样一道题目：&lt;a href=&quot;https://leetcode.cn/problems/biao-shi-shu-zhi-de-zi-fu-chuan-lcof/&quot;&gt;表示数值的字符串&lt;/a&gt;。题目看似简单，但其最佳解法却蕴含着一种绝妙的工程实践——状态机。&lt;/p&gt;
