@@ -326,11 +326,11 @@
 </li>
 <li>
 <p>逆：</p>
-<p>$$ \mathrm{d}A<sup>{-1}=-A</sup>{-1}\mathrm{d}A A^{-1} $$</p>
+<p>$$ \mathrm{d}A^{-1}=-A^{-1}\mathrm{d}A A^{-1} $$</p>
 </li>
 <li>
 <p>转置：</p>
-<p>$$ \mathrm{d}A<sup>T=(\mathrm{d}A)</sup>T $$</p>
+<p>$$ \mathrm{d}A^T=(\mathrm{d}A)^T $$</p>
 </li>
 <li>
 <p>迹（trace）：</p>
@@ -405,14 +405,14 @@
 <h4 id="矩阵的其他相关运算">矩阵的其他相关运算</h4>
 <p>最后，为了方便查阅，附上矩阵的转置、逆、行列式等相关运算规则：</p>
 <p>$$ \begin{aligned}<br>
-(A<sup>T)</sup>T &amp;= A \\<br>
+(A^T)^T &amp;= A \\<br>
 (AB)^T &amp;= B^T A^T \\<br>
-(A<sup>{-1})</sup>{-1} &amp;= A \\<br>
+(A^{-1})^{-1} &amp;= A \\<br>
 AA^{-1} &amp;= A^{-1}A = I \\<br>
-(AB)^{-1} &amp;= B<sup>{-1}A</sup>{-1} \\<br>
-(A<sup>T)</sup>{-1} &amp;= (A<sup>{-1})</sup>T \\<br>
+(AB)^{-1} &amp;= B^{-1}A^{-1} \\<br>
+(A^T)^{-1} &amp;= (A^{-1})^T \\<br>
 |A^{-1}| &amp;= |A|^{-1} \\<br>
-(kA)^{-1} &amp;= k<sup>{-1}A</sup>{-1}<br>
+(kA)^{-1} &amp;= k^{-1}A^{-1}<br>
 \end{aligned}$$</p>
 <p>有了上述这些运算规则，<strong>只要矩阵的函数 $f$ 是由矩阵 $X$ 经过加、减、乘、转置、逆、迹、行列式、逐元素乘法、逐元素函数等运算及其复合运算构成的，我们都能利用上述运算规则求得 $\displaystyle \frac{\partial f}{\partial X}$。其基本思路为：对 $f$ 的表达式求全微分，并设法将其转化为 $\mathrm{d}f = \mathrm{expr} \cdot \mathrm{d}X$ 的形式，那么 $expr$ 即为待求导数的表达式</strong>。</p>
 <h3 id="算例演示">算例演示</h3>
@@ -423,7 +423,7 @@ AA^{-1} &amp;= A^{-1}A = I \\<br>
 \mathrm{d}y &amp;= \boldsymbol{a}^T \mathrm{d}X \boldsymbol{b} \\<br>
 &amp;= tr(\boldsymbol{a}^T \mathrm{d}X \boldsymbol{b}) \\<br>
 &amp;= tr(\boldsymbol{b} \boldsymbol{a}^T \mathrm{d}X) \\<br>
-&amp;= tr((\boldsymbol{a} \boldsymbol{b}<sup>T)</sup>T \mathrm{d}X) \\<br>
+&amp;= tr((\boldsymbol{a} \boldsymbol{b}^T)^T \mathrm{d}X) \\<br>
 &amp;= \boldsymbol{a} \boldsymbol{b}^T \cdot \mathrm{d}X<br>
 \end{aligned} $$</p>
 <blockquote>
@@ -460,7 +460,7 @@ AA^{-1} &amp;= A^{-1}A = I \\<br>
 <p>根据公式 $(1)$ 可得：</p>
 <p>$$ \frac{\partial l}{\partial \boldsymbol{w}}=2X^T(X \boldsymbol{w}- \boldsymbol{y}) $$</p>
 <p>令 $\displaystyle \frac{\partial l}{\partial \boldsymbol{w}}=\boldsymbol{0}$ 得（加粗的 $\boldsymbol{0}$ 代表零向量，其形状与 $\boldsymbol{w}$ 相同）：</p>
-<p>$$ \boldsymbol{w}=(X^T X)<sup>{-1}X</sup>T \boldsymbol{y} $$</p>
+<p>$$ \boldsymbol{w}=(X^T X)^{-1}X^T \boldsymbol{y} $$</p>
 <h4 id="例-3：多元逻辑回归">例 3：多元逻辑回归</h4>
 <p>多元逻辑回归的损失函数为 $\displaystyle l=-\boldsymbol{y}^T \log (\mathrm{softmax}(W \boldsymbol{x}))$，求 $\displaystyle \frac{\partial l}{\partial W}$。其中，$\boldsymbol{y}$ 为 $m\times 1$ 的 one-hot 向量（即除一个元素为 1 外，其他元素均为 0），$W$ 为 $m\times n$ 矩阵，$\boldsymbol{x}$ 为 $n\times 1$ 向量，$l$ 为标量。$\displaystyle \mathrm{softmax}(a)=\frac{\mathrm{exp}(\boldsymbol{a})}{\boldsymbol{1}^T\mathrm{exp}(\boldsymbol{a})}$，其中 $\displaystyle \mathrm{exp}(\boldsymbol{\cdot})$ 表示逐元素求指数，$\boldsymbol{1}$ 代表全 1 向量。</p>
 <p>解：首先将 $\mathrm{softmax}$ 的表达式代入：</p>
@@ -561,7 +561,7 @@ AA^{-1} &amp;= A^{-1}A = I \\<br>
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

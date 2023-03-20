@@ -393,7 +393,7 @@ $$ P\{X=k\} = \frac{\lambda^k}{k!} e^{-\lambda} \quad (k=0,1,2,\cdots,n) $$</p>
 </li>
 <li>
 <p>超几何分布<br>
-$$ P\{X=m\} = \frac{C_M^m C_{N-M}<sup>{n-m}}{C_N</sup>n} \quad (m=0,1,2,\cdots,l;\; 其中 l=\min(M,n)) $$</p>
+$$ P\{X=m\} = \frac{C_M^m C_{N-M}^{n-m}}{C_N^n} \quad (m=0,1,2,\cdots,l;\; 其中 l=\min(M,n)) $$</p>
 <p>示例：设一堆同类产品共 $N$ 个，其中有 $M$ 个次品。现从中任取 $n$ 个（假定 $n \le N-M$），则这 $n$ 个样品中所含次品个数 $X$ 是一个离散型随机变量，其概率分布为超几何分布。</p>
 </li>
 </ol>
@@ -432,14 +432,14 @@ $$ \int_{-\infty}^{\infty} p(x) \mathrm{d}x = 1 $$</p>
 </li>
 <li>
 <p>正态分布</p>
-<p>$$ p(x) = \frac{1}{\sqrt{2 \pi} \sigma} e^{-\frac{1}{2 \sigma<sup>2}(x-\mu)</sup>2} \quad (-\infty \lt x \lt \infty,\;\sigma \gt 0) $$</p>
+<p>$$ p(x) = \frac{1}{\sqrt{2 \pi} \sigma} e^{-\frac{1}{2 \sigma^2}(x-\mu)^2} \quad (-\infty \lt x \lt \infty,\;\sigma \gt 0) $$</p>
 <p>变量 $X$ 服从正态分布 $N(\mu,\sigma^2)$ 可简记为 $X \sim N(\mu,\sigma^2)$。</p>
 <p><strong>标准正态分布</strong>：参数 $\mu=0, \sigma=1$ 时的正态分布，即 $N(0,1)$。它的密度函数为</p>
-<p>$$ p(x) = \frac{1}{\sqrt{2 \pi}} e<sup>{-\frac{x</sup>2}{2}} $$</p>
+<p>$$ p(x) = \frac{1}{\sqrt{2 \pi}} e^{-\frac{x^2}{2}} $$</p>
 <p><strong>一个重要的积分</strong>：</p>
-<p>$$ \int_{-\infty}^{\infty} \frac{1}{\sqrt{2 \pi}} e<sup>{-\frac{x</sup>2}{2}} \mathrm{d}x = 1 $$</p>
+<p>$$ \int_{-\infty}^{\infty} \frac{1}{\sqrt{2 \pi}} e^{-\frac{x^2}{2}} \mathrm{d}x = 1 $$</p>
 <p>通过正态分布的密度函数求某个区间的概率时，需要计算密度函数的积分，这种计算非常复杂，因此我们通过已经计算好数值的 $\Phi$ 函数来帮助求解：</p>
-<p>$$ \Phi(x) = \int_{-\infty}^{x} \frac{1}{\sqrt{2 \pi}} e<sup>{-\frac{t</sup>2}{2}} \mathrm{d}t $$</p>
+<p>$$ \Phi(x) = \int_{-\infty}^{x} \frac{1}{\sqrt{2 \pi}} e^{-\frac{t^2}{2}} \mathrm{d}t $$</p>
 <p>那么对于标准正态分布，有</p>
 <p>$$ P\{a \lt X \lt b\} = \Phi(b) - \Phi(a) $$</p>
 <p>对于一般正态分布 $N(\mu,\sigma^2)$，常常使用<strong>变量替换法</strong>将其转化为标准正态分布，即令</p>
@@ -458,7 +458,7 @@ $$ \int_{-\infty}^{\infty} p(x) \mathrm{d}x = 1 $$</p>
 <li>
 <p>韦布尔分布</p>
 <p>$$ p(x) = \begin{cases}<br>
-m \frac{x<sup>{m-1}}{\eta</sup>m} e<sup>{-(\frac{x}{\eta})</sup>m} &amp; x \gt 0 \\<br>
+m \frac{x^{m-1}}{\eta^m} e^{-(\frac{x}{\eta})^m} &amp; x \gt 0 \\<br>
 0 &amp; x \le 0 \end{cases} $$</p>
 </li>
 </ol>
@@ -489,9 +489,9 @@ F_Y(y) &amp; = P(Y \le y) \quad (分布函数的定义) \\<br>
 <p>将上式两边对 $y$ 求微分，利用<strong>密度函数是分布函数的导数</strong>的关系，我们得到</p>
 <p>$$ p_Y(y) = p_X(\sigma y + \mu) \sigma $$</p>
 <p>再将</p>
-<p>$$ p_X(x) = \frac{1}{\sqrt{2 \pi} \sigma} e^{-\frac{1}{2 \sigma<sup>2}(x-\mu)</sup>2} $$</p>
+<p>$$ p_X(x) = \frac{1}{\sqrt{2 \pi} \sigma} e^{-\frac{1}{2 \sigma^2}(x-\mu)^2} $$</p>
 <p>代入，有</p>
-<p>$$ p_Y(y) = \frac{1}{\sqrt{2 \pi}} e<sup>{-\frac{y</sup>2}{2}} $$</p>
+<p>$$ p_Y(y) = \frac{1}{\sqrt{2 \pi}} e^{-\frac{y^2}{2}} $$</p>
 <p>这表明 $Y \sim N(0,1)$。</p>
 <h2 id="第三章-随机变量的数字特征">第三章 随机变量的数字特征</h2>
 <h3 id="随机变量的期望">随机变量的期望</h3>
@@ -540,7 +540,7 @@ E(X) &amp; = \int_{-\infty}^{+\infty} xp(x) \mathrm{d}x \\<br>
 &amp; = \int_{0}^{+\infty} \lambda x e^{-\lambda x} \mathrm{d}x \\<br>
 &amp; = \frac{1}{\lambda} \int_0^{+\infty} te^{-t} \mathrm{d}t \quad (令t=\lambda x) \\<br>
 &amp; = -\frac{1}{\lambda} \int_0^{+\infty} t \mathrm{d}e^{-t} \\<br>
-&amp; = -\frac{1}{\lambda}\left[(te^{-t}) \Big|_0<sup>{+\infty}-\int_0</sup>{+\infty}e^{-t}\mathrm{d}t \right] \\<br>
+&amp; = -\frac{1}{\lambda}\left[(te^{-t}) \Big|_0^{+\infty}-\int_0^{+\infty}e^{-t}\mathrm{d}t \right] \\<br>
 &amp; = \frac{1}{\lambda}<br>
 \end{aligned} $$</p>
 </li>
@@ -580,8 +580,8 @@ E(kX+b) &amp;= kE(X) + b<br>
 <p>推导如下：</p>
 <p>$$ \begin{aligned}<br>
 D(X) &amp;= \int_{-\infty}^{+\infty} \left[x-E(X) \right]^2 p(x) \mathrm{d}x \\<br>
-&amp;= \int_{-\infty}^{+\infty} \left[x<sup>2-2xE(X)+E</sup>2(X) \right] p(x) \mathrm{d}x \\<br>
-&amp;= \int_{-\infty}<sup>{+\infty}x</sup>2p(x)\mathrm{d}x - 2E(X)\int_{-\infty}^{+\infty}xp(x)\mathrm{d}x + E<sup>2(X)\int_{-\infty}</sup>{+\infty}p(x)\mathrm{d}x \\<br>
+&amp;= \int_{-\infty}^{+\infty} \left[x^2-2xE(X)+E^2(X) \right] p(x) \mathrm{d}x \\<br>
+&amp;= \int_{-\infty}^{+\infty}x^2p(x)\mathrm{d}x - 2E(X)\int_{-\infty}^{+\infty}xp(x)\mathrm{d}x + E^2(X)\int_{-\infty}^{+\infty}p(x)\mathrm{d}x \\<br>
 &amp;= E(X^2) - 2E(X)\cdot E(X) + E^2(X)\cdot 1 \\<br>
 &amp;= E(X^2) - E^2(X)<br>
 \end{aligned} $$</p>
@@ -615,7 +615,7 @@ $$ D(X) = npq $$</p>
 <p>$$ \begin{aligned}<br>
 E(X^2) &amp;= \sum_{k=0}^{\infty} K^2 \cdot \frac{\lambda^k}{k!} e^{-\lambda} \\<br>
 &amp;= \sum_{k=1}^{\infty} (k-1+1) \frac{\lambda^k}{(k-1)!} e^{-\lambda} \\<br>
-&amp;= \lambda^2 \cdot \sum_{k=2}^{\infty} \frac{\lambda<sup>{k-2}}{(k-2)!}e</sup>{-\lambda} + \lambda \cdot \sum_{k=1}^{\infty} \frac{\lambda<sup>{k-1}}{(k-1)!}e</sup>{-\lambda} \\<br>
+&amp;= \lambda^2 \cdot \sum_{k=2}^{\infty} \frac{\lambda^{k-2}}{(k-2)!}e^{-\lambda} + \lambda \cdot \sum_{k=1}^{\infty} \frac{\lambda^{k-1}}{(k-1)!}e^{-\lambda} \\<br>
 &amp;= \lambda^2 + \lambda<br>
 \end{aligned} $$</p>
 <p>则</p>
@@ -663,7 +663,7 @@ $$ \sum_i \sum_j p_{ij} = 1 $$</p>
 </li>
 </ol>
 <p><strong>三项分布</strong>：</p>
-<p>$$ P\{(X,Y)=(k_1,k_2)\} = \frac{n!}{k_1!k_2!(n-k_1-k_2)!}p_1<sup>{k_1}p_2</sup>{k_2}(1-p_1-p_2)^{n-k_1-k_2} $$</p>
+<p>$$ P\{(X,Y)=(k_1,k_2)\} = \frac{n!}{k_1!k_2!(n-k_1-k_2)!}p_1^{k_1}p_2^{k_2}(1-p_1-p_2)^{n-k_1-k_2} $$</p>
 <h4 id="离散型随机向量的边缘分布与联合分布">离散型随机向量的边缘分布与联合分布</h4>
 <p><strong>边缘分布</strong>：对于二维随机向量 $(X,Y)$，分量 $X$ 的概率分布称为 $(X,Y)$ 的关于 $X$ 的边缘分布。</p>
 <p>$$ P\{ X=x_i \} = \sum_j p_{ij} $$ $$ P\{ Y=y_j \} = \sum_i p_{ij} $$</p>
@@ -673,7 +673,7 @@ $$ \sum_i \sum_j p_{ij} = 1 $$</p>
 <p>$$ P\{ (X,Y) \in D \} = \iint\limits_{D} p(x,y)\mathrm{d}x\mathrm{d}y $$</p>
 <p>则称随机向量 $\xi=(X,Y)$ 为<strong>连续型</strong>的，并称 $p(x,y)$ 为 $\xi$ 的<strong>分布密度</strong>，也称 $p(x,y)$ 为 $(X,Y)$ 的<strong>联合分布密度</strong>。</p>
 <p>由定义式容易得到</p>
-<p>$$ \int_{-\infty}<sup>{+\infty}\int_{-\infty}</sup>{+\infty}p(x,y)\mathrm{d}x\mathrm{d}y = 1 $$</p>
+<p>$$ \int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}p(x,y)\mathrm{d}x\mathrm{d}y = 1 $$</p>
 <blockquote>
 <p>💡 二维随机向量 $(X,Y)$ 落在平面上任意区域 $D$ 的概率，就等于联合密度 $p(x,y)$ 在 $D$ 上的积分，这就把概率的计算转化为一个二重积分的计算。<br>
 💡 几何意义：$\{(X,Y)\in D\}$ 的概率，数值上就等于以曲面 $z=p(x,y)$ 为顶、以平面区域 $D$ 为底的曲顶柱体的体积。</p>
@@ -691,11 +691,11 @@ p_Y(y) &amp;= \int_{-\infty}^{+\infty}p(x,y)\mathrm{d}x<br>
 <p>$$ p_X(x)p_Y(y) $$</p>
 <p>是随机向量 $(X,Y)$ 的联合密度。</p>
 <h4 id="二维正态分布">二维正态分布</h4>
-<p>$$ p(x,y) = \frac{1}{2\pi \sigma_1\sigma_2\sqrt{1-\rho<sup>2}}e</sup>{-\frac{1}{2(1-\rho<sup>2)}\left[\left(\frac{x-\mu_1}{\sigma_1}\right)</sup>2 - \frac{2\rho(x-\mu_1)(y-\mu_2)}{\sigma_1\sigma_2} + \left(\frac{y-\mu_2}{\sigma_2}\right)^2\right]} $$</p>
+<p>$$ p(x,y) = \frac{1}{2\pi \sigma_1\sigma_2\sqrt{1-\rho^2}}e^{-\frac{1}{2(1-\rho^2)}\left[\left(\frac{x-\mu_1}{\sigma_1}\right)^2 - \frac{2\rho(x-\mu_1)(y-\mu_2)}{\sigma_1\sigma_2} + \left(\frac{y-\mu_2}{\sigma_2}\right)^2\right]} $$</p>
 <p>两个边缘密度分别是两个一维正态分布：</p>
 <p>$$ \begin{aligned}<br>
-P_X(x)=\frac{1}{\sqrt{2\pi}\sigma_1}e<sup>{-\frac{(x-\mu_1)</sup>2}{2\sigma_1^2}} \\<br>
-P_Y(y)=\frac{1}{\sqrt{2\pi}\sigma_2}e<sup>{-\frac{(y-\mu_2)</sup>2}{2\sigma_2^2}}<br>
+P_X(x)=\frac{1}{\sqrt{2\pi}\sigma_1}e^{-\frac{(x-\mu_1)^2}{2\sigma_1^2}} \\<br>
+P_Y(y)=\frac{1}{\sqrt{2\pi}\sigma_2}e^{-\frac{(y-\mu_2)^2}{2\sigma_2^2}}<br>
 \end{aligned} $$</p>
 <p>对于二维正态分布，<strong>两个分量 $X$ 与 $Y$ 独立</strong>的充要条件是 $\rho=0$。</p>
 <h4 id="二维随机向量的分布函数">二维随机向量的分布函数</h4>
@@ -738,19 +738,19 @@ $$ P\{f(X,Y) \le z\} $$</p>
 $$ P\{f(X,Y) \le z\} = \iint\limits_{f(X,Y)\le z} p(x,y) \mathrm{d}x\mathrm{d}y $$</p>
 </li>
 </ol>
-<p>举个例子：设 $X,Y$ 相互独立且服从相同的分布 $N(0,1)$，求 $\sqrt{X<sup>2+Y</sup>2}$ 的密度。</p>
+<p>举个例子：设 $X,Y$ 相互独立且服从相同的分布 $N(0,1)$，求 $\sqrt{X^2+Y^2}$ 的密度。</p>
 <p><strong>解</strong>：$(X,Y)$ 的联合密度为</p>
 <p>$$ \begin{aligned}<br>
-p(x,y) &amp;= \frac{1}{\sqrt{2\pi}} e<sup>{-\frac{x</sup>2}{2}} \cdot \frac{1}{\sqrt{2\pi}} e<sup>{-\frac{x</sup>2}{2}} \\<br>
-&amp;= \frac{1}{2\pi} e<sup>{-\frac{x</sup>2+y^2}{2}}<br>
+p(x,y) &amp;= \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}} \cdot \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}} \\<br>
+&amp;= \frac{1}{2\pi} e^{-\frac{x^2+y^2}{2}}<br>
 \end{aligned} $$</p>
-<p>记 $Z=\sqrt{X<sup>2+Y</sup>2}$ 的分布函数为 $F_Z(z)$，则</p>
+<p>记 $Z=\sqrt{X^2+Y^2}$ 的分布函数为 $F_Z(z)$，则</p>
 <p>$$ \begin{aligned}<br>
 F_Z(x) &amp;= P\{Z \le z\} \\<br>
-&amp;= P\{\sqrt{X<sup>2+Y</sup>2} \le z\} \\<br>
-&amp;= \iint\limits_{\sqrt{x<sup>2+y</sup>2} \le z} p(x,y) \mathrm{d}x\mathrm{d}y \\<br>
-&amp;= \iint\limits_{\sqrt{x<sup>2+y</sup>2} \le z} \frac{1}{2\pi} e<sup>{-\frac{x</sup>2+y^2}{2}} \mathrm{d}x\mathrm{d}y \\<br>
-&amp;= \int_0^{2\pi} \mathrm{d}\theta \int_0^z \frac{1}{2\pi} e<sup>{-\frac{1}{2}r</sup>2}r \mathrm{d}r \quad (极坐标变换: x=r\cos\theta,y=r\sin\theta) \\<br>
+&amp;= P\{\sqrt{X^2+Y^2} \le z\} \\<br>
+&amp;= \iint\limits_{\sqrt{x^2+y^2} \le z} p(x,y) \mathrm{d}x\mathrm{d}y \\<br>
+&amp;= \iint\limits_{\sqrt{x^2+y^2} \le z} \frac{1}{2\pi} e^{-\frac{x^2+y^2}{2}} \mathrm{d}x\mathrm{d}y \\<br>
+&amp;= \int_0^{2\pi} \mathrm{d}\theta \int_0^z \frac{1}{2\pi} e^{-\frac{1}{2}r^2}r \mathrm{d}r \quad (极坐标变换: x=r\cos\theta,y=r\sin\theta) \\<br>
 &amp;= \int_0^z r e^{-\frac{1}{2} r^2} \mathrm{d}r<br>
 \end{aligned} $$</p>
 <p>当 $z\le 0$ 时 $F_Z(z)=0$。于是 $Z$ 的密度 $p(z)$ 为</p>
@@ -784,21 +784,21 @@ Y &amp;= R \sin \Theta<br>
 \left( R \ge 0, \; 0 \le \Theta \le 2\pi \right) $$</p>
 <p>求 $(R,\Theta)$ 的联合密度与边缘密度。</p>
 <p><strong>解</strong>：由于 $X,Y$ 相互独立，则</p>
-<p>$$ p(x,y) = \frac{1}{\sqrt{2\pi}} e<sup>{-\frac{x</sup>2}{2}} \cdot \frac{1}{\sqrt{2\pi}} e<sup>{-\frac{y</sup>2}{2}} = \frac{1}{2\pi} e<sup>{-\frac{x</sup>2+y^2}{2}} $$</p>
+<p>$$ p(x,y) = \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}} \cdot \frac{1}{\sqrt{2\pi}} e^{-\frac{y^2}{2}} = \frac{1}{2\pi} e^{-\frac{x^2+y^2}{2}} $$</p>
 <p>雅可比行列式</p>
 <p>$$ J = \left| \frac{\partial(x,y)}{\partial(r,\theta)} \right| = \left| \begin{array}{cc} \cos\theta &amp; -r\sin\theta \\ \sin\theta &amp; r\cos\theta \end{array} \right| = r $$</p>
 <p>则 $(R,\Theta)$ 的联合密度为</p>
 <p>$$ q(r,\theta) = \begin{cases}<br>
-\frac{1}{2\pi} r e<sup>{-\frac{r</sup>2}{2}} &amp; r \gt 0,\; 0 \lt \theta \lt 2\pi \\<br>
+\frac{1}{2\pi} r e^{-\frac{r^2}{2}} &amp; r \gt 0,\; 0 \lt \theta \lt 2\pi \\<br>
 0 &amp; 其他<br>
 \end{cases} $$</p>
 <p>当 $r \gt 0$ 时，$R$ 的边缘密度为</p>
-<p>$$ f® = \int_0^{2\pi} q(r,\theta) \mathrm{d}\theta = r e<sup>{-\frac{r</sup>2}{2}} $$</p>
+<p>$$ f® = \int_0^{2\pi} q(r,\theta) \mathrm{d}\theta = r e^{-\frac{r^2}{2}} $$</p>
 <p>当 $0 \lt \theta \lt 2\pi$ 时，$\Theta$ 的边缘密度为</p>
 <p>$$ g(\theta) = \int_0^{+\infty} q(r,\theta) \mathrm{d}r = \frac{1}{2\pi} $$</p>
 <p>综上：</p>
 <p>$$ f® = \begin{cases}<br>
-r e<sup>{-\frac{r</sup>2}{2}} &amp; r \gt 0 \\<br>
+r e^{-\frac{r^2}{2}} &amp; r \gt 0 \\<br>
 0 &amp; 其他<br>
 \end{cases} $$</p>
 <p>$$ g(\theta) = \begin{cases}<br>
@@ -822,10 +822,10 @@ D(Y) &amp;= E \left( \left[ Y-E(Y) \right]^2 \right) = \int_{-\infty}^{+\infty} 
 \end{aligned} $$</p>
 <p>另一套由联合密度 $p(x,y)$ 给出的计算公式与上述公式形式上非常相近，只是一重积分变成了二重积分：</p>
 <p>$$ \begin{aligned}<br>
-E(X) &amp;= \int_{-\infty}<sup>{+\infty}\int_{-\infty}</sup>{+\infty} x p(x,y) \mathrm{d}x\mathrm{d}y \\<br>
-E(Y) &amp;= \int_{-\infty}<sup>{+\infty}\int_{-\infty}</sup>{+\infty} y p(x,y) \mathrm{d}x\mathrm{d}y \\<br>
-D(X) &amp;= \int_{-\infty}<sup>{+\infty}\int_{-\infty}</sup>{+\infty} \left[ x-E(X) \right]^2 p(x,y) \mathrm{d}x\mathrm{d}y \\<br>
-D(Y) &amp;= \int_{-\infty}<sup>{+\infty}\int_{-\infty}</sup>{+\infty} \left[ y-E(Y) \right]^2 p(x,y) \mathrm{d}x\mathrm{d}y<br>
+E(X) &amp;= \int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty} x p(x,y) \mathrm{d}x\mathrm{d}y \\<br>
+E(Y) &amp;= \int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty} y p(x,y) \mathrm{d}x\mathrm{d}y \\<br>
+D(X) &amp;= \int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty} \left[ x-E(X) \right]^2 p(x,y) \mathrm{d}x\mathrm{d}y \\<br>
+D(Y) &amp;= \int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty} \left[ y-E(Y) \right]^2 p(x,y) \mathrm{d}x\mathrm{d}y<br>
 \end{aligned} $$</p>
 <p>这几个公式的成立很容易证明，此处略去。</p>
 <h4 id="两个随机变量的和的均值与方差">两个随机变量的和的均值与方差</h4>
@@ -949,10 +949,10 @@ D(X_1+X_2+\cdots+x_n) &amp;= D(X_1) + D(X_2) + \cdots + D(X_n)<br>
 <p>将该式称为强大数定律。</p>
 <h4 id="中心极限定理">中心极限定理</h4>
 <p>设 $X_1,X_2,\cdots,X_n,\cdots$ 是独立同分布的随机变量列，且 $E(X_1),D(X_1)$ 存在，$D(X_1) \neq 1$，则对一切实数 $a \lt b$，有：</p>
-<p>$$ \lim_{n\to\infty}P \left\{ a \lt \frac{S_n-n E(X_1)}{\sqrt{n D(X_1)}} \lt b \right\} = \int_{a}^{b} \frac{1}{\sqrt{2\pi}} e<sup>{-\frac{u</sup>2}{2}} \mathrm{d}u $$</p>
+<p>$$ \lim_{n\to\infty}P \left\{ a \lt \frac{S_n-n E(X_1)}{\sqrt{n D(X_1)}} \lt b \right\} = \int_{a}^{b} \frac{1}{\sqrt{2\pi}} e^{-\frac{u^2}{2}} \mathrm{d}u $$</p>
 <p>这里，$S_n = X_1+X_2+\cdots+X_n$</p>
 <p>如果记 $\overline{X} = \frac{1}{n}(X_1+X_2+\cdots+X_n)$，上式也可写成：</p>
-<p>$$ \lim_{n\to\infty} P \left\{ a \lt \frac{\overline{X}-E(X_1)}{\sqrt{D(X_1)/n}} \lt b \right\} = \int_{a}^{b} \frac{1}{\sqrt{2\pi}} e<sup>{-\frac{u</sup>2}{2}} \mathrm{d}u $$</p>
+<p>$$ \lim_{n\to\infty} P \left\{ a \lt \frac{\overline{X}-E(X_1)}{\sqrt{D(X_1)/n}} \lt b \right\} = \int_{a}^{b} \frac{1}{\sqrt{2\pi}} e^{-\frac{u^2}{2}} \mathrm{d}u $$</p>
 <p>这表明，只要 $n$ 足够大，随机变量 $\frac{\overline{X}-E(X_1)}{\sqrt{D(X_1)/n}}$ 就近似地服从标准正态分布，从而 $\overline{X}$ 近似地服从正态分布。故<strong>中心极限定理表达了正态分布在概率论中的特殊地位</strong>，尽管 $X_1$ 的分布是任意的，但只要 $n$ 充分大，算数平均值 $\overline{X}$ 的分布却是近似正态的。</p>
 <h2 id="第五章-统计估值">第五章 统计估值</h2>
 <h3 id="总体与样本">总体与样本</h3>
@@ -982,7 +982,7 @@ D(X_1+X_2+\cdots+x_n) &amp;= D(X_1) + D(X_2) + \cdots + D(X_n)<br>
 1 \quad &amp; -1/2 \le x \lt 1/2 \\<br>
 0 \quad &amp; \text{其他}<br>
 \end{cases} $$</p>
-<p>$$ K_2(x) = \frac{1}{\sqrt{2\pi}}e<sup>{-x</sup>2/2} $$</p>
+<p>$$ K_2(x) = \frac{1}{\sqrt{2\pi}}e^{-x^2/2} $$</p>
 <p>$$ K_3(x) = \frac{1}{\pi(1+x^2)} $$</p>
 <p>$$ K_4(x) = \frac{1}{2\pi}\left( \frac{\sin(x/2)}{x/2} \right)^2 $$</p>
 <p><strong>核估计</strong>：称函数</p>
@@ -1023,9 +1023,9 @@ E(\overline{X}) &amp;= E \left( \frac{X_1+X_2+\cdots+X_n}{n} \right) \\<br>
 <p>$$ D(\overline{X})=\frac{D(X)}{n} $$</p>
 <p>这说明，样本数量 $n$ 越大，用 $\overline{X}$ 来估计 $E(X)$ 的波动越小，即估计越优良。</p>
 <h4 id="方差的点估计">方差的点估计</h4>
-<p>利用 $\displaystyle S<sup>2=\frac{1}{n-1}\sum_{i=1}</sup>{n}(x_i-\overline{x})^2$ 来估计方差 $D(X)$ 不存在系统偏差。即：</p>
+<p>利用 $\displaystyle S^2=\frac{1}{n-1}\sum_{i=1}^{n}(x_i-\overline{x})^2$ 来估计方差 $D(X)$ 不存在系统偏差。即：</p>
 <p>$$ E(S^2) = D(X) $$</p>
-<p>需要注意，我们习惯使用的 $\displaystyle \frac{1}{n}\sum_{i=1}<sup>{n}(x_i-\overline{x})</sup>2$ 并不是方差的无偏估计量。</p>
+<p>需要注意，我们习惯使用的 $\displaystyle \frac{1}{n}\sum_{i=1}^{n}(x_i-\overline{x})^2$ 并不是方差的无偏估计量。</p>
 <h3 id="期望的置信区间">期望的置信区间</h3>
 <p>期望的点估计只是得到了期望的一个近似值，那么该近似值 $\overline{X}$ 与真实值 $E(X)$ 到低相差多少呢？这就涉及到<strong>区间估计问题</strong>。</p>
 <h4 id="已知方差，对期望进行区间估计">已知方差，对期望进行区间估计</h4>
@@ -1051,13 +1051,13 @@ E(\overline{X}) &amp;= E \left( \frac{X_1+X_2+\cdots+X_n}{n} \right) \\<br>
 <blockquote>
 <p>要求某个量的置信区间，我们首先通过该量构造一个特殊的随机变量 $\eta$，使得 $\eta$ 的分布与所研究的随机变量 $X$ 无关，而只与样本容量 $n$ 有关。然后通过给定的置信度从 $\eta$ 的分布的临界值表中反解出置信区间。</p>
 </blockquote>
-<p>我们构造随机变量 $\displaystyle \eta=\frac{(n-1)S<sup>2}{\sigma</sup>2}$ ，得出其分布为 $n-1$ 个自由度的 $\chi^2$ 分布，即：</p>
+<p>我们构造随机变量 $\displaystyle \eta=\frac{(n-1)S^2}{\sigma^2}$ ，得出其分布为 $n-1$ 个自由度的 $\chi^2$ 分布，即：</p>
 <p>$$ p(u)=\begin{cases}<br>
 \frac{1}{2^{\frac{n-1}{2}}\Gamma(\frac{n-1}{2})} u^{(n-3)/2} e^{-u/2} \quad &amp; u\gt 0 \\<br>
 0 &amp; u\le 0\\<br>
 \end{cases} $$</p>
 <p>进而得出 $\sigma^2$ 的置信区间为：</p>
-<p>$$ \left[ \frac{(n-1)S<sup>2}{\lambda_2},\;\frac{(n-1)S</sup>2}{\lambda_1} \right] $$</p>
+<p>$$ \left[ \frac{(n-1)S^2}{\lambda_2},\;\frac{(n-1)S^2}{\lambda_1} \right] $$</p>
 <p>也即：</p>
 <p>$$ \left[ \frac{\sum_{i=1}^{n}(X_i- \overline{X})^2}{\lambda_2},\; \frac{\sum_{i=1}^{n}(X_i- \overline{X})^2}{\lambda_1} \right] $$</p>
 <p>式中 $\lambda_1,\lambda_2$ 可以通过查找 $\chi^2$ 分布的临界值表得到。</p>
@@ -1068,7 +1068,7 @@ E(\overline{X}) &amp;= E \left( \frac{X_1+X_2+\cdots+X_n}{n} \right) \\<br>
 <p><strong>例 2</strong>：怎样根据一个随机变量的样本值，判断该随机变量是否服从正态分布 $N(\mu,\sigma^2)$？</p>
 <p><strong>假设检验问题</strong>：这类问题中都隐含着一种“假设”或“看法”，例 1 中的假设是：次品率 $p \le 0.01$，例 2 中的假设是：该随机变量服从正态分布 $N(\mu,\sigma^2)$ ，现在我们要检验这些假设是否正确，这类问题称为<strong>假设检验问题</strong>。</p>
 <p>回到例 1：要检验的假设是 $p\le 0.01$ ，如果假设成立，我们看看会出现什么后果。此时，假设有 200 件样品，那么其中最多有 2 件次品，任意抽取 5 件，我们来求 5 件中无次品的概率：</p>
-<p>$$ P \left\{ \text{无次品} \right\} \ge \frac{C_{198}<sup>5}{C_{200}</sup>5} \ge 0.95 $$</p>
+<p>$$ P \left\{ \text{无次品} \right\} \ge \frac{C_{198}^5}{C_{200}^5} \ge 0.95 $$</p>
 <p>于是，任抽 5 件，出现次品的概率 $\le 1-0.95=0.05$ 。这说明，如果次品率 $\le 0.01$ ，那么抽取 5 件样品，出现次品的机会是很小的，平均在 100 次抽样中，出现不到 5 次。而现在的事实是，在一次抽样实践中，竟然就发生了这种小概率事件，这是不合理的！因此假设 $p\le 0.01$ 是不能接受的。</p>
 <blockquote>
 <p>注：通常把概率不超过 0.05 的事件当做“小概率事件”，有时也把概率不超过 0.01 的事件当做小概率事件。</p>
@@ -1103,42 +1103,42 @@ E(\overline{X}) &amp;= E \left( \frac{X_1+X_2+\cdots+X_n}{n} \right) \\<br>
 <h4 id="3-未知期望，检验方差">3. 未知期望，检验方差</h4>
 <h4 id="4-未知期望，检验方差的上限">4. 未知期望，检验方差的上限</h4>
 <p>同样采用求置信区间的思路，关键点是：构造随机变量</p>
-<p>$$ W = \frac{(n-1)S<sup>2}{\sigma</sup>2} $$</p>
+<p>$$ W = \frac{(n-1)S^2}{\sigma^2} $$</p>
 <p>$W$ 应符合 $n-1$ 个自由度的 $\chi^2$ 分布。</p>
 <h3 id="两个正态总体的假设检验">两个正态总体的假设检验</h3>
 <p>在实际问题中，除了遇到一个总体的检验问题，还常遇到两个总体的比较问题。</p>
 <p>设 $X \sim N(\mu_1,\sigma_1^2)$ ，$Y \sim N(\mu_2,\sigma_2^2)$ ，且 $X, Y$ 相互独立，主要研究以下四类问题：</p>
 <ol>
-<li>未知 $\sigma_1<sup>2,\sigma_2</sup>2$，但知道 $\sigma_1<sup>2=\sigma_2</sup>2$ ，检验假设 $H_0:\mu_1=\mu_2$</li>
+<li>未知 $\sigma_1^2,\sigma_2^2$，但知道 $\sigma_1^2=\sigma_2^2$ ，检验假设 $H_0:\mu_1=\mu_2$</li>
 <li>未知 $\mu_1,\mu_2$，检验假设 $H_0:\sigma_1^2 = \sigma_2^2$</li>
 <li>未知 $\mu_1,\mu_2$，检验假设 $H_0:\sigma_1^2 \le \sigma_2^2$</li>
-<li>未知 $\sigma_1<sup>2,\sigma_2</sup>2$，但知道 $\sigma_1^2 \ne \sigma_2^2$ ，检验假设 $H_0:\mu_1=\mu_2$</li>
+<li>未知 $\sigma_1^2,\sigma_2^2$，但知道 $\sigma_1^2 \ne \sigma_2^2$ ，检验假设 $H_0:\mu_1=\mu_2$</li>
 </ol>
 <p>以下分别讨论。</p>
-<p><strong>1. 未知 $\sigma_1<sup>2,\sigma_2</sup>2$ ，但知道 $\sigma_1<sup>2=\sigma_2</sup>2$ ，检验假设 $H_0:\mu_1=\mu_2$</strong></p>
-<p>设 $X_1,X_2,\cdots,X_{n_1}$ 来自总体 $N(\mu_1,\sigma_1^2)$，$Y_1,Y_2,\cdots,Y_{n_2}$ 来自总体 $N(\mu_2,\sigma_2^2)$，且 $X,Y$ 间相互独立。现已知 $\sigma_1<sup>2=\sigma_2</sup>2$，如何检验假设 $H_0:\mu_1=\mu_2$？</p>
+<p><strong>1. 未知 $\sigma_1^2,\sigma_2^2$ ，但知道 $\sigma_1^2=\sigma_2^2$ ，检验假设 $H_0:\mu_1=\mu_2$</strong></p>
+<p>设 $X_1,X_2,\cdots,X_{n_1}$ 来自总体 $N(\mu_1,\sigma_1^2)$，$Y_1,Y_2,\cdots,Y_{n_2}$ 来自总体 $N(\mu_2,\sigma_2^2)$，且 $X,Y$ 间相互独立。现已知 $\sigma_1^2=\sigma_2^2$，如何检验假设 $H_0:\mu_1=\mu_2$？</p>
 <p>类比前面的研究方法，我们构造一个特殊的统计量：</p>
-<p>$$ \widetilde{T} = \frac{(\overline{X}-\overline{Y})-(\mu_1-\mu_2)}{\sqrt{(n_1-1)S_1<sup>2+(n_2-1)s_2</sup>2}} \cdot \sqrt{\frac{n_1 n_2 (n_1+n_2-2)}{n_1+n_2}} $$</p>
+<p>$$ \widetilde{T} = \frac{(\overline{X}-\overline{Y})-(\mu_1-\mu_2)}{\sqrt{(n_1-1)S_1^2+(n_2-1)s_2^2}} \cdot \sqrt{\frac{n_1 n_2 (n_1+n_2-2)}{n_1+n_2}} $$</p>
 <p>数学上可以证明 $\widetilde{T}$ 服从 $n_1+n_2-2$ 个自由度的 $t$ 分布。</p>
 <p><strong>2. 未知 $\mu_1,\mu_2$ ，检验假设 $H_0:\sigma_1^2 = \sigma_2^2$</strong></p>
 <p>构造特殊的统计量：</p>
-<p>$$ \widetilde{F} = \frac{S_1<sup>2/\sigma_1</sup>2}{S_2<sup>2/\sigma_2</sup>2} $$</p>
+<p>$$ \widetilde{F} = \frac{S_1^2/\sigma_1^2}{S_2^2/\sigma_2^2} $$</p>
 <p>数学上可以证明 $\widetilde{F}$ 服从自由度为 $n_1-1, n_2-1$ 的 $F$ 分布，其中，$n_1-1,n_2-1$ 分别称为<strong>第一自由度</strong>和<strong>第二自由度</strong>。</p>
 <p><strong>3. 未知 $\mu_1,\mu_2$ ，检验假设 $H_0:\sigma_1^2 \le \sigma_2^2$</strong></p>
 <p>同 2.</p>
-<p><strong>4. 未知 $\sigma_1<sup>2,\sigma_2</sup>2$ ，但知道 $\sigma_1^2 \ne \sigma_2^2$ ，检验假设 $H_0:\mu_1=\mu_2$</strong></p>
+<p><strong>4. 未知 $\sigma_1^2,\sigma_2^2$ ，但知道 $\sigma_1^2 \ne \sigma_2^2$ ，检验假设 $H_0:\mu_1=\mu_2$</strong></p>
 <p>这是著名的 Behrens-Fisher 问题。其解决方法如下：</p>
 <p>设 $X_1,X_2,\cdots,X_{n_1}$ 来自总体 $N(\mu_1,\sigma_1^2)$ ，$Y_1,Y_2,\cdots,Y_{n_2}$ 来自总体 $N(\mu_2,\sigma_2^2)$ ，且 $X,Y$ 间相互独立。</p>
 <p>$\overline{X}, \overline{Y}, S_1^2, S_2^2$ 分别表示样本 1、2 的均值，样本 1、2 的方差。易知：</p>
-<p>$$ \overline{X}-\overline{Y}  \sim  N \left( \mu_1-\mu_2,\frac{\sigma_1<sup>2}{n_1}+\frac{\sigma_2</sup>2}{n_2} \right) $$</p>
+<p>$$ \overline{X}-\overline{Y}  \sim  N \left( \mu_1-\mu_2,\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2} \right) $$</p>
 <p>于是：</p>
-<p>$$ \frac{\overline{X}-\overline{Y}-(\mu_1-\mu_2)}{\sqrt{\frac{\sigma_1<sup>2}{n_1}+\frac{\sigma_2</sup>2}{n_2}}} \sim  N(0,1) $$</p>
+<p>$$ \frac{\overline{X}-\overline{Y}-(\mu_1-\mu_2)}{\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}} \sim  N(0,1) $$</p>
 <p>在零假设 $H_0:\mu_1=\mu_2$ 下</p>
-<p>$$ \xi \triangleq \frac{\overline{X}-\overline{Y}}{\sqrt{\frac{\sigma_1<sup>2}{n_1}+\frac{\sigma_2</sup>2}{n_2}}}  \sim  N(0,1) $$</p>
+<p>$$ \xi \triangleq \frac{\overline{X}-\overline{Y}}{\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}}  \sim  N(0,1) $$</p>
 <p>可见 $\left| \xi \right|$ 值太大时应拒绝 $H_0$ ，但由于 $\sigma_1^2, \sigma_2^2$ 是未知的，自然想到用 $S_1^2, S_2^2$ 分别代替，得到统计量：</p>
-<p>$$ T = \frac{\overline{X}-\overline{Y}}{\sqrt{\frac{S_1<sup>2}{n_1}+\frac{S_2</sup>2}{n_2}}} $$</p>
-<p>然而，$T$ 的精确分布依然相当复杂，且依赖于比值 $\frac{\sigma_1<sup>2}{\sigma_2</sup>2}$ 。幸运的是，数学上可以证明，统计量 $T$ 近似服从 $m$ 个自由度的 $t$ 分布，这个 $m$ 乃是与以下 $m^\ast$ 最接近的整数：</p>
-<p>$$ m^\ast = \frac{\left( \frac{1}{n_1}S_1<sup>2+\frac{1}{n_2}S_2</sup>2 \right)^2}{\frac{1}{n_1-1}\left( \frac{S_1^2}{n_1} \right)^2 + \frac{1}{n_2-1}\left( \frac{S_2^2}{n_2} \right)^2} $$</p>
+<p>$$ T = \frac{\overline{X}-\overline{Y}}{\sqrt{\frac{S_1^2}{n_1}+\frac{S_2^2}{n_2}}} $$</p>
+<p>然而，$T$ 的精确分布依然相当复杂，且依赖于比值 $\frac{\sigma_1^2}{\sigma_2^2}$ 。幸运的是，数学上可以证明，统计量 $T$ 近似服从 $m$ 个自由度的 $t$ 分布，这个 $m$ 乃是与以下 $m^\ast$ 最接近的整数：</p>
+<p>$$ m^\ast = \frac{\left( \frac{1}{n_1}S_1^2+\frac{1}{n_2}S_2^2 \right)^2}{\frac{1}{n_1-1}\left( \frac{S_1^2}{n_1} \right)^2 + \frac{1}{n_2-1}\left( \frac{S_2^2}{n_2} \right)^2} $$</p>
 <p>利用 $t$ 分布表，找临界值 $\lambda$ 满足 $P(|T|&gt;\lambda)=a$ ，于是当且仅当 $|T|&gt;\lambda$ 时拒绝 $H_0: \mu_1=\mu_2$</p>
 <h2 id="第七章-回归分析">第七章 回归分析</h2>
 <p>回归分析是用来处理多个变量之间<strong>相关关系</strong>的一种数学方法。<strong>相关关系</strong>不同于<strong>函数关系</strong>，在相关关系中，多个变量之间明显相关，但并不具有完全确定性的关系，例如人的身高和体重，虽然凭借身高并不能精确确定体重，但总体来说有“身高者，体也重”的关系。</p>
@@ -1170,7 +1170,7 @@ E(\overline{X}) &amp;= E \left( \frac{X_1+X_2+\cdots+X_n}{n} \right) \\<br>
 <p>解得：</p>
 <p>$$ \left\{<br>
 \begin{aligned}<br>
-b &amp;= \frac{\sum\limits_{i=1}<sup>{n}(x_i-\bar{x})(y_i-\bar{y})}{\sum\limits_{i=1}</sup>{n}(x_i-\bar{x})^2} \\<br>
+b &amp;= \frac{\sum\limits_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\sum\limits_{i=1}^{n}(x_i-\bar{x})^2} \\<br>
 a &amp;= \bar{y} - b \bar{x}<br>
 \end{aligned}<br>
 \right. $$</p>
@@ -1185,7 +1185,7 @@ a &amp;= \bar{y} - b \bar{x}<br>
 y^\ast &amp;= \ln y \\<br>
 x^\ast &amp;= \frac{1}{x}<br>
 \end{aligned} $$</p>
-<p>则两个新变量 $y<sup>\ast,x</sup>\ast$ 之间的关系便是线性的了，我们将 $x,y$ 的观测数值转化为这两种形式即可。</p>
+<p>则两个新变量 $y^\ast,x^\ast$ 之间的关系便是线性的了，我们将 $x,y$ 的观测数值转化为这两种形式即可。</p>
 
     </div>
 
@@ -1251,7 +1251,7 @@ x^\ast &amp;= \frac{1}{x}<br>
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

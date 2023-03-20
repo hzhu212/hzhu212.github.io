@@ -287,16 +287,16 @@
 <span id="more"></span>
 <h2 id="手工求导">手工求导</h2>
 <p>求导在数学上非常容易实现，例如以下函数：</p>
-<p>$$ f(x) = \sin(e<sup>{x</sup>2}) $$</p>
+<p>$$ f(x) = \sin(e^{x^2}) $$</p>
 <p>我们能够轻易地求得其导函数为：</p>
-<p>$$ f’(x) = \cos(e<sup>{x</sup>2}) \cdot e<sup>{x</sup>2} \cdot (2x) $$</p>
+<p>$$ f’(x) = \cos(e^{x^2}) \cdot e^{x^2} \cdot (2x) $$</p>
 <p>那么能否通过编程语言实现该函数及其导函数？答案是可以，而且非常容易，只需要把式子逐项翻译即可：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="keyword">return</span> np.sin(np.exp(np.power(x, <span class="number">2</span>)))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f_prime</span>(<span class="params">x</span>):</span></span><br><span class="line">    t = np.exp(np.power(x, <span class="number">2</span>))</span><br><span class="line">    <span class="keyword">return</span> np.cos(t) * t * (<span class="number">2</span>*x)</span><br></pre></td></tr></table></figure>
 <p>到目前为止，求导对于编程语言来说似乎没什么难的，但是不要忘记，我们这里研究的函数是一个具体的实例。在实际应用中，我们用到的函数将会非常丰富，它们的组合方式更是千变万化，光是上面这个简单的例子就会有无数种变形！例如：</p>
 <p>$$ \begin{gathered}<br>
-f_2(x) = \cos(e<sup>{x</sup>2}) \\<br>
-f_3(x) = \sin(2<sup>{x</sup>2}) \\<br>
-f_4(x) = \sin(e<sup>{x</sup>3}) \\<br>
+f_2(x) = \cos(e^{x^2}) \\<br>
+f_3(x) = \sin(2^{x^2}) \\<br>
+f_4(x) = \sin(e^{x^3}) \\<br>
 \cdots<br>
 \end{gathered} $$</p>
 <p>更不要提各式各样的其他复杂函数：</p>
@@ -434,7 +434,7 @@ w &amp;= sin(v)<br>
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
