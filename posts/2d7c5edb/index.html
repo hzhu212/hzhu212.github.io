@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.jpg">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hzhu212.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="LSM tree (log-structured merge-tree) 是一种对频繁写操作非常友好的数据结构，同时兼顾了查询效率。LSM tree 是许多 key-value 型或日志型数据库所依赖的核心数据结构，例如 BigTable、HBase、Cassandra、LevelDB、SQLite、Scylla、RocksDB 等。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LSM Tree：一种支持高效读写的存储引擎">
+<meta property="og:url" content="https://hzhu212.github.io/posts/2d7c5edb/index.html">
+<meta property="og:site_name" content="Henry&#39;s Blog">
+<meta property="og:description" content="LSM tree (log-structured merge-tree) 是一种对频繁写操作非常友好的数据结构，同时兼顾了查询效率。LSM tree 是许多 key-value 型或日志型数据库所依赖的核心数据结构，例如 BigTable、HBase、Cassandra、LevelDB、SQLite、Scylla、RocksDB 等。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/hzhu212/image-store@master/blog/1612419000098-1612419000090.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/hzhu212/image-store@master/blog/1612358955833-1612358955820.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/hzhu212/image-store@master/blog/1612360358135-1612360358128.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/hzhu212/image-store@master/blog/1612408728966-1612408728945.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/hzhu212/image-store@master/blog/1612415672645-1612415672637.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/hzhu212/image-store@master/blog/1612416928355-1612416928350.png">
+<meta property="article:published_time" content="2021-02-03T13:08:14.000Z">
+<meta property="article:modified_time" content="2025-04-07T06:10:19.269Z">
+<meta property="article:author" content="Henry">
+<meta property="article:tag" content="数据结构">
+<meta property="article:tag" content="数据库">
+<meta property="article:tag" content="大数据">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/hzhu212/image-store@master/blog/1612419000098-1612419000090.png">
+
+
+<link rel="canonical" href="https://hzhu212.github.io/posts/2d7c5edb/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hzhu212.github.io/posts/2d7c5edb/","path":"posts/2d7c5edb/","title":"LSM Tree：一种支持高效读写的存储引擎"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>LSM Tree：一种支持高效读写的存储引擎 | Henry's Blog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
+  
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"O49O3LRqDf6XCiPXdKzeqKGp-gzGzoHsz","app_key":"XcrzmNEzlES5k9h5BDN3oKpb","server_url":null,"security":false}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js" defer></script>
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Henry's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Henry's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">用简单的话把事情讲明白</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SSTable"><span class="nav-number">1.</span> <span class="nav-text">SSTable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%99%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="nav-number">2.</span> <span class="nav-text">写入数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BB%E5%8F%96-%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE"><span class="nav-number">3.</span> <span class="nav-text">读取&#x2F;查询数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%90%88%E5%B9%B6%EF%BC%88Compaction%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">文件合并（Compaction）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE"><span class="nav-number">5.</span> <span class="nav-text">删除数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LSM-tree-%E4%B8%8E-B-tree-%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="nav-number">6.</span> <span class="nav-text">LSM tree 与 B tree 的对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%EF%BC%9A"><span class="nav-number">8.</span> <span class="nav-text">参考：</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Henry"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Henry</p>
+  <div class="site-description" itemprop="description">吾日三省吾身</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/hzhu212" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;hzhu212" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zhuhe212@163.com" title="E-Mail → mailto:zhuhe212@163.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/he-zhu-76-25/activities" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;he-zhu-76-25&#x2F;activities" rel="noopener me" target="_blank"><i class="fa fa-globe fa-fw"></i>知乎</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jianshu.com/u/4e3f3cc93322" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;4e3f3cc93322" rel="noopener me" target="_blank"><i class="fa fa-globe fa-fw"></i>简书</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hzhu212.github.io/posts/2d7c5edb/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Henry">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Henry's Blog">
+      <meta itemprop="description" content="吾日三省吾身">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="LSM Tree：一种支持高效读写的存储引擎 | Henry's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          LSM Tree：一种支持高效读写的存储引擎
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-02-03 21:08:14" itemprop="dateCreated datePublished" datetime="2021-02-03T21:08:14+08:00">2021-02-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-04-07 14:10:19" itemprop="dateModified" datetime="2025-04-07T14:10:19+08:00">2025-04-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/posts/2d7c5edb/" class="post-meta-item leancloud_visitors" data-flag-title="LSM Tree：一种支持高效读写的存储引擎" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><strong>LSM tree (log-structured merge-tree)</strong> 是一种对频繁写操作非常友好的数据结构，同时兼顾了查询效率。LSM tree 是许多 key-value 型或日志型数据库所依赖的核心数据结构，例如 <a target="_blank" rel="noopener" href="https://cloud.google.com/bigtable">BigTable</a>、<a target="_blank" rel="noopener" href="https://hbase.apache.org/">HBase</a>、<a target="_blank" rel="noopener" href="https://cassandra.apache.org/">Cassandra</a>、<a target="_blank" rel="noopener" href="https://github.com/google/leveldb">LevelDB</a>、<a target="_blank" rel="noopener" href="https://www.sqlite.org/">SQLite</a>、<a target="_blank" rel="noopener" href="https://www.scylladb.com/">Scylla</a>、<a target="_blank" rel="noopener" href="https://rocksdb.org/">RocksDB</a> 等。</p>
+<span id="more"></span>
+<p>LSM tree 之所以有效是基于以下事实：磁盘或内存的连续读写性能远高于随机读写性能，有时候这种差距可以达到三个数量级之高。这种现象不仅对传统的机械硬盘成立，对 SSD 硬盘也同样成立。如下图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/hzhu212/image-store@master/blog/1612419000098-1612419000090.png" alt="硬盘和内存的随机读写与连续读写性能对比"></p>
+<p>LSM tree 在工作过程中尽可能避免随机读写，充分发挥了磁盘连续读写的性能优势。</p>
+<h2 id="SSTable">SSTable</h2>
+<p>LSM tree 持久化到硬盘上之后的结构称为 <strong>Sorted Strings Table (SSTable)</strong>。顾名思义，SSTable 保存了<strong>排序</strong>后的数据（实际上是按照 key 排序的 key-value 对）。每个 SSTable 可以包含多个存储数据的文件，称为 segment，每个 segment 内部都是有序的，但不同 segment 之间没有顺序关系。一个 segment 一旦生成便不再修改（immutable）。一个 SSTable 的示例如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/hzhu212/image-store@master/blog/1612358955833-1612358955820.png" alt="SSTable"></p>
+<p>可以看到，每个 segment 内部的数据都是按照 key 排序的。下面我们来介绍每个 segment 是如何生成的。</p>
+<h2 id="写入数据">写入数据</h2>
+<p>LSM tree 的所有写操作均为<strong>连续写</strong>，因此效率非常高。但由于外部数据是无序到来的，如果无脑连续写入到 segment，显然是不能保证顺序的。对此，LSM tree 会在内存中构造一个有序数据结构（称为 memtable），例如红黑树。每条新到达的数据都插入到该红黑树中，从而始终保持数据有序。当写入的数据量达到一定阈值时，将触发红黑树的 flush 操作，把所有排好序的数据一次性写入到硬盘中（该过程为连续写），生成一个新的 segment。而之后红黑树便从零开始下一轮积攒数据的过程。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/hzhu212/image-store@master/blog/1612360358135-1612360358128.png" alt="红黑树被一次性写入一个新的 segment"></p>
+<h2 id="读取-查询数据">读取/查询数据</h2>
+<p>如何从 SSTable 中查询一条特定的数据呢？一个最简单直接的办法是扫描所有的 segment，直到找到所查询的 key 为止。通常应该从最新的 segment 扫描，依次到最老的 segment，这是因为<strong>越是最近的数据越可能被用户查询</strong>，把最近的数据优先扫描能够提高平均查询速度。</p>
+<p>当扫描某个特定的 segment 时，由于该 segment 内部的数据是有序的，因此可以使用二分查找的方式，在 $O(\log n)$ 的时间内得到查询结果。但对于二分查找来说，要么一次性把数据全部读入内存，要么在每次二分时都消耗一次磁盘 IO，当 segment 非常大时（这种情况在大数据场景下司空见惯），这两种情况的代价都非常高。一个简单的优化策略是，在内存中维护一个<strong>稀疏索引（sparse index）</strong>，其结构如下图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/hzhu212/image-store@master/blog/1612408728966-1612408728945.png" alt="一个 segment 的稀疏索引"></p>
+<blockquote>
+<p>稀疏索引是指将有序数据切分成（固定大小的）块，仅对各个块开头的一条数据做索引。与之相对的是全量索引（dense index），即对全部数据编制索引，其中的任意一条数据发生增删均需要更新索引。两者相比，全量索引的查询效率更高，达到了理论极限值 $O(\log n)$，但写入和删除效率更低，因为每次数据增删时均需要因为更新索引而消耗一次 IO 操作。通常的关系型数据库，例如 MySQL 等，其内部采用 B tree 作为索引结构，这便是一种全量索引。</p>
+</blockquote>
+<p>有了稀疏索引之后，可以先在索引表中使用二分查找快速定位某个 key 位于哪一小块数据中，然后仅从磁盘中读取这一块数据即可获得最终查询结果，此时加载的数据量仅仅是整个 segment 的一小部分，因此 IO 代价较小。以上图为例，假设我们要查询 <code>dollar</code> 所对应的 value。首先在稀疏索引表中进行二分查找，定位到 <code>dollar</code> 应该位于 <code>dog</code> 和 <code>downgrade</code> 之间，对应的 offset 为 17208~19504。之后去磁盘中读取该范围内的全部数据，然后再次进行二分查找即可找到结果，或确定结果不存在。</p>
+<p>稀疏索引极大地提高了查询性能，然而有一种极端情况却会造成查询性能骤降：当要查询的结果在 SSTable 中不存在时，我们将不得不依次扫描完所有的 segment，这是最差的一种情况。有一种称为**布隆过滤器（bloom filter）**的数据结构天然适合解决该问题。布隆过滤器是一种空间效率极高的算法，能够快速地检测一条数据是否在数据集中存在。我们只需要在写入每条数据之前先在布隆过滤器中登记一下，在查询时即可断定某条数据是否缺失。</p>
+<blockquote>
+<p>布隆过滤器的内部依赖于哈希算法，当检测某一条数据是否见过时，有一定概率出现假阳性（False Positive），但一定不会出现假阴性（False Negative）。也就是说，当<strong>布隆过滤器认为一条数据出现过，那么该条数据很可能出现过；但如果布隆过滤器认为一条数据没出现过，那么该条数据一定没出现过</strong>。这种特性刚好与此处的需求相契合，即检验某条数据是否缺失。</p>
+</blockquote>
+<h2 id="文件合并（Compaction）">文件合并（Compaction）</h2>
+<p>随着数据的不断积累，SSTable 将会产生越来越多的 segment，导致查询时扫描文件的 IO 次数增多，效率降低，因此需要有一种机制来控制 segment 的数量。对此，LSM tree 会定期执行文件合并（compaction）操作，将多个 segment 合并成一个较大的 segment，随后将旧的 segment 清理掉。由于每个 segment 内部的数据都是有序的，合并过程类似于归并排序，效率很高，只需要 $O(n)$ 的时间复杂度。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/hzhu212/image-store@master/blog/1612415672645-1612415672637.png" alt="segment compaction"></p>
+<p>在上图的示例中，segment 1 和 2 中都存在 key 为 <code>dog</code> 的数据，这时应该以最新的 segment 为准，因此合并后的值取 84 而不是 52，这实现了类似于字典/HashMap 中“覆盖写”的语义。</p>
+<h2 id="删除数据">删除数据</h2>
+<p>现在你已经了解了 LSM tree 读写数据的方式，那么如何删除数据呢？如果是在内存中，删除某块数据通常是将它的引用指向 NULL，那么这块内存就会被回收。但现在的情况是，数据已经存储在硬盘中，要从一个 segment 文件中间抹除一段数据必须要覆写其之后的所有内容，这个成本非常高。LSM tree 所采用的做法是设计一个特殊的标志位，称为 <em>tombstone（墓碑）</em>，删除一条数据就是把它的 value 置为墓碑，如下图所示：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/hzhu212/image-store@master/blog/1612416928355-1612416928350.png" alt="删除数据"></p>
+<p>这个例子展示了删除 segment 2 中的 <code>dog</code> 之后的效果。注意，此时 segment 1 中仍然保留着 <code>dog</code> 的旧数据，如果我们查询 <code>dog</code>，那么应该返回空，而不是 52。因此，<strong>删除操作的本质是覆盖写，而不是清除一条数据</strong>，这一点初看起来不太符合常识。墓碑会在 compact 操作中被清理掉，于是置为墓碑的数据在新的 segment 中将不复存在。</p>
+<h2 id="LSM-tree-与-B-tree-的对比">LSM tree 与 B tree 的对比</h2>
+<p>主流的关系型数据库均以 B/B+ tree 作为其构建索引的数据结构，这是因为 B tree 提供了理论上最高的查询效率 - $O(\log n)$。但对查询性能的追求也造成了 B tree 的相应缺点，即每次插入或删除一条数据时，均需要更新索引，从而造成一次磁盘 IO。这种特性决定了 B tree 只适用于频繁读、较少写的场景。如果在频繁写的场景下，将造成大量的磁盘 IO，从而导致性能骤降。这种应用场景在传统的关系型数据库中比较常见。</p>
+<p>而 LSM tree 则避免了频繁写场景下的磁盘 IO 开销，尽管其查询效率无法达到理想的 $O(\log n)$，但依然非常快，可以接受。所以从本质上来说，LSM tree 相当于牺牲了一部分查询性能，换取了可观的写入性能。这对于 key-value 型或日志型数据库是非常重要的。</p>
+<h2 id="总结">总结</h2>
+<p>LSM tree 存储引擎的工作原理包含以下几个要点：</p>
+<ol>
+<li>写数据时，首先将数据缓存到内存中的一个有序树结构中（称为 memtable）。同时触发相关结构的更新，例如布隆过滤器、稀疏索引。</li>
+<li>当 memtable 积累到足够大时，会一次性写入磁盘中，生成一个内部有序的 segment 文件。该过程为连续写，因此效率极高。</li>
+<li>进行查询时，首先检查布隆过滤器。如果布隆过滤器报告数据不存在，则直接返回不存在。否则，按照从新到老的顺序依次查询每个 segment。</li>
+<li>在查询每个 segment 时，首先使用二分搜索检索对应的稀疏索引，找到数据所在的 offset 范围。然后读取磁盘上该范围内的数据，再次进行二分查找并获得结果。</li>
+<li>对于大量的 segment 文件，定期在后台执行 compaction 操作，将多个文件合并为更大的文件，以保证查询效率不衰减。</li>
+</ol>
+<h2 id="参考：">参考：</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://yetanotherdevblog.com/lsm/">Understanding LSM Trees: What Powers Write-Heavy Databases. Braden Groom</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.benstopford.com/2015/02/14/log-structured-merge-trees/">Log Structured Merge Trees. Ben Stopford</a></li>
+<li><a target="_blank" rel="noopener" href="https://queue.acm.org/detail.cfm?id=1563874">The Pathologies of Big Data. ACM</a></li>
+<li><a target="_blank" rel="noopener" href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.44.2782&amp;rep=rep1&amp;type=pdf">原始论文</a>（比较晦涩，不建议）</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Henry 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.jpg" alt="Henry 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"><i class="fa fa-tag"></i> 数据结构</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag"><i class="fa fa-tag"></i> 数据库</a>
+              <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag"><i class="fa fa-tag"></i> 大数据</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/2c63bd16/" rel="prev" title="shell命令的标准输入(stdin)">
+                  <i class="fa fa-angle-left"></i> shell命令的标准输入(stdin)
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/b9859a94/" rel="next" title="一文理解Python导入机制">
+                  一文理解Python导入机制 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">银河系ICP备 </a><a href="https://beian.mps.gov.cn/#/query/webSearch?code=42" rel="noopener" target="_blank">42号 </a>
+  </div>
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Henry</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/hzhu212" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"hzhu212","repo":"_blog_comment","client_id":"718c67973a0818c37f02","client_secret":"f815ebc1b572a2af9f809a5e8373d1632faa133f","admin_user":"hzhu212","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"e06e362d34449ed95c1dec28ce6c9a69"}</script>
+<script src="/js/third-party/comments/gitalk.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Henry&#39;s Blog</title>
+  
+  <subtitle>用简单的话把事情讲明白</subtitle>
+  <link href="https://hzhu212.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://hzhu212.github.io/"/>
+  <updated>2025-04-07T06:10:19.270Z</updated>
+  <id>https://hzhu212.github.io/</id>
+  
+  <author>
+    <name>Henry</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于状态机的思考</title>
+    <link href="https://hzhu212.github.io/posts/3b7dc41d/"/>
+    <id>https://hzhu212.github.io/posts/3b7dc41d/</id>
+    <published>2022-11-29T15:40:19.000Z</published>
+    <updated>2025-04-07T06:10:19.270Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;LeetCode 上有这样一道题目：&lt;a href=&quot;https://leetcode.cn/problems/biao-shi-shu-zhi-de-zi-fu-chuan-lcof/&quot;&gt;表示数值的字符串&lt;/a&gt;。题目看似简单，但其最佳解法却蕴含着一种绝妙的工程实践——状态机。&lt;/p&gt;
+&lt;p&gt;本文从这道编程题目出发，思考了一些状态机的使用场景，记录下脑暴过程。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://hzhu212.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="算法" scheme="https://hzhu212.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何调优一个大型 Flink 任务</title>
+    <link href="https://hzhu212.github.io/posts/80f3ba16/"/>
+    <id>https://hzhu212.github.io/posts/80f3ba16/</id>
+    <published>2022-11-29T15:23:01.000Z</published>
+    <updated>2025-04-07T06:10:19.270Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;本文&lt;a href=&quot;https://developer.volcengine.com/articles/7065250720647708703&quot;&gt;首发于火山引擎开发者社区&lt;/a&gt;，获得当期社区征文活动一等奖。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1&gt;本文目标&lt;/h1&gt;
+&lt;p&gt;随着实时计算的应用越来越广泛，同时实时数仓的概念逐渐深入人心，Flink 作为实时计算领域当之无愧的最优秀框架，其使用范围飞速扩张。对于一个优秀的大数据开发工程师来说，非常有必要熟练掌握 Flink 框架的使用和运维。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://hzhu212.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="大数据" scheme="https://hzhu212.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    <category term="Flink" scheme="https://hzhu212.github.io/tags/Flink/"/>
+    
+    <category term="实时数仓" scheme="https://hzhu212.github.io/tags/%E5%AE%9E%E6%97%B6%E6%95%B0%E4%BB%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一文理解 HyperLogLog(HLL) 算法</title>
+    <link href="https://hzhu212.github.io/posts/365f8e92/"/>
+    <id>https://hzhu212.github.io/posts/365f8e92/</id>
+    <published>2022-11-29T14:26:28.000Z</published>
+    <updated>2025-04-07T06:10:19.269Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;HyperLogLog(HLL) 算法是一种估算海量数据基数的方法，被广泛用于各个数据库产品中。&lt;/p&gt;
+&lt;p&gt;与精确的基数统计算法相比，HLL 具备可合并性 (mergeability) ，因而可以方便地对海量数据进行并行计算，被广泛地用于大数据多维分析场景中。例如分别统计一款 APP 每个小时的 UV 以及全天的 UV，这类问题就非常适合使用 HLL 算法。&lt;/p&gt;
+&lt;p&gt;本文将会由浅入深，从基本概念讲起，引导读者从直观上理解 HLL 算法背后蕴含的基本思想。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://hzhu212.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="数据结构" scheme="https://hzhu212.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="数据库" scheme="https://hzhu212.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="大数据" scheme="https://hzhu212.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DataSketches 算法概述</title>
+    <link href="https://hzhu212.github.io/posts/b4f47739/"/>
+    <id>https://hzhu212.github.io/posts/b4f47739/</id>
+    <published>2022-11-29T14:02:08.000Z</published>
+    <updated>2025-04-07T06:10:19.268Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;在数据领域，有几类经典的查询场景，这些查询在小数据量下很容易做到，但一旦数据量扩大传统思路将变得不可行，必须采用特定的数据结构与算法来支持，这就是今天要讨论的 DataSketches 算法族。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://hzhu212.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="数据结构" scheme="https://hzhu212.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="数据库" scheme="https://hzhu212.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="大数据" scheme="https://hzhu212.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一文理解Python导入机制</title>
+    <link href="https://hzhu212.github.io/posts/b9859a94/"/>
+    <id>https://hzhu212.github.io/posts/b9859a94/</id>
+    <published>2021-05-23T09:39:41.000Z</published>
+    <updated>2025-04-07T06:10:19.270Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Python 的 import 机制是最令用户困惑的地方之一，在实践中非常容易出错，相信被 &lt;code&gt;ImportError&lt;/code&gt; 和 &lt;code&gt;ModuleNotFoundError&lt;/code&gt; 折磨过的同学都对此深有体会。本文完整地梳理 Python 的各种导入逻辑，力求在实践中避坑并提出一些最佳实践。&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>LSM Tree：一种支持高效读写的存储引擎</title>
+    <link href="https://hzhu212.github.io/posts/2d7c5edb/"/>
+    <id>https://hzhu212.github.io/posts/2d7c5edb/</id>
+    <published>2021-02-03T13:08:14.000Z</published>
+    <updated>2025-04-07T06:10:19.269Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;strong&gt;LSM tree (log-structured merge-tree)&lt;/strong&gt; 是一种对频繁写操作非常友好的数据结构，同时兼顾了查询效率。LSM tree 是许多 key-value 型或日志型数据库所依赖的核心数据结构，例如 &lt;a href=&quot;https://cloud.google.com/bigtable&quot;&gt;BigTable&lt;/a&gt;、&lt;a href=&quot;https://hbase.apache.org/&quot;&gt;HBase&lt;/a&gt;、&lt;a href=&quot;https://cassandra.apache.org/&quot;&gt;Cassandra&lt;/a&gt;、&lt;a href=&quot;https://github.com/google/leveldb&quot;&gt;LevelDB&lt;/a&gt;、&lt;a href=&quot;https://www.sqlite.org/&quot;&gt;SQLite&lt;/a&gt;、&lt;a href=&quot;https://www.scylladb.com/&quot;&gt;Scylla&lt;/a&gt;、&lt;a href=&quot;https://rocksdb.org/&quot;&gt;RocksDB&lt;/a&gt; 等。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://hzhu212.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="数据结构" scheme="https://hzhu212.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    <category term="数据库" scheme="https://hzhu212.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="大数据" scheme="https://hzhu212.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>shell命令的标准输入(stdin)</title>
+    <link href="https://hzhu212.github.io/posts/2c63bd16/"/>
+    <id>https://hzhu212.github.io/posts/2c63bd16/</id>
+    <published>2021-01-06T03:04:27.000Z</published>
+    <updated>2025-04-07T06:10:19.269Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;在 shell 命令中，有多种方式可以灵活地控制命令的标准输入(stdin)，熟练掌握这些技巧有时会起到事半功倍的效果。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://hzhu212.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="Linux" scheme="https://hzhu212.github.io/tags/Linux/"/>
+    
+    <category term="shell" scheme="https://hzhu212.github.io/tags/shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>推荐一些Windows下的生产力工具</title>
+    <link href="https://hzhu212.github.io/posts/28fcbc62/"/>
+    <id>https://hzhu212.github.io/posts/28fcbc62/</id>
+    <published>2019-12-01T06:06:21.000Z</published>
+    <updated>2025-04-07T06:10:19.270Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote class=&quot;blockquote-center&quot;&gt;
+&lt;p&gt;工欲善其事，必先利其器。&lt;/p&gt;
+
+&lt;/blockquote&gt;
+&lt;p&gt;Windows 系统拥有 MacOS 和 Linux 无法比拟的软件生态，但可惜的是，大多数用户并没有真正发掘出 Windows 系统的生产力。本文推荐一些“小而美”的 Windows 软件，包括本地软件与浏览器插件，能够极大地提升工作效率。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://hzhu212.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="Windows" scheme="https://hzhu212.github.io/tags/Windows/"/>
+    
+    <category term="工具" scheme="https://hzhu212.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python从零实现计算图和自动求导</title>
+    <link href="https://hzhu212.github.io/posts/7a426523/"/>
+    <id>https://hzhu212.github.io/posts/7a426523/</id>
+    <published>2019-08-08T06:54:05.000Z</published>
+    <updated>2025-04-07T06:10:19.269Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;计算图是现代深度学习框架如 Tensorflow、PyTorch 等的核心概念，其中涉及的所有计算几乎都依赖于计算图提供的自动求导功能，因此研究计算图对深入理解反向传播等深度学习的底层算法大有帮助。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://hzhu212.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="机器学习" scheme="https://hzhu212.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="深度学习" scheme="https://hzhu212.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>线性代数的本质</title>
+    <link href="https://hzhu212.github.io/posts/66517499/"/>
+    <id>https://hzhu212.github.io/posts/66517499/</id>
+    <published>2019-06-22T06:21:42.000Z</published>
+    <updated>2025-04-07T06:10:19.271Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;本文为 &lt;a href=&quot;https://www.bilibili.com/video/av6731067/?p=1&quot;&gt;3Blue1Brown-线性代数的本质&lt;/a&gt; 系列视频的笔记。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://hzhu212.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="线性代数" scheme="https://hzhu212.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>概率统计笔记</title>
+    <link href="https://hzhu212.github.io/posts/b59aba05/"/>
+    <id>https://hzhu212.github.io/posts/b59aba05/</id>
+    <published>2019-06-15T11:00:49.000Z</published>
+    <updated>2025-04-07T06:10:19.270Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;本文为 &lt;a href=&quot;https://book.douban.com/subject/1748397/&quot;&gt;概率统计讲义&lt;/a&gt; 一书的笔记。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://hzhu212.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="概率统计" scheme="https://hzhu212.github.io/tags/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>矩阵求导术</title>
+    <link href="https://hzhu212.github.io/posts/20d9a268/"/>
+    <id>https://hzhu212.github.io/posts/20d9a268/</id>
+    <published>2019-06-14T06:48:29.000Z</published>
+    <updated>2025-04-07T06:10:19.271Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;本文为知乎上的一篇文章 &lt;a href=&quot;https://zhuanlan.zhihu.com/p/24709748&quot;&gt;矩阵求导术&lt;/a&gt; 的笔记。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://hzhu212.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="线性代数" scheme="https://hzhu212.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>远程工作流</title>
+    <link href="https://hzhu212.github.io/posts/8247595/"/>
+    <id>https://hzhu212.github.io/posts/8247595/</id>
+    <published>2019-06-10T05:56:53.000Z</published>
+    <updated>2025-04-07T06:10:19.271Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;远程工作的需求无非两个：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;远程执行命令。&lt;/li&gt;
+&lt;li&gt;在远程与本地之间进行文件的双向传输。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;所有的远程工作流都需要考虑如何提高这两个操作的效率。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://hzhu212.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="远程" scheme="https://hzhu212.github.io/tags/%E8%BF%9C%E7%A8%8B/"/>
+    
+    <category term="ssh" scheme="https://hzhu212.github.io/tags/ssh/"/>
+    
+    <category term="szrz" scheme="https://hzhu212.github.io/tags/szrz/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>编码与乱码之追根溯源</title>
+    <link href="https://hzhu212.github.io/posts/b2d70b72/"/>
+    <id>https://hzhu212.github.io/posts/b2d70b72/</id>
+    <published>2018-10-27T02:26:40.000Z</published>
+    <updated>2025-04-07T06:10:19.271Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;乱码问题是不但是新手程序员之痛，也常常让许多资深 coder 束手无策。本文探讨编码的概念、乱码的原理，以及乱码问题的分析与解决。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://hzhu212.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="原理" scheme="https://hzhu212.github.io/categories/%E6%8A%80%E6%9C%AF/%E5%8E%9F%E7%90%86/"/>
+    
+    
+    <category term="编码" scheme="https://hzhu212.github.io/tags/%E7%BC%96%E7%A0%81/"/>
+    
+    <category term="乱码" scheme="https://hzhu212.github.io/tags/%E4%B9%B1%E7%A0%81/"/>
+    
+    <category term="Sublime Text" scheme="https://hzhu212.github.io/tags/Sublime-Text/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python与C++混合编程——Boost.python的基本使用</title>
+    <link href="https://hzhu212.github.io/posts/923b21ed/"/>
+    <id>https://hzhu212.github.io/posts/923b21ed/</id>
+    <published>2018-10-25T04:01:05.000Z</published>
+    <updated>2025-04-07T06:10:19.269Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Boost.python 是 Python 与 C++ 混合编程的利器，本文探讨 Boost.python 的安装和基本使用。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://hzhu212.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="python" scheme="https://hzhu212.github.io/tags/python/"/>
+    
+    <category term="C/C++" scheme="https://hzhu212.github.io/tags/C-C/"/>
+    
+    <category term="Boost" scheme="https://hzhu212.github.io/tags/Boost/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo + Github 搭建个人博客</title>
+    <link href="https://hzhu212.github.io/posts/4d5f7337/"/>
+    <id>https://hzhu212.github.io/posts/4d5f7337/</id>
+    <published>2017-05-28T15:10:43.000Z</published>
+    <updated>2025-04-07T06:10:19.268Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;按照以下步骤，你可以搭建一个与本站点同样简洁漂亮的个人博客，完全自由免费。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://hzhu212.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="web" scheme="https://hzhu212.github.io/tags/web/"/>
+    
+    <category term="Hexo" scheme="https://hzhu212.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+</feed>

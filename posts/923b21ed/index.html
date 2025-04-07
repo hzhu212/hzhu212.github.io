@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.jpg">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hzhu212.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="Boost.python 是 Python 与 C++ 混合编程的利器，本文探讨 Boost.python 的安装和基本使用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python与C++混合编程——Boost.python的基本使用">
+<meta property="og:url" content="https://hzhu212.github.io/posts/923b21ed/index.html">
+<meta property="og:site_name" content="Henry&#39;s Blog">
+<meta property="og:description" content="Boost.python 是 Python 与 C++ 混合编程的利器，本文探讨 Boost.python 的安装和基本使用。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-10-25T04:01:05.000Z">
+<meta property="article:modified_time" content="2025-04-07T06:10:19.269Z">
+<meta property="article:author" content="Henry">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="C&#x2F;C++">
+<meta property="article:tag" content="Boost">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://hzhu212.github.io/posts/923b21ed/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hzhu212.github.io/posts/923b21ed/","path":"posts/923b21ed/","title":"Python与C++混合编程——Boost.python的基本使用"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Python与C++混合编程——Boost.python的基本使用 | Henry's Blog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
+  
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"O49O3LRqDf6XCiPXdKzeqKGp-gzGzoHsz","app_key":"XcrzmNEzlES5k9h5BDN3oKpb","server_url":null,"security":false}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js" defer></script>
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Henry's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Henry's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">用简单的话把事情讲明白</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Boost-%E5%BA%93%E7%9A%84%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">Boost 库的安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E5%BC%8F%E4%B8%80%EF%BC%9ABoost-%E6%BA%90%E7%A0%81%E5%8C%85"><span class="nav-number">1.1.</span> <span class="nav-text">方式一：Boost 源码包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E5%BC%8F%E4%BA%8C%EF%BC%9ABoost-%E9%A2%84%E7%BC%96%E8%AF%91%E5%8C%85"><span class="nav-number">1.2.</span> <span class="nav-text">方式二：Boost 预编译包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E7%BC%96%E8%AF%91-Boost-python"><span class="nav-number">1.3.</span> <span class="nav-text">本地编译 Boost.python</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#b2-bjam-%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="nav-number">1.3.1.</span> <span class="nav-text">b2&#x2F;bjam 参数说明：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Boost-%E9%9D%99%E6%80%81%E5%BA%93-%E5%8A%A8%E6%80%81%E5%BA%93%E7%9A%84%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99"><span class="nav-number">1.3.2.</span> <span class="nav-text">Boost 静态库&#x2F;动态库的命名规则</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Boost-%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">Boost 库的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Boost-python-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">2.1.</span> <span class="nav-text">Boost.python 的使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95"><span class="nav-number">3.</span> <span class="nav-text">测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%86%E5%A4%87-hello-world-%E4%BB%A3%E7%A0%81"><span class="nav-number">3.1.</span> <span class="nav-text">准备 hello world 代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-Visual-Studio-%E6%9E%84%E5%BB%BA-hello-world"><span class="nav-number">3.2.</span> <span class="nav-text">使用 Visual Studio 构建 hello world</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Henry"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Henry</p>
+  <div class="site-description" itemprop="description">吾日三省吾身</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/hzhu212" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;hzhu212" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zhuhe212@163.com" title="E-Mail → mailto:zhuhe212@163.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/he-zhu-76-25/activities" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;he-zhu-76-25&#x2F;activities" rel="noopener me" target="_blank"><i class="fa fa-globe fa-fw"></i>知乎</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jianshu.com/u/4e3f3cc93322" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;4e3f3cc93322" rel="noopener me" target="_blank"><i class="fa fa-globe fa-fw"></i>简书</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hzhu212.github.io/posts/923b21ed/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Henry">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Henry's Blog">
+      <meta itemprop="description" content="吾日三省吾身">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Python与C++混合编程——Boost.python的基本使用 | Henry's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Python与C++混合编程——Boost.python的基本使用
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-10-25 12:01:05" itemprop="dateCreated datePublished" datetime="2018-10-25T12:01:05+08:00">2018-10-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-04-07 14:10:19" itemprop="dateModified" datetime="2025-04-07T14:10:19+08:00">2025-04-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/posts/923b21ed/" class="post-meta-item leancloud_visitors" data-flag-title="Python与C++混合编程——Boost.python的基本使用" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>Boost.python 是 Python 与 C++ 混合编程的利器，本文探讨 Boost.python 的安装和基本使用。</p>
+<span id="more"></span>
+<blockquote>
+<p>Boost库是一个可移植、提供源代码的C++库，作为标准库的后备，是C++标准化进程的开发引擎之一。Boost库由C++标准委员会库工作组成员发起，其中有些内容有望成为下一代C++标准库内容。在C++社区中影响甚大，是不折不扣的“准”标准库。</p>
+<p>Boost由于其对跨平台的强调，对标准C++的强调，与编写平台无关。大部分boost库功能的使用只需包括相应头文件即可，少数（如正则表达式库，文件系统库等）需要链接库。但Boost中也有很多是实验性质的东西，在实际的开发中使用需要谨慎。</p>
+<p>Boost库是为C++语言标准库提供扩展的一些C++程序库的总称。</p>
+<p>——百度百科</p>
+</blockquote>
+<p>简单来说，Boost 是一系列通用的 C++ 扩展库的集合。而 Boost.python 则是这众多扩展库中的其中一个，它基于 C++ 代码提供了一套 Python 接口，可作为 C++ 与 Python 混合编程的桥梁。</p>
+<h2 id="Boost-库的安装">Boost 库的安装</h2>
+<h3 id="方式一：Boost-源码包">方式一：Boost 源码包</h3>
+<p>首先去 Boost 官网下载 Boost 库：<a target="_blank" rel="noopener" href="https://www.boost.org/users/download/">下载地址</a>。</p>
+<p>官方默认只提供 Boost 的源码包。大多数情况下（纯 C/C++ 开发），源码包就足够了，我们只需要在编译的时候引入相应的头文件即可。但如果你的程序需要以静态/动态链接库的形式引入某些包，就需要自己编译了。恰好 Boost.python 就是这样的需求，毕竟，你总不能指望直接在 python 代码中引用 C++ 源码吧！</p>
+<p>我们一般会把 python 代码之外的所有 C/C++ 外挂编译成一个 <code>.pyd</code> 文件，这样就能直接在 python 代码中调用了。事实上，<code>.pyd</code> 文件就是一个拥有 python 接口的 <code>.dll</code> 文件。</p>
+<p>Boost 源码包的目录结构如下：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">boost_1_68_0</span><br><span class="line">+---boost</span><br><span class="line">+---doc</span><br><span class="line">+---libs</span><br><span class="line">+---more</span><br><span class="line">+---status</span><br><span class="line">+---tools</span><br><span class="line">+---INSTALL</span><br><span class="line">+---Jamroot</span><br><span class="line">+---LICENSE_1_0.txt</span><br><span class="line">+---boost.css</span><br><span class="line">+---boost.png</span><br><span class="line">+---boost-build.jam</span><br><span class="line">+---boostcpp.jam</span><br><span class="line">+---bootstrap.bat</span><br><span class="line">+---bootstrap.sh</span><br><span class="line">+---index.htm</span><br><span class="line">+---index.html</span><br><span class="line">+---rst.css</span><br></pre></td></tr></table></figure>
+<p>其中，<code>boost</code> 目录下是所有库的头文件（<code>.hpp</code>文件），<code>libs</code> 目录下则是所有库的具体实现（<code>.cpp</code>文件）。</p>
+<h3 id="方式二：Boost-预编译包">方式二：Boost 预编译包</h3>
+<p>Boost 源码包如果要在本地完全编译，可能需要几个小时的时间。因此，为了方便使用，Boost 也推出了 Windows 下的 <a target="_blank" rel="noopener" href="https://sourceforge.net/projects/boost/files/boost-binaries/">预编译版本</a>。预编译包比起源码包多出一个子目录，用于存放已经编译好的静态库和动态库。</p>
+<p>安装预编译版本 <code>boost_1_68_0-msvc-14.0-32.exe</code> 之后的目录结构如下：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">boost_1_68_0</span><br><span class="line">+---boost</span><br><span class="line">+---doc</span><br><span class="line">+---libs</span><br><span class="line">+---lib32-msvc-14.0       # new</span><br><span class="line">+---more</span><br><span class="line">+---status</span><br><span class="line">+---tools</span><br><span class="line">+---INSTALL</span><br><span class="line">+---Jamroot</span><br><span class="line">+---LICENSE_1_0.txt</span><br><span class="line">+---b2.exe                # new</span><br><span class="line">+---bjam.exe              # new</span><br><span class="line">+---boost.css</span><br><span class="line">+---boost.png</span><br><span class="line">+---boost-build.jam</span><br><span class="line">+---boostcpp.jam</span><br><span class="line">+---bootstrap.bat</span><br><span class="line">+---bootstrap.log         # new</span><br><span class="line">+---bootstrap.sh</span><br><span class="line">+---index.htm</span><br><span class="line">+---index.html</span><br><span class="line">+---project-config.jam    # new</span><br><span class="line">+---rst.css</span><br></pre></td></tr></table></figure>
+<p>其中，<code>lib32-msvc-14.0</code> 目录保存了所有编译好的静态库和动态库。需要注意的是，预编译版本对编译器种类、版本和目标位数（32/64）都有要求。在上述例子中，要使用这些库，必须用 msvc-14.0（即 Visual Studio 2015）且设置目标位数为 32 位。</p>
+<p>不同版本的预编译包可以安装在同一个目录下，以支持不同的编译环境，这样就比较方便了。比如在上述例子中，如果还要支持 64 位，可以再下载一个 <code>boost_1_68_0-msvc-14.0-64.exe</code>，同样安装在当前安装目录下。这样安装目录下将多出一个 <code>lib64-msvc-14.0</code> 子目录，存放编译好的 64 位的库，其余目录和文件均不受影响。</p>
+<p>预编译版本满足了偷懒的需求，但很难满足所有要求，因为有些库必须配合本地环境才能使用。比如 Boost.python 就必须配合本地的 Python 版本才能使用，因此本地编译 Boost 库这个基本技能还是必要的。下面我们还是以 Boost 源码包的使用为例进行介绍。</p>
+<h3 id="本地编译-Boost-python">本地编译 Boost.python</h3>
+<p>在编译之前，需要确保本机已经安装了 Visual Studio 和 Python。</p>
+<p>首先，我们使用命令行进入 Boost 源码包的安装目录，执行 <code>bootstrap.bat</code> 脚本，将会在当前目录下生成 <code>b2.exe</code>、<code>bjam.exe</code>、<code>project-config.jam</code>、<code>bootstrap.log</code> 四个文件。其中，<code>b2.exe</code>、<code>bjam.exe</code> 就是我们编译时要用到的命令了。这两个命令的作用是一样的，<code>bjam</code> 是老版本，<code>b2</code> 是升级版本。</p>
+<p>下面就可以开始编译 Boost.python 了，笔者在本机所使用的命令如下：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">b2.exe --with-python stage --stagedir=&quot;./bin/lib32-msvc-<span class="number">14</span>.<span class="number">0</span>&quot; link=static address-model=<span class="number">32</span></span><br></pre></td></tr></table></figure>
+<p>编译完成后，将在 <code>./bin/lib32-msvc-14.0/lib</code> 目录下产生 4 个文件：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">libboost_numpy36-vc140-mt-gd-x32-1_68.lib</span><br><span class="line">libboost_numpy36-vc140-mt-x32-1_68.lib</span><br><span class="line">libboost_python36-vc140-mt-gd-x32-1_68.lib</span><br><span class="line">libboost_python36-vc140-mt-x32-1_68.lib</span><br></pre></td></tr></table></figure>
+<p>其中，python 和 numpy 各 2 个，带 <code>gd</code> 的对应 debug 版本，反之对应 release 版本。</p>
+<p>默认情况下，编译时调用的编译器和 Python 版本是 b2/bjam 自动搜索的。如果要指定不同的 Python 版本，就需要在你的 home 目录下新建一个配置文件 <code>user-config.jam</code>（路径为 <code>C:\Users\xxx\user-config.jam</code>）。推荐直接使用 Boost 根目录下的 <code>tools/build/example/user-config.jam</code> 作为模板，稍加修改即可。例如，笔者的 <code>user-config.jam</code> 中对 Python 的配置如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">using python</span><br><span class="line">    : 3.5</span><br><span class="line">    : &quot;D:/App/Python35/python.exe&quot;</span><br><span class="line">    : &quot;D:/App/Python35/include&quot;</span><br><span class="line">    : &quot;D:/App/Python35/libs&quot;</span><br><span class="line">    : &lt;define&gt;BOOST_ALL_NO_LIB=1</span><br><span class="line">    ;</span><br></pre></td></tr></table></figure>
+<h4 id="b2-bjam-参数说明：">b2/bjam 参数说明：</h4>
+<p><code>b2</code> 命令的功能强大，用起来也比较复杂，因此在使用之前，最好先查看一下该命令的帮助：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">b2.exe --<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
+<p>以下是一些比较重要的参数说明：</p>
+<ul>
+<li>
+<p>stage/install：</p>
+<p>stage 表示只生成库（dll 和 lib），install 还会生成包含头文件的 include 目录。推荐使用 stage，因为 install 生成的 include 目录实际就是源码包下的 boost 目录，需要 include 的时候可以直接使用，不需要再次生成，这样可以节省大量的编译时间。</p>
+</li>
+<li>
+<p>toolset：</p>
+<p>指定编译器，可选的如 borland、gcc、msvc-14.0（VS2015）等。如果不指定，会自动搜索本地可用的编译器（可查看 <code>./project-config.jam</code> 文件以确认）。</p>
+</li>
+<li>
+<p>without/with：</p>
+<p>选择不编译/编译哪些库（类似于黑名单/白名单）。<code>--with-python</code> 的含义是仅编译 python，其他的都不编译。反过来，如果用 <code>--without-python</code>，意思就是除了 python， 其他的都编译。with/without 参数可以多次出现，以限定多个库。如果不设置 with/without 参数，默认全部编译，可能需要几个小时的时间！</p>
+<p>需要注意，编译 Boost.python 需要确保本地安装了 Python，并且 python 命令已加入环境变量。</p>
+<p>要查看 Boost 包含的所有库，可使用以下命令：</p>
+  <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">b2.exe --show-libraries</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>stagedir/prefix：</p>
+<p>stage 时使用 stagedir，install 时使用 prefix，表示编译生成文件的路径。推荐给不同的编译环境指定不同的目录，如 Visual Studio 2015 的 x86 应用对应的是 <code>bin/lib32-msvc-14.0</code>，x64 应用对应的是 <code>bin/lib64-msvc-14.0</code>。如果都生成到一个目录下，将没有任何益处，徒增管理难度。如果使用了 install 参数，那么还将在上述指定的目录下生成 <code>include</code> 目录，用于保存头文件。</p>
+</li>
+<li>
+<p>build-dir：</p>
+<p>编译生成的中间文件的路径，默认是 Boost 根目录下的 <code>bin.v2</code> 目录，一般无需设置。</p>
+</li>
+<li>
+<p>link：</p>
+<p>指定生成动态链接库还是静态链接库，取值为 <code>static|shared</code>。生成静态链接库使用 static，生成动态链接库需使用 shared。如不指定，默认使用 static。静态库的缺点是占用空间比较大，优点是程序发布的时候无需附带 Boost 库的 dll，比较整洁。推荐使用静态库的方式编译 Boost.python，这样发布程序的时候就不用 Boost 的 dll 了，并且也多占用不了太多空间。</p>
+</li>
+<li>
+<p>runtime-link：</p>
+<p>指定运行时是动态还是静态链接其他库。同样有 shared 和 static 两种方式。如果不指定，默认是 shared，一般无需设置。</p>
+</li>
+<li>
+<p>threading：</p>
+<p>要编译的库是单线程还是多线程，可取值 <code>single|multi</code>。如果不指定，默认是 multi，一般无需设置。</p>
+</li>
+<li>
+<p>variant</p>
+<p><code>debug|release</code>，编译 debug 版本还是 release 版本。一般与最终发布的程序是 debug 还是 release 版相对应。如果不指定，默认两个都编译，一般无需设置。</p>
+</li>
+<li>
+<p>address-model</p>
+<p>编译成 32 位版本还是 64 位版本，可取值 <code>32|64</code>。如果不指定，默认两个版本都编译。如果是编译 Boost.python，该参数就要与本地安装的 Python 位数相对应，否则编译会出错，因此最好设置一下。</p>
+</li>
+</ul>
+<h4 id="Boost-静态库-动态库的命名规则">Boost 静态库/动态库的命名规则</h4>
+<p>以 Boost.python 为例，如果编译的是静态库（<code>link=static</code>），将会生成单个 <code>.lib</code> 文件：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">libboost_python36-vc140-mt-gd-x32-1_68.lib</span><br></pre></td></tr></table></figure>
+<p>而如果编译的是动态库（<code>link=shared</code>），将会生成两个文件（<code>.lib</code> 和 <code>.dll</code>）：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">boost_python36-vc140-mt-gd-x32-1_68.lib</span><br><span class="line">boost_python36-vc140-mt-gd-x32-1_68.dll</span><br></pre></td></tr></table></figure>
+<p>动态库虽然也生成 <code>.lib</code> 文件，但它与静态库的 <code>.lib</code> 文件差别很大。动态库的 <code>.lib</code> 更像是对 <code>.dll</code> 的声明，二者的关系类似于 <code>.h</code> 与 <code>.cpp</code> 的关系。因此，动态库中的 <code>.lib</code> 文件要比静态库的 <code>.lib</code> 文件小得多。</p>
+<p>下面以静态库的命名规则为例进行分析：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">libboost_python36-vc140-mt-sgd-x32-1_68.lib</span><br><span class="line">| ||   | |      | |   | || ||| | | |  |</span><br><span class="line"> -  ---   ------   ---  -- - -  -   --</span><br><span class="line"> 1   2       3      4    5 6 7  8    9</span><br></pre></td></tr></table></figure>
+<ol>
+<li>静态库以 <code>lib</code> 开头，动态库开头没有 <code>lib</code>。</li>
+<li>所有的库都含有 <code>boost</code> 前缀。</li>
+<li>Boost 库名称，本例中为 <code>python36</code>。</li>
+<li>编译器名称及其版本，<code>vc140</code> 指的是 msvc-14.0，对应 Visual Studio 2015。</li>
+<li>有 <code>mt</code> 代表 <code>threading=multi</code>，没有则代表 <code>threading=single</code>。</li>
+<li>有 <code>s</code> 代表 <code>runtime-link=static</code>，没有则代表 <code>runtime-link=shared</code>。</li>
+<li>有 <code>gd</code> 代表 debug 版本，没有则代表 release 版本。</li>
+<li>目标位数，<code>x32</code> 代表 32 位，<code>x64</code> 代表 64 位。</li>
+<li>Boost 库的版本号，<code>1_68</code> 代表 Boost 1.68 版本。</li>
+</ol>
+<h2 id="Boost-库的使用">Boost 库的使用</h2>
+<p>如果要在项目中使用 Boost 库，需要做以下两项配置：</p>
+<ol>
+<li>包含 Boost 头文件（本例中为：<code>D:\ProgramFiles\boost_1_68_0</code>）；</li>
+<li>链接 Boost 库文件（本例中为：<code>D:\ProgramFiles\boost_1_68_0\bin\lib32-msvc-14.0\lib</code>）。</li>
+</ol>
+<p>Boost 官方推荐使用 <code>b2/bjam</code> 命令进行自动化编译、链接，只需要编写一个 <code>.jam</code> 配置文件，这种方式类似于 <code>make</code> 和 <code>Makefile</code>。但考虑到还要学习 <code>jam</code> 语法，暂时还是用 Visual Studio 手动编译吧。</p>
+<p>在 Visual Studio 中的具体操作如下：</p>
+<ol>
+<li>选中当前项目，点击属性按钮，依次选择“配置属性-&gt;C/C+±&gt;常规-&gt;附加包含目录”，编辑并添加一条路径：<code>D:\ProgramFiles\boost_1_68_0</code>；</li>
+<li>选中当前项目，点击属性按钮，依次选择“配置属性-&gt;链接器-&gt;常规-&gt;附加库目录”，编辑并添加一条路径：<code>D:\ProgramFiles\boost_1_68_0\bin\lib32-msvc-14.0\lib</code>。</li>
+</ol>
+<h3 id="Boost-python-的使用">Boost.python 的使用</h3>
+<p>要使用 Boost.python，除了上述两项配置之外，还需要再添加两项配置：</p>
+<ol>
+<li>包含 Python 头文件（本例中为：<code>D:\Program Files (x86)\Python36-32\include</code>）；</li>
+<li>包含 Python 静态库文件（本例中为：<code>D:\Program Files (x86)\Python36-32\libs\python36.lib</code>）。</li>
+</ol>
+<p>在 Visual Studio 中的具体操作如下：</p>
+<ol>
+<li>选中当前项目，点击属性按钮，依次选择“配置属性-&gt;C/C+±&gt;常规-&gt;附加包含目录”，编辑并添加一条路径：<code>D:\Program Files (x86)\Python36-32\include</code>；</li>
+<li>选中当前项目，点击属性按钮，依次选择“配置属性-&gt;链接器-&gt;输入-&gt;附加依赖项”，编辑并添加一个文件：<code>&quot;D:\Program Files (x86)\Python36-32\libs\python36.lib&quot;</code>，注意要有双引号，否则可能识别不正确。</li>
+</ol>
+<h2 id="测试">测试</h2>
+<h3 id="准备-hello-world-代码">准备 hello world 代码</h3>
+<p>使用官网给出的 hello world 示例，代码文件位于 Boost 安装目录下：<code>D:\ProgramFiles\boost_1_68_0\libs\python\example\tutorial</code>，包括 <code>hello.cpp</code> 与 <code>hello.py</code> 两个文件，如下：</p>
+<p><code>hello.cpp</code>:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 当引入 #include &lt;boost/python/xxx&gt; 时，Boost 会默认链接 boost_python 动态链接库，</span></span><br><span class="line"><span class="comment">// 如果我们想要链接静态链接库，就需要在 include 之前加上 #define BOOST_PYTHON_STATIC_LIB</span></span><br><span class="line">#<span class="meta">#<span class="keyword">define</span> BOOST_PYTHON_STATIC_LIB</span></span><br><span class="line"></span><br><span class="line">#<span class="meta">#<span class="keyword">include</span> <span class="string">&lt;boost/python/module.hpp&gt;</span></span></span><br><span class="line">#<span class="meta">#<span class="keyword">include</span> <span class="string">&lt;boost/python/def.hpp&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">char</span> <span class="type">const</span>* <span class="title">greet</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">return</span> <span class="string">&quot;hello, world&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">BOOST_PYTHON_MODULE</span>(hello_ext)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> boost::python;</span><br><span class="line">    <span class="built_in">def</span>(<span class="string">&quot;greet&quot;</span>, greet);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><code>hello.py</code>:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> hello_ext</span><br><span class="line"><span class="built_in">print</span>(hello_ext.greet())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>我们的目的是将 <code>hello.cpp</code> 编译成一个 <code>.pyd</code> 文件（其实就是一个包含 Python 接口的 <code>.dll</code> 文件），然后用 <code>hello.py</code> 调用它。</p>
+<p><strong>注意</strong>：<code>hello.cpp</code> 中的宏定义 <code>#define BOOST_PYTHON_STATIC_LIB</code> 非常重要，它可以指定链接 boost_python 的静态库，而不是默认的动态库。</p>
+<p>如果你在编译过程中遇到了这样的错误：<code>LINK : fatal error LNK1104: cannot open file &quot;boost_python36-vc140-mt-x32-1_68.lib&quot;</code>，但是你明明已经引入了静态库：<code>libboost_python36-vc140-mt-x32-1_68.lib</code>，你可能会纳闷：我明明已经导入了静态库，为什么还找我要动态库？那么最可能的原因是，你的 C++ 代码中漏掉了这句宏定义。</p>
+<h3 id="使用-Visual-Studio-构建-hello-world">使用 Visual Studio 构建 hello world</h3>
+<p>Boost 官方推荐使用 <code>b2/bjam</code> 命令进行自动化编译、链接，只需要编写一个 <code>.jam</code> 配置文件，这种方式类似于 <code>make</code> 和 <code>Makefile</code>。但考虑到还要学习 <code>jam</code> 语法，暂时还是用 Visual Studio 手动编译吧。</p>
+<ol>
+<li>首先使用 Visual Studio 创建一个空项目。</li>
+<li>打开项目属性，在“配置属性-&gt;常规”中，进行以下修改：
+<ul>
+<li>配置类型设为：“动态库(.dll)”。</li>
+<li>目标文件名设为：<code>hello_ext</code>。<br>
+<strong>注意</strong>：<code>.pyd</code> 文件的名称必须与要导出的 python module 名称一致，否则 python 的 import 语句将会报错：<code>ImportError: dynamic module does not define module export function</code>。</li>
+<li>目标文件扩展名设为：<code>.pyd</code>。</li>
+</ul>
+</li>
+<li>将 <code>hello.cpp</code> 文件导入项目。</li>
+<li>参照上一节 [Boost 库的使用] 中的说明，将 Boost 头文件目录、Boost 库文件目录、Python 头文件目录、Python 静态库文件都导入到项目中。</li>
+<li>选择菜单“生成-&gt;生成 Project”，如果一切无误，将会生成一个 <code>hello_ext.pyd</code> 文件。由于生成器的默认配置是 <code>Debug-x86</code>，因此生成目录为项目下的 Debug 目录。</li>
+<li>将 <code>hello_ext.pyd</code> 与 <code>hello.py</code> 放在同一目录下，执行 <code>hello.py</code>，将会看到输出：<code>hello, world</code>。</li>
+</ol>
+<h2 id="参考">参考</h2>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/boost/69144">Boost 百度百科</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zhcncn/p/3950477.html">boost 1.56.0 编译及使用</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.boost.org/doc/libs/1_65_1/libs/python/doc/html/tutorial/index.html">Boost.python QuickStart</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/boostorg/build">Boost.build</a></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Henry 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.jpg" alt="Henry 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+              <a href="/tags/C-C/" rel="tag"><i class="fa fa-tag"></i> C/C++</a>
+              <a href="/tags/Boost/" rel="tag"><i class="fa fa-tag"></i> Boost</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/4d5f7337/" rel="prev" title="Hexo + Github 搭建个人博客">
+                  <i class="fa fa-angle-left"></i> Hexo + Github 搭建个人博客
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/b2d70b72/" rel="next" title="编码与乱码之追根溯源">
+                  编码与乱码之追根溯源 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">银河系ICP备 </a><a href="https://beian.mps.gov.cn/#/query/webSearch?code=42" rel="noopener" target="_blank">42号 </a>
+  </div>
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Henry</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/hzhu212" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"hzhu212","repo":"_blog_comment","client_id":"718c67973a0818c37f02","client_secret":"f815ebc1b572a2af9f809a5e8373d1632faa133f","admin_user":"hzhu212","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"1e0a2f5646449f8653b4dc383e33f99f"}</script>
+<script src="/js/third-party/comments/gitalk.js" defer></script>
+
+</body>
+</html>

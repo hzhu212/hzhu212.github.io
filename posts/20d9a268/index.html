@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.jpg">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hzhu212.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="本文为知乎上的一篇文章 矩阵求导术 的笔记。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="矩阵求导术">
+<meta property="og:url" content="https://hzhu212.github.io/posts/20d9a268/index.html">
+<meta property="og:site_name" content="Henry&#39;s Blog">
+<meta property="og:description" content="本文为知乎上的一篇文章 矩阵求导术 的笔记。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-06-14T06:48:29.000Z">
+<meta property="article:modified_time" content="2025-04-07T06:10:19.271Z">
+<meta property="article:author" content="Henry">
+<meta property="article:tag" content="线性代数">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://hzhu212.github.io/posts/20d9a268/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hzhu212.github.io/posts/20d9a268/","path":"posts/20d9a268/","title":"矩阵求导术"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>矩阵求导术 | Henry's Blog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
+  
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"O49O3LRqDf6XCiPXdKzeqKGp-gzGzoHsz","app_key":"XcrzmNEzlES5k9h5BDN3oKpb","server_url":null,"security":false}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js" defer></script>
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Henry's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Henry's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">用简单的话把事情讲明白</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E9%87%8F%E5%AF%B9%E7%9F%A9%E9%98%B5%E7%9A%84%E5%AF%BC%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">标量对矩阵的导数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E8%A7%84%E5%88%99"><span class="nav-number">1.2.</span> <span class="nav-text">运算规则</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E5%BE%AE%E5%88%86%E8%BF%90%E7%AE%97"><span class="nav-number">1.2.1.</span> <span class="nav-text">矩阵的微分运算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E7%82%B9%E4%B9%98%E8%BF%90%E7%AE%97"><span class="nav-number">1.2.2.</span> <span class="nav-text">矩阵的点乘运算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E8%BF%B9%E8%BF%90%E7%AE%97"><span class="nav-number">1.2.3.</span> <span class="nav-text">矩阵的迹运算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E5%85%B6%E4%BB%96%E7%9B%B8%E5%85%B3%E8%BF%90%E7%AE%97"><span class="nav-number">1.2.4.</span> <span class="nav-text">矩阵的其他相关运算</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E4%BE%8B%E6%BC%94%E7%A4%BA"><span class="nav-number">1.3.</span> <span class="nav-text">算例演示</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%8B-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">例 1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%8B-2%EF%BC%9A%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92"><span class="nav-number">1.3.2.</span> <span class="nav-text">例 2：线性回归</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%8B-3%EF%BC%9A%E5%A4%9A%E5%85%83%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92"><span class="nav-number">1.3.3.</span> <span class="nav-text">例 3：多元逻辑回归</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E5%AF%B9%E7%9F%A9%E9%98%B5%E7%9A%84%E5%AF%BC%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">矩阵对矩阵的导数</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Henry"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Henry</p>
+  <div class="site-description" itemprop="description">吾日三省吾身</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/hzhu212" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;hzhu212" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zhuhe212@163.com" title="E-Mail → mailto:zhuhe212@163.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/he-zhu-76-25/activities" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;he-zhu-76-25&#x2F;activities" rel="noopener me" target="_blank"><i class="fa fa-globe fa-fw"></i>知乎</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jianshu.com/u/4e3f3cc93322" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;4e3f3cc93322" rel="noopener me" target="_blank"><i class="fa fa-globe fa-fw"></i>简书</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hzhu212.github.io/posts/20d9a268/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Henry">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Henry's Blog">
+      <meta itemprop="description" content="吾日三省吾身">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="矩阵求导术 | Henry's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          矩阵求导术
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-06-14 14:48:29" itemprop="dateCreated datePublished" datetime="2019-06-14T14:48:29+08:00">2019-06-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-04-07 14:10:19" itemprop="dateModified" datetime="2025-04-07T14:10:19+08:00">2025-04-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/posts/20d9a268/" class="post-meta-item leancloud_visitors" data-flag-title="矩阵求导术" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>本文为知乎上的一篇文章 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/24709748">矩阵求导术</a> 的笔记。</p>
+<span id="more"></span>
+<p>符号约定：以下使用小写字母如 $x$ 表示标量，粗体小写字母如 $\boldsymbol{a}$ 表示向量，大写字母如 $A$ 表示矩阵。为保持一致性，向量如不进行特殊说明，均为<strong>列向量</strong>，行向量可通过列向量的转置来表示，如 $\boldsymbol{a}^T$。</p>
+<p>矩阵对标量的求导即逐个元素对标量求导，没什么值得讨论的。我们以下主要介绍标量对矩阵的求导，然后延伸到矩阵对矩阵的求导。</p>
+<h2 id="标量对矩阵的导数">标量对矩阵的导数</h2>
+<h3 id="定义">定义</h3>
+<p>首先明确一下标量对矩阵求导的定义：</p>
+<p>$$ \frac{\partial f}{\partial X} = \left[\ddots, \frac{\partial f}{\partial X_{ij}}, \ddots \right] $$</p>
+<p>即 $f$ 对 $X$ 逐元素求导，并排列成与 $X$ 形状相同的矩阵。</p>
+<p>该定义在形式上很容易理解，但在实际计算中却难以使用，因为它破坏了矩阵的<strong>整体性</strong>。在工程实践中（比如 Matlab、numpy 等），我们倾向于把矩阵看作一个整体，从整体上对其进行的加减乘除等运算，像普通的标量一样。因此，我们应当考虑如何将求导作用于整个矩阵上，而不是作用于矩阵的各个元素上。</p>
+<p>我们不妨从最简单的标量函数入手，构建起一套易于掌握的矩阵求导技巧。</p>
+<p>导数与微分之间存在着密切的联系：</p>
+<p>$$ \mathrm{d}y = f’(x)\mathrm{d}x = \frac{\mathrm{d}y}{\mathrm{d}x}\mathrm{d}x $$</p>
+<p>即：全微分 $\mathrm{d}y$ 是导数 $\displaystyle \frac{\mathrm{d}y}{\mathrm{d}x}$ 与微分变量 $\mathrm{d}x$ 的积。<strong>（推论1）</strong></p>
+<p>明确了上述重要定义之后，我们再来看看多元函数的情形。设 $f(x_1, x_2, x_3, \dots, x_n)$ 为多元函数，我们依然从全微分的定义入手：</p>
+<p>$$ \mathrm{d}f = \sum_{i=1}^{n} \frac{\partial f}{\partial x_i}\mathrm{d}x_i $$</p>
+<p>为了得到一个满足“整体性”的式子，我们需要去掉求和符号。令向量 $\boldsymbol{x}^T=[x_1, x_2, x_3, \dots, x_n]$，得到：</p>
+<p>$$ \mathrm{d}f = \frac{\partial f}{\partial \boldsymbol{x}} \cdot \mathrm{d}\boldsymbol{x} $$</p>
+<p>其中，$\displaystyle \frac{\partial f}{\partial \boldsymbol{x}}$ 代表 $f$ 对 $\boldsymbol{x}$ 的所有项的偏导数组成的向量。运算符“$\cdot$”代表<strong>点乘</strong>运算，其运算结果称为<strong>内积</strong>。</p>
+<p>于是，我们得到了如下推论：</p>
+<p>多元函数的全微分 $\mathrm{d}f$ 是导数向量 $\displaystyle \frac{\partial f}{\partial \boldsymbol{x}}$ 与微分变量 $\mathrm{d}\boldsymbol{x}$ 的内积。<strong>（推论2）</strong></p>
+<p>与推论1进行比较可以发现，二者在形式上是完全相同的，唯一的差别在于末尾的“积”和“内积”。然而，标量的积完全可以看作向量内积的一种特殊情况，也就是说，推论2可以涵盖推论1。</p>
+<p>现在，我们已经把全微分与导数之间的关系式推广到了<strong>关于向量的函数</strong>（即多元函数），如果把向量看作一种特殊的矩阵，那么这一推论也很容易推广到<strong>关于矩阵的函数</strong>：</p>
+<p>$$ \mathrm{d}f = \frac{\partial f}{\partial X}\cdot \mathrm{d}X \tag{1} $$</p>
+<p>即：关于矩阵的函数的全微分 $\mathrm{d}f$ 是导数矩阵 $\displaystyle \frac{\partial f}{\partial X}$ 与微分变量 $\mathrm{d}X$ 的内积。<strong>（推论3）</strong></p>
+<blockquote>
+<p>注：这里将内积的定义从向量推广到了矩阵，即先对做逐元素相乘，然后将所有乘积求和。</p>
+</blockquote>
+<p>由于标量和向量都可以看作是矩阵的特殊情况，因此推论3涵盖了推论 1、2。至此，我们得到了通用表达式 $(1)$。</p>
+<h3 id="运算规则">运算规则</h3>
+<p>有了定义，还需要一套完整的运算规则才能实际应用。</p>
+<p>我们依然从最简单的标量函数中汲取灵感。例如，对于函数 $\displaystyle f(x)=x^2 sin(e^x)$，我如何求导呢？我们通常不是直接从导数的定义出发，而是先建立了初等函数的导数和四则运算、复合等法则，然后运用这些法则求导。因此，我们也需要建立矩阵微分的运算规则。</p>
+<h4 id="矩阵的微分运算">矩阵的微分运算</h4>
+<ol>
+<li>
+<p>加（减）法：</p>
+<p>$$ \mathrm{d}(A\pm B)=\mathrm{d}A\pm\mathrm{d}B $$</p>
+</li>
+<li>
+<p>乘法：</p>
+<p>$$ \mathrm{d}(AB)=\mathrm{d}AB+A \mathrm{d}B $$</p>
+</li>
+<li>
+<p>逆：</p>
+<p>$$ \mathrm{d}A^{-1}=-A^{-1}\mathrm{d}A A^{-1} $$</p>
+</li>
+<li>
+<p>转置：</p>
+<p>$$ \mathrm{d}A^T=(\mathrm{d}A)^T $$</p>
+</li>
+<li>
+<p>迹（trace）：</p>
+<p>$$ \mathrm{d}tr(A)=tr(\mathrm{d}A) $$</p>
+</li>
+<li>
+<p>行列式：</p>
+<p>$$ \mathrm{d}|A|=tr(A^*\mathrm{d}A) $$</p>
+<p>其中 $A^*$ 表示 $A$ 的伴随矩阵。如果 $A$ 可逆，则又有：</p>
+<p>$$ \mathrm{d}|A|=|A|tr(A^{-1}\mathrm{d}A) $$</p>
+</li>
+<li>
+<p>逐元素(element-wise)乘法：</p>
+<p>$$ \mathrm{d}(A\odot B)=\mathrm{d}A\odot B+A\odot \mathrm{d}B $$</p>
+</li>
+<li>
+<p>逐元素函数：</p>
+<p>$$ \mathrm{d}h(A)=h’(A)\odot \mathrm{d}A $$</p>
+<p>其中，$h(X)$ 为对矩阵 $X$ 进行逐元素运算的标量函数。</p>
+</li>
+</ol>
+<h4 id="矩阵的点乘运算">矩阵的点乘运算</h4>
+<p>考虑到点乘运算是公式 $(1)$ 中的核心操作，因此我们还需要一些关于点乘的运算规则（注意：点乘要求参加运算的两个矩阵形状相同）：</p>
+<ol>
+<li>
+<p>定义式：</p>
+<p>$$ A\cdot B=tr(A^TB) $$</p>
+<p>对于向量来说，该式可以进一步简化：$\displaystyle \boldsymbol{a}\cdot \boldsymbol{b}=\boldsymbol{a}^T \boldsymbol{b}$</p>
+</li>
+<li>
+<p>交换律：</p>
+<p>$$ A\cdot B = B\cdot A $$</p>
+</li>
+<li>
+<p>加法分配律：</p>
+<p>$$ A\cdot(B+C)=A\cdot B + A\cdot C $$</p>
+</li>
+<li>
+<p>与逐元素乘法的结合律：</p>
+<p>$$ A\cdot(B\odot C)=(A\odot B)\cdot C $$</p>
+</li>
+<li>
+<p>转置的交换：</p>
+<p>$$ A^T\cdot B = A\cdot B^T $$</p>
+</li>
+</ol>
+<h4 id="矩阵的迹运算">矩阵的迹运算</h4>
+<p>以上公式中，多处涉及到矩阵的迹（trace）运算，这里提供一些迹技巧（注意：迹运算的对象必须为方阵）：</p>
+<ol>
+<li>
+<p>标量的迹等于其自身：</p>
+<p>$$ tr(x) = x $$</p>
+</li>
+<li>
+<p>线性：</p>
+<p>$$ tr(A\pm B)=tr(A)\pm tr(B) $$</p>
+</li>
+<li>
+<p>乘法可交换性：</p>
+<p>$$ tr(AB) = tr(BA) $$</p>
+<p>要求 $A$ 和 $B^T$ 的形状相同，这样才能保证 $AB$ 为方阵。</p>
+</li>
+<li>
+<p>转置迹不变：</p>
+<p>$$ tr(A^T)=tr(A) $$</p>
+</li>
+<li>
+<p><strong>迹与点乘的转换</strong>：</p>
+<p>$$ tr(AB) = A^T\cdot B $$</p>
+</li>
+</ol>
+<h4 id="矩阵的其他相关运算">矩阵的其他相关运算</h4>
+<p>最后，为了方便查阅，附上矩阵的转置、逆、行列式等相关运算规则：</p>
+<p>$$ \begin{aligned}<br>
+(A^T)^T &amp;= A \\<br>
+(AB)^T &amp;= B^T A^T \\<br>
+(A^{-1})^{-1} &amp;= A \\<br>
+AA^{-1} &amp;= A^{-1}A = I \\<br>
+(AB)^{-1} &amp;= B^{-1}A^{-1} \\<br>
+(A^T)^{-1} &amp;= (A^{-1})^T \\<br>
+|A^{-1}| &amp;= |A|^{-1} \\<br>
+(kA)^{-1} &amp;= k^{-1}A^{-1}<br>
+\end{aligned}$$</p>
+<p>有了上述这些运算规则，<strong>只要矩阵的函数 $f$ 是由矩阵 $X$ 经过加、减、乘、转置、逆、迹、行列式、逐元素乘法、逐元素函数等运算及其复合运算构成的，我们都能利用上述运算规则求得 $\displaystyle \frac{\partial f}{\partial X}$。其基本思路为：对 $f$ 的表达式求全微分，并设法将其转化为 $\mathrm{d}f = \mathrm{expr} \cdot \mathrm{d}X$ 的形式，那么 $expr$ 即为待求导数的表达式</strong>。</p>
+<h3 id="算例演示">算例演示</h3>
+<h4 id="例-1">例 1</h4>
+<p>设 $\displaystyle y=\boldsymbol{a}^T X \boldsymbol{b}$，求 $\displaystyle \frac{\partial y}{\partial X}$。其中 $\boldsymbol{a}$ 为 $m\times 1$ 向量，$X$ 为 $m\times n$ 矩阵，$\boldsymbol{b}$ 为 $n\times 1$ 向量，$y$ 为标量。</p>
+<p>解：</p>
+<p>$$ \begin{aligned}<br>
+\mathrm{d}y &amp;= \boldsymbol{a}^T \mathrm{d}X \boldsymbol{b} \\<br>
+&amp;= tr(\boldsymbol{a}^T \mathrm{d}X \boldsymbol{b}) \\<br>
+&amp;= tr(\boldsymbol{b} \boldsymbol{a}^T \mathrm{d}X) \\<br>
+&amp;= tr((\boldsymbol{a} \boldsymbol{b}^T)^T \mathrm{d}X) \\<br>
+&amp;= \boldsymbol{a} \boldsymbol{b}^T \cdot \mathrm{d}X<br>
+\end{aligned} $$</p>
+<blockquote>
+<p>说明：</p>
+<ul>
+<li>第0步：对 $y$ 求全微分；</li>
+<li>第1步：标量套上迹；</li>
+<li>第2步：迹运算内交换 $\boldsymbol{a}^T \mathrm{d}X$ 与 $\boldsymbol{b}$；</li>
+<li>第3步：矩阵乘法的转置；</li>
+<li>第4步：转化为点乘形式。</li>
+</ul>
+</blockquote>
+<p>根据公式 $(1)$ 得到：</p>
+<p>$$ \frac{\partial y}{\partial X}=\boldsymbol{a} \boldsymbol{b}^T $$</p>
+<h4 id="例-2：线性回归">例 2：线性回归</h4>
+<p>线性回归的损失函数定义为 $\displaystyle l=||X \boldsymbol{w}- \boldsymbol{y}||_2^2$，求 $\boldsymbol{w}$ 的最小二乘估计，即 $\boldsymbol{w}$ 为何值时 $l$ 可取得最小值。其中 $\boldsymbol{y}$ 为 $m\times 1$ 列向量，$X$ 为 $m\times n$ 矩阵，$\boldsymbol{w}$ 为 $n\times 1$ 向量，$l$ 为标量。</p>
+<p>解：要求极小值，只需找到 $\displaystyle \frac{\partial l}{\partial \boldsymbol{w}}$ 的零点。</p>
+<p>我们的运算规则中并未定义二阶范数的微分，但根据向量范数的定义，我们可以将它表示成内积的形式：</p>
+<p>$$ l=(X \boldsymbol{w}- \boldsymbol{y})\cdot(X \boldsymbol{w}- \boldsymbol{y})=(X \boldsymbol{w}- \boldsymbol{y})^T(X \boldsymbol{w}- \boldsymbol{y}) $$</p>
+<p>接下来，求 $l$ 对 $\boldsymbol{w}$ 的微分：</p>
+<p>$$ \begin{aligned}<br>
+\mathrm{d}l &amp;= \mathrm{d}(X \boldsymbol{w}- \boldsymbol{y})^T(X \boldsymbol{w}- \boldsymbol{y}) + (X \boldsymbol{w}- \boldsymbol{y})^T \mathrm{d}(X \boldsymbol{w}- \boldsymbol{y}) \\<br>
+&amp;= (X \mathrm{d}\boldsymbol{w})^T(X \boldsymbol{w}- \boldsymbol{y})+(X \boldsymbol{w}- \boldsymbol{y})^T(X \mathrm{d}\boldsymbol{w}) \\<br>
+&amp;= 2(X \boldsymbol{w}- \boldsymbol{y})^T X \mathrm{d}\boldsymbol{w} \\<br>
+&amp;= 2X^T(X \boldsymbol{w}- \boldsymbol{y})\cdot \mathrm{d}\boldsymbol{w}<br>
+\end{aligned} $$</p>
+<blockquote>
+<p>说明：</p>
+<ul>
+<li>第2步：加号前后两项均为标量，所以对第一项加上转置，结果不变。</li>
+<li>第3步：标量套上迹运算，然后转化为点积。</li>
+</ul>
+</blockquote>
+<p>根据公式 $(1)$ 可得：</p>
+<p>$$ \frac{\partial l}{\partial \boldsymbol{w}}=2X^T(X \boldsymbol{w}- \boldsymbol{y}) $$</p>
+<p>令 $\displaystyle \frac{\partial l}{\partial \boldsymbol{w}}=\boldsymbol{0}$ 得（加粗的 $\boldsymbol{0}$ 代表零向量，其形状与 $\boldsymbol{w}$ 相同）：</p>
+<p>$$ \boldsymbol{w}=(X^T X)^{-1}X^T \boldsymbol{y} $$</p>
+<h4 id="例-3：多元逻辑回归">例 3：多元逻辑回归</h4>
+<p>多元逻辑回归的损失函数为 $\displaystyle l=-\boldsymbol{y}^T \log (\mathrm{softmax}(W \boldsymbol{x}))$，求 $\displaystyle \frac{\partial l}{\partial W}$。其中，$\boldsymbol{y}$ 为 $m\times 1$ 的 one-hot 向量（即除一个元素为 1 外，其他元素均为 0），$W$ 为 $m\times n$ 矩阵，$\boldsymbol{x}$ 为 $n\times 1$ 向量，$l$ 为标量。$\displaystyle \mathrm{softmax}(a)=\frac{\mathrm{exp}(\boldsymbol{a})}{\boldsymbol{1}^T\mathrm{exp}(\boldsymbol{a})}$，其中 $\displaystyle \mathrm{exp}(\boldsymbol{\cdot})$ 表示逐元素求指数，$\boldsymbol{1}$ 代表全 1 向量。</p>
+<p>解：首先将 $\mathrm{softmax}$ 的表达式代入：</p>
+<p>$$ l=-\boldsymbol{y}^T(\log(\mathrm{exp}(W\boldsymbol{x}))- \boldsymbol{1}\log(\boldsymbol{1}^T\mathrm{exp}(W \boldsymbol{x})))=-\boldsymbol{y}^T W \boldsymbol{x}+\log(\boldsymbol{1}^T\mathrm{exp}(W \boldsymbol{x})) $$</p>
+<p>这里用到了 2 个等式：</p>
+<p>$$ \log(\frac{\boldsymbol{v}}{c})=\log(\boldsymbol{v})- \boldsymbol{1}\log© $$ $$ \boldsymbol{y}^T \boldsymbol{1}=1 $$</p>
+<p>接下来求 $l$ 对 $W$ 的全微分：</p>
+<p>$$ \begin{aligned}<br>
+\mathrm{d}l &amp;= -\boldsymbol{y}^T\mathrm{d}W \boldsymbol{x}+\frac{\boldsymbol{1}^T(\mathrm{exp}(W \boldsymbol{x})\odot(\mathrm{d}W \boldsymbol{x}))}{\boldsymbol{1}^T\mathrm{exp}(W \boldsymbol{x})}<br>
+\end{aligned} $$</p>
+<blockquote>
+<p>说明：注意逐元素函数 $\mathrm{exp}(\cdot)$ 的微分变换</p>
+</blockquote>
+<p>由于</p>
+<p>$$ \begin{aligned}<br>
+\boldsymbol{1}^T(\mathrm{exp}(W \boldsymbol{x})\odot(\mathrm{d}W \boldsymbol{x})) &amp;= \boldsymbol{1}\cdot(\mathrm{exp}(W \boldsymbol{x})\odot(\mathrm{d}W \boldsymbol{x})) \\<br>
+&amp;= (\boldsymbol{1}\odot\mathrm{exp}(W \boldsymbol{x}))\cdot \mathrm{d}W \boldsymbol{x} \\<br>
+&amp;= \mathrm{exp}(W \boldsymbol{x})\cdot \mathrm{d}W \boldsymbol{x} \\<br>
+&amp;= \mathrm{exp}(W \boldsymbol{x})^T \mathrm{d}W \boldsymbol{x}<br>
+\end{aligned} $$</p>
+<blockquote>
+<p>说明：利用点乘与逐元素乘法的结合律</p>
+</blockquote>
+<p>故</p>
+<p>$$ \begin{aligned}<br>
+\mathrm{d}l &amp;= -\boldsymbol{y}^T\mathrm{d}W \boldsymbol{x}+\frac{\mathrm{exp}(W \boldsymbol{x})^T \mathrm{d}W \boldsymbol{x}}{\boldsymbol{1}^T\mathrm{exp}(W \boldsymbol{x})} \\<br>
+&amp;= (-\boldsymbol{y}^T+\mathrm{softmax}(W \boldsymbol{x})^T)\mathrm{d}W \boldsymbol{x} \\<br>
+&amp;= tr((\mathrm{softmax}(W \boldsymbol{x})-\boldsymbol{y})^T \mathrm{d}W\boldsymbol{x}) \\<br>
+&amp;= tr(\boldsymbol{x}(\mathrm{softmax}(W \boldsymbol{x})-\boldsymbol{y})^T \mathrm{d}W) \\<br>
+&amp;= (\mathrm{softmax}(W \boldsymbol{x})-\boldsymbol{y})\boldsymbol{x}^T \cdot \mathrm{d}W<br>
+\end{aligned} $$</p>
+<p>所以：</p>
+<p>$$ \frac{\partial l}{\partial W}=(\mathrm{softmax}(W \boldsymbol{x})-\boldsymbol{y})\boldsymbol{x}^T $$</p>
+<h2 id="矩阵对矩阵的导数">矩阵对矩阵的导数</h2>
+<p>未完待续。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Henry 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.jpg" alt="Henry 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" rel="tag"><i class="fa fa-tag"></i> 线性代数</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/8247595/" rel="prev" title="远程工作流">
+                  <i class="fa fa-angle-left"></i> 远程工作流
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/b59aba05/" rel="next" title="概率统计笔记">
+                  概率统计笔记 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">银河系ICP备 </a><a href="https://beian.mps.gov.cn/#/query/webSearch?code=42" rel="noopener" target="_blank">42号 </a>
+  </div>
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Henry</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/hzhu212" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"hzhu212","repo":"_blog_comment","client_id":"718c67973a0818c37f02","client_secret":"f815ebc1b572a2af9f809a5e8373d1632faa133f","admin_user":"hzhu212","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"1011e895076c409d881decb70ac8d8d2"}</script>
+<script src="/js/third-party/comments/gitalk.js" defer></script>
+
+</body>
+</html>

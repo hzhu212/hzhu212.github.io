@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.jpg">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hzhu212.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="计算图是现代深度学习框架如 Tensorflow、PyTorch 等的核心概念，其中涉及的所有计算几乎都依赖于计算图提供的自动求导功能，因此研究计算图对深入理解反向传播等深度学习的底层算法大有帮助。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python从零实现计算图和自动求导">
+<meta property="og:url" content="https://hzhu212.github.io/posts/7a426523/index.html">
+<meta property="og:site_name" content="Henry&#39;s Blog">
+<meta property="og:description" content="计算图是现代深度学习框架如 Tensorflow、PyTorch 等的核心概念，其中涉及的所有计算几乎都依赖于计算图提供的自动求导功能，因此研究计算图对深入理解反向传播等深度学习的底层算法大有帮助。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-08-08T06:54:05.000Z">
+<meta property="article:modified_time" content="2025-04-07T06:10:19.269Z">
+<meta property="article:author" content="Henry">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="深度学习">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://hzhu212.github.io/posts/7a426523/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hzhu212.github.io/posts/7a426523/","path":"posts/7a426523/","title":"Python从零实现计算图和自动求导"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Python从零实现计算图和自动求导 | Henry's Blog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
+  
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"O49O3LRqDf6XCiPXdKzeqKGp-gzGzoHsz","app_key":"XcrzmNEzlES5k9h5BDN3oKpb","server_url":null,"security":false}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js" defer></script>
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Henry's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Henry's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">用简单的话把事情讲明白</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%8B%E5%B7%A5%E6%B1%82%E5%AF%BC"><span class="nav-number">1.</span> <span class="nav-text">手工求导</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%93%BE%E5%BC%8F%E6%B3%95%E5%88%99"><span class="nav-number">2.</span> <span class="nav-text">链式法则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E5%9B%BE"><span class="nav-number">3.</span> <span class="nav-text">计算图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.</span> <span class="nav-text">代码实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E8%8A%82%E7%82%B9%E7%B1%BB"><span class="nav-number">4.1.</span> <span class="nav-text">图节点类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E5%BC%A6%E5%87%BD%E6%95%B0%E8%8A%82%E7%82%B9"><span class="nav-number">4.1.1.</span> <span class="nav-text">正弦函数节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%87%E6%95%B0%E5%87%BD%E6%95%B0%E8%8A%82%E7%82%B9"><span class="nav-number">4.1.2.</span> <span class="nav-text">指数函数节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B9%82%E5%87%BD%E6%95%B0%E8%8A%82%E7%82%B9"><span class="nav-number">4.1.3.</span> <span class="nav-text">幂函数节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E8%8A%82%E7%82%B9"><span class="nav-number">4.1.4.</span> <span class="nav-text">输入节点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E5%9B%BE%E7%B1%BB"><span class="nav-number">4.2.</span> <span class="nav-text">计算图类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81%E4%BB%A3%E7%A0%81"><span class="nav-number">4.2.1.</span> <span class="nav-text">验证代码</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Henry"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Henry</p>
+  <div class="site-description" itemprop="description">吾日三省吾身</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/hzhu212" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;hzhu212" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zhuhe212@163.com" title="E-Mail → mailto:zhuhe212@163.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/he-zhu-76-25/activities" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;he-zhu-76-25&#x2F;activities" rel="noopener me" target="_blank"><i class="fa fa-globe fa-fw"></i>知乎</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jianshu.com/u/4e3f3cc93322" title="简书 → https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;4e3f3cc93322" rel="noopener me" target="_blank"><i class="fa fa-globe fa-fw"></i>简书</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hzhu212.github.io/posts/7a426523/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Henry">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Henry's Blog">
+      <meta itemprop="description" content="吾日三省吾身">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Python从零实现计算图和自动求导 | Henry's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Python从零实现计算图和自动求导
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-08-08 14:54:05" itemprop="dateCreated datePublished" datetime="2019-08-08T14:54:05+08:00">2019-08-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-04-07 14:10:19" itemprop="dateModified" datetime="2025-04-07T14:10:19+08:00">2025-04-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/posts/7a426523/" class="post-meta-item leancloud_visitors" data-flag-title="Python从零实现计算图和自动求导" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>计算图是现代深度学习框架如 Tensorflow、PyTorch 等的核心概念，其中涉及的所有计算几乎都依赖于计算图提供的自动求导功能，因此研究计算图对深入理解反向传播等深度学习的底层算法大有帮助。</p>
+<span id="more"></span>
+<h2 id="手工求导">手工求导</h2>
+<p>求导在数学上非常容易实现，例如以下函数：</p>
+<p>$$ f(x) = \sin(e^{x^2}) $$</p>
+<p>我们能够轻易地求得其导函数为：</p>
+<p>$$ f’(x) = \cos(e^{x^2}) \cdot e^{x^2} \cdot (2x) $$</p>
+<p>那么能否通过编程语言实现该函数及其导函数？答案是可以，而且非常容易，只需要把式子逐项翻译即可：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> np.sin(np.exp(np.power(x, <span class="number">2</span>)))</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">f_prime</span>(<span class="params">x</span>):</span><br><span class="line">    t = np.exp(np.power(x, <span class="number">2</span>))</span><br><span class="line">    <span class="keyword">return</span> np.cos(t) * t * (<span class="number">2</span>*x)</span><br></pre></td></tr></table></figure>
+<p>到目前为止，求导对于编程语言来说似乎没什么难的，但是不要忘记，我们这里研究的函数是一个具体的实例。在实际应用中，我们用到的函数将会非常丰富，它们的组合方式更是千变万化，光是上面这个简单的例子就会有无数种变形！例如：</p>
+<p>$$ \begin{gathered}<br>
+f_2(x) = \cos(e^{x^2}) \\<br>
+f_3(x) = \sin(2^{x^2}) \\<br>
+f_4(x) = \sin(e^{x^3}) \\<br>
+\cdots<br>
+\end{gathered} $$</p>
+<p>更不要提各式各样的其他复杂函数：</p>
+<p>$$ \begin{gathered}<br>
+g(x) = -y \ln(\frac{1}{1 + e^{-wx}}) - (1-y)\ln(1 - \frac{1}{1 + e^{-wx}}) \\<br>
+h(x) = (w_n\cdot(\cdots(\mathrm{relu}(w_2\cdot(\mathrm{relu}(w_1\cdot x))))) - y) ^ 2 \\<br>
+\cdots<br>
+\end{gathered} $$</p>
+<p>如果坚持手工求导的话，我们不仅需要无数次地推导公式，而且对于某些复杂的函数，求导公式并不简单，显然不可能完成。</p>
+<h2 id="链式法则">链式法则</h2>
+<p>因此，我们需要一套抽象的求导规则，使得无论函数的具体形式如何，都能自动对其求导。也就是实现如下抽象函数的求导法则：</p>
+<p>$$ f(x) = g(h(k(\cdots(x))) $$</p>
+<p>尽管这个问题听上去要比具体函数的求导困难得多，但它依然有章可循。回想我们求导的一般过程，不过是运用了以下两点技术而已：</p>
+<ol>
+<li><strong>基本函数的求导法则</strong>。包括三角函数、指数函数、幂函数等。</li>
+<li><strong>链式法则</strong>。</li>
+</ol>
+<p>链式法则使得我们可以对复合函数进行求导。针对上面的例子，为了显式地调用链式法则，我们可以引入如下中间变量：</p>
+<p>$$ \begin{aligned}<br>
+u &amp;= x^2 \\<br>
+v &amp;= e^u \\<br>
+w &amp;= sin(v)<br>
+\end{aligned} $$</p>
+<p>使用链式法则描述的求导过程如下：</p>
+<p>$$ \frac{\mathrm{d}y}{\mathrm{d}x} = \frac{\mathrm{d}y}{\mathrm{d}w} \cdot \frac{\mathrm{d}w}{\mathrm{d}v} \cdot \frac{\mathrm{d}v}{\mathrm{d}u} \cdot \frac{\mathrm{d}u}{\mathrm{d}x} $$</p>
+<p>有了链式法则，我们就能够“机械”地搬运任意基本函数的导函数，从而对非常复杂的复合函数求导。</p>
+<h2 id="计算图">计算图</h2>
+<p>由上述分析可知，一旦我们实现了(1)基本函数的求导法则以及(2)链式法则，就能够让程序模仿我们手工求导的过程，从而做到“以不变应万变”。计算图非常适合用来描述这两个法则。</p>
+<p>计算图在数据结构上属于<strong>有向图</strong>(Directed Graph)，图的每个节点对应一个“基本函数”，而节点之间的有向边则可用于描述链式法则。</p>
+<p>上面的例子使用计算图描述如下：</p>
+<p>$$ x \to (\cdot)^2 \to e^{(\cdot)} \to \sin(\cdot) \to y $$</p>
+<p>计算图能够非常清晰地展现数据的流动过程。从输入 $x$ 开始，中间依次经过平方、自然指数、正弦函数三个基本运算依次作用，最终得到输出 $y$。</p>
+<blockquote>
+<p>注意：这个例子并非典型的计算图，因为其中所涉及的运算都是<strong>一元运算</strong>，导致图结构是线性的，没有分支，更像是<strong>链表</strong>。</p>
+<p>这种线性结构的计算图<strong>无法描述加法、乘法等多元运算</strong>，例如 $x + sin(x)$、$x\sin(x)$。但它的好处是非常简单，便于理解和实现，因此我们将继续使用这种线性结构完成演示。</p>
+</blockquote>
+<p>计算图的每一个节点都包含一个基本函数，并且其导函数是已知的。节点在进行一次“前向计算”时，除了要根据输入值计算输出值之外，还要调用导函数计算梯度值，并缓存在节点中。最终，我们将所有节点的梯度值相乘（链式法则）即可得到整个计算流程的总梯度。</p>
+<h2 id="代码实现">代码实现</h2>
+<p>在实现代码之前，我们首先要明确接口的设计，即假想用户将会如何调用计算图，这是一个非常重要的工程原则。</p>
+<p>我们期望用户以如下方式调用计算图：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> compute_graph <span class="keyword">as</span> cg</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>inp = cg.Input()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>out = cg.power(inp, <span class="number">2</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>out = cg.exp(out)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>out = cg.sin(out)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>graph = ComputeGraph(inp, out)</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x = np.linspace(<span class="number">0</span>, <span class="number">1</span>, <span class="number">5</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>graph.forward(x)</span><br><span class="line">array([<span class="number">0.84147098</span>, <span class="number">0.87454388</span>, <span class="number">0.95916224</span>, <span class="number">0.98307241</span>, <span class="number">0.41078129</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>graph.grad</span><br><span class="line">array([ <span class="number">0.</span>        ,  <span class="number">0.25811137</span>,  <span class="number">0.36319491</span>, -<span class="number">0.48233501</span>, -<span class="number">4.95669947</span>])</span><br></pre></td></tr></table></figure>
+<p>这种 API 风格与 <a target="_blank" rel="noopener" href="https://keras.io/zh/">Keras</a> 非常接近，符合一般用户的使用习惯。</p>
+<p>下面我们开始着手实施我们的想法。我们计划为计算图、计算图节点分别设计一个类。</p>
+<h3 id="图节点类">图节点类</h3>
+<p>首先定义所有图节点的基类，代表节点的通用结构。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Node</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Node of compute graph&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, x, *args, **kw</span>):</span><br><span class="line">        <span class="comment"># 我们已经假定计算图为线性结构，因此只需要连接图中的前一个节点 x。</span></span><br><span class="line">        <span class="comment"># 如果考虑一般的图结构，则需要更为复杂的设计，此处不予讨论。</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">isinstance</span>(x, Node):</span><br><span class="line">            <span class="keyword">raise</span> ValueError(<span class="string">&#x27;the input should be a compute graph Node object&#x27;</span>)</span><br><span class="line">        x.<span class="built_in">next</span> = <span class="variable language_">self</span></span><br><span class="line">        <span class="variable language_">self</span>.<span class="built_in">next</span> = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 使用一个变量缓存计算的梯度值</span></span><br><span class="line">        <span class="variable language_">self</span>.grad = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 其余非通用参数单独初始化</span></span><br><span class="line">        <span class="variable language_">self</span>.init(*args, **kw)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">init</span>(<span class="params">self, *args, **kw</span>):</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">fun</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;节点中保存的基本函数&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">raise</span> NotImplementedError()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">fun_grad</span>(<span class="params">self, x, out</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;基本函数的导函数，用于计算梯度。</span></span><br><span class="line"><span class="string">        x, out 分别是 self.fun 的输入和输出。</span></span><br><span class="line"><span class="string">        理论上只需要 x 即可计算出梯度，但很多函数的导函数会引用自身，例如指数函数。</span></span><br><span class="line"><span class="string">        引入 out 作为参数可避免计算梯度时重复计算自身。</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">raise</span> NotImplementedError()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;计算输出，同时缓存梯度&quot;&quot;&quot;</span></span><br><span class="line">        out = <span class="variable language_">self</span>.fun(x)</span><br><span class="line">        <span class="variable language_">self</span>.grad = <span class="variable language_">self</span>.fun_grad(x, out)</span><br><span class="line">        <span class="keyword">return</span> out</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__str__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>.__class__.__name__</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__repr__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;&lt;&quot;&#123;&#125;&quot; node of compute graph&gt;&#x27;</span>.<span class="built_in">format</span>(<span class="built_in">str</span>(<span class="variable language_">self</span>))</span><br></pre></td></tr></table></figure>
+<p>一般的计算节点只需要继承节点基类，并实现 <code>fun</code> 和 <code>fun_grad</code> 两个方法即可。</p>
+<h4 id="正弦函数节点">正弦函数节点</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">sin</span>(<span class="title class_ inherited__">Node</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Node of sin function&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">fun</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="keyword">return</span> np.sin(x)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">fun_grad</span>(<span class="params">self, x, out</span>):</span><br><span class="line">        <span class="keyword">return</span> np.cos(x)</span><br></pre></td></tr></table></figure>
+<h4 id="指数函数节点">指数函数节点</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">exp</span>(<span class="title class_ inherited__">Node</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Node of exp function&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">fun</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="keyword">return</span> np.exp(x)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">fun_grad</span>(<span class="params">self, x, out</span>):</span><br><span class="line">        <span class="keyword">return</span> out</span><br></pre></td></tr></table></figure>
+<h4 id="幂函数节点">幂函数节点</h4>
+<p>注意，幂函数需要在初始化时传入额外的参数，即幂指数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">power</span>(<span class="title class_ inherited__">Node</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Node of power function&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">init</span>(<span class="params">self, p</span>):</span><br><span class="line">        <span class="comment"># 从参数中接收幂指数</span></span><br><span class="line">        <span class="variable language_">self</span>.p = p</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">fun</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="keyword">return</span> np.power(x, <span class="variable language_">self</span>.p)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">fun_grad</span>(<span class="params">self, x, out</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>.p * np.power(x, <span class="variable language_">self</span>.p - <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__str__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;&#123;&#125;(., &#123;&#125;)&#x27;</span>.<span class="built_in">format</span>(<span class="variable language_">self</span>.__class__.__name__, <span class="variable language_">self</span>.p)</span><br></pre></td></tr></table></figure>
+<h4 id="输入节点">输入节点</h4>
+<p>与普通节点不同，输入节点没有前驱节点，也不需要对数据进行加工和求导，因此需要单独进行定义。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Input</span>(<span class="title class_ inherited__">Node</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Input Node&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.<span class="built_in">next</span> = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">fun</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">fun_grad</span>(<span class="params">self, x, out</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h3 id="计算图类">计算图类</h3>
+<p>我们已经把主要的计算过程定义在了图节点类中，因此计算图类的任务就非常轻松了，只需要整合图节点的计算结果即可。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ComputeGraph</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Compute Graph&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, inp, out</span>):</span><br><span class="line">        <span class="variable language_">self</span>.head = inp</span><br><span class="line">        <span class="variable language_">self</span>.tail = out</span><br><span class="line">        <span class="variable language_">self</span>.grad = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.head <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">raise</span> ValueError(<span class="string">&#x27;the graph is empty&#x27;</span>)</span><br><span class="line">        out = x</span><br><span class="line">        grad = <span class="number">1.0</span></span><br><span class="line">        node = <span class="variable language_">self</span>.head</span><br><span class="line">        <span class="keyword">while</span> node:</span><br><span class="line">            out = node.forward(out)</span><br><span class="line">            grad *= node.grad</span><br><span class="line">            node = node.<span class="built_in">next</span></span><br><span class="line">        <span class="variable language_">self</span>.grad = grad</span><br><span class="line">        <span class="keyword">return</span> out</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__str__</span>(<span class="params">self</span>):</span><br><span class="line">        node = <span class="variable language_">self</span>.head</span><br><span class="line">        desc = []</span><br><span class="line">        <span class="keyword">while</span> node:</span><br><span class="line">            desc.append(<span class="built_in">str</span>(node))</span><br><span class="line">            node = node.<span class="built_in">next</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27; --&gt; &#x27;</span>.join(desc)</span><br></pre></td></tr></table></figure>
+<p>到此为止，我们的代码已经全部完成了，是不是简单地出乎意料？</p>
+<h4 id="验证代码">验证代码</h4>
+<p>在进行接口设计时，我们给出了一段样板代码，现在我们可以用它来验证我们的程序。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> compute_graph <span class="keyword">as</span> cg</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>inp = cg.Input()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>out = cg.power(inp, <span class="number">2</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>out</span><br><span class="line">&lt;<span class="string">&quot;power(., 2)&quot;</span> node of compute graph&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>out = cg.exp(out)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>out = cg.sin(out)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>graph = ComputeGraph(inp, out)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span>(graph)</span><br><span class="line">Input --&gt; power(., <span class="number">2</span>) --&gt; exp --&gt; sin</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x = np.linspace(<span class="number">0</span>, <span class="number">1</span>, <span class="number">5</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>graph.forward(x)</span><br><span class="line">array([<span class="number">0.84147098</span>, <span class="number">0.87454388</span>, <span class="number">0.95916224</span>, <span class="number">0.98307241</span>, <span class="number">0.41078129</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>graph.grad</span><br><span class="line">array([ <span class="number">0.</span>        ,  <span class="number">0.25811137</span>,  <span class="number">0.36319491</span>, -<span class="number">0.48233501</span>, -<span class="number">4.95669947</span>])</span><br></pre></td></tr></table></figure>
+<p>代码无误，且输出完全符合预期。</p>
+<p>但我们还未考察计算结果是否正确无误，毕竟这才是最重要的。我们可以通过之前手动推导的公式对计算结果加以验证，函数的定义如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> np.sin(np.exp(np.power(x, <span class="number">2</span>)))</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">f_prime</span>(<span class="params">x</span>):</span><br><span class="line">    t = np.exp(np.power(x, <span class="number">2</span>))</span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span> * x * np.cos(t) * t</span><br></pre></td></tr></table></figure>
+<p>我们进行如下验证：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>f(x)</span><br><span class="line">array([<span class="number">0.84147098</span>, <span class="number">0.87454388</span>, <span class="number">0.95916224</span>, <span class="number">0.98307241</span>, <span class="number">0.41078129</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f_prime(x)</span><br><span class="line">array([ <span class="number">0.</span>        ,  <span class="number">0.25811137</span>,  <span class="number">0.36319491</span>, -<span class="number">0.48233501</span>, -<span class="number">4.95669947</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.<span class="built_in">all</span>(f(x) == graph.forward(x))</span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.<span class="built_in">all</span>(f_prime(x) == graph.grad)</span><br><span class="line"><span class="literal">True</span></span><br></pre></td></tr></table></figure>
+<p>说明计算图的计算结果和梯度值均准确无误。</p>
+<p>上述代码在一些细节问题上可能有所欠缺，但足以从宏观上理解计算图的实现原理。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Henry 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.jpg" alt="Henry 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag"><i class="fa fa-tag"></i> 机器学习</a>
+              <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag"><i class="fa fa-tag"></i> 深度学习</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/66517499/" rel="prev" title="线性代数的本质">
+                  <i class="fa fa-angle-left"></i> 线性代数的本质
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/28fcbc62/" rel="next" title="推荐一些Windows下的生产力工具">
+                  推荐一些Windows下的生产力工具 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">银河系ICP备 </a><a href="https://beian.mps.gov.cn/#/query/webSearch?code=42" rel="noopener" target="_blank">42号 </a>
+  </div>
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Henry</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/hzhu212" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"hzhu212","repo":"_blog_comment","client_id":"718c67973a0818c37f02","client_secret":"f815ebc1b572a2af9f809a5e8373d1632faa133f","admin_user":"hzhu212","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"e69c3efb86219ff8eedb12920de78b73"}</script>
+<script src="/js/third-party/comments/gitalk.js" defer></script>
+
+</body>
+</html>
