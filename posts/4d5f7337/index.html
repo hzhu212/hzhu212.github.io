@@ -72,8 +72,9 @@
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
-<script src="/js/third-party/math/mathjax.js" defer></script>
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js","integrity":"sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="}}</script>
+  <script src="/js/third-party/math/katex.js" defer></script>
 
 
 
@@ -165,7 +166,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA-Github-%E4%BB%93%E5%BA%93"><span class="nav-number">1.</span> <span class="nav-text">创建 Github 仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Hexo"><span class="nav-number">2.</span> <span class="nav-text">安装 Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA-blog-%E9%A1%B9%E7%9B%AE"><span class="nav-number">3.</span> <span class="nav-text">创建 blog 项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E8%B0%83%E8%AF%95%E4%B8%8E%E5%8F%91%E5%B8%83"><span class="nav-number">4.</span> <span class="nav-text">本地调试与发布</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B%E5%86%99%E4%BD%9C%E5%90%A7"><span class="nav-number">5.</span> <span class="nav-text">开始写作吧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%91%E5%B8%83%E7%BD%91%E7%AB%99"><span class="nav-number">6.</span> <span class="nav-text">发布网站</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Github-%E9%83%A8%E7%BD%B2%E6%8F%92%E4%BB%B6"><span class="nav-number">6.1.</span> <span class="nav-text">安装 Github 部署插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%8A%E8%AF%89-hexo-%E4%BD%A0%E8%A6%81%E6%8A%8A%E7%BD%91%E7%AB%99%E9%83%A8%E7%BD%B2%E5%88%B0%E4%BD%95%E5%A4%84"><span class="nav-number">6.2.</span> <span class="nav-text">告诉 hexo 你要把网站部署到何处</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BE%8E%E5%8C%96%E4%BD%A0%E7%9A%84%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99"><span class="nav-number">7.</span> <span class="nav-text">美化你的博客网站</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA-github-%E4%BB%93%E5%BA%93"><span class="nav-number">1.</span> <span class="nav-text"> 创建 Github 仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-hexo"><span class="nav-number">2.</span> <span class="nav-text"> 安装 Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA-blog-%E9%A1%B9%E7%9B%AE"><span class="nav-number">3.</span> <span class="nav-text"> 创建 blog 项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E8%B0%83%E8%AF%95%E4%B8%8E%E5%8F%91%E5%B8%83"><span class="nav-number">4.</span> <span class="nav-text"> 本地调试与发布</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B%E5%86%99%E4%BD%9C%E5%90%A7"><span class="nav-number">5.</span> <span class="nav-text"> 开始写作吧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%91%E5%B8%83%E7%BD%91%E7%AB%99"><span class="nav-number">6.</span> <span class="nav-text"> 发布网站</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-github-%E9%83%A8%E7%BD%B2%E6%8F%92%E4%BB%B6"><span class="nav-number">6.1.</span> <span class="nav-text"> 安装 Github 部署插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%8A%E8%AF%89-hexo-%E4%BD%A0%E8%A6%81%E6%8A%8A%E7%BD%91%E7%AB%99%E9%83%A8%E7%BD%B2%E5%88%B0%E4%BD%95%E5%A4%84"><span class="nav-number">6.2.</span> <span class="nav-text"> 告诉 hexo 你要把网站部署到何处</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BE%8E%E5%8C%96%E4%BD%A0%E7%9A%84%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99"><span class="nav-number">7.</span> <span class="nav-text"> 美化你的博客网站</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -304,17 +305,17 @@
 <li>熟悉 Nodejs</li>
 <li>写博客当然还少不了 Markdown 基础</li>
 </ul>
-<h2 id="创建-Github-仓库">创建 Github 仓库</h2>
+<h2 id="创建-github-仓库"><a class="markdownIt-Anchor" href="#创建-github-仓库"></a> 创建 Github 仓库</h2>
 <p>在 Github 中创建一个仓库，名为 <code>xxx.github.io</code></p>
 <blockquote>
 <p>注：<code>xxx</code> 必须是你自己的 Github 用户名，否则博客网站将无法打开。例如，我的仓库命名为 <code>hzhu212.github.io</code></p>
 </blockquote>
-<h2 id="安装-Hexo">安装 Hexo</h2>
+<h2 id="安装-hexo"><a class="markdownIt-Anchor" href="#安装-hexo"></a> 安装 Hexo</h2>
 <p>要求已安装 <a target="_blank" rel="noopener" href="https://nodejs.org/en/">Nodejs</a></p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<p>考虑到网络问题，可能需要几分钟的时间。<br>
+<p>考虑到网络问题，可能需要几分钟的时间。<br />
 如果由于网络问题无法安装，你可能需要使用 <a target="_blank" rel="noopener" href="http://npm.taobao.org/">cnpm</a> 或 <a target="_blank" rel="noopener" href="https://github.com/Pana/nrm">nrm</a></p>
-<h2 id="创建-blog-项目">创建 blog 项目</h2>
+<h2 id="创建-blog-项目"><a class="markdownIt-Anchor" href="#创建-blog-项目"></a> 创建 blog 项目</h2>
 <p>命令行定位到需要存放博客的目录，以下以 Windows 平台为例：</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /d C:\users\xxx</span><br></pre></td></tr></table></figure>
 <p>执行以下命令：</p>
@@ -322,18 +323,18 @@
 <p>将在 <code>C:\users\xxx</code> 目录下 <strong>新建</strong> 一个子目录 <code>blog</code>，作为博客项目的根目录。</p>
 <p>接下来需要安装依赖库：</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
-<h2 id="本地调试与发布">本地调试与发布</h2>
+<h2 id="本地调试与发布"><a class="markdownIt-Anchor" href="#本地调试与发布"></a> 本地调试与发布</h2>
 <p>连续执行以下 2 条命令：</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 <p>当命令运行完成后，打开浏览器访问 <code>http://localhost:4000/</code>。</p>
 <p>Boom！~</p>
 <p>你的博客站点新鲜出炉了~，还附带了第一篇 <strong>Hello World</strong> 博客。</p>
 <blockquote>
-<p>注：上面的 2 条命令其实是简写：<br>
-<code>hexo g</code> = <code>hexo generate</code>，生成静态文件<br>
+<p>注：上面的 2 条命令其实是简写：<br />
+<code>hexo g</code> = <code>hexo generate</code>，生成静态文件<br />
 <code>hexo s</code> = <code>hexo server</code>，开启站点服务器</p>
 </blockquote>
-<h2 id="开始写作吧">开始写作吧</h2>
+<h2 id="开始写作吧"><a class="markdownIt-Anchor" href="#开始写作吧"></a> 开始写作吧</h2>
 <p><code>ctrl+c</code> 退出 hexo server，然后执行：</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo n &quot;my first blog&quot;</span><br></pre></td></tr></table></figure>
 <p>将创建一篇新的博客，标题为 【<em>my first blog</em>】</p>
@@ -346,14 +347,14 @@
 <blockquote>
 <p>注：hexo server 支持热更新，编辑完 Markdown 文件后，只需刷新页面就能立即更新博客</p>
 </blockquote>
-<h2 id="发布网站">发布网站</h2>
+<h2 id="发布网站"><a class="markdownIt-Anchor" href="#发布网站"></a> 发布网站</h2>
 <p>目前的你的博客网站还只支持本地访问，为了让 13 亿人都能够欣赏你的大作，你需要把它推送到 Github 上。</p>
 <p>hexo 发布网站非常简单，只需要一条命令：</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 <p><strong>但万事总有个 BUT，在此之前，你还需要一些准备工作：</strong></p>
-<h3 id="安装-Github-部署插件">安装 Github 部署插件</h3>
+<h3 id="安装-github-部署插件"><a class="markdownIt-Anchor" href="#安装-github-部署插件"></a> 安装 Github 部署插件</h3>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
-<h3 id="告诉-hexo-你要把网站部署到何处">告诉 hexo 你要把网站部署到何处</h3>
+<h3 id="告诉-hexo-你要把网站部署到何处"><a class="markdownIt-Anchor" href="#告诉-hexo-你要把网站部署到何处"></a> 告诉 hexo 你要把网站部署到何处</h3>
 <p>进入 <code>/blog</code> 目录，找到 <code>_config.yml</code> 文件，这是博客项目的全局配置文件。打开它并翻到末尾，看到 <code>deploy</code> 选项，我们把它修改为：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:xxx/xxx.github.io.git</span> <span class="comment"># 这里改成你第一步创建的 git 仓库地址</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
 <p>保存配置文件。然后依次执行以下 3 条命令：</p>
@@ -364,8 +365,8 @@
 <p>Bingo~</p>
 <p>你的个人博客网站 <code>https://xxx.github.io</code> 建成了，不费吹灰之力！</p>
 <p>悄悄夹带上我的私货：<a href="https://hzhu212.github.io/">hzhu212.github.io</a></p>
-<h2 id="美化你的博客网站">美化你的博客网站</h2>
-<p>网站是建成了，然而现在的你并没有一丝喜悦，我知道你一定是被 Hexo 的默认主题美哭了！<br>
+<h2 id="美化你的博客网站"><a class="markdownIt-Anchor" href="#美化你的博客网站"></a> 美化你的博客网站</h2>
+<p>网站是建成了，然而现在的你并没有一丝喜悦，我知道你一定是被 Hexo 的默认主题美哭了！<br />
 不过别失望，Hexo 为我们提供了 <a target="_blank" rel="noopener" href="https://hexo.io/themes/">海量的主题库</a></p>
 <p>选择一款自我感觉良好的主题，在介绍页面上找到它的 <strong>Github 仓库地址</strong>，然后把它下载下来。以 <strong>Anisina</strong> 主题为例：</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/Haojen/hexo-theme-Anisina themes/Anisina</span><br></pre></td></tr></table></figure>
@@ -373,7 +374,7 @@
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">Anisina</span></span><br></pre></td></tr></table></figure>
 <p>重新部署，你的网站焕然一新了！</p>
 <blockquote>
-<p>注：有些主题会内置多种 <strong>样式（scheme）</strong>，例如我使用的 <a target="_blank" rel="noopener" href="https://github.com/iissnan/hexo-theme-next">next主题</a>，定制性更强。<br>
+<p>注：有些主题会内置多种 <strong>样式（scheme）</strong>，例如我使用的 <a target="_blank" rel="noopener" href="https://github.com/iissnan/hexo-theme-next">next主题</a>，定制性更强。<br />
 用户可进入 <code>/blog/themes/next/</code> 目录，打开主题配置文件 <code>_config.yml</code> ，在其中的 <code>scheme</code> 字段下选择一种样式。</p>
 </blockquote>
 <p>关于 Hexo 更多信息请访问 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo 官网</a></p>

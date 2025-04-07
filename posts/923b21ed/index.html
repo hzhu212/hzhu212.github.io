@@ -73,8 +73,9 @@
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
-<script src="/js/third-party/math/mathjax.js" defer></script>
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js","integrity":"sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="}}</script>
+  <script src="/js/third-party/math/katex.js" defer></script>
 
 
 
@@ -166,7 +167,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Boost-%E5%BA%93%E7%9A%84%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">Boost 库的安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E5%BC%8F%E4%B8%80%EF%BC%9ABoost-%E6%BA%90%E7%A0%81%E5%8C%85"><span class="nav-number">1.1.</span> <span class="nav-text">方式一：Boost 源码包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E5%BC%8F%E4%BA%8C%EF%BC%9ABoost-%E9%A2%84%E7%BC%96%E8%AF%91%E5%8C%85"><span class="nav-number">1.2.</span> <span class="nav-text">方式二：Boost 预编译包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E7%BC%96%E8%AF%91-Boost-python"><span class="nav-number">1.3.</span> <span class="nav-text">本地编译 Boost.python</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#b2-bjam-%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="nav-number">1.3.1.</span> <span class="nav-text">b2&#x2F;bjam 参数说明：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Boost-%E9%9D%99%E6%80%81%E5%BA%93-%E5%8A%A8%E6%80%81%E5%BA%93%E7%9A%84%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99"><span class="nav-number">1.3.2.</span> <span class="nav-text">Boost 静态库&#x2F;动态库的命名规则</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Boost-%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">Boost 库的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Boost-python-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">2.1.</span> <span class="nav-text">Boost.python 的使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95"><span class="nav-number">3.</span> <span class="nav-text">测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%86%E5%A4%87-hello-world-%E4%BB%A3%E7%A0%81"><span class="nav-number">3.1.</span> <span class="nav-text">准备 hello world 代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-Visual-Studio-%E6%9E%84%E5%BB%BA-hello-world"><span class="nav-number">3.2.</span> <span class="nav-text">使用 Visual Studio 构建 hello world</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#boost-%E5%BA%93%E7%9A%84%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text"> Boost 库的安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E5%BC%8F%E4%B8%80boost-%E6%BA%90%E7%A0%81%E5%8C%85"><span class="nav-number">1.1.</span> <span class="nav-text"> 方式一：Boost 源码包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E5%BC%8F%E4%BA%8Cboost-%E9%A2%84%E7%BC%96%E8%AF%91%E5%8C%85"><span class="nav-number">1.2.</span> <span class="nav-text"> 方式二：Boost 预编译包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E7%BC%96%E8%AF%91-boostpython"><span class="nav-number">1.3.</span> <span class="nav-text"> 本地编译 Boost.python</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#b2bjam-%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E"><span class="nav-number">1.3.1.</span> <span class="nav-text"> b2&#x2F;bjam 参数说明：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#boost-%E9%9D%99%E6%80%81%E5%BA%93%E5%8A%A8%E6%80%81%E5%BA%93%E7%9A%84%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99"><span class="nav-number">1.3.2.</span> <span class="nav-text"> Boost 静态库&#x2F;动态库的命名规则</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#boost-%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text"> Boost 库的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#boostpython-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">2.1.</span> <span class="nav-text"> Boost.python 的使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95"><span class="nav-number">3.</span> <span class="nav-text"> 测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%86%E5%A4%87-hello-world-%E4%BB%A3%E7%A0%81"><span class="nav-number">3.1.</span> <span class="nav-text"> 准备 hello world 代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-visual-studio-%E6%9E%84%E5%BB%BA-hello-world"><span class="nav-number">3.2.</span> <span class="nav-text"> 使用 Visual Studio 构建 hello world</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text"> 参考</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -300,28 +301,28 @@
     <div class="post-body" itemprop="articleBody"><p>Boost.python 是 Python 与 C++ 混合编程的利器，本文探讨 Boost.python 的安装和基本使用。</p>
 <span id="more"></span>
 <blockquote>
-<p>Boost库是一个可移植、提供源代码的C++库，作为标准库的后备，是C++标准化进程的开发引擎之一。Boost库由C++标准委员会库工作组成员发起，其中有些内容有望成为下一代C++标准库内容。在C++社区中影响甚大，是不折不扣的“准”标准库。</p>
+<p>Boost库是一个可移植、提供源代码的C<ins>库，作为标准库的后备，是C</ins>标准化进程的开发引擎之一。Boost库由C<ins>标准委员会库工作组成员发起，其中有些内容有望成为下一代C</ins>标准库内容。在C++社区中影响甚大，是不折不扣的“准”标准库。</p>
 <p>Boost由于其对跨平台的强调，对标准C++的强调，与编写平台无关。大部分boost库功能的使用只需包括相应头文件即可，少数（如正则表达式库，文件系统库等）需要链接库。但Boost中也有很多是实验性质的东西，在实际的开发中使用需要谨慎。</p>
-<p>Boost库是为C++语言标准库提供扩展的一些C++程序库的总称。</p>
+<p>Boost库是为C<ins>语言标准库提供扩展的一些C</ins>程序库的总称。</p>
 <p>——百度百科</p>
 </blockquote>
 <p>简单来说，Boost 是一系列通用的 C++ 扩展库的集合。而 Boost.python 则是这众多扩展库中的其中一个，它基于 C++ 代码提供了一套 Python 接口，可作为 C++ 与 Python 混合编程的桥梁。</p>
-<h2 id="Boost-库的安装">Boost 库的安装</h2>
-<h3 id="方式一：Boost-源码包">方式一：Boost 源码包</h3>
+<h2 id="boost-库的安装"><a class="markdownIt-Anchor" href="#boost-库的安装"></a> Boost 库的安装</h2>
+<h3 id="方式一boost-源码包"><a class="markdownIt-Anchor" href="#方式一boost-源码包"></a> 方式一：Boost 源码包</h3>
 <p>首先去 Boost 官网下载 Boost 库：<a target="_blank" rel="noopener" href="https://www.boost.org/users/download/">下载地址</a>。</p>
 <p>官方默认只提供 Boost 的源码包。大多数情况下（纯 C/C++ 开发），源码包就足够了，我们只需要在编译的时候引入相应的头文件即可。但如果你的程序需要以静态/动态链接库的形式引入某些包，就需要自己编译了。恰好 Boost.python 就是这样的需求，毕竟，你总不能指望直接在 python 代码中引用 C++ 源码吧！</p>
 <p>我们一般会把 python 代码之外的所有 C/C++ 外挂编译成一个 <code>.pyd</code> 文件，这样就能直接在 python 代码中调用了。事实上，<code>.pyd</code> 文件就是一个拥有 python 接口的 <code>.dll</code> 文件。</p>
 <p>Boost 源码包的目录结构如下：</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">boost_1_68_0</span><br><span class="line">+---boost</span><br><span class="line">+---doc</span><br><span class="line">+---libs</span><br><span class="line">+---more</span><br><span class="line">+---status</span><br><span class="line">+---tools</span><br><span class="line">+---INSTALL</span><br><span class="line">+---Jamroot</span><br><span class="line">+---LICENSE_1_0.txt</span><br><span class="line">+---boost.css</span><br><span class="line">+---boost.png</span><br><span class="line">+---boost-build.jam</span><br><span class="line">+---boostcpp.jam</span><br><span class="line">+---bootstrap.bat</span><br><span class="line">+---bootstrap.sh</span><br><span class="line">+---index.htm</span><br><span class="line">+---index.html</span><br><span class="line">+---rst.css</span><br></pre></td></tr></table></figure>
 <p>其中，<code>boost</code> 目录下是所有库的头文件（<code>.hpp</code>文件），<code>libs</code> 目录下则是所有库的具体实现（<code>.cpp</code>文件）。</p>
-<h3 id="方式二：Boost-预编译包">方式二：Boost 预编译包</h3>
+<h3 id="方式二boost-预编译包"><a class="markdownIt-Anchor" href="#方式二boost-预编译包"></a> 方式二：Boost 预编译包</h3>
 <p>Boost 源码包如果要在本地完全编译，可能需要几个小时的时间。因此，为了方便使用，Boost 也推出了 Windows 下的 <a target="_blank" rel="noopener" href="https://sourceforge.net/projects/boost/files/boost-binaries/">预编译版本</a>。预编译包比起源码包多出一个子目录，用于存放已经编译好的静态库和动态库。</p>
 <p>安装预编译版本 <code>boost_1_68_0-msvc-14.0-32.exe</code> 之后的目录结构如下：</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">boost_1_68_0</span><br><span class="line">+---boost</span><br><span class="line">+---doc</span><br><span class="line">+---libs</span><br><span class="line">+---lib32-msvc-14.0       # new</span><br><span class="line">+---more</span><br><span class="line">+---status</span><br><span class="line">+---tools</span><br><span class="line">+---INSTALL</span><br><span class="line">+---Jamroot</span><br><span class="line">+---LICENSE_1_0.txt</span><br><span class="line">+---b2.exe                # new</span><br><span class="line">+---bjam.exe              # new</span><br><span class="line">+---boost.css</span><br><span class="line">+---boost.png</span><br><span class="line">+---boost-build.jam</span><br><span class="line">+---boostcpp.jam</span><br><span class="line">+---bootstrap.bat</span><br><span class="line">+---bootstrap.log         # new</span><br><span class="line">+---bootstrap.sh</span><br><span class="line">+---index.htm</span><br><span class="line">+---index.html</span><br><span class="line">+---project-config.jam    # new</span><br><span class="line">+---rst.css</span><br></pre></td></tr></table></figure>
 <p>其中，<code>lib32-msvc-14.0</code> 目录保存了所有编译好的静态库和动态库。需要注意的是，预编译版本对编译器种类、版本和目标位数（32/64）都有要求。在上述例子中，要使用这些库，必须用 msvc-14.0（即 Visual Studio 2015）且设置目标位数为 32 位。</p>
 <p>不同版本的预编译包可以安装在同一个目录下，以支持不同的编译环境，这样就比较方便了。比如在上述例子中，如果还要支持 64 位，可以再下载一个 <code>boost_1_68_0-msvc-14.0-64.exe</code>，同样安装在当前安装目录下。这样安装目录下将多出一个 <code>lib64-msvc-14.0</code> 子目录，存放编译好的 64 位的库，其余目录和文件均不受影响。</p>
 <p>预编译版本满足了偷懒的需求，但很难满足所有要求，因为有些库必须配合本地环境才能使用。比如 Boost.python 就必须配合本地的 Python 版本才能使用，因此本地编译 Boost 库这个基本技能还是必要的。下面我们还是以 Boost 源码包的使用为例进行介绍。</p>
-<h3 id="本地编译-Boost-python">本地编译 Boost.python</h3>
+<h3 id="本地编译-boostpython"><a class="markdownIt-Anchor" href="#本地编译-boostpython"></a> 本地编译 Boost.python</h3>
 <p>在编译之前，需要确保本机已经安装了 Visual Studio 和 Python。</p>
 <p>首先，我们使用命令行进入 Boost 源码包的安装目录，执行 <code>bootstrap.bat</code> 脚本，将会在当前目录下生成 <code>b2.exe</code>、<code>bjam.exe</code>、<code>project-config.jam</code>、<code>bootstrap.log</code> 四个文件。其中，<code>b2.exe</code>、<code>bjam.exe</code> 就是我们编译时要用到的命令了。这两个命令的作用是一样的，<code>bjam</code> 是老版本，<code>b2</code> 是升级版本。</p>
 <p>下面就可以开始编译 Boost.python 了，笔者在本机所使用的命令如下：</p>
@@ -331,7 +332,7 @@
 <p>其中，python 和 numpy 各 2 个，带 <code>gd</code> 的对应 debug 版本，反之对应 release 版本。</p>
 <p>默认情况下，编译时调用的编译器和 Python 版本是 b2/bjam 自动搜索的。如果要指定不同的 Python 版本，就需要在你的 home 目录下新建一个配置文件 <code>user-config.jam</code>（路径为 <code>C:\Users\xxx\user-config.jam</code>）。推荐直接使用 Boost 根目录下的 <code>tools/build/example/user-config.jam</code> 作为模板，稍加修改即可。例如，笔者的 <code>user-config.jam</code> 中对 Python 的配置如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">using python</span><br><span class="line">    : 3.5</span><br><span class="line">    : &quot;D:/App/Python35/python.exe&quot;</span><br><span class="line">    : &quot;D:/App/Python35/include&quot;</span><br><span class="line">    : &quot;D:/App/Python35/libs&quot;</span><br><span class="line">    : &lt;define&gt;BOOST_ALL_NO_LIB=1</span><br><span class="line">    ;</span><br></pre></td></tr></table></figure>
-<h4 id="b2-bjam-参数说明：">b2/bjam 参数说明：</h4>
+<h4 id="b2bjam-参数说明"><a class="markdownIt-Anchor" href="#b2bjam-参数说明"></a> b2/bjam 参数说明：</h4>
 <p><code>b2</code> 命令的功能强大，用起来也比较复杂，因此在使用之前，最好先查看一下该命令的帮助：</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">b2.exe --<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
 <p>以下是一些比较重要的参数说明：</p>
@@ -380,7 +381,7 @@
 <p>编译成 32 位版本还是 64 位版本，可取值 <code>32|64</code>。如果不指定，默认两个版本都编译。如果是编译 Boost.python，该参数就要与本地安装的 Python 位数相对应，否则编译会出错，因此最好设置一下。</p>
 </li>
 </ul>
-<h4 id="Boost-静态库-动态库的命名规则">Boost 静态库/动态库的命名规则</h4>
+<h4 id="boost-静态库动态库的命名规则"><a class="markdownIt-Anchor" href="#boost-静态库动态库的命名规则"></a> Boost 静态库/动态库的命名规则</h4>
 <p>以 Boost.python 为例，如果编译的是静态库（<code>link=static</code>），将会生成单个 <code>.lib</code> 文件：</p>
 <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">libboost_python36-vc140-mt-gd-x32-1_68.lib</span><br></pre></td></tr></table></figure>
 <p>而如果编译的是动态库（<code>link=shared</code>），将会生成两个文件（<code>.lib</code> 和 <code>.dll</code>）：</p>
@@ -399,7 +400,7 @@
 <li>目标位数，<code>x32</code> 代表 32 位，<code>x64</code> 代表 64 位。</li>
 <li>Boost 库的版本号，<code>1_68</code> 代表 Boost 1.68 版本。</li>
 </ol>
-<h2 id="Boost-库的使用">Boost 库的使用</h2>
+<h2 id="boost-库的使用"><a class="markdownIt-Anchor" href="#boost-库的使用"></a> Boost 库的使用</h2>
 <p>如果要在项目中使用 Boost 库，需要做以下两项配置：</p>
 <ol>
 <li>包含 Boost 头文件（本例中为：<code>D:\ProgramFiles\boost_1_68_0</code>）；</li>
@@ -411,7 +412,7 @@
 <li>选中当前项目，点击属性按钮，依次选择“配置属性-&gt;C/C+±&gt;常规-&gt;附加包含目录”，编辑并添加一条路径：<code>D:\ProgramFiles\boost_1_68_0</code>；</li>
 <li>选中当前项目，点击属性按钮，依次选择“配置属性-&gt;链接器-&gt;常规-&gt;附加库目录”，编辑并添加一条路径：<code>D:\ProgramFiles\boost_1_68_0\bin\lib32-msvc-14.0\lib</code>。</li>
 </ol>
-<h3 id="Boost-python-的使用">Boost.python 的使用</h3>
+<h3 id="boostpython-的使用"><a class="markdownIt-Anchor" href="#boostpython-的使用"></a> Boost.python 的使用</h3>
 <p>要使用 Boost.python，除了上述两项配置之外，还需要再添加两项配置：</p>
 <ol>
 <li>包含 Python 头文件（本例中为：<code>D:\Program Files (x86)\Python36-32\include</code>）；</li>
@@ -422,8 +423,8 @@
 <li>选中当前项目，点击属性按钮，依次选择“配置属性-&gt;C/C+±&gt;常规-&gt;附加包含目录”，编辑并添加一条路径：<code>D:\Program Files (x86)\Python36-32\include</code>；</li>
 <li>选中当前项目，点击属性按钮，依次选择“配置属性-&gt;链接器-&gt;输入-&gt;附加依赖项”，编辑并添加一个文件：<code>&quot;D:\Program Files (x86)\Python36-32\libs\python36.lib&quot;</code>，注意要有双引号，否则可能识别不正确。</li>
 </ol>
-<h2 id="测试">测试</h2>
-<h3 id="准备-hello-world-代码">准备 hello world 代码</h3>
+<h2 id="测试"><a class="markdownIt-Anchor" href="#测试"></a> 测试</h2>
+<h3 id="准备-hello-world-代码"><a class="markdownIt-Anchor" href="#准备-hello-world-代码"></a> 准备 hello world 代码</h3>
 <p>使用官网给出的 hello world 示例，代码文件位于 Boost 安装目录下：<code>D:\ProgramFiles\boost_1_68_0\libs\python\example\tutorial</code>，包括 <code>hello.cpp</code> 与 <code>hello.py</code> 两个文件，如下：</p>
 <p><code>hello.cpp</code>:</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 当引入 #include &lt;boost/python/xxx&gt; 时，Boost 会默认链接 boost_python 动态链接库，</span></span><br><span class="line"><span class="comment">// 如果我们想要链接静态链接库，就需要在 include 之前加上 #define BOOST_PYTHON_STATIC_LIB</span></span><br><span class="line">#<span class="meta">#<span class="keyword">define</span> BOOST_PYTHON_STATIC_LIB</span></span><br><span class="line"></span><br><span class="line">#<span class="meta">#<span class="keyword">include</span> <span class="string">&lt;boost/python/module.hpp&gt;</span></span></span><br><span class="line">#<span class="meta">#<span class="keyword">include</span> <span class="string">&lt;boost/python/def.hpp&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">char</span> <span class="type">const</span>* <span class="title">greet</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">return</span> <span class="string">&quot;hello, world&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">BOOST_PYTHON_MODULE</span>(hello_ext)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> boost::python;</span><br><span class="line">    <span class="built_in">def</span>(<span class="string">&quot;greet&quot;</span>, greet);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -432,14 +433,14 @@
 <p>我们的目的是将 <code>hello.cpp</code> 编译成一个 <code>.pyd</code> 文件（其实就是一个包含 Python 接口的 <code>.dll</code> 文件），然后用 <code>hello.py</code> 调用它。</p>
 <p><strong>注意</strong>：<code>hello.cpp</code> 中的宏定义 <code>#define BOOST_PYTHON_STATIC_LIB</code> 非常重要，它可以指定链接 boost_python 的静态库，而不是默认的动态库。</p>
 <p>如果你在编译过程中遇到了这样的错误：<code>LINK : fatal error LNK1104: cannot open file &quot;boost_python36-vc140-mt-x32-1_68.lib&quot;</code>，但是你明明已经引入了静态库：<code>libboost_python36-vc140-mt-x32-1_68.lib</code>，你可能会纳闷：我明明已经导入了静态库，为什么还找我要动态库？那么最可能的原因是，你的 C++ 代码中漏掉了这句宏定义。</p>
-<h3 id="使用-Visual-Studio-构建-hello-world">使用 Visual Studio 构建 hello world</h3>
+<h3 id="使用-visual-studio-构建-hello-world"><a class="markdownIt-Anchor" href="#使用-visual-studio-构建-hello-world"></a> 使用 Visual Studio 构建 hello world</h3>
 <p>Boost 官方推荐使用 <code>b2/bjam</code> 命令进行自动化编译、链接，只需要编写一个 <code>.jam</code> 配置文件，这种方式类似于 <code>make</code> 和 <code>Makefile</code>。但考虑到还要学习 <code>jam</code> 语法，暂时还是用 Visual Studio 手动编译吧。</p>
 <ol>
 <li>首先使用 Visual Studio 创建一个空项目。</li>
 <li>打开项目属性，在“配置属性-&gt;常规”中，进行以下修改：
 <ul>
 <li>配置类型设为：“动态库(.dll)”。</li>
-<li>目标文件名设为：<code>hello_ext</code>。<br>
+<li>目标文件名设为：<code>hello_ext</code>。<br />
 <strong>注意</strong>：<code>.pyd</code> 文件的名称必须与要导出的 python module 名称一致，否则 python 的 import 语句将会报错：<code>ImportError: dynamic module does not define module export function</code>。</li>
 <li>目标文件扩展名设为：<code>.pyd</code>。</li>
 </ul>
@@ -449,7 +450,7 @@
 <li>选择菜单“生成-&gt;生成 Project”，如果一切无误，将会生成一个 <code>hello_ext.pyd</code> 文件。由于生成器的默认配置是 <code>Debug-x86</code>，因此生成目录为项目下的 Debug 目录。</li>
 <li>将 <code>hello_ext.pyd</code> 与 <code>hello.py</code> 放在同一目录下，执行 <code>hello.py</code>，将会看到输出：<code>hello, world</code>。</li>
 </ol>
-<h2 id="参考">参考</h2>
+<h2 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h2>
 <ol>
 <li><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/boost/69144">Boost 百度百科</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zhcncn/p/3950477.html">boost 1.56.0 编译及使用</a></li>

@@ -70,8 +70,9 @@
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
-<script src="/js/third-party/math/mathjax.js" defer></script>
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js","integrity":"sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="}}</script>
+  <script src="/js/third-party/math/katex.js" defer></script>
 
 
 
@@ -163,7 +164,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%9D%E5%AF%B9%E5%AF%BC%E5%85%A5"><span class="nav-number">1.</span> <span class="nav-text">绝对导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E5%AF%B9%E5%AF%BC%E5%85%A5"><span class="nav-number">2.</span> <span class="nav-text">相对导入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Python-%E7%A8%8B%E5%BA%8F%E7%9A%84%E4%B8%89%E7%A7%8D%E8%B0%83%E8%B5%B7%E6%96%B9%E5%BC%8F"><span class="nav-number">2.1.</span> <span class="nav-text">Python 程序的三种调起方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%9D%E5%AF%B9%E5%AF%BC%E5%85%A5%E4%B8%8E%E7%9B%B8%E5%AF%B9%E5%AF%BC%E5%85%A5%E5%AF%B9%E6%AF%94"><span class="nav-number">3.</span> <span class="nav-text">绝对导入与相对导入对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5"><span class="nav-number">4.</span> <span class="nav-text">最佳实践</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%9D%E5%AF%B9%E5%AF%BC%E5%85%A5"><span class="nav-number">1.</span> <span class="nav-text"> 绝对导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E5%AF%B9%E5%AF%BC%E5%85%A5"><span class="nav-number">2.</span> <span class="nav-text"> 相对导入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#python-%E7%A8%8B%E5%BA%8F%E7%9A%84%E4%B8%89%E7%A7%8D%E8%B0%83%E8%B5%B7%E6%96%B9%E5%BC%8F"><span class="nav-number">2.1.</span> <span class="nav-text"> Python 程序的三种调起方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%9D%E5%AF%B9%E5%AF%BC%E5%85%A5%E4%B8%8E%E7%9B%B8%E5%AF%B9%E5%AF%BC%E5%85%A5%E5%AF%B9%E6%AF%94"><span class="nav-number">3.</span> <span class="nav-text"> 绝对导入与相对导入对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5"><span class="nav-number">4.</span> <span class="nav-text"> 最佳实践</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -290,7 +291,7 @@
 <p>PS：本文中的导入语句均以如下所示的目录结构为例进行演示：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">package/</span><br><span class="line">    __init__.py</span><br><span class="line">    subpackage1/</span><br><span class="line">        __init__.py</span><br><span class="line">        moduleX.py</span><br><span class="line">        moduleY.py</span><br><span class="line">    subpackage2/</span><br><span class="line">        __init__.py</span><br><span class="line">        moduleZ.py</span><br><span class="line">    moduleA.py</span><br></pre></td></tr></table></figure>
 <p>Python 的导入行为可以分为绝对导入与相对导入两类：</p>
-<h2 id="绝对导入">绝对导入</h2>
+<h2 id="绝对导入"><a class="markdownIt-Anchor" href="#绝对导入"></a> 绝对导入</h2>
 <p>绝对导入即指定 package 或 module 的绝对名称或路径，经常用于导入内置库或第三方库，例如：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os        <span class="comment"># 导入内置库</span></span><br><span class="line"><span class="keyword">import</span> requests  <span class="comment"># 导入第三方库</span></span><br></pre></td></tr></table></figure>
 <p>事实上，绝对导入是通过依次搜索 <code>sys.path</code> 列表中的所有路径来完成的，这一点类似于操作系统的 <code>PATH</code> 环境变量。一个目录只要加入到了 <code>sys.path</code> 中，那么其中直接包含的任意 package 或 module 均可实行绝对导入。例如：</p>
@@ -300,7 +301,7 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /path/to/package</span><br><span class="line">python moduleA.py  <span class="comment"># or python -m moduleA</span></span><br></pre></td></tr></table></figure>
 <p>那么在 <a target="_blank" rel="noopener" href="http://moduleA.py">moduleA.py</a> 中可以进行以下绝对导入：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> subpackage1.moduleX</span><br><span class="line"><span class="keyword">from</span> subpackage1 <span class="keyword">import</span> moduleY</span><br><span class="line"><span class="keyword">import</span> subpackage2</span><br></pre></td></tr></table></figure>
-<h2 id="相对导入">相对导入</h2>
+<h2 id="相对导入"><a class="markdownIt-Anchor" href="#相对导入"></a> 相对导入</h2>
 <p>相对导入是指<strong>同一个顶层 package 内部不同 module 之间的导入行为</strong>，这是大前提。很多文章包括<a target="_blank" rel="noopener" href="https://docs.python.org/3/reference/import.html#package-relative-imports">官方文档</a>在讲解相对导入时往往没有强调这个前提，导致大量的误解。</p>
 <p>相对导入包含一个或多个前导的 <code>.</code>，其格式为 <code>from .xxx import yyy</code>，例如：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> moduleA</span><br><span class="line"><span class="keyword">from</span> .subpackage1 <span class="keyword">import</span> moduleX</span><br></pre></td></tr></table></figure>
@@ -313,7 +314,7 @@
 <p>在相对导入中，当目录结构与导入语句均确定时，能否断定一个绝对导入/相对导入一定正确或错误的？</p>
 <p>答案是不能，需要视情况而定。根据程序调起的方式不同，同样的 import 语句有时候是正确的，有时候会报错。这就是相对导入最让人困惑的地方。</p>
 <p>对此，我们需要了解 Python 程序的不同调起方式。</p>
-<h3 id="Python-程序的三种调起方式">Python 程序的三种调起方式</h3>
+<h3 id="python-程序的三种调起方式"><a class="markdownIt-Anchor" href="#python-程序的三种调起方式"></a> Python 程序的三种调起方式</h3>
 <ol>
 <li>作为脚本直接运行：<code>python package/subpackage1/moduleX.py</code></li>
 <li>作为模块直接运行：<code>python -m package.subpackage1.moduleX</code></li>
@@ -342,11 +343,11 @@
 </li>
 </ul>
 <p>由此可见，相对导入必须确保 <code>__package__</code> 有合适的取值，也就是只能用于上述第 2、3 种调起方式。尽管第 1 种调起方式是最常用的，但不幸的是在这种方式下只能使用绝对导入，不能使用相对导入。</p>
-<h2 id="绝对导入与相对导入对比">绝对导入与相对导入对比</h2>
+<h2 id="绝对导入与相对导入对比"><a class="markdownIt-Anchor" href="#绝对导入与相对导入对比"></a> 绝对导入与相对导入对比</h2>
 <p>绝对导入由于其含义非常明确，且在任何调起方式中均可以使用，因而被 PEP8 所推荐。</p>
 <p>绝对导入唯一的缺点是将 package 名称硬编码到了代码中，会带来维护问题。例如修改了某一顶层包名之后，那么其内部的所有绝对导入代码都需要相应修改。</p>
 <p>而相对导入就可以避免这种维护问题，当包名修改之后内部代码无需做任何改动。但相对导入的解析机制更加复杂，容易因为使用不当而报错。并且使用了相对导入的 py 文件无法再作为脚本直接运行。</p>
-<h2 id="最佳实践">最佳实践</h2>
+<h2 id="最佳实践"><a class="markdownIt-Anchor" href="#最佳实践"></a> 最佳实践</h2>
 <p>结合绝对导入与相对导入二者的优缺点，推荐一种关于绝对导入与相对导入的最佳实践：</p>
 <ol>
 <li>一般情况下使用绝对导入。</li>

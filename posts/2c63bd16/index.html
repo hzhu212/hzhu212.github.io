@@ -72,8 +72,9 @@
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
-<script src="/js/third-party/math/mathjax.js" defer></script>
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js","integrity":"sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="}}</script>
+  <script src="/js/third-party/math/katex.js" defer></script>
 
 
 
@@ -165,7 +166,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%A1%E9%81%93%E7%AC%A6%E5%8F%B7"><span class="nav-number">1.</span> <span class="nav-text">管道符号(|)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#here-string"><span class="nav-number">2.</span> <span class="nav-text">here-string(&lt;&lt;&lt;)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#here-document"><span class="nav-number">3.</span> <span class="nav-text">here-document(&lt;&lt;)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E9%87%8D%E5%AE%9A%E5%90%91"><span class="nav-number">4.</span> <span class="nav-text">输入重定向(&lt;)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%A1%E9%81%93%E7%AC%A6%E5%8F%B7"><span class="nav-number">1.</span> <span class="nav-text"> 管道符号(|)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#here-string"><span class="nav-number">2.</span> <span class="nav-text"> here-string(&lt;&lt;&lt;)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#here-document"><span class="nav-number">3.</span> <span class="nav-text"> here-document(&lt;&lt;)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E9%87%8D%E5%AE%9A%E5%90%91"><span class="nav-number">4.</span> <span class="nav-text"> 输入重定向(&lt;)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">5.</span> <span class="nav-text"> 参考</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -298,7 +299,7 @@
     
     <div class="post-body" itemprop="articleBody"><p>在 shell 命令中，有多种方式可以灵活地控制命令的标准输入(stdin)，熟练掌握这些技巧有时会起到事半功倍的效果。</p>
 <span id="more"></span>
-<h2 id="管道符号">管道符号(<code>|</code>)</h2>
+<h2 id="管道符号"><a class="markdownIt-Anchor" href="#管道符号"></a> 管道符号(<code>|</code>)</h2>
 <p>管道操作可以将一个命令的输出重定向到另一个命令的输入：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$string</span>&quot;</span> | <span class="built_in">command</span></span><br></pre></td></tr></table></figure>
 <p>这是最方便，也最为广泛使用的一种方式。但这种方式有个缺陷，即管道符之后的命令是在一个子 shell 进程中运行的，它的运行效果无法作用到当前 shell 进程。</p>
@@ -308,12 +309,12 @@
 <p>为了避免这种情况，可以使用花括号把 shell 子进程中的所有命令括起来：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;hello world&quot;</span> | &#123;</span><br><span class="line">    <span class="built_in">read</span> first second</span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$second</span> <span class="variable">$first</span>  <span class="comment"># will output &quot;world hello&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这使得第二个 <code>echo</code> 命令能够正常输出 <code>world hello</code>，但仍然无法把 <code>first</code> 和 <code>second</code> 两个变量带到主进程中来。</p>
-<h2 id="here-string">here-string(<code>&lt;&lt;&lt;</code>)</h2>
+<h2 id="here-string"><a class="markdownIt-Anchor" href="#here-string"></a> here-string(<code>&lt;&lt;&lt;</code>)</h2>
 <p>继续上面的例子，除了管道符之外，我们有没有办法把字符串<code>&quot;hello world&quot;</code>以标准输入的形式传递给 <code>read</code> 命令呢？</p>
 <p>有。一个非常方便的办法是使用“here-string”：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">read</span> first second &lt;&lt;&lt; <span class="string">&quot;hello world&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$second</span> <span class="variable">$first</span>  <span class="comment"># will output &quot;world hello&quot;</span></span><br></pre></td></tr></table></figure>
 <p>上述命令不仅能够符合预期地输出 <code>world hello</code>，而且 <code>first</code> 和 <code>second</code> 两个变量也被保存到了当前 shell 中，随时可用。</p>
-<h2 id="here-document">here-document(<code>&lt;&lt;</code>)</h2>
+<h2 id="here-document"><a class="markdownIt-Anchor" href="#here-document"></a> here-document(<code>&lt;&lt;</code>)</h2>
 <p>here-document 可以认为是 here-string 的高阶形式，它支持多行输入，适合输入大段文本。</p>
 <p>在 shell 命令行中使用方式如下：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cat</span> &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">&gt; hi</span></span><br><span class="line"><span class="string">&gt; there</span></span><br><span class="line"><span class="string">&gt; EOF</span></span><br><span class="line">hi</span><br><span class="line">there</span><br></pre></td></tr></table></figure>
@@ -321,10 +322,10 @@
 <p>here-documnet 在 shell 脚本中使用的例子如下：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &gt; out.txt &lt;&lt;<span class="string">FILE</span></span><br><span class="line"><span class="string">foo</span></span><br><span class="line"><span class="string">bar</span></span><br><span class="line"><span class="string">bar bar</span></span><br><span class="line"><span class="string">foo foo</span></span><br><span class="line"><span class="string">FILE</span></span><br></pre></td></tr></table></figure>
 <p>这段脚本会将两个 <code>FILE</code> 之间的那段文本写入 <code>out.txt</code> 文件中。</p>
-<h2 id="输入重定向">输入重定向(<code>&lt;</code>)</h2>
+<h2 id="输入重定向"><a class="markdownIt-Anchor" href="#输入重定向"></a> 输入重定向(<code>&lt;</code>)</h2>
 <p>输入重定向符号(<code>&lt;</code>)后需要接一个文件路径，表示将文件的内容重定向到标准输入。例如：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;hello world&quot;</span> &gt; tmp.txt</span><br><span class="line"><span class="built_in">cat</span> tmp.txt  <span class="comment"># will output &quot;hello world&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">read</span> first second &lt; tmp.txt</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$second</span> <span class="variable">$first</span>  <span class="comment"># will output &quot;world hello&quot;</span></span><br></pre></td></tr></table></figure>
-<h2 id="参考">参考</h2>
+<h2 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h2>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://unix.stackexchange.com/questions/80362/what-does-mean">https://unix.stackexchange.com/questions/80362/what-does-mean</a></li>
 </ul>

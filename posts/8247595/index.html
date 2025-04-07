@@ -76,8 +76,9 @@
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
-<script src="/js/third-party/math/mathjax.js" defer></script>
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr+QR0SQDNfgglgtcM=" crossorigin="anonymous">
+  <script class="next-config" data-name="katex" type="application/json">{"copy_tex_js":{"url":"https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js","integrity":"sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="}}</script>
+  <script src="/js/third-party/math/katex.js" defer></script>
 
 
 
@@ -169,7 +170,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%B8%80%E8%88%AC%E8%BF%9C%E7%A8%8B%E5%B7%A5%E4%BD%9C%E6%B5%81"><span class="nav-number">1.</span> <span class="nav-text">1. 一般远程工作流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E4%B8%AD%E7%BB%A7%E6%9C%BA%E4%B8%8B%E7%9A%84%E8%BF%9C%E7%A8%8B%E5%B7%A5%E4%BD%9C%E6%B5%81"><span class="nav-number">2.</span> <span class="nav-text">2. 中继机下的远程工作流</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-SSH-%E9%9A%A7%E9%81%93"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 SSH 隧道</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-szrz-%E5%B7%A5%E5%85%B7"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 szrz 工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E4%B8%8D%E4%BD%BF%E7%94%A8-SSH%EF%BC%8C%E8%80%8C%E6%98%AF%E5%80%9F%E5%8A%A9-FTP%E3%80%81HTTP-%E7%AD%89%E5%85%B6%E4%BB%96%E5%8D%8F%E8%AE%AE"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 不使用 SSH，而是借助 FTP、HTTP 等其他协议</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%BB%88%E6%9E%81%E8%BF%9C%E7%A8%8B%E5%B7%A5%E4%BD%9C%E6%B5%81%EF%BC%9A%E5%AE%9E%E7%8E%B0%E8%BF%9C%E7%A8%8B%E5%AE%9E%E6%97%B6%E7%BC%96%E8%BE%91"><span class="nav-number">3.</span> <span class="nav-text">3. 终极远程工作流：实现远程实时编辑</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%B8%80%E8%88%AC%E8%BF%9C%E7%A8%8B%E5%B7%A5%E4%BD%9C%E6%B5%81"><span class="nav-number">1.</span> <span class="nav-text"> 1. 一般远程工作流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E4%B8%AD%E7%BB%A7%E6%9C%BA%E4%B8%8B%E7%9A%84%E8%BF%9C%E7%A8%8B%E5%B7%A5%E4%BD%9C%E6%B5%81"><span class="nav-number">2.</span> <span class="nav-text"> 2. 中继机下的远程工作流</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#21-ssh-%E9%9A%A7%E9%81%93"><span class="nav-number">2.1.</span> <span class="nav-text"> 2.1 SSH 隧道</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-szrz-%E5%B7%A5%E5%85%B7"><span class="nav-number">2.2.</span> <span class="nav-text"> 2.2 szrz 工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#23-%E4%B8%8D%E4%BD%BF%E7%94%A8-ssh%E8%80%8C%E6%98%AF%E5%80%9F%E5%8A%A9-ftp-http-%E7%AD%89%E5%85%B6%E4%BB%96%E5%8D%8F%E8%AE%AE"><span class="nav-number">2.3.</span> <span class="nav-text"> 2.3 不使用 SSH，而是借助 FTP、HTTP 等其他协议</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%BB%88%E6%9E%81%E8%BF%9C%E7%A8%8B%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%AE%9E%E7%8E%B0%E8%BF%9C%E7%A8%8B%E5%AE%9E%E6%97%B6%E7%BC%96%E8%BE%91"><span class="nav-number">3.</span> <span class="nav-text"> 3. 终极远程工作流：实现远程实时编辑</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -307,7 +308,7 @@
 </ol>
 <p>所有的远程工作流都需要考虑如何提高这两个操作的效率。</p>
 <span id="more"></span>
-<h2 id="1-一般远程工作流">1. 一般远程工作流</h2>
+<h2 id="1-一般远程工作流"><a class="markdownIt-Anchor" href="#1-一般远程工作流"></a> 1. 一般远程工作流</h2>
 <p>对于一般的远程机器，我们可以通过 ssh 进行连接和操作，并使用 <code>scp</code> 命令或 SFTP 客户端实现双向文件交换：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 登录开发机</span></span><br><span class="line">ssh dest_host</span><br><span class="line"></span><br><span class="line"><span class="comment"># 上传文件</span></span><br><span class="line">scp path/to/local_file dest_host:path/to/remote_file</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下载文件</span></span><br><span class="line">scp dest_host:path/to/remote_file path/to/local_file</span><br></pre></td></tr></table></figure>
 <p>有很多可视化的 SFTP 工具能够代替 <code>scp</code> 命令完成文件双向传输，非常方便，例如 WinSCP、Xmanager 等。</p>
@@ -317,13 +318,13 @@
 <li>VSCode: <a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=liximomo.sftp">sftp</a>。</li>
 </ul>
 <p>可以很方便地上传、下载、删除、编辑远程文件。</p>
-<h2 id="2-中继机下的远程工作流">2. 中继机下的远程工作流</h2>
+<h2 id="2-中继机下的远程工作流"><a class="markdownIt-Anchor" href="#2-中继机下的远程工作流"></a> 2. 中继机下的远程工作流</h2>
 <p>考虑到安全原因，公司常常会对远程开发机的入口做限制，想要连接开发机必须以一个中继机器作为中介。这时候我们需要两次 ssh 连接：首先连接到中继机，然后从中继机连接到开发机。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 登录到中继机</span></span><br><span class="line">ssh relay_host</span><br><span class="line"></span><br><span class="line"><span class="comment"># 现在我们已经在中继机上…</span></span><br><span class="line"><span class="comment"># 登录开发机</span></span><br><span class="line">ssh dest_host</span><br></pre></td></tr></table></figure>
 <p>中继机的存在除了造成登录更复杂之外，也使得文件传输更难实现，因为绝大多数 SFTP 工具都没有中继功能，在这种情况下无法使用。</p>
 <p>按照传统的方案，我们需要两次 <code>scp</code> 命令来完成一次文件上传操作：首先从本地上传到中继机，然后从中继机上传到开发机。但是这种方式显然太复杂了，而且大部分中继机对安全的要求非常苛刻，只允许使用 <code>ssh</code> 命令，导致 <code>scp</code> 方式失效。</p>
 <p>此时我们有以下三种方案来实现文件传输功能：</p>
-<h3 id="2-1-SSH-隧道">2.1 SSH 隧道</h3>
+<h3 id="21-ssh-隧道"><a class="markdownIt-Anchor" href="#21-ssh-隧道"></a> 2.1 SSH 隧道</h3>
 <p>为了避免重复性的中继命令，我们可以借助 <code>ssh</code> 提供的“隧道”功能。该功能可以透过任意数量的中继机，在本地机器与目标机器之间建立一条“隧道”。因此，文件的上传、下载依然可以通过本地机器上的一条命令完成。</p>
 <p>同时，SSH 隧道有一个巨大的好处：所有的 SFTP 工具依然可用，因为隧道对外部是透明的。</p>
 <blockquote>
@@ -335,7 +336,7 @@
 <li>中继机必须允许 TCP 转发。</li>
 </ol>
 <p>但不幸的是，很多中继机对安全的要求非常苛刻，不允许 TCP 转发。在这种情况下，该方案无法工作。</p>
-<h3 id="2-2-szrz-工具">2.2 szrz 工具</h3>
+<h3 id="22-szrz-工具"><a class="markdownIt-Anchor" href="#22-szrz-工具"></a> 2.2 szrz 工具</h3>
 <p>szrz 是一个轻量、便捷的解决方案，其内部采用的 ZModem 协议非常底层，对中继机是透明的。因此 szrz 是中继机环境下文件传输问题的天然解决方案。</p>
 <p>szrz 容易使用，配置完成后，在<strong>开发机</strong>的控制台中使用 <code>sz</code> 命令下载文件，<code>rz</code> 命令上传文件，同样可以透过任意数量的中继机。</p>
 <p>但 szrz 有两个严重弊端：</p>
@@ -343,7 +344,7 @@
 <li>不支持大文件传输（超过 30MB 的文件就会把控制台卡死）。</li>
 <li>丧失了 SSH 协议的一切好处，比如安全性、丰富的 SFTP 工具等。</li>
 </ol>
-<h3 id="2-3-不使用-SSH，而是借助-FTP、HTTP-等其他协议">2.3 不使用 SSH，而是借助 FTP、HTTP 等其他协议</h3>
+<h3 id="23-不使用-ssh而是借助-ftp-http-等其他协议"><a class="markdownIt-Anchor" href="#23-不使用-ssh而是借助-ftp-http-等其他协议"></a> 2.3 不使用 SSH，而是借助 FTP、HTTP 等其他协议</h3>
 <p>既然 SSH 协议被中继机限制了，那我们不如另立门户，借助 FTP、HTTP 等其他协议来实现文件传输。考虑到 FTP 天然适合静态文件服务，比 HTTP 高效很多，所以我们一般选择搭建 FTP 服务。</p>
 <p>FTP、HTTP 服务器是非常成熟、稳定的技术，基本上随意挑选一款工具都可以满足我们的需求。我们以 <a target="_blank" rel="noopener" href="https://github.com/giampaolo/pyftpdlib">pyftpdlib</a> 为例：</p>
 <ul>
@@ -367,7 +368,7 @@
 <li>安全性：比 SSH 稍弱，但考虑到开发机仅公司内网可见，因此并不需要过度担忧。</li>
 <li>FTP 与 SFTP 一样，有着丰富的第三方工具可用。</li>
 </ol>
-<h2 id="3-终极远程工作流：实现远程实时编辑">3. 终极远程工作流：实现远程实时编辑</h2>
+<h2 id="3-终极远程工作流实现远程实时编辑"><a class="markdownIt-Anchor" href="#3-终极远程工作流实现远程实时编辑"></a> 3. 终极远程工作流：实现远程实时编辑</h2>
 <p>文件的上传下载其实是个低频需求，远程实时编辑开发机上的文件才是真正的痛点，这样就实现了远程工作空间（remote workspace）。在这个需求上，SSH 隧道和 FTP 解决方案更能充分提现其优越性。</p>
 <p>目前主流的文本编辑器都支持 SFTP、FTP 等插件，比如：</p>
 <ul>
@@ -375,9 +376,9 @@
 <li>VSCode: <a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=liximomo.sftp">sftp</a>、<a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=lukasz-wronski.ftp-sync">ftp-sync</a>。</li>
 </ul>
 <p>这些插件可以在本地目录和远程 SFTP/FTP 目录之间建立映射，从而实现远程实时编辑开发机上的代码（以下图片引自 Sublime Text SFTP）：</p>
-<p><img src="https://raw.githubusercontent.com/hzhu212/image-store/master/blog/20190921224609.png" alt="Mapping a Folder to a Remote"></p>
+<p><img src="https://raw.githubusercontent.com/hzhu212/image-store/master/blog/20190921224609.png" alt="Mapping a Folder to a Remote" /></p>
 <p>当然，你也可以不做实时映射，而是使用手动方式同步本地和远程的代码：</p>
-<p><img src="https://raw.githubusercontent.com/hzhu212/image-store/master/blog/20190921224708.png" alt="Editor Menu"></p>
+<p><img src="https://raw.githubusercontent.com/hzhu212/image-store/master/blog/20190921224708.png" alt="Editor Menu" /></p>
 <p>在这种工作流下，编辑远程机器上的代码与编辑本地代码没有任何差别。</p>
 <p>相比如下两种工作流：</p>
 <ul>
