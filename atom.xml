@@ -6,7 +6,7 @@
   <link href="https://hzhu212.github.io/atom.xml" rel="self"/>
   
   <link href="https://hzhu212.github.io/"/>
-  <updated>2025-04-07T08:09:16.449Z</updated>
+  <updated>2025-04-07T08:24:25.127Z</updated>
   <id>https://hzhu212.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://hzhu212.github.io/posts/c3c9529b/"/>
     <id>https://hzhu212.github.io/posts/c3c9529b/</id>
     <published>2025-04-07T06:47:50.000Z</published>
-    <updated>2025-04-07T08:09:16.449Z</updated>
+    <updated>2025-04-07T08:24:25.127Z</updated>
     
     
     <summary type="html">&lt;p&gt;贝叶斯推断是基于贝叶斯定理的一种推断方法，与之相关的最大似然估计、最大后验估计等统计推断方法是机器学习中的核心概念。本文尝试从一个简单的例子入手，帮助读者深入理解这些复杂的概念。&lt;/p&gt;</summary>
